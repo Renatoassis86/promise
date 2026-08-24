@@ -19,7 +19,7 @@ const FIELDS: Record<Tipo, { key: string; label: string; placeholder?: string; t
     { key: "email", label: "E-mail", placeholder: "voce@email.com" },
     { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000" },
     { key: "modalidade", label: "Modalidade de interesse", type: "select", options: ["Turmas", "Particular", "Ainda não sei"] },
-    { key: "objetivo", label: "Objetivo principal", type: "select", options: ["Inglês geral", "Certificação internacional", "High School americano", "Intercâmbio"] },
+    { key: "objetivo", label: "Objetivo principal", type: "select", options: ["Inglês geral", "Certificação internacional", "American School", "Intercâmbio"] },
   ],
   professionals: [
     { key: "nome", label: "Nome completo", placeholder: "Seu nome" },

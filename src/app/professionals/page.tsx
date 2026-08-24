@@ -34,6 +34,27 @@ export default function ProfessionalsPage() {
         imagePosition="center 35%"
       />
 
+      {/* ONDE VOCE ESTA - triagem por funcao profissional */}
+      <section className="section-pad" style={{ padding: "60px 40px 10px", background: "#fff" }}>
+        <div className="container reveal" style={{ maxWidth: 780, marginBottom: 30 }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Onde você está?</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 24, fontWeight: 800 }}>Diferentes funções, diferentes desafios, uma mesma visão de excelência.</h2>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 18 }}>
+          {[
+            { t: "Professor", d: "Quero desenvolver minha prática, ampliar competências e avançar na carreira." },
+            { t: "Coordenador", d: "Quero aprender a liderar professores e sustentar um programa acadêmico consistente." },
+            { t: "Líder educacional", d: "Quero desenvolver equipes, cultura e processos que sustentem a excelência." },
+            { t: "Gestor escolar", d: "Quero melhorar o programa de inglês e a capacidade institucional da minha escola." },
+          ].map((p) => (
+            <div key={p.t} style={{ border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+              <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
+              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CATALOGO OFICIAL DE SERVICOS */}
       <section style={{ padding: "60px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
@@ -89,6 +110,11 @@ export default function ProfessionalsPage() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="reveal" style={{ maxWidth: 780, margin: "40px auto 0", padding: "20px 24px", borderLeft: "4px solid var(--red)", background: "rgba(255,255,255,.06)", borderRadius: "0 10px 10px 0" }}>
+            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#DCE0EE" }}>
+              <strong style={{ color: "#fff" }}>Uma distinção importante:</strong> a Promise prepara e orienta o profissional. A Promise não aplica nem emite TKT, CELTA ou DELTA — a avaliação e a certificação são realizadas pela instituição certificadora correspondente.
+            </p>
           </div>
         </div>
       </section>

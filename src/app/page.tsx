@@ -35,7 +35,7 @@ export default function Home() {
             Estruturamos a internacionalização de escolas cristãs e famílias homeschooling, formamos professores e preparamos alunos para certificações internacionais.
           </h1>
           <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#DCE0EE", maxWidth: 620, textAlign: "justify" }}>
-            Consultoria, currículo, formação docente, certificações Cambridge e Trinity, programas de High School americano e intercâmbio, organizados sob a mesma cosmovisão cristã que já orienta sua escola, seu homeschooling ou sua família.
+            Consultoria, currículo, formação docente, certificações Cambridge e Trinity, programas de American School e intercâmbio, organizados sob a mesma cosmovisão cristã que já orienta sua escola, seu homeschooling ou sua família.
           </p>
           <div style={{ display: "flex", gap: 14, marginTop: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Falar com a Promise</a>
@@ -53,7 +53,7 @@ export default function Home() {
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
             {[
               { href: "/schools", photo: "/assets/card-schools.jpg", pos: "50% 35%", title: "Sou uma escola", text: "Diagnóstico direto com o fundador antes de qualquer proposta de implementação de programa internacional.", cta: "Ver Promise for Schools" },
-              { href: "/learners", photo: "/assets/card-learners.jpg", pos: "50% 20%", title: "Sou aluno ou responsável", text: "Inglês, certificações Cambridge e Trinity, High School americano e experiências internacionais, com acompanhamento direto.", cta: "Ver Promise for Learners" },
+              { href: "/learners", photo: "/assets/card-learners.jpg", pos: "50% 20%", title: "Sou aluno ou responsável", text: "Inglês, certificações Cambridge e Trinity, American School e experiências internacionais, com acompanhamento direto.", cta: "Ver Promise for Learners" },
               { href: "/professionals", photo: "/assets/card-professionals.jpg", pos: "50% 25%", title: "Sou professor ou coordenador", text: "Certificações TKT, CELTA e DELTA, mentoria individual e formação de liderança educacional.", cta: "Ver Promise for Professionals" },
             ].map((c, i) => (
               <div key={c.href} className={`card reveal reveal-delay-${i + 1}`}>

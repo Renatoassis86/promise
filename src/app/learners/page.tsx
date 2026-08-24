@@ -23,8 +23,8 @@ export default function LearnersPage() {
       <HeroPhoto
         image="/assets/hero-learners.jpg"
         eyebrow="Promise for Learners"
-        title="Inglês, certificações internacionais e o caminho para o High School americano."
-        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge e Trinity, e orientação para intercâmbio e programas de High School nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
+        title="Inglês, certificações internacionais e o caminho para o American School."
+        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge e Trinity, e orientação para o American School — do Elementary ao High School — e para intercâmbios nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
         primaryCta={{ label: "Matricule-se já", href: "#matricula" }}
         secondaryCta={{ label: "Fazer teste de nivelamento gratuito", href: "https://wa.me/5583996977969", external: true }}
         imagePosition="center 30%"
@@ -44,6 +44,29 @@ export default function LearnersPage() {
         </div>
       </section>
 
+      {/* ONDE VOCE QUER CHEGAR - triagem por objetivo */}
+      <section className="section-pad" style={{ padding: "56px 40px", background: "var(--tint)" }}>
+        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 32px" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Qual é o próximo passo?</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 24, fontWeight: 800 }}>Onde você quer chegar?</h2>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 16 }}>
+          {[
+            { t: "Quero aprender inglês", d: "Turmas ou aulas particulares, com progresso acompanhado.", href: "#modalidades" },
+            { t: "Quero uma certificação", d: "Preparação Cambridge e Trinity com quem examina de verdade.", href: "#certificacoes" },
+            { t: "Quero uma formação americana", d: "American School, do Elementary ao High School.", href: "#american-school" },
+            { t: "Minha família é homeschooler", d: "Inglês e trajetória internacional no ritmo de casa.", href: "#homeschool" },
+            { t: "Quero estudar fora", d: "Planejamento de uma trajetória acadêmica internacional.", href: "#pathway" },
+            { t: "Quero uma experiência internacional", d: "Viagens, intercâmbios e imersões.", href: "/global" },
+          ].map((c) => (
+            <a key={c.t} href={c.href} style={{ display: "block", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+              <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8, color: "var(--ink)" }}>{c.t}</div>
+              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.d}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* 5 PILARES */}
       <section style={{ padding: "64px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
@@ -60,7 +83,7 @@ export default function LearnersPage() {
       </section>
 
       {/* MODALIDADES - fotos agrupadas com tint de cor */}
-      <section style={{ padding: "72px 40px", background: "var(--blue-dark)" }}>
+      <section id="modalidades" style={{ padding: "72px 40px", background: "var(--blue-dark)" }}>
         <div className="container" style={{ maxWidth: 1000 }}>
           <span className="eyebrow" style={{ color: "#8EA0E8" }}>Modalidades</span>
           <h2 style={{ margin: "12px 0 36px", fontSize: 26, fontWeight: 800, color: "#fff" }}>Duas modalidades para encaixar na sua rotina</h2>
@@ -92,7 +115,7 @@ export default function LearnersPage() {
       </section>
 
       {/* CERTIFICACOES CAMBRIDGE/TRINITY */}
-      <section style={{ padding: "72px 40px" }}>
+      <section id="certificacoes" style={{ padding: "72px 40px" }}>
         <div className="container">
           <div className="card reveal" style={{ maxWidth: 640, margin: "0 auto" }}>
             <div style={{ position: "relative", height: 260 }}>
@@ -108,7 +131,7 @@ export default function LearnersPage() {
       </section>
 
       {/* HOMESCHOOLING - secao dedicada, composicao modular sobreposta */}
-      <section style={{ padding: "84px 40px", background: "var(--tint)", position: "relative", overflow: "hidden" }}>
+      <section id="homeschool" style={{ padding: "84px 40px", background: "var(--tint)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ bottom: -100, right: -100, width: 360, height: 360, background: "var(--blue)", opacity: 0.08 }} />
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center", position: "relative", zIndex: 1 }}>
           <div style={{ position: "relative", height: 380 }}>
@@ -128,14 +151,14 @@ export default function LearnersPage() {
               A Promise atende diretamente famílias homeschooling: horário definido junto com a família, acompanhamento individual e progresso real, não uma turma genérica de curso online.
             </p>
             <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700, textAlign: "justify" }}>
-              O aluno aprende no ritmo que a família já pratica, com a mesma exigência pedagógica de qualquer outra trajetória Promise, incluindo o caminho para certificações internacionais e para o High School americano.
+              O aluno aprende no ritmo que a família já pratica, com a mesma exigência pedagógica de qualquer outra trajetória Promise, incluindo o caminho para certificações internacionais e para o American School.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
               {[
                 "Aulas individuais ou em grupo pequeno, no ritmo da família",
                 "Horário combinado diretamente com a família, sem turma fixa",
                 "Acompanhamento direto do progresso, etapa por etapa",
-                "Preparação para certificações internacionais e para o High School americano",
+                "Preparação para certificações internacionais e para o American School",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                   <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
@@ -148,25 +171,26 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      {/* HIGH SCHOOL AMERICANO - secao dedicada, com destaque proprio */}
-      <section style={{ padding: "80px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
+      {/* AMERICAN SCHOOL - secao dedicada, com destaque proprio */}
+      <section id="american-school" style={{ padding: "80px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ top: -100, right: -120, width: 400, height: 400, background: "var(--red)", opacity: 0.08 }} />
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center", position: "relative", zIndex: 1 }}>
           <div>
-            <span className="eyebrow" style={{ color: "#8EA0E8" }}>High School Americano</span>
+            <span className="eyebrow" style={{ color: "#8EA0E8" }}>American School</span>
             <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, color: "#fff", lineHeight: 1.25 }}>
-              Aluno do Ensino Médio certificado pela Promise para estudar em qualquer universidade americana.
+              Um programa acadêmico americano, do Elementary ao High School, para estudar em qualquer universidade americana.
             </h2>
             <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>
-              Programa em contraturno para alunos de qualquer escola, não só das parceiras da Promise. O aluno mantém a rotina escolar normal e soma, em paralelo, uma certificação de High School reconhecida internacionalmente.
+              Programa em contraturno para alunos de qualquer escola, não só das parceiras da Promise. O aluno mantém a rotina escolar normal e constrói, em paralelo, uma formação acadêmica americana reconhecida internacionalmente — do Elementary ao High School.
             </p>
             <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "#fff", fontWeight: 700, textAlign: "justify" }}>
-              É essa certificação, obtida durante o Ensino Médio, que abre a porta de entrada: com ela, o aluno sai habilitado para se candidatar a qualquer universidade nos Estados Unidos, não apenas a uma lista restrita de instituições parceiras.
+              É a certificação de High School, etapa final do programa, que abre a porta de entrada: com ela, o aluno sai habilitado para se candidatar a qualquer universidade nos Estados Unidos, não apenas a uma lista restrita de instituições parceiras.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
               {[
+                "Do Elementary ao High School, ajustável à idade e à etapa do aluno",
                 "Contraturno: encaixa na rotina escolar do aluno, sem precisar trocar de escola",
-                "Certificação internacional reconhecida por universidades nos Estados Unidos",
+                "Currículo e créditos acadêmicos americanos",
                 "Acesso a qualquer universidade americana, não só a uma lista fechada de parceiras",
                 "Acompanhamento pedagógico contínuo, com preparação para o processo de admissão universitária",
                 "Aberto a alunos de qualquer escola, com ou sem convênio com a Promise",
@@ -177,7 +201,7 @@ export default function LearnersPage() {
                 </div>
               ))}
             </div>
-            <a href="#matricula" className="pill pill-red">Quero saber mais sobre o High School</a>
+            <a href="#matricula" className="pill pill-red">Quero saber mais sobre o American School</a>
           </div>
           <div style={{ position: "relative", height: 420 }}>
             <div style={{ position: "absolute", top: 0, right: 0, width: "78%", height: "62%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(0,0,0,.3)" }}>
@@ -186,6 +210,34 @@ export default function LearnersPage() {
             <div style={{ position: "absolute", bottom: 0, left: 0, width: "62%", height: "48%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(0,0,0,.3)" }}>
               <Image src="/assets/global-familia.jpg" alt="Família recebendo estudante de intercâmbio" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRAJETORIA ACADEMICA INTERNACIONAL - planejamento, distinto de American School */}
+      <section id="pathway" className="section-pad" style={{ padding: "76px 40px", background: "var(--tint)" }}>
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 44 }}>
+          <div>
+            <span className="eyebrow" style={{ color: "var(--blue)" }}>International Academic Pathway</span>
+            <h2 style={{ margin: "10px 0 14px", fontSize: 24, fontWeight: 800 }}>Planeje antes de escolher o próximo passo</h2>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Uma trajetória internacional começa com uma pergunta: onde o estudante quer chegar? A partir daí, mapeamos as etapas necessárias — certificações, documentação e requisitos — para tornar esse objetivo possível.
+            </p>
+          </div>
+          <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 14 }}>
+            {[
+              { t: "Objetivos", d: "Definição do destino acadêmico desejado." },
+              { t: "Destinos", d: "Mapeamento de países, sistemas e possibilidades." },
+              { t: "Requisitos", d: "Proficiência, currículo, exames e critérios específicos." },
+              { t: "Certificações", d: "Identificação dos exames que fazem sentido para a trajetória." },
+              { t: "Documentação", d: "Organização dos documentos e do histórico acadêmico." },
+              { t: "Planejamento", d: "Sequenciamento das etapas e acompanhamento da preparação." },
+            ].map((p) => (
+              <div key={p.t} style={{ border: "1px solid var(--line)", borderRadius: 12, padding: 18, background: "#fff" }}>
+                <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 5 }}>{p.t}</div>
+                <p style={{ margin: 0, fontSize: 12.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

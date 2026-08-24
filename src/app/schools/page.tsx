@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroPhoto from "@/components/HeroPhoto";
@@ -26,11 +27,25 @@ export default function SchoolsPage() {
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 40 }}>
           <div>
             <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>O problema real</div>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Sua escola sabe que precisa avançar em internacionalização, mas falta clareza sobre currículo, formação de professores, liderança e avaliação. Fazer isso sem método arrisca descaracterizar a identidade da instituição.</p>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Internacionalizar não é simplesmente adicionar aulas de inglês. Muitas escolas esbarram em:</p>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
+              {["Professores com níveis diferentes de proficiência", "Currículo sem progressão clara", "Inglês desconectado da formação integral", "Dificuldade para implementar certificações", "Ausência de indicadores de acompanhamento", "Receio de perder identidade institucional"].map((item) => (
+                <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
+                  <span style={{ color: "var(--red)", fontWeight: 800 }}>—</span>{item}
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
             <div className="eyebrow" style={{ color: "var(--blue)", marginBottom: 12 }}>O que a Promise resolve</div>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Um caminho estruturado, com metodologia, acompanhamento e objetivos claros, não uma proposta genérica. O diagnóstico inicial já mostra se e como o investimento faz sentido para a sua realidade, antes de qualquer compromisso.</p>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Um caminho estruturado, com metodologia e objetivos claros — não uma proposta genérica:</p>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
+              {["Inglês como parte de uma estratégia institucional", "Currículo com progressão e avaliação claras", "Formação docente contínua, com feedback", "Certificações internacionais alcançáveis", "Indicadores para decisões baseadas em evidência", "Identidade institucional preservada e fortalecida"].map((item) => (
+                <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
+                  <span style={{ color: "var(--blue)", fontWeight: 800 }}>✓</span>{item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -81,6 +96,46 @@ export default function SchoolsPage() {
               O diagnóstico institucional segue os mesmos critérios usados em bancas examinadoras internacionais: evidência documentada, comparação com padrões reconhecidos e nenhuma recomendação por impressão. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* BENEFICIOS DA PARCERIA */}
+      <section className="section-pad" style={{ padding: "76px 40px", background: "var(--tint)" }}>
+        <div className="container reveal" style={{ maxWidth: 780, marginBottom: 36 }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>O que sua escola ganha com a parceria</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Mais clareza para crescer. Mais estrutura para sustentar.</h2>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 22 }}>
+          {[
+            { t: "Estratégia clara", d: "Uma visão de longo prazo para o desenvolvimento internacional da instituição." },
+            { t: "Diferenciação", d: "Uma proposta internacional forte, conectada ao posicionamento da escola." },
+            { t: "Retenção", d: "Mais valor percebido pelo aluno e pela família." },
+            { t: "Captação", d: "Um diferencial comercial relevante no mercado educacional." },
+            { t: "Eficiência", d: "Menos tentativa e erro na implementação e na gestão." },
+            { t: "Reputação", d: "Maior credibilidade acadêmica e institucional." },
+            { t: "Novas oportunidades", d: "Certificações, programas e conexões internacionais." },
+            { t: "Sustentabilidade", d: "Uma cultura de excelência que permanece na instituição." },
+          ].map((b) => (
+            <div key={b.t}>
+              <div style={{ fontSize: 14.5, fontWeight: 800, marginBottom: 6 }}>{b.t}</div>
+              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{b.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SCHOOLS + GLOBAL - ponte */}
+      <section style={{ padding: "70px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
+        <div className="blob" style={{ bottom: -100, right: -80, width: 320, height: 320, background: "var(--blue)", opacity: 0.12 }} />
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 40, alignItems: "center", position: "relative", zIndex: 1 }}>
+          <div>
+            <span className="eyebrow" style={{ color: "#9DB0F0" }}>Schools + Global</span>
+            <h2 style={{ margin: "10px 0 12px", fontSize: 24, fontWeight: 800, color: "#fff" }}>Da sala de aula para o mundo</h2>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+              Depois de estruturar o departamento de internacionalização, sua escola pode acessar intercâmbios, viagens acadêmicas e parcerias internacionais através da Promise Global.
+            </p>
+          </div>
+          <Link href="/global" className="pill pill-red" style={{ justifyContent: "center" }}>Conhecer a Promise Global</Link>
         </div>
       </section>
 
