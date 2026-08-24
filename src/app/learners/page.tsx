@@ -46,18 +46,19 @@ export default function LearnersPage() {
 
       {/* JORNADA EM FOTOS - faixa vertical colada, selo sobre a costura, mesmo sistema do panfleto */}
       <section className="section-pad" style={{ padding: "72px 40px", background: "var(--tint)", overflow: "hidden" }}>
-        <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.1fr 0.7fr", gap: 50, alignItems: "center" }}>
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.3fr 0.55fr", gap: 56, alignItems: "center" }}>
           <div>
-            <span className="eyebrow" style={{ color: "var(--red)" }}>Cada estudante tem uma jornada</span>
-            <h2 className="fluid-h2" style={{ margin: "10px 0 18px", fontSize: 28, fontWeight: 800, lineHeight: 1.3 }}>Uma jornada que abre portas, constrói oportunidades e transforma futuros.</h2>
-            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <span className="eyebrow" style={{ color: "var(--red)", fontSize: 13 }}>Cada estudante tem uma jornada</span>
+            <h2 className="fluid-h2" style={{ margin: "12px 0 22px", fontSize: 36, fontWeight: 900, lineHeight: 1.25 }}>Uma jornada que abre portas, constrói oportunidades e transforma futuros.</h2>
+            <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.75, color: "var(--ink-soft)", textAlign: "justify" }}>
               Do primeiro contato com o inglês às certificações internacionais, à formação acadêmica americana e às experiências internacionais: cada etapa amplia a próxima.
             </p>
-            <p style={{ margin: "18px 0 0", fontSize: 15.5, fontWeight: 700, color: "var(--ink)" }}>Cada estudante é único. Cada jornada é única.</p>
+            <p style={{ margin: "22px 0 28px", fontSize: 18, fontWeight: 800, color: "var(--ink)" }}>Cada estudante é único. Cada jornada é única.</p>
+            <a href="#modalidades" className="pill pill-red">Começar minha jornada</a>
           </div>
 
           {(() => {
-            const TILE_HEIGHT = 190;
+            const TILE_HEIGHT = 128;
             const STRIP = [
               {
                 src: "/assets/learners-strip-mundo.jpg",
@@ -89,7 +90,7 @@ export default function LearnersPage() {
               },
             ];
             return (
-              <div className="reveal" style={{ position: "relative", maxWidth: 320, margin: "0 auto", width: "100%" }}>
+              <div className="reveal" style={{ position: "relative", maxWidth: 220, margin: "0 auto", width: "100%" }}>
                 {STRIP.map((tile, i) => (
                   <div
                     key={tile.caption}
@@ -97,10 +98,10 @@ export default function LearnersPage() {
                       position: "relative",
                       height: TILE_HEIGHT,
                       overflow: "hidden",
-                      borderTopLeftRadius: i === 0 ? 18 : 0,
-                      borderTopRightRadius: i === 0 ? 18 : 0,
-                      borderBottomLeftRadius: i === STRIP.length - 1 ? 18 : 0,
-                      borderBottomRightRadius: i === STRIP.length - 1 ? 18 : 0,
+                      borderTopLeftRadius: i === 0 ? 14 : 0,
+                      borderTopRightRadius: i === 0 ? 14 : 0,
+                      borderBottomLeftRadius: i === STRIP.length - 1 ? 14 : 0,
+                      borderBottomRightRadius: i === STRIP.length - 1 ? 14 : 0,
                     }}
                   >
                     <Image src={tile.src} alt={tile.alt} fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
@@ -111,21 +112,21 @@ export default function LearnersPage() {
                     key={`badge-${tile.caption}`}
                     style={{
                       position: "absolute",
-                      top: (i + 1) * TILE_HEIGHT - 18,
-                      left: 14,
+                      top: (i + 1) * TILE_HEIGHT - 13,
+                      left: 8,
                       zIndex: 10,
                       display: "flex",
                       alignItems: "center",
-                      gap: 8,
+                      gap: 6,
                       background: tile.color,
                       borderRadius: 999,
-                      padding: "7px 16px 7px 7px",
-                      boxShadow: "0 10px 20px rgba(0,0,0,.2)",
+                      padding: "5px 12px 5px 5px",
+                      boxShadow: "0 8px 16px rgba(0,0,0,.2)",
                       whiteSpace: "nowrap",
                     }}
                   >
-                    <span style={{ width: 28, height: 28, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{tile.icon}</span>
-                    <span style={{ fontSize: 12, fontWeight: 800, color: "#fff" }}>{tile.caption}</span>
+                    <span style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transform: "scale(0.75)" }}>{tile.icon}</span>
+                    <span style={{ fontSize: 10.5, fontWeight: 800, color: "#fff" }}>{tile.caption}</span>
                   </div>
                 ))}
               </div>
