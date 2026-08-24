@@ -1,0 +1,215 @@
+import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PhotoCard from "@/components/PhotoCard";
+
+const PILARES_FUNDAMENTOS = [
+  { n: "01", t: "Liderança Estratégica", d: "Diagnóstico institucional, planejamento estratégico, metas, governança do programa internacional.", img: "/assets/timeline-3.jpg", pos: "50% 35%" },
+  { n: "02", t: "Arquitetura Acadêmica", d: "Currículo, progressão de aprendizagem, materiais e avaliações, tratados como um único sistema.", img: "/assets/schools-curricular.jpg", pos: "50% 30%" },
+  { n: "03", t: "Excelência Docente", d: "Recrutamento, formação inicial e contínua, observação de aulas, certificações.", img: "/assets/timeline-1.jpg", pos: "50% 15%" },
+  { n: "04", t: "Cultura de Aprendizagem", d: "Metodologias ativas, projetos, pensamento crítico, protagonismo estudantil.", img: "/assets/banco-5.jpg", pos: "50% 40%" },
+];
+
+const PILARES_SUSTENTACAO = [
+  { n: "05", t: "Oportunidades Globais", d: "Certificações Cambridge, American High School, intercâmbios, preparação universitária.", img: "/assets/global-familia.jpg", pos: "50% 15%" },
+  { n: "06", t: "Cosmovisão Cristã Integrada", d: "A internacionalização fortalece a missão da escola. Nunca a substitui.", img: "/assets/banco-4.jpg", pos: "50% 20%" },
+  { n: "07", t: "Melhoria Contínua", d: "Indicadores, auditorias, benchmarking, ciclos anuais de melhoria.", img: "/assets/banco-3.jpg", pos: "50% 50%" },
+];
+
+const FASES = [
+  { n: "01", t: "Diagnosticar", d: "Onde a escola está hoje: currículo, equipe, liderança e cultura." },
+  { n: "02", t: "Planejar", d: "Metas, prazos e prioridades traduzidos em um plano institucional." },
+  { n: "03", t: "Transformar", d: "Implementação guiada dos 7 pilares, com acompanhamento direto." },
+  { n: "04", t: "Consolidar", d: "A mudança vira rotina, não mais projeto pontual." },
+  { n: "05", t: "Multiplicar", d: "A cultura de excelência sustenta novos ciclos, sem depender de nós." },
+];
+
+export default function QuemSomosPage() {
+  return (
+    <div style={{ position: "relative", overflow: "hidden" }}>
+      <div className="blob" style={{ top: -100, right: -140, width: 460, height: 460, background: "var(--red)", opacity: 0.08 }} />
+
+      <Header active="/quem-somos" />
+
+      {/* HERO - full bleed, mesmo padrao das demais paginas */}
+      <section
+        style={{
+          position: "relative",
+          minHeight: 480,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "100px 40px",
+          background:
+            "linear-gradient(180deg, rgba(9,13,28,.55) 0%, rgba(9,13,28,.72) 60%, rgba(9,13,28,.85) 100%), url('/assets/hero-quemsomos.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="container" style={{ maxWidth: 820, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
+          <span className="eyebrow" style={{ color: "#9DB0F0" }}>Quem Somos</span>
+          <h1 style={{ margin: 0, fontSize: 36, lineHeight: 1.25, fontWeight: 900, color: "#fff" }}>
+            Um ecossistema confessional de internacionalização educacional dedicado a transformar escolas, desenvolver educadores e preparar estudantes para impactar o mundo.
+          </h1>
+          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#DCE0EE", maxWidth: 680, textAlign: "justify" }}>
+            Reunimos em um único ecossistema soluções para escolas, estudantes, educadores e parceiros internacionais: consultoria estratégica, desenvolvimento curricular, programas acadêmicos internacionais, certificações, formação profissional e experiências globais.
+          </p>
+        </div>
+      </section>
+
+      {/* MISSAO / VISAO / PROPOSITO */}
+      <section style={{ padding: "60px 40px", background: "var(--blue)" }}>
+        <div className="container reveal" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 32 }}>
+          <div>
+            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Missão</div>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff" }}>Expandir os horizontes de escolas, educadores e estudantes por meio da internacionalização educacional de excelência, formando cidadãos preparados para impactar o mundo com competência, propósito e uma cosmovisão cristã.</p>
+          </div>
+          <div>
+            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Visão</div>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff" }}>Ser o maior ecossistema cristão de internacionalização educacional da América Latina.</p>
+          </div>
+          <div>
+            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Propósito</div>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff" }}>Construir instituições educacionais que transformem vidas por meio de uma educação internacional alinhada à verdade, à excelência e ao desenvolvimento integral.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROMISE EXCELLENCE FRAMEWORK - intro */}
+      <section style={{ padding: "76px 40px 44px", background: "#fff" }}>
+        <div className="container reveal" style={{ textAlign: "center" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>O método próprio</span>
+          <h2 style={{ margin: "10px 0 12px", fontSize: 28, fontWeight: 800 }}>Promise Excellence Framework™</h2>
+          <p style={{ margin: "0 auto", fontSize: 15, color: "var(--ink-soft)", maxWidth: 620, lineHeight: 1.6 }}>
+            Não implantamos só programas internacionais. Desenvolvemos escolas capazes de sustentar uma cultura permanente de excelência, através de 7 pilares.
+          </p>
+        </div>
+      </section>
+
+      {/* PILARES - SECAO 1: FUNDAMENTOS */}
+      <section style={{ padding: "0 40px 20px", background: "#fff" }}>
+        <div className="container">
+          <h3 className="reveal" style={{ margin: "0 0 22px", fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blue)" }}>Como estruturamos por dentro</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 4, borderRadius: 18, overflow: "hidden" }}>
+            {PILARES_FUNDAMENTOS.map((p, i) => (
+              <div key={p.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", height: 240 }}>
+                <Image src={p.img} alt={p.t} fill style={{ objectFit: "cover", objectPosition: p.pos }} />
+                <div style={{ position: "absolute", inset: 0, background: i % 2 === 0 ? "rgba(24,54,178,.78)" : "rgba(250,31,21,.78)" }} />
+                <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 26, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
+                  <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
+                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, maxWidth: 340 }}>{p.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PILARES - SECAO 2: SUSTENTACAO */}
+      <section style={{ padding: "20px 40px 76px", background: "#fff", borderBottom: "1px solid var(--line)" }}>
+        <div className="container">
+          <h3 className="reveal" style={{ margin: "0 0 22px", fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--red)" }}>Como isso se sustenta</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 4, borderRadius: 18, overflow: "hidden" }}>
+            {PILARES_SUSTENTACAO.map((p, i) => (
+              <div key={p.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", height: 240 }}>
+                <Image src={p.img} alt={p.t} fill style={{ objectFit: "cover", objectPosition: p.pos }} />
+                <div style={{ position: "absolute", inset: 0, background: i % 2 === 0 ? "rgba(250,31,21,.78)" : "rgba(24,54,178,.78)" }} />
+                <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 22, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
+                  <div style={{ fontSize: 16.5, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
+                  <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5 }}>{p.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FLUXO - jornada de 5 fases, com destaque */}
+      <section style={{ padding: "76px 40px", background: "var(--ink)" }}>
+        <div className="container reveal" style={{ textAlign: "center", marginBottom: 48 }}>
+          <span className="eyebrow" style={{ color: "#9DB0F0" }}>A jornada</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800, color: "#fff" }}>Cinco fases, do diagnóstico à autonomia da escola</h2>
+        </div>
+        <div className="container" style={{ maxWidth: 1100, position: "relative" }}>
+          <div style={{ position: "absolute", top: 26, left: "10%", right: "10%", height: 2, background: "rgba(255,255,255,.15)" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
+            {FASES.map((f, i) => (
+              <div key={f.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+                <div style={{ position: "relative", zIndex: 1, width: 52, height: 52, borderRadius: "50%", background: "var(--red)", color: "#fff", fontWeight: 800, fontSize: 17, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16, border: "4px solid var(--ink)" }}>
+                  {f.n}
+                </div>
+                <div style={{ fontSize: 15.5, fontWeight: 800, color: "#fff", marginBottom: 8 }}>{f.t}</div>
+                <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: "#9AA0B4" }}>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FUNDADOR - bio + fala pessoal em primeira pessoa, em um so bloco */}
+      <section style={{ padding: "76px 40px", background: "var(--tint)" }}>
+        <div className="container reveal" style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+          <div style={{ display: "flex", gap: 44, alignItems: "flex-start", flexWrap: "wrap" }}>
+            <PhotoCard src="/assets/calebe-familia.jpg" alt="Calebe Braga" height={340} />
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, flex: 1, minWidth: 280 }}>
+              <span className="eyebrow" style={{ color: "var(--blue)" }}>Fundador</span>
+              <h2 style={{ margin: 0, fontSize: 26, fontWeight: 800 }}>Calebe Braga</h2>
+              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+                Mais de 14 anos de experiência em ensino de inglês e educação. Atua como coordenador de departamento de línguas e Centre Exams Manager de um centro autorizado Cambridge, e como examinador Cambridge English. Certificado CELTA (nível 5) pela University of Cambridge e CertPT (nível 6) pelo Trinity College London. Formação acadêmica em Letras Inglês, Marketing, Educação Cristã Clássica e estudos em Teologia.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
+                {["Cambridge Examiner", "CELTA (Cambridge)", "CertPT (Trinity)", "14+ anos de atuação"].map((b) => (
+                  <span key={b} style={{ background: "var(--blue)", color: "#fff", fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999 }}>{b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ background: "var(--blue)", borderRadius: 18, padding: "36px 40px", display: "flex", gap: 20, alignItems: "flex-start" }}>
+            <svg width="30" height="23" viewBox="0 0 24 18" fill="rgba(255,255,255,.4)" style={{ flexShrink: 0, marginTop: 4 }}><path d="M0 18V9.5C0 4.3 3.8.4 9 0v3.6C6 4 4 6.3 4 9h5v9H0zm11 0V9.5C11 4.3 14.8.4 20 0v3.6c-3 .4-5 2.7-5 5.4h5v9H11z" /></svg>
+            <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.65, color: "#fff", fontStyle: "italic" }}>
+              &ldquo;Para mim, excelência acadêmica e fé caminham juntas. Não é só uma convicção profissional, é pessoal: a mesma fé que orienta minha vida em casa, com a minha família, orienta cada decisão da Promise no trabalho com escolas e alunos.&rdquo;
+              <span style={{ display: "block", marginTop: 12, fontSize: 13.5, fontStyle: "normal", fontWeight: 700, color: "#B9C3EE" }}>— Calebe Braga, fundador da Promise</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MATERIAIS AUTORAIS - formato portfolio */}
+      <section style={{ padding: "64px 40px", background: "#fff", borderTop: "1px solid var(--line)" }}>
+        <div className="container">
+          <h2 style={{ margin: "0 0 8px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Materiais utilizados</h2>
+          <p style={{ margin: "0 0 36px", fontSize: 14, color: "var(--ink-soft)", textAlign: "center" }}>Currículo cristão, clássico, bilíngue e integral. O currículo de inglês é de autoria do Calebe e da Rita.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
+            {[
+              {
+                t: "Paideia",
+                d: "Currículo cristão, clássico, bilíngue e integral desenvolvido para escolas. Forma o aluno na virtude e o orienta na busca pela verdade, pela bondade e pela beleza. O currículo de inglês dentro do Paideia é de autoria de Calebe Braga e Rita.",
+              },
+              {
+                t: "Oikos",
+                d: "Currículo completo para o ensino domiciliar, com a mesma base cristã, clássica, bilíngue e integral do Paideia, adaptado ao contexto da educação em casa. O currículo de inglês dentro do Oikos também é de autoria de Calebe Braga e Rita.",
+              },
+              {
+                t: "To the Nations",
+                d: "Material voltado à preparação para experiências internacionais e à visão missionária que sustenta a internacionalização da Promise. Detalhes de conteúdo a confirmar com a Promise.",
+              },
+            ].map((c, i) => (
+              <div key={c.t} className={`card reveal reveal-delay-${i + 1}`}>
+                <div className="photo-ph" style={{ height: 170 }}>[espaço reservado: logomarca ou capa de {c.t}, a receber do designer]</div>
+                <div style={{ padding: 22 }}>
+                  <div style={{ fontSize: 19, fontWeight: 800, color: "var(--red)", marginBottom: 8 }}>{c.t}</div>
+                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)" }}>{c.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
