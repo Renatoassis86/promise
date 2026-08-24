@@ -44,6 +44,77 @@ export default function LearnersPage() {
         </div>
       </section>
 
+      {/* JORNADA EM FOTOS - mesmo sistema do panfleto: foto + selo colorido com icone e legenda */}
+      <section className="section-pad" style={{ padding: "72px 40px", background: "var(--tint)" }}>
+        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Cada estudante tem uma jornada</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Uma jornada que abre portas, constrói oportunidades e transforma futuros.</h2>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 28 }}>
+          {[
+            {
+              src: "/assets/learners-strip-mundo.jpg",
+              alt: "Aluna Promise em Londres, com material didático",
+              caption: "Um mundo de possibilidades",
+              color: "var(--blue)",
+              icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20" />
+                </svg>
+              ),
+            },
+            {
+              src: "/assets/learners-strip-formacao.jpg",
+              alt: "Aluno Promise estudando em casa",
+              caption: "Formação que transforma",
+              color: "var(--red)",
+              icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+                </svg>
+              ),
+            },
+            {
+              src: "/assets/learners-strip-experiencias.jpg",
+              alt: "Alunos Promise em intercâmbio em Londres",
+              caption: "Experiências que marcam",
+              color: "var(--blue)",
+              icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5Z" />
+                </svg>
+              ),
+            },
+            {
+              src: "/assets/learners-strip-certificacao.jpg",
+              alt: "Aluno Promise certificado, em campus americano",
+              caption: "Certificação que abre portas",
+              color: "var(--red)",
+              icon: (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="8" r="5" /><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5" />
+                </svg>
+              ),
+            },
+          ].map((tile, i) => (
+            <div key={tile.caption} className={`reveal reveal-delay-${i + 1}`} style={{ position: "relative", height: 300, borderRadius: 16, overflow: "visible" }}>
+              <div style={{ position: "absolute", inset: 0, borderRadius: 16, overflow: "hidden" }}>
+                <Image src={tile.src} alt={tile.alt} fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+              </div>
+              <div style={{ position: "absolute", left: 16, bottom: -16, display: "flex", alignItems: "center", gap: 10, background: tile.color, borderRadius: 999, padding: "8px 18px 8px 8px", boxShadow: "0 10px 20px rgba(0,0,0,.18)" }}>
+                <span style={{ width: 34, height: 34, borderRadius: "50%", background: "rgba(255,255,255,.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{tile.icon}</span>
+                <span style={{ fontSize: 13, fontWeight: 800, color: "#fff", whiteSpace: "nowrap" }}>{tile.caption}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="container reveal" style={{ maxWidth: 500, textAlign: "center", margin: "40px auto 0" }}>
+          <p style={{ margin: 0, fontSize: 15, fontWeight: 700, color: "var(--ink)" }}>Cada estudante é único. Cada jornada é única.</p>
+        </div>
+      </section>
+
       {/* ONDE VOCE QUER CHEGAR - triagem por objetivo */}
       <section className="section-pad" style={{ padding: "56px 40px", background: "var(--tint)" }}>
         <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 32px" }}>
