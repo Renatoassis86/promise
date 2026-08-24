@@ -24,7 +24,7 @@ export default function LearnersPage() {
         image="/assets/hero-learners.jpg"
         eyebrow="Promise for Learners"
         title="Inglês, certificações internacionais e o caminho para o American School."
-        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge e Trinity, e orientação para o American School — do Elementary ao High School — e para intercâmbios nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
+        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge e Trinity, e orientação para o American School (do Elementary ao High School) e para intercâmbios nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
         primaryCta={{ label: "Matricule-se já", href: "#matricula" }}
         secondaryCta={{ label: "Fazer teste de nivelamento gratuito", href: "https://wa.me/5583996977969", external: true }}
         imagePosition="center 30%"
@@ -44,74 +44,93 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      {/* JORNADA EM FOTOS - mesmo sistema do panfleto: foto + selo colorido com icone e legenda */}
-      <section className="section-pad" style={{ padding: "72px 40px", background: "var(--tint)" }}>
-        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
-          <span className="eyebrow" style={{ color: "var(--red)" }}>Cada estudante tem uma jornada</span>
-          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Uma jornada que abre portas, constrói oportunidades e transforma futuros.</h2>
-        </div>
-        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 28 }}>
-          {[
-            {
-              src: "/assets/learners-strip-mundo.jpg",
-              alt: "Aluna Promise em Londres, com material didático",
-              caption: "Um mundo de possibilidades",
-              color: "var(--blue)",
-              icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20" />
-                </svg>
-              ),
-            },
-            {
-              src: "/assets/learners-strip-formacao.jpg",
-              alt: "Aluno Promise estudando em casa",
-              caption: "Formação que transforma",
-              color: "var(--red)",
-              icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
-                </svg>
-              ),
-            },
-            {
-              src: "/assets/learners-strip-experiencias.jpg",
-              alt: "Alunos Promise em intercâmbio em Londres",
-              caption: "Experiências que marcam",
-              color: "var(--blue)",
-              icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5Z" />
-                </svg>
-              ),
-            },
-            {
-              src: "/assets/learners-strip-certificacao.jpg",
-              alt: "Aluno Promise certificado, em campus americano",
-              caption: "Certificação que abre portas",
-              color: "var(--red)",
-              icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="8" r="5" /><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5" />
-                </svg>
-              ),
-            },
-          ].map((tile, i) => (
-            <div key={tile.caption} className={`reveal reveal-delay-${i + 1}`} style={{ position: "relative", height: 300, borderRadius: 16, overflow: "visible" }}>
-              <div style={{ position: "absolute", inset: 0, borderRadius: 16, overflow: "hidden" }}>
-                <Image src={tile.src} alt={tile.alt} fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+      {/* JORNADA EM FOTOS - faixa vertical colada, selo sobre a costura, mesmo sistema do panfleto */}
+      <section className="section-pad" style={{ padding: "72px 40px", background: "var(--tint)", overflow: "hidden" }}>
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.1fr 0.7fr", gap: 50, alignItems: "center" }}>
+          <div>
+            <span className="eyebrow" style={{ color: "var(--red)" }}>Cada estudante tem uma jornada</span>
+            <h2 className="fluid-h2" style={{ margin: "10px 0 18px", fontSize: 28, fontWeight: 800, lineHeight: 1.3 }}>Uma jornada que abre portas, constrói oportunidades e transforma futuros.</h2>
+            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Do primeiro contato com o inglês às certificações internacionais, à formação acadêmica americana e às experiências internacionais: cada etapa amplia a próxima.
+            </p>
+            <p style={{ margin: "18px 0 0", fontSize: 15.5, fontWeight: 700, color: "var(--ink)" }}>Cada estudante é único. Cada jornada é única.</p>
+          </div>
+
+          {(() => {
+            const TILE_HEIGHT = 190;
+            const STRIP = [
+              {
+                src: "/assets/learners-strip-mundo.jpg",
+                alt: "Aluna Promise em Londres, com material didático",
+                caption: "Um mundo de possibilidades",
+                color: "var(--blue)",
+                icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20" /></svg>,
+              },
+              {
+                src: "/assets/learners-strip-formacao.jpg",
+                alt: "Aluno Promise estudando em casa",
+                caption: "Formação que transforma",
+                color: "var(--red)",
+                icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" /></svg>,
+              },
+              {
+                src: "/assets/learners-strip-experiencias.jpg",
+                alt: "Alunos Promise em intercâmbio em Londres",
+                caption: "Experiências que marcam",
+                color: "var(--blue)",
+                icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5Z" /></svg>,
+              },
+              {
+                src: "/assets/learners-strip-certificacao.jpg",
+                alt: "Aluno Promise certificado, em campus americano",
+                caption: "Certificação que abre portas",
+                color: "var(--red)",
+                icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="5" /><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5" /></svg>,
+              },
+            ];
+            return (
+              <div className="reveal" style={{ position: "relative", maxWidth: 320, margin: "0 auto", width: "100%" }}>
+                {STRIP.map((tile, i) => (
+                  <div
+                    key={tile.caption}
+                    style={{
+                      position: "relative",
+                      height: TILE_HEIGHT,
+                      overflow: "hidden",
+                      borderTopLeftRadius: i === 0 ? 18 : 0,
+                      borderTopRightRadius: i === 0 ? 18 : 0,
+                      borderBottomLeftRadius: i === STRIP.length - 1 ? 18 : 0,
+                      borderBottomRightRadius: i === STRIP.length - 1 ? 18 : 0,
+                    }}
+                  >
+                    <Image src={tile.src} alt={tile.alt} fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+                  </div>
+                ))}
+                {STRIP.map((tile, i) => (
+                  <div
+                    key={`badge-${tile.caption}`}
+                    style={{
+                      position: "absolute",
+                      top: (i + 1) * TILE_HEIGHT - 18,
+                      left: 14,
+                      zIndex: 10,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      background: tile.color,
+                      borderRadius: 999,
+                      padding: "7px 16px 7px 7px",
+                      boxShadow: "0 10px 20px rgba(0,0,0,.2)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    <span style={{ width: 28, height: 28, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{tile.icon}</span>
+                    <span style={{ fontSize: 12, fontWeight: 800, color: "#fff" }}>{tile.caption}</span>
+                  </div>
+                ))}
               </div>
-              <div style={{ position: "absolute", left: 16, bottom: -16, display: "flex", alignItems: "center", gap: 10, background: tile.color, borderRadius: 999, padding: "8px 18px 8px 8px", boxShadow: "0 10px 20px rgba(0,0,0,.18)" }}>
-                <span style={{ width: 34, height: 34, borderRadius: "50%", background: "rgba(255,255,255,.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{tile.icon}</span>
-                <span style={{ fontSize: 13, fontWeight: 800, color: "#fff", whiteSpace: "nowrap" }}>{tile.caption}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="container reveal" style={{ maxWidth: 500, textAlign: "center", margin: "40px auto 0" }}>
-          <p style={{ margin: 0, fontSize: 15, fontWeight: 700, color: "var(--ink)" }}>Cada estudante é único. Cada jornada é única.</p>
+            );
+          })()}
         </div>
       </section>
 
@@ -252,7 +271,7 @@ export default function LearnersPage() {
               Um programa acadêmico americano, do Elementary ao High School, para estudar em qualquer universidade americana.
             </h2>
             <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>
-              Programa em contraturno para alunos de qualquer escola, não só das parceiras da Promise. O aluno mantém a rotina escolar normal e constrói, em paralelo, uma formação acadêmica americana reconhecida internacionalmente — do Elementary ao High School.
+              Programa em contraturno para alunos de qualquer escola, não só das parceiras da Promise. O aluno mantém a rotina escolar normal e constrói, em paralelo, uma formação acadêmica americana do Elementary ao High School, reconhecida internacionalmente.
             </p>
             <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "#fff", fontWeight: 700, textAlign: "justify" }}>
               É a certificação de High School, etapa final do programa, que abre a porta de entrada: com ela, o aluno sai habilitado para se candidatar a qualquer universidade nos Estados Unidos, não apenas a uma lista restrita de instituições parceiras.
@@ -292,7 +311,7 @@ export default function LearnersPage() {
             <span className="eyebrow" style={{ color: "var(--blue)" }}>International Academic Pathway</span>
             <h2 style={{ margin: "10px 0 14px", fontSize: 24, fontWeight: 800 }}>Planeje antes de escolher o próximo passo</h2>
             <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
-              Uma trajetória internacional começa com uma pergunta: onde o estudante quer chegar? A partir daí, mapeamos as etapas necessárias — certificações, documentação e requisitos — para tornar esse objetivo possível.
+              Uma trajetória internacional começa com uma pergunta: onde o estudante quer chegar? A partir daí, mapeamos as etapas necessárias (certificações, documentação e requisitos) para tornar esse objetivo possível.
             </p>
           </div>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 14 }}>

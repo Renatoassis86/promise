@@ -14,7 +14,7 @@ const FRENTES = [
 
 const PILARES_FUNDAMENTOS = [
   { n: "01", t: "Liderança Estratégica", d: "Diagnóstico institucional ou familiar, planejamento estratégico, metas, governança do programa internacional.", img: "/assets/timeline-3.jpg", pos: "50% 35%" },
-  { n: "02", t: "Arquitetura Acadêmica", d: "Currículo, progressão de aprendizagem, materiais e avaliações, tratados como um único sistema — na escola ou em casa.", img: "/assets/schools-curricular.jpg", pos: "50% 30%" },
+  { n: "02", t: "Arquitetura Acadêmica", d: "Currículo, progressão de aprendizagem, materiais e avaliações, tratados como um único sistema, na escola ou em casa.", img: "/assets/schools-curricular.jpg", pos: "50% 30%" },
   { n: "03", t: "Excelência Docente", d: "Recrutamento, formação inicial e contínua, observação de aulas, certificações, para professores e pais-educadores.", img: "/assets/timeline-1.jpg", pos: "50% 15%" },
   { n: "04", t: "Cultura de Aprendizagem", d: "Metodologias ativas, projetos, pensamento crítico, protagonismo estudantil.", img: "/assets/banco-5.jpg", pos: "50% 40%" },
 ];
@@ -72,7 +72,7 @@ export default function QuemSomosPage() {
           <span className="eyebrow" style={{ color: "var(--red)" }}>Como tudo se conecta</span>
           <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>Um ecossistema, não quatro projetos separados</h2>
           <p style={{ margin: 0, fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65, textAlign: "justify" }}>
-            Cada frente amplia as outras. Uma escola atendida pela Schools pode oferecer aos alunos os programas da Learners, formar sua equipe pela Professionals e levar tudo isso para o cenário internacional pela Global — a mesma trajetória, vista de ângulos diferentes.
+            Cada frente amplia as outras. Uma escola atendida pela Schools pode oferecer aos alunos os programas da Learners, formar sua equipe pela Professionals e levar tudo isso para o cenário internacional pela Global: a mesma trajetória, vista de ângulos diferentes.
           </p>
         </div>
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 3, borderRadius: 18, overflow: "hidden", marginTop: 32 }}>
@@ -175,7 +175,7 @@ export default function QuemSomosPage() {
         <div className="container reveal" style={{ maxWidth: 900, background: "var(--ink)", borderRadius: 18, padding: "34px 40px", textAlign: "center" }}>
           <h3 style={{ margin: "0 0 10px", fontSize: 18, fontWeight: 800, color: "#fff" }}>O Framework é o DNA metodológico da Promise</h3>
           <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
-            Os mesmos sete pilares organizam Schools, Learners, Professionals e Global. É por isso que a experiência da Promise se mantém consistente em diferentes produtos e trajetórias — e por isso o próprio Framework, como Paideia, Oikos e To the Nations, é um ativo autoral da Promise.
+            Os mesmos sete pilares organizam Schools, Learners, Professionals e Global. É por isso que a experiência da Promise se mantém consistente em diferentes produtos e trajetórias, e por isso o próprio Framework, como Paideia, Oikos e To the Nations, é um ativo autoral da Promise.
           </p>
         </div>
       </section>
@@ -216,7 +216,7 @@ export default function QuemSomosPage() {
               <span className="eyebrow" style={{ color: "var(--blue)" }}>Fundador</span>
               <h2 style={{ margin: 0, fontSize: 26, fontWeight: 800 }}>Calebe Braga</h2>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
-                Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento de inglês da Escola Internacional Cidade Viva — cerca de 17 professores e 4 assistentes —, atua como Centre Exams Manager em centro autorizado Cambridge e como examinador oral Cambridge English em todos os níveis, de Pre A1 Starters a C1 Advanced.
+                Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento de inglês da Escola Internacional Cidade Viva (cerca de 17 professores e 4 assistentes), atua como Centre Exams Manager em centro autorizado Cambridge e como examinador oral Cambridge English em todos os níveis, de Pre A1 Starters a C1 Advanced.
               </p>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
                 É autor das coleções Paideia, Oikos e To the Nations, currículos de inglês cristãos, clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
@@ -233,7 +233,7 @@ export default function QuemSomosPage() {
             <svg width="30" height="23" viewBox="0 0 24 18" fill="rgba(255,255,255,.4)" style={{ flexShrink: 0, marginTop: 4 }}><path d="M0 18V9.5C0 4.3 3.8.4 9 0v3.6C6 4 4 6.3 4 9h5v9H0zm11 0V9.5C11 4.3 14.8.4 20 0v3.6c-3 .4-5 2.7-5 5.4h5v9H11z" /></svg>
             <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.65, color: "#fff", fontStyle: "italic" }}>
               &ldquo;Para mim, excelência acadêmica e fé caminham juntas. Não é só uma convicção profissional, é pessoal: a mesma fé que orienta minha vida em casa, com a minha família, orienta cada decisão da Promise no trabalho com escolas, famílias homeschooling e alunos.&rdquo;
-              <span style={{ display: "block", marginTop: 12, fontSize: 13.5, fontStyle: "normal", fontWeight: 700, color: "#B9C3EE" }}>— Calebe Braga, fundador da Promise</span>
+              <span style={{ display: "block", marginTop: 12, fontSize: 13.5, fontStyle: "normal", fontWeight: 700, color: "#B9C3EE" }}>Calebe Braga, fundador da Promise</span>
             </p>
           </div>
         </div>

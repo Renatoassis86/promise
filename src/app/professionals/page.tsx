@@ -86,17 +86,17 @@ export default function ProfessionalsPage() {
             {[
               {
                 n: "01",
-                t: "TKT — Teaching Knowledge Test",
+                t: "TKT: Teaching Knowledge Test",
                 d: "Certificação de entrada da Cambridge Assessment English. Valida o conhecimento pedagógico do professor (terminologia, técnicas de ensino, princípios de aprendizagem de inglês), sem exigir prática de sala de aula supervisionada. É o primeiro degrau formal para quem está começando a carreira ou quer comprovar o conhecimento que já tem.",
               },
               {
                 n: "02",
-                t: "CELTA — Certificate in Teaching English to Speakers of Other Languages",
+                t: "CELTA: Certificate in Teaching English to Speakers of Other Languages",
                 d: "A certificação para ensinar inglês mais reconhecida internacionalmente, emitida pela University of Cambridge. Exige prática de ensino supervisionada e é aceita como pré-requisito por escolas de idiomas no mundo todo. É a mesma certificação que o fundador da Promise possui.",
               },
               {
                 n: "03",
-                t: "DELTA — Diploma in Teaching English to Speakers of Other Languages",
+                t: "DELTA: Diploma in Teaching English to Speakers of Other Languages",
                 d: "Diploma avançado da Cambridge Assessment English para quem já atua como professor e quer aprofundar a prática pedagógica, assumir coordenação ou liderança acadêmica. É o degrau seguinte depois do CELTA, voltado a quem busca especialização real, não só mais um certificado.",
               },
             ].map((c) => (
@@ -113,7 +113,7 @@ export default function ProfessionalsPage() {
           </div>
           <div className="reveal" style={{ maxWidth: 780, margin: "40px auto 0", padding: "20px 24px", borderLeft: "4px solid var(--red)", background: "rgba(255,255,255,.06)", borderRadius: "0 10px 10px 0" }}>
             <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#DCE0EE" }}>
-              <strong style={{ color: "#fff" }}>Uma distinção importante:</strong> a Promise prepara e orienta o profissional. A Promise não aplica nem emite TKT, CELTA ou DELTA — a avaliação e a certificação são realizadas pela instituição certificadora correspondente.
+              <strong style={{ color: "#fff" }}>Uma distinção importante:</strong> a Promise prepara e orienta o profissional. A Promise não aplica nem emite TKT, CELTA ou DELTA. A avaliação e a certificação são realizadas pela instituição certificadora correspondente.
             </p>
           </div>
         </div>

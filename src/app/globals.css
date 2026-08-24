@@ -119,7 +119,7 @@ a:hover {
   position: relative;
 }
 
-/* Brushes/manchas decorativas transparentes — usadas espalhadas pela pagina */
+/* Brushes/manchas decorativas transparentes, usadas espalhadas pela pagina */
 .blob {
   position: absolute;
   filter: blur(64px);

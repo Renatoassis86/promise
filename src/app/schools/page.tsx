@@ -31,14 +31,14 @@ export default function SchoolsPage() {
             <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
               {["Professores com níveis diferentes de proficiência", "Currículo sem progressão clara", "Inglês desconectado da formação integral", "Dificuldade para implementar certificações", "Ausência de indicadores de acompanhamento", "Receio de perder identidade institucional"].map((item) => (
                 <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
-                  <span style={{ color: "var(--red)", fontWeight: 800 }}>—</span>{item}
+                  <span style={{ color: "var(--red)", fontWeight: 800 }}>•</span>{item}
                 </li>
               ))}
             </ul>
           </div>
           <div>
             <div className="eyebrow" style={{ color: "var(--blue)", marginBottom: 12 }}>O que a Promise resolve</div>
-            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Um caminho estruturado, com metodologia e objetivos claros — não uma proposta genérica:</p>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Um caminho estruturado, com metodologia e objetivos claros, não uma proposta genérica:</p>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
               {["Inglês como parte de uma estratégia institucional", "Currículo com progressão e avaliação claras", "Formação docente contínua, com feedback", "Certificações internacionais alcançáveis", "Indicadores para decisões baseadas em evidência", "Identidade institucional preservada e fortalecida"].map((item) => (
                 <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
