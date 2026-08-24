@@ -192,7 +192,7 @@ export default function QuemSomosPage() {
         </div>
         <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", marginTop: 44 }}>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#fff", fontFamily: "inherit", fontStyle: "italic" }}>
-            &ldquo;Não queremos criar dependência. Queremos construir capacidade institucional e familiar para que a excelência continue depois da implementação.&rdquo;
+            A Promise não cria dependência. Ela constrói capacidade institucional e familiar para que a excelência continue depois da implementação.
           </p>
         </div>
       </section>
