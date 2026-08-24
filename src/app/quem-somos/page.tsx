@@ -86,7 +86,7 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      <SectionDivider left="Ecossistema" right="Missão" />
+      <SectionDivider />
 
       {/* MISSAO / VISAO / PROPOSITO */}
       <section style={{ padding: "60px 40px", background: "var(--blue)" }}>
@@ -239,7 +239,7 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      <SectionDivider left="Fundador" right="Por que Promise" background="var(--tint)" />
+      <SectionDivider background="var(--tint)" />
 
       {/* POR QUE PROMISE - 6 razoes, visao integrada */}
       <section className="section-pad" style={{ padding: "70px 40px", background: "var(--tint)" }}>
