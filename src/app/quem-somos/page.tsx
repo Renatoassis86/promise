@@ -170,16 +170,6 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* FRAMEWORK COMO DNA - conecta o metodo as 4 frentes */}
-      <section style={{ padding: "0 40px 76px", background: "#fff" }}>
-        <div className="container reveal" style={{ maxWidth: 900, background: "var(--ink)", borderRadius: 18, padding: "34px 40px", textAlign: "center" }}>
-          <h3 style={{ margin: "0 0 10px", fontSize: 18, fontWeight: 800, color: "#fff" }}>O Framework é o DNA metodológico da Promise</h3>
-          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
-            Os mesmos sete pilares organizam Schools, Learners, Professionals e Global. É por isso que a experiência da Promise se mantém consistente em diferentes produtos e trajetórias, e por isso o próprio Framework, como Paideia, Oikos e To the Nations, é um ativo autoral da Promise.
-          </p>
-        </div>
-      </section>
-
       {/* FLUXO - jornada de 5 fases, com destaque */}
       <section style={{ padding: "76px 40px", background: "var(--ink)" }}>
         <div className="container reveal" style={{ textAlign: "center", marginBottom: 48 }}>

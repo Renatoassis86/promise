@@ -49,8 +49,10 @@ export default function LearnersPage() {
       <section className="section-pad" style={{ padding: "72px 40px", background: "var(--tint)", overflow: "hidden" }}>
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.3fr 0.55fr", gap: 56, alignItems: "center" }}>
           <div>
-            <span className="eyebrow" style={{ color: "var(--red)", fontSize: 13 }}>Cada estudante tem uma jornada</span>
-            <h2 className="fluid-h2" style={{ margin: "12px 0 22px", fontSize: 36, fontWeight: 900, lineHeight: 1.25 }}>Uma jornada que abre portas, constrói oportunidades e transforma futuros.</h2>
+            <span className="eyebrow" style={{ color: "var(--red)", fontSize: 14 }}>Cada estudante tem uma jornada</span>
+            <h2 className="fluid-h1" style={{ margin: "14px 0 24px", fontSize: 46, fontWeight: 900, lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+              Uma jornada que <span style={{ color: "var(--red)" }}>abre portas</span>, constrói oportunidades e <span style={{ color: "var(--blue)" }}>transforma futuros</span>.
+            </h2>
             <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.75, color: "var(--ink-soft)", textAlign: "justify" }}>
               Do primeiro contato com o inglês às certificações internacionais, à formação acadêmica americana e às experiências internacionais: cada etapa amplia a próxima.
             </p>
@@ -161,8 +163,10 @@ export default function LearnersPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* 5 PILARES */}
-      <section style={{ padding: "64px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+      <section style={{ padding: "64px 40px", background: "#fff", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Por que estudar inglês na Promise</h2>
           <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
