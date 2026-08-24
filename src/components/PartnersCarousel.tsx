@@ -1,9 +1,9 @@
 const PARCEIROS = [
-  { name: "Editora Kairós", href: "https://www.editorakairos.com.br/", src: "/assets/parceiros/kairos.png", w: 140, h: 32 },
-  { name: "Cidade Viva Education", href: "https://cidadeviva.education/", src: "/assets/parceiros/cidadeviva.svg", w: 128, h: 28 },
-  { name: "American Education International", href: "https://americaneducationinternational.com/", src: "/assets/parceiros/aei.webp", w: 64, h: 64 },
-  { name: "Zoe Christian School", href: "https://matricula.zoechristianschool.com.br/", src: "/assets/parceiros/zoe.png", w: 150, h: 40 },
-  { name: "ARKOS Soluções Digitais", href: "https://studio.arkosintelligence.com/", src: "/assets/parceiros/arkos.svg", w: 130, h: 30 },
+  { name: "Editora Kairós", href: "https://www.editorakairos.com.br/", src: "/assets/parceiros/kairos.png", w: 131, h: 30 },
+  { name: "Cidade Viva Education", href: "https://cidadeviva.education/", src: "/assets/parceiros/cidadeviva.svg", w: 130, h: 28 },
+  { name: "American Education International", href: "https://americaneducationinternational.com/", src: "/assets/parceiros/aei.webp", w: 56, h: 56 },
+  { name: "Zoe Christian School", href: "https://matricula.zoechristianschool.com.br/", src: "/assets/parceiros/zoe.png", w: 92, h: 40 },
+  { name: "ARKOS Soluções Digitais", href: "https://studio.arkosintelligence.com/", src: "/assets/parceiros/arkos.svg", w: 146, h: 26 },
 ];
 
 function Track() {
@@ -19,7 +19,7 @@ function Track() {
           style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 64, flexShrink: 0, opacity: 0.9 }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={p.src} alt={p.name} style={{ width: "auto", height: "auto", maxHeight: p.h, maxWidth: p.w }} />
+          <img src={p.src} alt={p.name} width={p.w} height={p.h} style={{ width: p.w, height: p.h }} />
         </a>
       ))}
     </div>
