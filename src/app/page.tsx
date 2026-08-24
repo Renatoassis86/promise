@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PhotoCard from "@/components/PhotoCard";
 import ContactForm from "@/components/ContactForm";
+import PartnersCarousel from "@/components/PartnersCarousel";
 import Link from "next/link";
 
 export default function Home() {
@@ -106,6 +107,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <PartnersCarousel />
 
       {/* CONTATO GERAL - atendimento personalizado / duvidas */}
       <section style={{ padding: "80px 40px", background: "var(--tint)" }}>

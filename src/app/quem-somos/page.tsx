@@ -157,10 +157,13 @@ export default function QuemSomosPage() {
               <span className="eyebrow" style={{ color: "var(--blue)" }}>Fundador</span>
               <h2 style={{ margin: 0, fontSize: 26, fontWeight: 800 }}>Calebe Braga</h2>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
-                Mais de 14 anos de experiência em ensino de inglês e educação. Atua como coordenador de departamento de línguas e Centre Exams Manager de um centro autorizado Cambridge, e como examinador Cambridge English. Certificado CELTA (nível 5) pela University of Cambridge e CertPT (nível 6) pelo Trinity College London. Formação acadêmica em Letras Inglês, Marketing, Educação Cristã Clássica e estudos em Teologia.
+                Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento de inglês da Escola Internacional Cidade Viva — cerca de 17 professores e 4 assistentes —, atua como Centre Exams Manager em centro autorizado Cambridge e como examinador oral Cambridge English em todos os níveis, de Pre A1 Starters a C1 Advanced.
+              </p>
+              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+                É autor das coleções Paideia, Oikos e To the Nations, currículos de inglês cristãos, clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
-                {["Cambridge Examiner", "CELTA (Cambridge)", "CertPT (Trinity)", "14+ anos de atuação"].map((b) => (
+                {["Cambridge Examiner", "CELTA (Cambridge)", "CertPT (Trinity)", "Autor: Paideia, Oikos e To the Nations", "14+ anos de atuação"].map((b) => (
                   <span key={b} style={{ background: "var(--blue)", color: "#fff", fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999 }}>{b}</span>
                 ))}
               </div>

@@ -266,3 +266,25 @@ a:hover {
     display: none !important;
   }
 }
+
+/* Carrossel de logos de parceiros: faixa duplicada rolando da direita
+   para a esquerda em loop continuo, pausa no hover. */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.partners-track {
+  animation: marquee-left 32s linear infinite;
+}
+.partners-track:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .partners-track {
+    animation: none;
+  }
+}
