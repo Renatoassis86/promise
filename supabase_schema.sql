@@ -60,3 +60,8 @@ CREATE POLICY "Permitir envio publico de pre-matricula" ON public.pre_matriculas
 
 CREATE POLICY "Permitir envio publico de contato geral" ON public.contatos_gerais
   FOR INSERT TO anon, authenticated WITH CHECK (true);
+
+-- Usuario logado (Supabase Auth) pode ler apenas as pre-matriculas com o proprio e-mail,
+-- usado pela area logada em /minha-area.
+CREATE POLICY "Usuario le sua propria pre-matricula" ON public.pre_matriculas
+  FOR SELECT TO authenticated USING (email = (auth.jwt() ->> 'email'));

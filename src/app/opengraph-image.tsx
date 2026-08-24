@@ -7,7 +7,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpengraphImage() {
-  const imgPath = join(process.cwd(), "public", "assets", "hero-quemsomos.jpg");
+  const imgPath = join(process.cwd(), "public", "assets", "global-hero.jpg");
   const imgBase64 = readFileSync(imgPath).toString("base64");
 
   return new ImageResponse(
@@ -75,7 +75,7 @@ export default function OpengraphImage() {
               display: "flex",
             }}
           >
-            Um ecossistema confessional dedicado a transformar escolas, desenvolver educadores e preparar estudantes para impactar o mundo.
+            Conectamos escolas, famílias homeschooling, estudantes e educadores ao cenário internacional.
           </div>
         </div>
       </div>

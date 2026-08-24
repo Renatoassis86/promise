@@ -4,21 +4,21 @@ import Footer from "@/components/Footer";
 import PhotoCard from "@/components/PhotoCard";
 
 const PILARES_FUNDAMENTOS = [
-  { n: "01", t: "Liderança Estratégica", d: "Diagnóstico institucional, planejamento estratégico, metas, governança do programa internacional.", img: "/assets/timeline-3.jpg", pos: "50% 35%" },
-  { n: "02", t: "Arquitetura Acadêmica", d: "Currículo, progressão de aprendizagem, materiais e avaliações, tratados como um único sistema.", img: "/assets/schools-curricular.jpg", pos: "50% 30%" },
-  { n: "03", t: "Excelência Docente", d: "Recrutamento, formação inicial e contínua, observação de aulas, certificações.", img: "/assets/timeline-1.jpg", pos: "50% 15%" },
+  { n: "01", t: "Liderança Estratégica", d: "Diagnóstico institucional ou familiar, planejamento estratégico, metas, governança do programa internacional.", img: "/assets/timeline-3.jpg", pos: "50% 35%" },
+  { n: "02", t: "Arquitetura Acadêmica", d: "Currículo, progressão de aprendizagem, materiais e avaliações, tratados como um único sistema — na escola ou em casa.", img: "/assets/schools-curricular.jpg", pos: "50% 30%" },
+  { n: "03", t: "Excelência Docente", d: "Recrutamento, formação inicial e contínua, observação de aulas, certificações, para professores e pais-educadores.", img: "/assets/timeline-1.jpg", pos: "50% 15%" },
   { n: "04", t: "Cultura de Aprendizagem", d: "Metodologias ativas, projetos, pensamento crítico, protagonismo estudantil.", img: "/assets/banco-5.jpg", pos: "50% 40%" },
 ];
 
 const PILARES_SUSTENTACAO = [
   { n: "05", t: "Oportunidades Globais", d: "Certificações Cambridge, American High School, intercâmbios, preparação universitária.", img: "/assets/global-familia.jpg", pos: "50% 15%" },
-  { n: "06", t: "Cosmovisão Cristã Integrada", d: "A internacionalização fortalece a missão da escola. Nunca a substitui.", img: "/assets/banco-4.jpg", pos: "50% 20%" },
-  { n: "07", t: "Melhoria Contínua", d: "Indicadores, auditorias, benchmarking, ciclos anuais de melhoria.", img: "/assets/banco-3.jpg", pos: "50% 50%" },
+  { n: "06", t: "Cosmovisão Cristã Integrada", d: "A internacionalização fortalece a missão da escola ou da família. Nunca a substitui.", img: "/assets/banco-4.jpg", pos: "50% 20%" },
+  { n: "07", t: "Melhoria Contínua", d: "Indicadores, acompanhamento, benchmarking, ciclos anuais de melhoria.", img: "/assets/banco-3.jpg", pos: "50% 50%" },
 ];
 
 const FASES = [
-  { n: "01", t: "Diagnosticar", d: "Onde a escola está hoje: currículo, equipe, liderança e cultura." },
-  { n: "02", t: "Planejar", d: "Metas, prazos e prioridades traduzidos em um plano institucional." },
+  { n: "01", t: "Diagnosticar", d: "Onde a escola ou a família está hoje: currículo, equipe ou rotina, liderança e cultura." },
+  { n: "02", t: "Planejar", d: "Metas, prazos e prioridades traduzidos em um plano institucional ou familiar." },
   { n: "03", t: "Transformar", d: "Implementação guiada dos 7 pilares, com acompanhamento direto." },
   { n: "04", t: "Consolidar", d: "A mudança vira rotina, não mais projeto pontual." },
   { n: "05", t: "Multiplicar", d: "A cultura de excelência sustenta novos ciclos, sem depender de nós." },
@@ -81,7 +81,7 @@ export default function QuemSomosPage() {
           <span className="eyebrow" style={{ color: "var(--red)" }}>O método próprio</span>
           <h2 style={{ margin: "10px 0 12px", fontSize: 28, fontWeight: 800 }}>Promise Excellence Framework™</h2>
           <p style={{ margin: "0 auto", fontSize: 15, color: "var(--ink-soft)", maxWidth: 620, lineHeight: 1.6, textAlign: "justify" }}>
-            Não implantamos só programas internacionais. Desenvolvemos escolas capazes de sustentar uma cultura permanente de excelência, através de 7 pilares.
+            Não implantamos só programas internacionais. Desenvolvemos escolas e famílias homeschooling capazes de sustentar uma cultura permanente de excelência, através de 7 pilares.
           </p>
         </div>
       </section>
@@ -130,7 +130,7 @@ export default function QuemSomosPage() {
       <section style={{ padding: "76px 40px", background: "var(--ink)" }}>
         <div className="container reveal" style={{ textAlign: "center", marginBottom: 48 }}>
           <span className="eyebrow" style={{ color: "#9DB0F0" }}>A jornada</span>
-          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800, color: "#fff" }}>Cinco fases, do diagnóstico à autonomia da escola</h2>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800, color: "#fff" }}>Cinco fases, do diagnóstico à autonomia da escola ou da família</h2>
         </div>
         <div className="container" style={{ maxWidth: 1100, position: "relative" }}>
           <div className="connector-line" style={{ position: "absolute", top: 26, left: "10%", right: "10%", height: 2, background: "rgba(255,255,255,.15)" }} />

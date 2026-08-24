@@ -58,7 +58,7 @@ export default function GlobalPage() {
             <Image src="/assets/global-familia.jpg" alt="Família recebendo estudante de intercâmbio" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
           </div>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>
-            A Promise Global não funciona sozinha. Ela é a camada que amplia o que as outras 3 frentes já constroem: uma escola atendida pela <strong style={{ color: "#fff" }}>Schools</strong> pode oferecer aos alunos os programas de <strong style={{ color: "#fff" }}>Learners</strong>, desenvolver a equipe pela <strong style={{ color: "#fff" }}>Professionals</strong>, e ampliar tudo isso internacionalmente pela <strong style={{ color: "#fff" }}>Global</strong>.
+            A Promise Global não funciona sozinha. Ela é a camada que amplia o que as outras 3 frentes já constroem: uma escola atendida pela <strong style={{ color: "#fff" }}>Schools</strong> ou uma família em regime de homeschooling pode contar com os programas de <strong style={{ color: "#fff" }}>Learners</strong>, desenvolver sua equipe ou seus educadores pela <strong style={{ color: "#fff" }}>Professionals</strong>, e ampliar tudo isso internacionalmente pela <strong style={{ color: "#fff" }}>Global</strong>.
           </p>
         </div>
       </section>
