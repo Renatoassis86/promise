@@ -63,13 +63,18 @@ ALTER TABLE public.contatos_gerais ENABLE ROW LEVEL SECURITY;
 -- Insercao publica permitida (formularios do site), leitura restrita a autenticados.
 -- Nota: a API usa a service_role key (bypassa RLS) para leitura administrativa futura,
 -- entao as policies de SELECT abaixo valem se algum dia existir um /admin com login real.
+-- DROP + CREATE (em vez de so CREATE) para o script inteiro poder ser rodado de novo
+-- sem erro de "policy already exists", caso voce ja tenha rodado uma versao anterior.
+DROP POLICY IF EXISTS "Permitir envio publico de pre-matricula" ON public.pre_matriculas;
 CREATE POLICY "Permitir envio publico de pre-matricula" ON public.pre_matriculas
   FOR INSERT TO anon, authenticated WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Permitir envio publico de contato geral" ON public.contatos_gerais;
 CREATE POLICY "Permitir envio publico de contato geral" ON public.contatos_gerais
   FOR INSERT TO anon, authenticated WITH CHECK (true);
 
 -- Usuario logado (Supabase Auth) pode ler apenas as pre-matriculas com o proprio e-mail,
 -- usado pela area logada em /minha-area.
+DROP POLICY IF EXISTS "Usuario le sua propria pre-matricula" ON public.pre_matriculas;
 CREATE POLICY "Usuario le sua propria pre-matricula" ON public.pre_matriculas
   FOR SELECT TO authenticated USING (email = (auth.jwt() ->> 'email'));
