@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PhotoDecor from "@/components/PhotoDecor";
 import HeroPhoto from "@/components/HeroPhoto";
 import MatriculaForm from "@/components/MatriculaForm";
+import SectionDivider from "@/components/SectionDivider";
 
 const PILARES = [
   { t: "Metodologia", d: "Aulas síncronas com progresso acompanhado turma a turma." },
@@ -134,6 +135,8 @@ export default function LearnersPage() {
           })()}
         </div>
       </section>
+
+      <SectionDivider background="var(--tint)" />
 
       {/* ONDE VOCE QUER CHEGAR - triagem por objetivo */}
       <section className="section-pad" style={{ padding: "56px 40px", background: "var(--tint)" }}>

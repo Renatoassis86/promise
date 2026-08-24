@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroPhoto from "@/components/HeroPhoto";
 import MatriculaForm from "@/components/MatriculaForm";
+import SectionDivider from "@/components/SectionDivider";
 
 const SERVICOS = [
   { label: "Formação Continuada", img: "/assets/prof-servico-formacao-continuada.jpg", pos: "50% 38%" },
@@ -54,6 +55,8 @@ export default function ProfessionalsPage() {
           ))}
         </div>
       </section>
+
+      <SectionDivider icon="orange" />
 
       {/* CATALOGO OFICIAL DE SERVICOS */}
       <section style={{ padding: "60px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
