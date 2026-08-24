@@ -10,9 +10,10 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://promiseenglish.com"),
   title: "Promise English | Internacionalização Educacional",
   description:
-    "Consultoria, formação de professores, certificações internacionais e cursos de inglês para escolas, famílias e educadores cristãos.",
+    "Consultoria, formação de professores, certificações internacionais e cursos de inglês para escolas, famílias homeschooling e educadores cristãos.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

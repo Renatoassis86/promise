@@ -30,11 +30,11 @@ export default function Home() {
       >
         <div className="container" style={{ maxWidth: 780, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 22 }}>
           <span className="eyebrow" style={{ color: "#9DB0F0" }}>Internacionalização educacional</span>
-          <h1 style={{ margin: 0, fontSize: 44, lineHeight: 1.16, fontWeight: 900, color: "#fff" }}>
-            Estruturamos a internacionalização de escolas cristãs, formamos professores e preparamos alunos para certificações internacionais.
+          <h1 className="fluid-h1" style={{ margin: 0, fontSize: 44, lineHeight: 1.16, fontWeight: 900, color: "#fff" }}>
+            Estruturamos a internacionalização de escolas cristãs e famílias homeschooling, formamos professores e preparamos alunos para certificações internacionais.
           </h1>
-          <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#DCE0EE", maxWidth: 620 }}>
-            Consultoria, currículo, formação docente, certificações Cambridge e Trinity, programas de High School americano e intercâmbio, organizados sob a mesma cosmovisão cristã que já orienta sua escola ou sua família.
+          <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#DCE0EE", maxWidth: 620, textAlign: "justify" }}>
+            Consultoria, currículo, formação docente, certificações Cambridge e Trinity, programas de High School americano e intercâmbio, organizados sob a mesma cosmovisão cristã que já orienta sua escola, seu homeschooling ou sua família.
           </p>
           <div style={{ display: "flex", gap: 14, marginTop: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Falar com a Promise</a>
@@ -49,7 +49,7 @@ export default function Home() {
           <h2 style={{ margin: "0 0 32px", fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-soft)", textAlign: "center" }}>
             Qual dessas frentes é a sua?
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
+          <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
             {[
               { href: "/schools", photo: "/assets/card-schools.jpg", pos: "50% 35%", title: "Sou uma escola", text: "Diagnóstico direto com o fundador antes de qualquer proposta de implementação de programa internacional.", cta: "Ver Promise for Schools" },
               { href: "/learners", photo: "/assets/card-learners.jpg", pos: "50% 20%", title: "Sou aluno ou responsável", text: "Inglês, certificações Cambridge e Trinity, High School americano e experiências internacionais, com acompanhamento direto.", cta: "Ver Promise for Learners" },
@@ -61,7 +61,7 @@ export default function Home() {
                 </div>
                 <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ fontSize: 19, fontWeight: 700 }}>{c.title}</div>
-                  <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: "var(--ink-soft)" }}>{c.text}</p>
+                  <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.text}</p>
                   <Link href={c.href} style={{ fontWeight: 700, fontSize: 14, color: "var(--red)" }}>{c.cta} &rarr;</Link>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16, flex: 1, minWidth: 280 }}>
             <span className="eyebrow" style={{ color: "#9DB0F0" }}>Quem estrutura os seus programas</span>
             <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff" }}>Calebe Braga</h2>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5" }}>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
               Coordena departamentos de línguas e atua como Centre Exams Manager em centro autorizado Cambridge há mais de 14 anos. É examinador Cambridge English e autor das coleções Paideia, Oikos e To the Nations.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
@@ -92,7 +92,7 @@ export default function Home() {
 
       {/* 4 FRENTES PREVIEW */}
       <section style={{ padding: "80px 40px", background: "var(--ink)" }}>
-        <div className="container" style={{ padding: 0, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 32 }}>
+        <div className="container grid-tablet-2 grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 32 }}>
           {[
             { label: "PROMISE FOR SCHOOLS", text: "Diagnóstico direto com o fundador antes de qualquer proposta de implementação." },
             { label: "PROMISE FOR LEARNERS", text: "Preparação para certificações Cambridge e Trinity com o mesmo profissional que atua como examinador dessas bancas." },
@@ -101,7 +101,7 @@ export default function Home() {
           ].map((f, i) => (
             <div key={f.label} className={`reveal reveal-delay-${i + 1}`} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em" }}>{f.label}</div>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#B8BCC8" }}>{f.text}</p>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#B8BCC8", textAlign: "justify" }}>{f.text}</p>
             </div>
           ))}
         </div>
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="container reveal" style={{ padding: 0, maxWidth: 720, display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textAlign: "center" }}>
           <span className="eyebrow" style={{ color: "var(--blue)" }}>Ainda com dúvidas?</span>
           <h2 style={{ margin: "6px 0 8px", fontSize: 26, fontWeight: 800 }}>Fale com a gente</h2>
-          <p style={{ margin: "0 0 28px", fontSize: 15, color: "var(--ink-soft)", maxWidth: 480 }}>
+          <p style={{ margin: "0 0 28px", fontSize: 15, color: "var(--ink-soft)", maxWidth: 480, textAlign: "justify" }}>
             Se você ainda não sabe qual das frentes é a sua, ou quer entender melhor um projeto específico antes de decidir, preencha abaixo para um atendimento personalizado.
           </p>
           <div style={{ width: "100%", maxWidth: 520, background: "#fff", border: "1px solid var(--line)", borderRadius: 18, padding: 36 }}>
@@ -125,7 +125,7 @@ export default function Home() {
       <section style={{ background: "var(--blue-dark)", padding: "80px 40px" }}>
         <div className="container reveal" style={{ padding: 0, maxWidth: 700, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
           <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff", lineHeight: 1.35 }}>
-            Excelência acadêmica e formação cristã caminham juntas: é assim que a Promise estrutura a internacionalização da sua escola, da sua família ou da sua carreira.
+            Excelência acadêmica e formação cristã caminham juntas: é assim que a Promise estrutura a internacionalização da sua escola, do seu homeschooling ou da sua carreira.
           </h2>
           <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red" style={{ fontSize: 15.5, padding: "15px 30px" }}>
             Falar com a Promise no WhatsApp

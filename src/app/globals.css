@@ -1,6 +1,7 @@
 :root {
   --red: #FA1F15;
   --red-dark: #C81811;
+  --orange: #FF7A00;
   --blue: #1836B2;
   --blue-dark: #0E1A50;
   --bg: #FBFBFB;
@@ -160,5 +161,108 @@ a:hover {
 @media (max-width: 720px) {
   .container {
     padding: 0 20px;
+  }
+}
+
+/* ==============================================================
+   RESPONSIVO - sistema global de breakpoints
+   Aplicado via className junto com o style inline (que define o
+   layout desktop). As regras aqui usam !important de propósito:
+   é a única forma de uma classe vencer um style inline em CSS.
+   ============================================================== */
+
+/* Grades: aplique junto de qualquer grid inline, independente de
+   quantas colunas ele tenha. Em telas medias vira 2 colunas (se
+   tiver 3+), em telas pequenas vira 1 coluna sempre. */
+@media (max-width: 860px) {
+  .grid-tablet-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 640px) {
+  .grid-mobile-1 {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-mobile-1 > * {
+    min-width: 0 !important;
+  }
+}
+
+/* Flex: linhas que devem empilhar em coluna no mobile */
+@media (max-width: 640px) {
+  .flex-mobile-col {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .flex-mobile-col-center {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+/* Tipografia fluida para titulos grandes */
+@media (max-width: 640px) {
+  .fluid-h1 {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.2 !important;
+  }
+  .fluid-h2 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+  }
+}
+
+/* Clusters de fotos com posicionamento absoluto (livros, high school,
+   homeschooling etc): no mobile, reduz a escala do conjunto inteiro
+   para caber na largura da coluna, e diminui a altura reservada. */
+@media (max-width: 640px) {
+  .photo-cluster {
+    transform: scale(0.72);
+    transform-origin: top center;
+    margin-bottom: -25% !important;
+  }
+  .photo-cluster-tall {
+    height: 260px !important;
+  }
+}
+
+/* Padding de secao: reduz o respiro vertical/horizontal no mobile */
+@media (max-width: 640px) {
+  .section-pad {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* Hero com foto: no mobile sempre alinhado a esquerda, mesmo quando
+   a versao desktop usa scrimSide="right" */
+@media (max-width: 640px) {
+  .hero-photo-inner {
+    justify-content: flex-start !important;
+  }
+  .hero-photo-text {
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+  .hero-photo-ctas {
+    justify-content: flex-start !important;
+  }
+}
+
+/* Esconde/mostra conforme o breakpoint (usado no menu mobile) */
+.mobile-only {
+  display: none;
+}
+@media (max-width: 860px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex;
+  }
+  /* linhas conectoras de fluxo/timeline so fazem sentido em 1 fileira */
+  .connector-line {
+    display: none !important;
   }
 }

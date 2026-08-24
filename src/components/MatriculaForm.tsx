@@ -91,7 +91,7 @@ export default function MatriculaForm({ tipo }: { tipo: Tipo }) {
       <p style={{ margin: "0 0 28px", fontSize: 14.5, color: "var(--ink-soft)" }}>{titles.sub}</p>
 
       <form onSubmit={handleSubmit}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 18 }}>
+        <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 18 }}>
           {config.map((f) => (
             <div key={f.key} className="field" style={f.type === "select" && config.length % 2 !== 0 ? {} : {}}>
               <label>{f.label}</label>

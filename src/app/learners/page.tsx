@@ -34,9 +34,12 @@ export default function LearnersPage() {
       <section style={{ padding: "56px 40px", background: "#fff" }}>
         <div className="container reveal" style={{ display: "flex", gap: 40, alignItems: "center", justifyContent: "center", flexWrap: "wrap" }}>
           <PhotoDecor src="/assets/learners-hero-cutout.png" alt="Aluna Promise estudando" height={300} theme="travel" />
-          <div style={{ maxWidth: 380 }}>
+          <div style={{ maxWidth: 440 }}>
             <span className="eyebrow" style={{ color: "var(--red)" }}>Quem estuda aqui</span>
-            <h2 style={{ margin: "10px 0 0", fontSize: 22, fontWeight: 800, lineHeight: 1.35 }}>Alunos reais, preparando uma trajetória internacional real.</h2>
+            <h2 style={{ margin: "10px 0 12px", fontSize: 22, fontWeight: 800, lineHeight: 1.35 }}>Alunos reais, preparando uma trajetória internacional real.</h2>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Atendemos famílias homeschooling e também alunos de qualquer escola que queiram estudar em contraturno para conquistar certificações internacionais com acesso a universidades americanas.
+            </p>
           </div>
         </div>
       </section>
@@ -45,7 +48,7 @@ export default function LearnersPage() {
       <section style={{ padding: "64px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Por que estudar inglês na Promise</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
+          <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
             {PILARES.map((p, i) => (
               <div key={p.t} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ display: "flex", flexDirection: "column", gap: 8, textAlign: "center" }}>
                 <div style={{ fontSize: 13.5, fontWeight: 700, color: "var(--blue)" }}>{p.t}</div>
@@ -61,12 +64,12 @@ export default function LearnersPage() {
         <div className="container" style={{ maxWidth: 1000 }}>
           <span className="eyebrow" style={{ color: "#8EA0E8" }}>Modalidades</span>
           <h2 style={{ margin: "12px 0 36px", fontSize: 26, fontWeight: 800, color: "#fff" }}>Duas modalidades para encaixar na sua rotina</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 4, borderRadius: 18, overflow: "hidden" }}>
+          <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 4, borderRadius: 18, overflow: "hidden" }}>
             <div className="reveal reveal-delay-1" style={{ position: "relative", height: 260 }}>
               <div style={{ position: "absolute", inset: 0, background: "var(--blue)" }} />
               <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 30, display: "flex", flexDirection: "column", justifyContent: "center", color: "#fff" }}>
                 <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 10 }}>Turmas</div>
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#D6DCF5" }}>Turmas em diversos níveis e horários, ambiente motivador e preço mais acessível pelo formato coletivo.</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#D6DCF5", textAlign: "justify" }}>Turmas em diversos níveis e horários, ambiente motivador e preço mais acessível pelo formato coletivo.</p>
               </div>
             </div>
             <div className="reveal reveal-delay-2" style={{ position: "relative", height: 260 }}>
@@ -81,34 +84,107 @@ export default function LearnersPage() {
               <div style={{ position: "absolute", inset: 0, background: "var(--red)" }} />
               <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 30, display: "flex", flexDirection: "column", justifyContent: "center", color: "#fff" }}>
                 <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 10 }}>Particular</div>
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#FFE1DF" }}>Atendimento individual para objetivos específicos: provas, entrevistas, viagem, certificação em prazo definido.</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#FFE1DF", textAlign: "justify" }}>Atendimento individual para objetivos específicos: provas, entrevistas, viagem, certificação em prazo definido.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CERTIFICACOES + HIGH SCHOOL - com foto contextual */}
+      {/* CERTIFICACOES CAMBRIDGE/TRINITY */}
       <section style={{ padding: "72px 40px" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 32 }}>
-          <div className="card reveal reveal-delay-1">
+        <div className="container">
+          <div className="card reveal" style={{ maxWidth: 640, margin: "0 auto" }}>
             <div style={{ position: "relative", height: 260 }}>
               <Image src="/assets/professionals-authority.jpg" alt="Certificação internacional entregue" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
             </div>
             <div style={{ padding: 28 }}>
               <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>Certificações internacionais</div>
               <h3 style={{ margin: "0 0 10px", fontSize: 19, fontWeight: 800 }}>Preparação Cambridge e Trinity</h3>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)" }}>Conduzida pelo mesmo profissional que atua como examinador Cambridge English: orientação direta de quem aplica a prova.</p>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Conduzida pelo mesmo profissional que atua como examinador Cambridge English: orientação direta de quem aplica a prova.</p>
             </div>
           </div>
-          <div className="card reveal reveal-delay-2">
-            <div style={{ position: "relative", height: 260 }}>
-              <Image src="/assets/global-familia.jpg" alt="Família recebendo estudante de intercâmbio" fill style={{ objectFit: "cover", objectPosition: "50% 22%" }} />
+        </div>
+      </section>
+
+      {/* HOMESCHOOLING - secao dedicada, composicao modular sobreposta */}
+      <section style={{ padding: "84px 40px", background: "var(--tint)", position: "relative", overflow: "hidden" }}>
+        <div className="blob" style={{ bottom: -100, right: -100, width: 360, height: 360, background: "var(--blue)", opacity: 0.08 }} />
+        <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center", position: "relative", zIndex: 1 }}>
+          <div style={{ position: "relative", height: 380 }}>
+            <div style={{ position: "absolute", top: 0, right: 0, width: "72%", height: "68%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(24,27,34,.18)" }}>
+              <Image src="/assets/homeschool-pai-mae.jpg" alt="Mãe ajudando filho a estudar inglês em casa" fill style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
             </div>
-            <div style={{ padding: 28 }}>
-              <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>High School &amp; Intercâmbio</div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 19, fontWeight: 800 }}>Programas internacionais</h3>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)" }}>Orientação para High School americano e experiências internacionais. <em>Parceiro/instituição credenciadora a confirmar com a Promise</em>.</p>
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: "56%", height: "48%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(24,27,34,.18)" }}>
+              <Image src="/assets/homeschool-familia-oracao.jpg" alt="Família reunida em estudo e oração em casa" fill style={{ objectFit: "cover", objectPosition: "50% 35%" }} />
+            </div>
+          </div>
+          <div>
+            <span className="eyebrow" style={{ color: "var(--blue)" }}>Homeschooling</span>
+            <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, lineHeight: 1.25 }}>
+              Inglês construído para caber na rotina de quem já educa em casa.
+            </h2>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              A Promise atende diretamente famílias homeschooling: horário definido junto com a família, acompanhamento individual e progresso real, não uma turma genérica de curso online.
+            </p>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700, textAlign: "justify" }}>
+              O aluno aprende no ritmo que a família já pratica, com a mesma exigência pedagógica de qualquer outra trajetória Promise, incluindo o caminho para certificações internacionais e para o High School americano.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
+              {[
+                "Aulas individuais ou em grupo pequeno, no ritmo da família",
+                "Horário combinado diretamente com a família, sem turma fixa",
+                "Acompanhamento direto do progresso, etapa por etapa",
+                "Preparação para certificações internacionais e para o High School americano",
+              ].map((item) => (
+                <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ fontSize: 14.5, lineHeight: 1.55, color: "var(--ink)" }}>{item}</span>
+                </div>
+              ))}
+            </div>
+            <a href="#matricula" className="pill pill-outline-blue">Falar sobre inglês no homeschooling</a>
+          </div>
+        </div>
+      </section>
+
+      {/* HIGH SCHOOL AMERICANO - secao dedicada, com destaque proprio */}
+      <section style={{ padding: "80px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
+        <div className="blob" style={{ top: -100, right: -120, width: 400, height: 400, background: "var(--red)", opacity: 0.08 }} />
+        <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center", position: "relative", zIndex: 1 }}>
+          <div>
+            <span className="eyebrow" style={{ color: "#8EA0E8" }}>High School Americano</span>
+            <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, color: "#fff", lineHeight: 1.25 }}>
+              Aluno do Ensino Médio certificado pela Promise para estudar em qualquer universidade americana.
+            </h2>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>
+              Programa em contraturno para alunos de qualquer escola, não só das parceiras da Promise. O aluno mantém a rotina escolar normal e soma, em paralelo, uma certificação de High School reconhecida internacionalmente.
+            </p>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "#fff", fontWeight: 700, textAlign: "justify" }}>
+              É essa certificação, obtida durante o Ensino Médio, que abre a porta de entrada: com ela, o aluno sai habilitado para se candidatar a qualquer universidade nos Estados Unidos, não apenas a uma lista restrita de instituições parceiras.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
+              {[
+                "Contraturno: encaixa na rotina escolar do aluno, sem precisar trocar de escola",
+                "Certificação internacional reconhecida por universidades nos Estados Unidos",
+                "Acesso a qualquer universidade americana, não só a uma lista fechada de parceiras",
+                "Acompanhamento pedagógico contínuo, com preparação para o processo de admissão universitária",
+                "Aberto a alunos de qualquer escola, com ou sem convênio com a Promise",
+              ].map((item) => (
+                <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--red)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ fontSize: 14.5, lineHeight: 1.55, color: "#fff" }}>{item}</span>
+                </div>
+              ))}
+            </div>
+            <a href="#matricula" className="pill pill-red">Quero saber mais sobre o High School</a>
+          </div>
+          <div style={{ position: "relative", height: 420 }}>
+            <div style={{ position: "absolute", top: 0, right: 0, width: "78%", height: "62%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(0,0,0,.3)" }}>
+              <Image src="/assets/schools-curricular.jpg" alt="Alunos em atividade de currículo internacional" fill style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+            </div>
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: "62%", height: "48%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(0,0,0,.3)" }}>
+              <Image src="/assets/global-familia.jpg" alt="Família recebendo estudante de intercâmbio" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
             </div>
           </div>
         </div>
@@ -116,27 +192,15 @@ export default function LearnersPage() {
 
       {/* BOLSA DE ESTUDOS - com foto contextual (pendente: ver prompt "Bolsa de Estudos" na lista) */}
       <section style={{ padding: "56px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-        <div className="container reveal" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 36, alignItems: "center" }}>
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 36, alignItems: "center" }}>
           <div style={{ position: "relative", height: 160, borderRadius: 14, overflow: "hidden" }}>
             <Image src="/assets/bolsa-estudos.jpg" alt="Aluna bolsista estudando em casa" fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
           </div>
           <div>
             <span className="eyebrow" style={{ color: "var(--blue)" }}>Investimento missionário</span>
             <h2 style={{ margin: "8px 0 8px", fontSize: 21, fontWeight: 800 }}>Bolsa de estudos</h2>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)" }}>Parte do investimento das turmas sustenta bolsas para alunos que não teriam acesso ao ensino de inglês de outra forma.</p>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Parte do investimento das turmas sustenta bolsas para alunos que não teriam acesso ao ensino de inglês de outra forma.</p>
           </div>
-        </div>
-      </section>
-
-      {/* TESTEMUNHO REAL */}
-      <section style={{ padding: "72px 40px", background: "var(--tint)" }}>
-        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-          <svg width="30" height="23" viewBox="0 0 24 18" fill="var(--blue)"><path d="M0 18V9.5C0 4.3 3.8.4 9 0v3.6C6 4 4 6.3 4 9h5v9H0zm11 0V9.5C11 4.3 14.8.4 20 0v3.6c-3 .4-5 2.7-5 5.4h5v9H11z" /></svg>
-          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.65 }}>
-            &ldquo;Voltar a estudar inglês tem sido muito bom! As aulas na Promise são pontuais, dinâmicas e seguem um bom nível, de acordo com o desenvolvimento da turma. O professor é ótimo, super paciente e solícito nas dúvidas. A metodologia é muito boa — a fidelidade da turma se mantém porque a aula é boa e a gente aprende.&rdquo;
-          </p>
-          <div style={{ fontSize: 13.5, fontWeight: 700 }}>Emanuela Monteiro</div>
-          <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>Aluna Promise</div>
         </div>
       </section>
 

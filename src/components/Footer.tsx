@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer style={{ borderTop: "1px solid var(--line)", background: "#fff", padding: "56px 40px 28px" }}>
       <div
-        className="container"
+        className="container grid-tablet-2 grid-mobile-1"
         style={{
           display: "grid",
           gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
@@ -47,15 +47,18 @@ export default function Footer() {
       <div className="container" style={{ paddingTop: 22, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
         <div style={{ fontSize: 12, color: "var(--ink-soft)" }}>© {new Date().getFullYear()} Promise English. Todos os direitos reservados.</div>
         <div style={{ display: "flex", gap: 10 }}>
-          <a href="mailto:calebe@promiseenglish.com" title="E-mail" style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--ink-soft)" }}>
+          <a href="mailto:calebe@promiseenglish.com" title="E-mail" style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)" }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
           </a>
-          <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" title="WhatsApp" style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--ink-soft)" }}>
+          <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" title="WhatsApp" style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)" }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
           </a>
-          <span title="Instagram: perfil a confirmar com a Promise" style={{ width: 36, height: 36, borderRadius: 8, border: "1px dashed var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "#C4C8D4" }}>
+          <a href="https://www.instagram.com/promise.english" target="_blank" rel="noreferrer" title="Instagram" style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)" }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
-          </span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=jIPAD8Ny6Mw" target="_blank" rel="noreferrer" title="YouTube" style={{ width: 36, height: 36, borderRadius: 8, border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)" }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.9 3.7 12 3.7 12 3.7s-6.9 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.6.5 8.5.5 8.5.5s6.9 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8z" /><polygon points="9.8 15.5 15.8 12 9.8 8.5" fill="currentColor" stroke="none" /></svg>
+          </a>
         </div>
       </div>
 
