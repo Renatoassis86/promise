@@ -16,19 +16,27 @@ CREATE TABLE IF NOT EXISTS public.pre_matriculas (
     tipo VARCHAR(20) NOT NULL, -- 'schools' | 'learners' | 'professionals'
 
     nome VARCHAR(255) NOT NULL,
-    cargo VARCHAR(150),
-    empresa VARCHAR(255),   -- nome da escola (so schools)
-    cidade VARCHAR(150),    -- so schools
+    cargo VARCHAR(150),          -- schools: cargo do responsavel | professionals: funcao atual
+    empresa VARCHAR(255),        -- nome da escola (so schools)
+    cidade VARCHAR(150),         -- so schools
     email VARCHAR(255) NOT NULL,
     whatsapp VARCHAR(50) NOT NULL,
 
-    modalidade VARCHAR(100),     -- so learners
-    objetivo VARCHAR(150),       -- so learners
-    certificacao VARCHAR(100)    -- so professionals
+    idade VARCHAR(10),               -- so learners
+    modalidade VARCHAR(100),         -- so learners
+    objetivo VARCHAR(150),           -- schools: principal desafio | learners/professionals: principal objetivo
+    certificacao VARCHAR(100),       -- legado, nao usado pelos formularios atuais
+    tempo_experiencia VARCHAR(50),   -- so professionals
+    mensagem TEXT                    -- texto livre, todos os tipos
 );
 
 CREATE INDEX IF NOT EXISTS idx_pre_matriculas_tipo ON public.pre_matriculas (tipo);
 CREATE INDEX IF NOT EXISTS idx_pre_matriculas_created_at ON public.pre_matriculas (created_at DESC);
+
+-- Idempotente: garante as colunas novas mesmo se a tabela ja existia de uma execucao anterior.
+ALTER TABLE public.pre_matriculas ADD COLUMN IF NOT EXISTS idade VARCHAR(10);
+ALTER TABLE public.pre_matriculas ADD COLUMN IF NOT EXISTS tempo_experiencia VARCHAR(50);
+ALTER TABLE public.pre_matriculas ADD COLUMN IF NOT EXISTS mensagem TEXT;
 
 -- ==============================================================================
 -- TABELA 2: CONTATOS GERAIS (formulario da Home — duvida geral / atendimento personalizado)

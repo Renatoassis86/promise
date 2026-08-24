@@ -25,9 +25,11 @@ export async function POST(req: Request) {
       cidade: String(rest.cidade || "").trim(),
       email: String(rest.email || "").trim(),
       whatsapp: String(rest.whatsapp || "").trim(),
+      idade: String(rest.idade || "").trim(),
       modalidade: String(rest.modalidade || "").trim(),
       objetivo: String(rest.objetivo || "").trim(),
-      certificacao: String(rest.certificacao || "").trim(),
+      tempo_experiencia: String(rest.tempo_experiencia || "").trim(),
+      mensagem: String(rest.mensagem || "").trim(),
       status: "novo",
     };
 

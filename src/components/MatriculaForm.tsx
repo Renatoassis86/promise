@@ -3,30 +3,57 @@
 import { useState } from "react";
 
 type Tipo = "schools" | "learners" | "professionals";
+type FieldType = "select" | "textarea" | "number";
 
-const FIELDS: Record<Tipo, { key: string; label: string; placeholder?: string; type?: "select"; options?: string[] }[]> = {
+const FIELDS: Record<Tipo, { key: string; label: string; placeholder?: string; type?: FieldType; options?: string[]; full?: boolean; required?: boolean }[]> = {
   schools: [
-    { key: "nome", label: "Nome do responsável", placeholder: "Seu nome completo" },
-    { key: "cargo", label: "Cargo", placeholder: "Diretor, coordenador..." },
-    { key: "empresa", label: "Nome da escola", placeholder: "Nome da instituição" },
+    { key: "nome", label: "Nome do responsável", placeholder: "Seu nome completo", required: true },
+    { key: "cargo", label: "Cargo", placeholder: "Diretor(a), coordenador(a)..." },
+    { key: "empresa", label: "Nome da escola", placeholder: "Nome da instituição", required: true },
     { key: "cidade", label: "Cidade / UF", placeholder: "João Pessoa - PB" },
-    { key: "email", label: "E-mail", placeholder: "voce@escola.com.br" },
-    { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000" },
+    { key: "email", label: "E-mail institucional", placeholder: "voce@escola.com.br", required: true },
+    { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000", required: true },
+    {
+      key: "objetivo",
+      label: "Principal desafio da sua escola hoje?",
+      type: "select",
+      full: true,
+      required: true,
+      options: ["Implementação do inglês", "Formação de professores", "Currículo", "Avaliação", "Certificações internacionais", "Internacionalização", "Gestão do departamento", "Outro"],
+    },
+    { key: "mensagem", label: "Conte brevemente sobre o momento da escola", type: "textarea", full: true, placeholder: "Quais objetivos, desafios ou mudanças vocês estão considerando?" },
   ],
   learners: [
-    { key: "nome", label: "Nome do aluno", placeholder: "Nome completo" },
+    { key: "nome", label: "Nome do aluno", placeholder: "Nome completo", required: true },
+    { key: "idade", label: "Idade", type: "number", placeholder: "Idade", required: true },
     { key: "cargo", label: "Nome do responsável (se menor de idade)", placeholder: "Opcional" },
-    { key: "email", label: "E-mail", placeholder: "voce@email.com" },
-    { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000" },
-    { key: "modalidade", label: "Modalidade de interesse", type: "select", options: ["Turmas", "Particular", "Ainda não sei"] },
-    { key: "objetivo", label: "Objetivo principal", type: "select", options: ["Inglês geral", "Certificação internacional", "American School", "Intercâmbio"] },
+    { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000", required: true },
+    { key: "email", label: "E-mail", placeholder: "voce@email.com", full: true, required: true },
+    {
+      key: "objetivo",
+      label: "Qual é o objetivo principal?",
+      type: "select",
+      full: true,
+      required: true,
+      options: ["Aprender inglês", "Preparar para Cambridge", "Programa para homeschool", "American School", "Planejar estudos no exterior", "Viagem, intercâmbio ou experiência internacional", "Ainda não sei — quero orientação"],
+    },
+    { key: "mensagem", label: "Conte um pouco sobre o estudante", type: "textarea", full: true, placeholder: "Nível atual de inglês, objetivos, escola, planos internacionais etc." },
   ],
   professionals: [
-    { key: "nome", label: "Nome completo", placeholder: "Seu nome" },
-    { key: "cargo", label: "Cargo / função atual", placeholder: "Professor, coordenador..." },
-    { key: "email", label: "E-mail", placeholder: "voce@email.com" },
-    { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000" },
-    { key: "certificacao", label: "Certificação de interesse", type: "select", options: ["TKT", "CELTA", "DELTA", "Ainda não sei, quero orientação"] },
+    { key: "nome", label: "Nome completo", placeholder: "Seu nome", required: true },
+    { key: "cargo", label: "Cargo / função atual", type: "select", required: true, options: ["Professor", "Coordenador", "Líder educacional", "Gestor escolar", "Outro"] },
+    { key: "email", label: "E-mail", placeholder: "voce@email.com", required: true },
+    { key: "whatsapp", label: "WhatsApp", placeholder: "(00) 00000-0000", required: true },
+    { key: "tempo_experiencia", label: "Tempo de experiência", type: "select", options: ["Estou começando", "1–3 anos", "4–7 anos", "8–14 anos", "15+ anos"] },
+    {
+      key: "objetivo",
+      label: "Principal objetivo",
+      type: "select",
+      full: true,
+      required: true,
+      options: ["Formação continuada", "Workshop", "Curso livre", "Mentoria", "Preparação TKT", "Preparação CELTA", "Preparação DELTA", "Formação para coordenadores", "Desenvolvimento de liderança", "Consultoria para gestor escolar", "Desenvolvimento institucional", "Ainda não sei — quero orientação"],
+    },
+    { key: "mensagem", label: "Conte um pouco sobre seu objetivo", type: "textarea", full: true, placeholder: "Qual é seu momento profissional? O que você gostaria de desenvolver?" },
   ],
 };
 
@@ -93,21 +120,32 @@ export default function MatriculaForm({ tipo }: { tipo: Tipo }) {
       <form onSubmit={handleSubmit}>
         <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 18 }}>
           {config.map((f) => (
-            <div key={f.key} className="field" style={f.type === "select" && config.length % 2 !== 0 ? {} : {}}>
+            <div key={f.key} className="field" style={f.full ? { gridColumn: "1 / -1" } : {}}>
               <label>{f.label}</label>
               {f.type === "select" ? (
-                <select value={values[f.key] ?? ""} onChange={(e) => setValues({ ...values, [f.key]: e.target.value })}>
+                <select value={values[f.key] ?? ""} onChange={(e) => setValues({ ...values, [f.key]: e.target.value })} required={f.required}>
                   <option value="" disabled>Selecione</option>
                   {f.options?.map((opt) => (
                     <option key={opt} value={opt}>{opt}</option>
                   ))}
                 </select>
-              ) : (
-                <input
+              ) : f.type === "textarea" ? (
+                <textarea
+                  rows={3}
                   value={values[f.key] ?? ""}
                   onChange={(e) => setValues({ ...values, [f.key]: e.target.value })}
                   placeholder={f.placeholder}
-                  required={f.key === "nome" || f.key === "email" || f.key === "whatsapp"}
+                  required={f.required}
+                />
+              ) : (
+                <input
+                  type={f.type === "number" ? "number" : f.key === "email" ? "email" : "text"}
+                  min={f.type === "number" ? 2 : undefined}
+                  max={f.type === "number" ? 80 : undefined}
+                  value={values[f.key] ?? ""}
+                  onChange={(e) => setValues({ ...values, [f.key]: e.target.value })}
+                  placeholder={f.placeholder}
+                  required={f.required}
                 />
               )}
             </div>
