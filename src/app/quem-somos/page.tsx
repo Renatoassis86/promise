@@ -1,7 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PhotoCard from "@/components/PhotoCard";
+import SectionDivider from "@/components/SectionDivider";
+
+const FRENTES = [
+  { href: "/schools", label: "Promise for Schools", text: "Transformação escolar: currículo, formação docente e internacionalização, sem abrir mão da identidade da instituição." },
+  { href: "/learners", label: "Promise for Learners", text: "Inglês, certificações Cambridge e Trinity, homeschooling, American School e experiências internacionais para alunos e famílias." },
+  { href: "/professionals", label: "Promise for Professionals", text: "Formação continuada, mentoria e certificações TKT, CELTA e DELTA para quem ensina, coordena e lidera." },
+  { href: "/global", label: "Promise Global", text: "Intercâmbios, parcerias e cooperação acadêmica que conectam escolas e famílias ao cenário internacional." },
+];
 
 const PILARES_FUNDAMENTOS = [
   { n: "01", t: "Liderança Estratégica", d: "Diagnóstico institucional ou familiar, planejamento estratégico, metas, governança do programa internacional.", img: "/assets/timeline-3.jpg", pos: "50% 35%" },
@@ -57,6 +66,28 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
+      {/* ECOSSISTEMA - as 4 frentes + o que as conecta */}
+      <section className="section-pad" style={{ padding: "70px 40px", background: "#fff" }}>
+        <div className="container reveal" style={{ maxWidth: 760, textAlign: "center", margin: "0 auto 20px" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Como tudo se conecta</span>
+          <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>Um ecossistema, não quatro projetos separados</h2>
+          <p style={{ margin: 0, fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65, textAlign: "justify" }}>
+            Cada frente amplia as outras. Uma escola atendida pela Schools pode oferecer aos alunos os programas da Learners, formar sua equipe pela Professionals e levar tudo isso para o cenário internacional pela Global — a mesma trajetória, vista de ângulos diferentes.
+          </p>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 3, borderRadius: 18, overflow: "hidden", marginTop: 32 }}>
+          {FRENTES.map((f, i) => (
+            <Link key={f.href} href={f.href} style={{ display: "block", padding: "26px 22px", background: i % 2 === 0 ? "var(--blue)" : "var(--red)", color: "#fff", minHeight: 190 }}>
+              <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 10 }}>{f.label}</div>
+              <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, opacity: 0.92, textAlign: "justify" }}>{f.text}</p>
+              <span style={{ display: "inline-block", marginTop: 14, fontSize: 12, fontWeight: 700 }}>Conhecer →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <SectionDivider left="Ecossistema" right="Missão" />
+
       {/* MISSAO / VISAO / PROPOSITO */}
       <section style={{ padding: "60px 40px", background: "var(--blue)" }}>
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 32 }}>
@@ -72,6 +103,19 @@ export default function QuemSomosPage() {
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Propósito</div>
             <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff", textAlign: "justify" }}>Construir instituições educacionais que transformem vidas por meio de uma educação internacional alinhada à verdade, à excelência e ao desenvolvimento integral.</p>
           </div>
+        </div>
+      </section>
+
+      {/* TESE DA MARCA */}
+      <section className="section-pad" style={{ padding: "80px 40px", background: "var(--ink)", textAlign: "center" }}>
+        <div className="container reveal" style={{ maxWidth: 820, margin: "0 auto" }}>
+          <span className="eyebrow" style={{ color: "#9DB0F0" }}>Nossa tese</span>
+          <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 800, color: "#fff", lineHeight: 1.35 }}>
+            Internacionalização deve fortalecer a missão da escola e da família. Nunca substituí-la.
+          </h2>
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "#B8BCC8", textAlign: "justify" }}>
+            É possível ampliar horizontes, acessar referências internacionais e preparar estudantes para o mundo sem abandonar convicções, cultura e identidade. A internacionalização é uma ferramenta. A formação continua sendo o centro.
+          </p>
         </div>
       </section>
 
@@ -126,6 +170,16 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
+      {/* FRAMEWORK COMO DNA - conecta o metodo as 4 frentes */}
+      <section style={{ padding: "0 40px 76px", background: "#fff" }}>
+        <div className="container reveal" style={{ maxWidth: 900, background: "var(--ink)", borderRadius: 18, padding: "34px 40px", textAlign: "center" }}>
+          <h3 style={{ margin: "0 0 10px", fontSize: 18, fontWeight: 800, color: "#fff" }}>O Framework é o DNA metodológico da Promise</h3>
+          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            Os mesmos sete pilares organizam Schools, Learners, Professionals e Global. É por isso que a experiência da Promise se mantém consistente em diferentes produtos e trajetórias — e por isso o próprio Framework, como Paideia, Oikos e To the Nations, é um ativo autoral da Promise.
+          </p>
+        </div>
+      </section>
+
       {/* FLUXO - jornada de 5 fases, com destaque */}
       <section style={{ padding: "76px 40px", background: "var(--ink)" }}>
         <div className="container reveal" style={{ textAlign: "center", marginBottom: 48 }}>
@@ -145,6 +199,11 @@ export default function QuemSomosPage() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", marginTop: 44 }}>
+          <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "#fff", fontFamily: "inherit", fontStyle: "italic" }}>
+            &ldquo;Não queremos criar dependência. Queremos construir capacidade institucional e familiar para que a excelência continue depois da implementação.&rdquo;
+          </p>
         </div>
       </section>
 
@@ -177,6 +236,31 @@ export default function QuemSomosPage() {
               <span style={{ display: "block", marginTop: 12, fontSize: 13.5, fontStyle: "normal", fontWeight: 700, color: "#B9C3EE" }}>— Calebe Braga, fundador da Promise</span>
             </p>
           </div>
+        </div>
+      </section>
+
+      <SectionDivider left="Fundador" right="Por que Promise" />
+
+      {/* POR QUE PROMISE - 6 razoes, visao integrada */}
+      <section className="section-pad" style={{ padding: "70px 40px", background: "var(--tint)" }}>
+        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
+          <span className="eyebrow" style={{ color: "var(--blue)" }}>Por que Promise?</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Mais do que serviços. Uma visão integrada.</h2>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 940, display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 28 }}>
+          {[
+            { t: "Visão sistêmica", d: "Currículo, professores, avaliação e internacionalização funcionam como partes de um mesmo sistema." },
+            { t: "Método próprio", d: "O Promise Excellence Framework™ organiza como diagnosticamos e transformamos." },
+            { t: "Excelência acadêmica", d: "Referências internacionais, desenvolvimento curricular e avaliação orientam as decisões." },
+            { t: "Identidade", d: "Internacionalização sem abandonar missão, convicções, cultura e propósito." },
+            { t: "Autonomia", d: "Construímos capacidade dentro da escola e da família para sustentar resultados." },
+            { t: "Visão global", d: "Conectamos formação local a certificações, experiências e oportunidades internacionais." },
+          ].map((w) => (
+            <div key={w.t}>
+              <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+            </div>
+          ))}
         </div>
       </section>
 
