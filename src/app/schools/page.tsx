@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroPhoto from "@/components/HeroPhoto";
 import MatriculaForm from "@/components/MatriculaForm";
+import Icon from "@/components/Icons";
 
 export default function SchoolsPage() {
   return (
@@ -66,17 +67,20 @@ export default function SchoolsPage() {
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Como estruturamos o programa da sua escola</h2>
           <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 20 }}>
             {[
-              { n: "01", t: "Diagnóstico", d: "Entender a realidade." },
-              { n: "02", t: "Estratégia", d: "Definir o caminho." },
-              { n: "03", t: "Currículo", d: "Construir ou adequar o programa." },
-              { n: "04", t: "Formação", d: "Desenvolver professores e coordenadores." },
-              { n: "05", t: "Avaliação", d: "Criar processos de acompanhamento e mensuração." },
-              { n: "06", t: "Implementação", d: "Colocar o programa em funcionamento." },
-              { n: "07", t: "Certificações", d: "Preparar a escola para uma trajetória Cambridge." },
-              { n: "08", t: "Acompanhamento", d: "Medir, ajustar e desenvolver." },
+              { n: "01", t: "Diagnóstico", d: "Entender a realidade.", icon: "target" as const },
+              { n: "02", t: "Estratégia", d: "Definir o caminho.", icon: "puzzle" as const },
+              { n: "03", t: "Currículo", d: "Construir ou adequar o programa.", icon: "file" as const },
+              { n: "04", t: "Formação", d: "Desenvolver professores e coordenadores.", icon: "cap" as const },
+              { n: "05", t: "Avaliação", d: "Criar processos de acompanhamento e mensuração.", icon: "list" as const },
+              { n: "06", t: "Implementação", d: "Colocar o programa em funcionamento.", icon: "calendar" as const },
+              { n: "07", t: "Certificações", d: "Preparar a escola para uma trajetória Cambridge.", icon: "medal" as const },
+              { n: "08", t: "Acompanhamento", d: "Medir, ajustar e desenvolver.", icon: "users" as const },
             ].map((s, i) => (
               <div key={s.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em", marginBottom: 10 }}>{s.n}</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+                  <Icon name={s.icon} size={14} color="var(--ink-soft)" />
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em" }}>{s.n}</span>
+                </div>
                 <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{s.t}</div>
                 <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--ink-soft)" }}>{s.d}</p>
               </div>
@@ -108,20 +112,28 @@ export default function SchoolsPage() {
         </div>
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 22 }}>
           {[
-            { t: "Estratégia clara", d: "Uma visão de longo prazo para o desenvolvimento internacional da instituição." },
-            { t: "Diferenciação", d: "Uma proposta internacional forte, conectada ao posicionamento da escola." },
-            { t: "Retenção", d: "Mais valor percebido pelo aluno e pela família." },
-            { t: "Captação", d: "Um diferencial comercial relevante no mercado educacional." },
-            { t: "Eficiência", d: "Menos tentativa e erro na implementação e na gestão." },
-            { t: "Reputação", d: "Maior credibilidade acadêmica e institucional." },
-            { t: "Novas oportunidades", d: "Certificações, programas e conexões internacionais." },
-            { t: "Sustentabilidade", d: "Uma cultura de excelência que permanece na instituição." },
-          ].map((b) => (
-            <div key={b.t}>
-              <div style={{ fontSize: 14.5, fontWeight: 800, marginBottom: 6 }}>{b.t}</div>
-              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{b.d}</p>
-            </div>
-          ))}
+            { t: "Estratégia clara", d: "Uma visão de longo prazo para o desenvolvimento internacional da instituição.", icon: "target" as const },
+            { t: "Diferenciação", d: "Uma proposta internacional forte, conectada ao posicionamento da escola.", icon: "puzzle" as const },
+            { t: "Retenção", d: "Mais valor percebido pelo aluno e pela família.", icon: "heart" as const },
+            { t: "Captação", d: "Um diferencial comercial relevante no mercado educacional.", icon: "users" as const },
+            { t: "Eficiência", d: "Menos tentativa e erro na implementação e na gestão.", icon: "calendar" as const },
+            { t: "Reputação", d: "Maior credibilidade acadêmica e institucional.", icon: "medal" as const },
+            { t: "Novas oportunidades", d: "Certificações, programas e conexões internacionais.", icon: "globe" as const },
+            { t: "Sustentabilidade", d: "Uma cultura de excelência que permanece na instituição.", icon: "shield" as const },
+          ].map((b, i) => {
+            const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+            const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+            return (
+              <div key={b.t} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 20 }}>
+                <span style={{ width: 40, height: 40, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+                  <Icon name={b.icon} size={18} color={accent} />
+                </span>
+                <div style={{ fontSize: 14.5, fontWeight: 800, marginBottom: 6 }}>{b.t}</div>
+                <span style={{ display: "block", width: 20, height: 2.5, borderRadius: 2, background: "var(--red)", marginBottom: 8 }} />
+                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{b.d}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

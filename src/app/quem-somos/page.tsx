@@ -241,10 +241,10 @@ export default function QuemSomosPage() {
         <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
           <span className="eyebrow" style={{ color: "var(--blue)" }}>Por que Promise?</span>
           <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>
-            Mais do que serviços. <span style={{ color: "var(--blue)" }}>Uma visão integrada.</span>
+            Serviços que funcionam como <span style={{ color: "var(--blue)" }}>uma visão integrada.</span>
           </h2>
           <p style={{ margin: 0, fontSize: 14.5, color: "var(--ink-soft)", lineHeight: 1.6 }}>
-            Unimos estratégia, metodologia e excelência para que escolas, professores e alunos vivam uma educação com propósito e resultados que vão além.
+            Unimos estratégia, metodologia e excelência para que escolas, professores e alunos vivam uma educação com propósito e resultados consistentes.
           </p>
         </div>
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 940, display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24, marginBottom: 28 }}>

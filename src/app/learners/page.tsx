@@ -8,11 +8,11 @@ import SectionDivider from "@/components/SectionDivider";
 import Icon from "@/components/Icons";
 
 const PILARES = [
-  { t: "Metodologia", d: "Aulas síncronas com progresso acompanhado turma a turma." },
-  { t: "Comodidade", d: "Horários e modalidades pensados pra encaixar na sua rotina." },
-  { t: "Ambiente motivador", d: "Turmas que se mantêm porque o aprendizado é real, não só frequência." },
-  { t: "Preço acessível", d: "Investimento pensado pra caber no orçamento da família." },
-  { t: "Investimento missionário", d: "Parte do que você investe sustenta bolsas de estudo." },
+  { t: "Metodologia", d: "Aulas síncronas com progresso acompanhado turma a turma.", icon: "target" as const },
+  { t: "Comodidade", d: "Horários e modalidades pensados pra encaixar na sua rotina.", icon: "calendar" as const },
+  { t: "Ambiente motivador", d: "Turmas que se mantêm porque o aprendizado é real, não só frequência.", icon: "users" as const },
+  { t: "Preço acessível", d: "Investimento pensado pra caber no orçamento da família.", icon: "shield" as const },
+  { t: "Investimento missionário", d: "Parte do que você investe sustenta bolsas de estudo.", icon: "heart" as const },
 ];
 
 export default function LearnersPage() {
@@ -175,8 +175,10 @@ export default function LearnersPage() {
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Por que estudar inglês na Promise</h2>
           <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
             {PILARES.map((p, i) => (
-              <div key={p.t} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, textAlign: "center" }}>
-                <span style={{ width: 22, height: 22, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>✓</span>
+              <div key={p.t} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textAlign: "center" }}>
+                <span style={{ width: 52, height: 52, borderRadius: "50%", background: i % 2 === 0 ? "#E4E9FA" : "#FCE4E3", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Icon name={p.icon} size={24} color={i % 2 === 0 ? "var(--blue)" : "var(--red)"} />
+                </span>
                 <div style={{ fontSize: 13.5, fontWeight: 700, color: "var(--blue)" }}>{p.t}</div>
                 <p style={{ margin: 0, fontSize: 13, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
               </div>

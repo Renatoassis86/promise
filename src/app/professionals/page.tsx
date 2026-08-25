@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import HeroPhoto from "@/components/HeroPhoto";
 import MatriculaForm from "@/components/MatriculaForm";
 import SectionDivider from "@/components/SectionDivider";
+import Icon from "@/components/Icons";
 
 const SERVICOS = [
   { label: "Formação Continuada", img: "/assets/prof-servico-formacao-continuada.jpg", pos: "50% 38%" },
@@ -43,16 +44,24 @@ export default function ProfessionalsPage() {
         </div>
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 18 }}>
           {[
-            { t: "Professor", d: "Quero desenvolver minha prática, ampliar competências e avançar na carreira." },
-            { t: "Coordenador", d: "Quero aprender a liderar professores e sustentar um programa acadêmico consistente." },
-            { t: "Líder educacional", d: "Quero desenvolver equipes, cultura e processos que sustentem a excelência." },
-            { t: "Gestor escolar", d: "Quero melhorar o programa de inglês e a capacidade institucional da minha escola." },
-          ].map((p) => (
-            <div key={p.t} style={{ border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
-              <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
-              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{p.d}</p>
-            </div>
-          ))}
+            { t: "Professor", d: "Quero desenvolver minha prática, ampliar competências e avançar na carreira.", icon: "cap" as const },
+            { t: "Coordenador", d: "Quero aprender a liderar professores e sustentar um programa acadêmico consistente.", icon: "users" as const },
+            { t: "Líder educacional", d: "Quero desenvolver equipes, cultura e processos que sustentem a excelência.", icon: "medal" as const },
+            { t: "Gestor escolar", d: "Quero melhorar o programa de inglês e a capacidade institucional da minha escola.", icon: "home" as const },
+          ].map((p, i) => {
+            const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+            const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+            return (
+              <div key={p.t} style={{ border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+                <span style={{ width: 48, height: 48, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
+                  <Icon name={p.icon} size={22} color={accent} />
+                </span>
+                <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{p.t}</div>
+                <span style={{ display: "block", width: 22, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
+                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{p.d}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

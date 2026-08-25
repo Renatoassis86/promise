@@ -122,15 +122,15 @@ export default function Home() {
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
             {FRENTES_CARDS.map((c, i) => (
               <div key={c.href} className={`reveal reveal-delay-${i + 1}`} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, display: "flex", flexDirection: "column" }}>
-                <div style={{ position: "relative", height: 190, borderRadius: "14px 14px 0 0", overflow: "hidden" }}>
-                  <Image src={c.photo} alt={c.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: c.pos }} />
-                </div>
-                <div style={{ padding: "0 24px", marginTop: -22 }}>
-                  <span style={{ width: 44, height: 44, borderRadius: "50%", background: c.color, display: "flex", alignItems: "center", justifyContent: "center", border: "3px solid #fff" }}>
+                <div style={{ position: "relative" }}>
+                  <div style={{ position: "relative", height: 190, borderRadius: "14px 14px 0 0", overflow: "hidden" }}>
+                    <Image src={c.photo} alt={c.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: c.pos }} />
+                  </div>
+                  <span style={{ position: "absolute", left: 24, bottom: -22, zIndex: 2, width: 44, height: 44, borderRadius: "50%", background: c.color, display: "flex", alignItems: "center", justifyContent: "center", border: "3px solid #fff" }}>
                     <Icon name={c.icon} size={20} />
                   </span>
                 </div>
-                <div style={{ padding: "14px 24px 24px", display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
+                <div style={{ padding: "28px 24px 24px", display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
                   <div style={{ fontSize: 19, fontWeight: 700 }}>{c.title}</div>
                   <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)" }} />
                   <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.text}</p>
@@ -183,6 +183,42 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* POR QUE PROMISE - 6 razoes, cartoes com icone ilustrado */}
+      <section className="section-pad" style={{ padding: "20px 40px 70px", background: "var(--tint)" }}>
+        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
+          <span className="eyebrow" style={{ color: "var(--blue)" }}>Por que Promise?</span>
+          <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>
+            Serviços que funcionam como <span style={{ color: "var(--blue)" }}>uma visão integrada.</span>
+          </h2>
+          <p style={{ margin: 0, fontSize: 14.5, color: "var(--ink-soft)", lineHeight: 1.6 }}>
+            Unimos estratégia, metodologia e excelência para que escolas, professores e alunos vivam uma educação com propósito e resultados consistentes.
+          </p>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 940, display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24, marginBottom: 28 }}>
+          {[
+            { t: "Visão sistêmica", d: "Currículo, professores, avaliação e internacionalização funcionam como partes de um mesmo sistema.", icon: "puzzle" as const },
+            { t: "Método próprio", d: "O Promise Excellence Framework™ organiza como diagnosticamos e transformamos.", icon: "target" as const },
+            { t: "Excelência acadêmica", d: "Referências internacionais, desenvolvimento curricular e avaliação orientam as decisões.", icon: "medal" as const },
+            { t: "Identidade", d: "Internacionalização sem abandonar missão, convicções, cultura e propósito.", icon: "shieldHeart" as const },
+            { t: "Autonomia", d: "Construímos capacidade dentro da escola e da família para sustentar resultados.", icon: "users" as const },
+            { t: "Visão global", d: "Conectamos formação local a certificações, experiências e oportunidades internacionais.", icon: "globe" as const },
+          ].map((w, i) => {
+            const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+            const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+            return (
+              <div key={w.t} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 16, padding: 26 }}>
+                <span style={{ width: 60, height: 60, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                  <Icon name={w.icon} size={26} color={accent} />
+                </span>
+                <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
+                <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
