@@ -25,7 +25,7 @@ export default function LearnersPage() {
         image="/assets/hero-learners.jpg"
         eyebrow="Promise for Learners"
         title="Inglês, certificações internacionais e o caminho para o American School."
-        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge e Trinity, e orientação para o American School (do Elementary ao High School) e para intercâmbios nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
+        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge, e orientação para o American School (do Elementary ao High School) e para intercâmbios nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
         primaryCta={{ label: "Matricule-se já", href: "#matricula" }}
         secondaryCta={{ label: "Fazer teste de nivelamento gratuito", href: "https://wa.me/5583996977969", external: true }}
         imagePosition="center 30%"
@@ -149,7 +149,7 @@ export default function LearnersPage() {
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 16 }}>
           {[
             { t: "Quero aprender inglês", d: "Turmas ou aulas particulares, com progresso acompanhado.", href: "#modalidades" },
-            { t: "Quero uma certificação", d: "Preparação Cambridge e Trinity com quem examina de verdade.", href: "#certificacoes" },
+            { t: "Quero uma certificação", d: "Preparação Cambridge com quem tem experiência real nesse sistema de exames.", href: "#certificacoes" },
             { t: "Quero uma formação americana", d: "American School, do Elementary ao High School.", href: "#american-school" },
             { t: "Minha família é homeschooler", d: "Inglês e trajetória internacional no ritmo de casa.", href: "#homeschool" },
             { t: "Quero estudar fora", d: "Planejamento de uma trajetória acadêmica internacional.", href: "#pathway" },
@@ -221,8 +221,8 @@ export default function LearnersPage() {
             </div>
             <div style={{ padding: 28 }}>
               <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>Certificações internacionais</div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 19, fontWeight: 800 }}>Preparação Cambridge e Trinity</h3>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Conduzida pelo mesmo profissional que atua como examinador Cambridge English: orientação direta de quem aplica a prova.</p>
+              <h3 style={{ margin: "0 0 10px", fontSize: 19, fontWeight: 800 }}>Preparação Cambridge</h3>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Conduzida por quem tem experiência real com o sistema de exames Cambridge English, à frente de um Centro Preparatório Oficial há mais de 8 anos.</p>
             </div>
           </div>
         </div>

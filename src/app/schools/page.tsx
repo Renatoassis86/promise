@@ -38,7 +38,7 @@ export default function SchoolsPage() {
           </div>
           <div>
             <div className="eyebrow" style={{ color: "var(--blue)", marginBottom: 12 }}>O que a Promise resolve</div>
-            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Um caminho estruturado, com metodologia e objetivos claros, não uma proposta genérica:</p>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>A Promise ajuda a escola a transformar um programa de inglês fragmentado em uma estrutura acadêmica coerente, conectando currículo, professores, coordenação, avaliação, materiais, certificações e internacionalização:</p>
             <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
               {["Inglês como parte de uma estratégia institucional", "Currículo com progressão e avaliação claras", "Formação docente contínua, com feedback", "Certificações internacionais alcançáveis", "Indicadores para decisões baseadas em evidência", "Identidade institucional preservada e fortalecida"].map((item) => (
                 <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
@@ -54,32 +54,31 @@ export default function SchoolsPage() {
       <section className="section-pad" style={{ padding: "22px 40px", background: "var(--tint)" }}>
         <div className="container" style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap", fontSize: 13, color: "var(--ink-soft)" }}>
           <div><strong style={{ color: "var(--ink)" }}>14+ anos</strong> em ensino de inglês e educação</div>
-          <div><strong style={{ color: "var(--ink)" }}>Cambridge Examiner</strong>, não é curso de terceiros</div>
-          <div><strong style={{ color: "var(--ink)" }}>Centre Exams Manager</strong> de centro autorizado Cambridge</div>
+          <div>Há mais de <strong style={{ color: "var(--ink)" }}>8 anos</strong> um Centro Preparatório Oficial de Cambridge</div>
         </div>
       </section>
 
-      {/* COMO ESTRUTURAMOS (modulo alternado texto/imagem+cor) */}
+      {/* COMO ESTRUTURAMOS - 8 etapas */}
       <section className="section-pad" style={{ padding: "76px 40px" }}>
         <div className="container">
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Como estruturamos o programa da sua escola</h2>
-          <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 26 }}>
-            <div className="reveal reveal-delay-1" style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 28 }}>
-              <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em", marginBottom: 12 }}>01 · DIAGNÓSTICO</div>
-              <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Conversa direta com o fundador para entender o momento da escola antes de qualquer proposta.</p>
-            </div>
-            <div className="reveal reveal-delay-2" style={{ position: "relative", borderRadius: 14, overflow: "hidden", height: 220 }}>
-              <Image src="/assets/schools-curricular.jpg" alt="Alunos e professores em atividade curricular" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
-              <div style={{ position: "absolute", inset: 0, background: "rgba(24,54,178,.74)" }} />
-              <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 24, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
-                <div style={{ fontSize: 12.5, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 10 }}>02 · IMPLEMENTAÇÃO CURRICULAR</div>
-                <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, textAlign: "justify" }}>Currículo de inglês e internacionalização adaptado à identidade e ao momento da instituição.</p>
+          <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 20 }}>
+            {[
+              { n: "01", t: "Diagnóstico", d: "Entender a realidade." },
+              { n: "02", t: "Estratégia", d: "Definir o caminho." },
+              { n: "03", t: "Currículo", d: "Construir ou adequar o programa." },
+              { n: "04", t: "Formação", d: "Desenvolver professores e coordenadores." },
+              { n: "05", t: "Avaliação", d: "Criar processos de acompanhamento e mensuração." },
+              { n: "06", t: "Implementação", d: "Colocar o programa em funcionamento." },
+              { n: "07", t: "Certificações", d: "Preparar a escola para uma trajetória Cambridge." },
+              { n: "08", t: "Acompanhamento", d: "Medir, ajustar e desenvolver." },
+            ].map((s, i) => (
+              <div key={s.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em", marginBottom: 10 }}>{s.n}</div>
+                <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{s.t}</div>
+                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--ink-soft)" }}>{s.d}</p>
               </div>
-            </div>
-            <div className="reveal reveal-delay-3" style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 28 }}>
-              <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em", marginBottom: 12 }}>03 · FORMAÇÃO DE PROFESSORES</div>
-              <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Capacitação contínua da equipe docente e de coordenação, não um treinamento único e isolado.</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -91,9 +90,9 @@ export default function SchoolsPage() {
             <Image src="/assets/schools-authority.jpg" alt="Aplicação de avaliação em ambiente formal de exame" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 15%" }} />
           </div>
           <div style={{ padding: "40px 44px" }}>
-            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Critério, não impressão</div>
+            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Evidências, não impressões</div>
             <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
-              O diagnóstico institucional segue os mesmos critérios usados em bancas examinadoras internacionais: evidência documentada, comparação com padrões reconhecidos e nenhuma recomendação por impressão. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
+              O diagnóstico institucional é baseado em critérios claros, evidências documentadas e referências reconhecidas internacionalmente. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
             </p>
           </div>
         </div>

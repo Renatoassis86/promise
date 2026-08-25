@@ -216,7 +216,7 @@ export default function QuemSomosPage() {
                 É autor das coleções Paideia, Oikos e To the Nations, currículos de inglês cristãos, clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
-                {["Cambridge Examiner", "CELTA (Cambridge)", "CertPT (Trinity)", "Autor: Paideia, Oikos e To the Nations", "14+ anos de atuação"].map((b) => (
+                {["Centro Preparatório Oficial Cambridge", "CELTA (Cambridge)", "Autor: Paideia, Oikos e To the Nations", "14+ anos de atuação"].map((b) => (
                   <span key={b} style={{ background: "var(--blue)", color: "#fff", fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999 }}>{b}</span>
                 ))}
               </div>

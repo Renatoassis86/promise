@@ -36,7 +36,7 @@ export default function Home() {
             Estruturamos a internacionalização de escolas cristãs e famílias homeschooling, formamos professores e preparamos alunos para certificações internacionais.
           </h1>
           <p style={{ margin: 0, fontSize: 17, lineHeight: 1.6, color: "#DCE0EE", maxWidth: 620, textAlign: "justify" }}>
-            Consultoria, currículo, formação docente, certificações Cambridge e Trinity, programas de American School e intercâmbio, organizados sob a mesma cosmovisão cristã que já orienta sua escola, seu homeschooling ou sua família.
+            Consultoria, currículo, formação docente, certificações Cambridge, programas de American School e intercâmbio, organizados sob a mesma cosmovisão cristã que já orienta sua escola, seu homeschooling ou sua família.
           </p>
           <div style={{ display: "flex", gap: 14, marginTop: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Falar com a Promise</a>
@@ -53,8 +53,8 @@ export default function Home() {
           </h2>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
             {[
-              { href: "/schools", photo: "/assets/card-schools.jpg", pos: "50% 35%", title: "Sou uma escola", text: "Diagnóstico direto com o fundador antes de qualquer proposta de implementação de programa internacional.", cta: "Ver Promise for Schools" },
-              { href: "/learners", photo: "/assets/card-learners.jpg", pos: "50% 20%", title: "Sou aluno ou responsável", text: "Inglês, certificações Cambridge e Trinity, American School e experiências internacionais, com acompanhamento direto.", cta: "Ver Promise for Learners" },
+              { href: "/schools", photo: "/assets/card-schools.jpg", pos: "50% 35%", title: "Sou uma escola", text: "Diagnóstico direto com um consultor antes de qualquer proposta de implementação de programa internacional.", cta: "Ver Promise for Schools" },
+              { href: "/learners", photo: "/assets/card-learners.jpg", pos: "50% 20%", title: "Sou aluno ou responsável", text: "Inglês, certificações Cambridge, American School e experiências internacionais, com acompanhamento direto.", cta: "Ver Promise for Learners" },
               { href: "/professionals", photo: "/assets/card-professionals.jpg", pos: "50% 25%", title: "Sou professor ou coordenador", text: "Certificações TKT, CELTA e DELTA, mentoria individual e formação de liderança educacional.", cta: "Ver Promise for Professionals" },
             ].map((c, i) => (
               <div key={c.href} className={`card reveal reveal-delay-${i + 1}`}>
@@ -81,10 +81,10 @@ export default function Home() {
             <span className="eyebrow" style={{ color: "#9DB0F0" }}>Quem estrutura os seus programas</span>
             <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff" }}>Calebe Braga</h2>
             <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
-              Coordena departamentos de línguas e atua como Centre Exams Manager em centro autorizado Cambridge há mais de 14 anos. É examinador Cambridge English e autor das coleções Paideia, Oikos e To the Nations.
+              Há mais de 8 anos à frente de um Centro Preparatório Oficial de Cambridge, é autor das coleções Paideia, Oikos e To the Nations.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
-              {["Cambridge Examiner", "CELTA (Cambridge)", "CertPT (Trinity)", "14+ anos de atuação"].map((b) => (
+              {["Centro Preparatório Oficial Cambridge", "CELTA (Cambridge)", "14+ anos de atuação"].map((b) => (
                 <span key={b} style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.25)", color: "#fff", fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999 }}>{b}</span>
               ))}
             </div>
@@ -96,8 +96,8 @@ export default function Home() {
       <section className="section-pad" style={{ padding: "80px 40px", background: "var(--ink)" }}>
         <div className="container grid-tablet-2 grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 32 }}>
           {[
-            { label: "PROMISE FOR SCHOOLS", text: "Diagnóstico direto com o fundador antes de qualquer proposta de implementação." },
-            { label: "PROMISE FOR LEARNERS", text: "Preparação para certificações Cambridge e Trinity com o mesmo profissional que atua como examinador dessas bancas." },
+            { label: "PROMISE FOR SCHOOLS", text: "Diagnóstico direto com um consultor antes de qualquer proposta de implementação." },
+            { label: "PROMISE FOR LEARNERS", text: "Preparação para certificações Cambridge com quem tem experiência real nesse sistema de exames." },
             { label: "PROMISE FOR PROFESSIONALS", text: "Mentoria individual em cada etapa da certificação, não apenas aulas em turma." },
             { label: "PROMISE GLOBAL", text: "Intercâmbios, parcerias e cooperação acadêmica com instituições estrangeiras." },
           ].map((f, i) => (

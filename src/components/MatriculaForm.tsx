@@ -60,8 +60,8 @@ const FIELDS: Record<Tipo, { key: string; label: string; placeholder?: string; t
 const TITLES: Record<Tipo, { eyebrow: string; heading: string; sub: string; cta: string }> = {
   schools: {
     eyebrow: "Diagnóstico institucional gratuito",
-    heading: "Agendar conversa com o fundador",
-    sub: "Preencha e o Calebe entra em contato para agendar a conversa.",
+    heading: "Agendar conversa com um consultor",
+    sub: "Preencha e um consultor entra em contato para agendar a conversa.",
     cta: "Solicitar diagnóstico",
   },
   learners: {
