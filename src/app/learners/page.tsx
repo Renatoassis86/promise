@@ -50,7 +50,7 @@ export default function LearnersPage() {
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.3fr 0.55fr", gap: 56, alignItems: "center" }}>
           <div>
             <span className="eyebrow" style={{ color: "var(--red)", fontSize: 14 }}>Cada estudante tem uma jornada</span>
-            <h2 className="fluid-h1" style={{ margin: "14px 0 24px", fontSize: 46, fontWeight: 900, lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+            <h2 className="fluid-h1" style={{ margin: "14px 0 24px", fontSize: 40, fontWeight: 900, lineHeight: 1.2, letterSpacing: "-0.01em", textAlign: "justify" }}>
               Uma jornada que <span style={{ color: "var(--red)" }}>abre portas</span>, constrói oportunidades e <span style={{ color: "var(--blue)" }}>transforma futuros</span>.
             </h2>
             <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.75, color: "var(--ink-soft)", textAlign: "justify" }}>
