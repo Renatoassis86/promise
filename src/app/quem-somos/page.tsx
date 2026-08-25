@@ -7,8 +7,8 @@ import SectionDivider from "@/components/SectionDivider";
 
 const FRENTES = [
   { href: "/schools", label: "Promise for Schools", text: "Transformação escolar: currículo, formação docente e internacionalização, sem abrir mão da identidade da instituição." },
-  { href: "/learners", label: "Promise for Learners", text: "Inglês, certificações Cambridge e Trinity, homeschooling, American School e experiências internacionais para alunos e famílias." },
-  { href: "/professionals", label: "Promise for Professionals", text: "Formação continuada, mentoria e certificações TKT, CELTA e DELTA para quem ensina, coordena e lidera." },
+  { href: "/learners", label: "Promise for Learners", text: "Inglês, certificações Cambridge, homeschooling, American School e experiências internacionais para alunos e famílias." },
+  { href: "/professionals", label: "Promise for Professionals", text: "Formação continuada, cursos de metodologia para o ensino de inglês, capacitação de coordenadores e treinamentos especializados para profissionais que ensinam, coordenam e lideram." },
   { href: "/global", label: "Promise Global", text: "Intercâmbios, parcerias e cooperação acadêmica que conectam escolas e famílias ao cenário internacional." },
 ];
 
@@ -62,7 +62,7 @@ export default function QuemSomosPage() {
             Um ecossistema confessional de internacionalização educacional dedicado a transformar escolas e famílias homeschooling, desenvolver educadores e preparar estudantes para impactar o mundo.
           </h1>
           <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#DCE0EE", maxWidth: 680, textAlign: "justify" }}>
-            Reunimos em um único ecossistema soluções para escolas, famílias homeschooling, estudantes, educadores e parceiros internacionais: consultoria estratégica, desenvolvimento curricular, programas acadêmicos internacionais, certificações, formação profissional e experiências globais.
+            Reunimos em um único ecossistema soluções para escolas, famílias homeschooling, estudantes, educadores e parceiros internacionais: cursos de inglês, materiais didáticos, consultoria estratégica, desenvolvimento curricular, programas acadêmicos internacionais, certificações, formação profissional e experiências globais.
           </p>
         </div>
       </section>
@@ -71,9 +71,9 @@ export default function QuemSomosPage() {
       <section className="section-pad" style={{ padding: "70px 40px", background: "#fff" }}>
         <div className="container reveal" style={{ maxWidth: 760, textAlign: "center", margin: "0 auto 20px" }}>
           <span className="eyebrow" style={{ color: "var(--red)" }}>Como tudo se conecta</span>
-          <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>Um ecossistema, não quatro projetos separados</h2>
+          <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>Um ecossistema, não quatro frentes isoladas</h2>
           <p style={{ margin: 0, fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65, textAlign: "justify" }}>
-            Cada frente amplia as outras. Uma escola atendida pela Schools pode oferecer aos alunos os programas da Learners, formar sua equipe pela Professionals e levar tudo isso para o cenário internacional pela Global: a mesma trajetória, vista de ângulos diferentes.
+            A Promise Education Group atua em diferentes dimensões da educação, mas todas fazem parte de uma mesma visão. Uma escola pode transformar seu programa de inglês pela Promise for Schools, desenvolver sua equipe pela Promise for Professionals, ampliar as oportunidades de seus alunos pela Promise for Learners e conectar toda essa formação ao mundo por meio da Promise Global.
           </p>
         </div>
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 3, borderRadius: 18, overflow: "hidden", marginTop: 32 }}>
@@ -84,6 +84,9 @@ export default function QuemSomosPage() {
               <span style={{ display: "inline-block", marginTop: 14, fontSize: 12, fontWeight: 700 }}>Conhecer →</span>
             </Link>
           ))}
+        </div>
+        <div className="container reveal" style={{ maxWidth: 760, textAlign: "center", marginTop: 28 }}>
+          <p style={{ margin: 0, fontSize: 15.5, fontWeight: 800, color: "var(--ink)" }}>Uma visão. Quatro frentes. Um ecossistema.</p>
         </div>
       </section>
 
@@ -98,7 +101,7 @@ export default function QuemSomosPage() {
           </div>
           <div>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Visão</div>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff", textAlign: "justify" }}>Ser o maior ecossistema cristão de internacionalização educacional da América Latina.</p>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff", textAlign: "justify" }}>Ser o principal ecossistema cristão de internacionalização educacional da América Latina.</p>
           </div>
           <div>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Propósito</div>
@@ -207,7 +210,7 @@ export default function QuemSomosPage() {
               <span className="eyebrow" style={{ color: "var(--blue)" }}>Fundador</span>
               <h2 style={{ margin: 0, fontSize: 26, fontWeight: 800 }}>Calebe Braga</h2>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
-                Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento de inglês da Escola Internacional Cidade Viva (cerca de 17 professores e 4 assistentes), atua como Centre Exams Manager em centro autorizado Cambridge e como examinador oral Cambridge English em todos os níveis, de Pre A1 Starters a C1 Advanced.
+                Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento internacional da Cidade Viva Academy e tem experiência com o sistema de exames Cambridge English, abrangendo níveis do Pre A1 Starters ao C1 Advanced, e profundo conhecimento dos processos de avaliação, aplicação e certificação internacional.
               </p>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
                 É autor das coleções Paideia, Oikos e To the Nations, currículos de inglês cristãos, clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
@@ -259,30 +262,42 @@ export default function QuemSomosPage() {
       <section className="section-pad" style={{ padding: "60px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ top: -100, right: -120, width: 380, height: 380, background: "var(--blue)", opacity: 0.1 }} />
         <div className="container" style={{ maxWidth: 980, textAlign: "center", marginBottom: 36, position: "relative", zIndex: 1 }}>
-          <h2 style={{ margin: "0 0 8px", fontSize: 24, fontWeight: 800, color: "#fff" }}>Materiais utilizados</h2>
+          <h2 style={{ margin: "0 0 8px", fontSize: 24, fontWeight: 800, color: "#fff" }}>Materiais desenvolvidos</h2>
           <p style={{ margin: 0, fontSize: 14, color: "#9AA0B4" }}>Currículo cristão, clássico, bilíngue e integral. O currículo de inglês é de autoria de Calebe Braga e Cássia Braga.</p>
         </div>
 
-        {/* Paideia e Oikos - texto a esquerda, cluster compacto a direita */}
-        <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 20, alignItems: "center", marginBottom: 32, position: "relative", zIndex: 1 }}>
+        {/* Paideia - cluster compacto a esquerda, texto a direita */}
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 28, alignItems: "center", marginBottom: 32, position: "relative", zIndex: 1 }}>
+          <div className="photo-cluster" style={{ position: "relative", height: 200 }}>
+            <div style={{ position: "absolute", top: 14, left: "50%", width: 130, zIndex: 1, transform: "translateX(-50%) translateX(-38px) rotate(-6deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
+              <Image src="/assets/livro-ingles-infantil-2.png" alt="Capa da coleção Paideia" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
+            </div>
+            <div style={{ position: "absolute", top: 0, left: "50%", width: 136, zIndex: 2, transform: "translateX(-50%) translateX(30px) rotate(4deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
+              <Image src="/assets/livro-ingles-infantil-3.png" alt="Capa da coleção Paideia, volume 2" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
+            </div>
+          </div>
           <div>
-            <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Paideia e Oikos</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Paideia</div>
             <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
-              Currículo cristão, clássico, bilíngue e integral, em quatro pilares: a Bíblia como base de todo conhecimento, a formação do caráter, o poder da linguagem para preparar líderes, e o desenvolvimento integral do aluno. Paideia atende escolas, Oikos atende o ensino domiciliar. Currículo de inglês de autoria de Calebe Braga e Cássia Braga, com método fônico, alinhado à BNCC.
+              Currículo cristão, clássico, bilíngue e integral, em quatro pilares: a Bíblia como base de todo conhecimento, a formação do caráter, o poder da linguagem para preparar líderes, e o desenvolvimento integral do aluno. Atende escolas, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
-          <div className="photo-cluster" style={{ position: "relative", height: 220 }}>
-            <div style={{ position: "absolute", top: 22, left: "50%", width: 130, zIndex: 1, transform: "translateX(-50%) translateX(-56px) rotate(-8deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
-              <Image src="/assets/livro-ingles-infantil-2.png" alt="Inglês Infantil 2" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
+        </div>
+
+        {/* Oikos - texto a esquerda, cluster compacto a direita */}
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 28, alignItems: "center", marginBottom: 32, position: "relative", zIndex: 1 }}>
+          <div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Oikos</div>
+            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+              Mesma base cristã, clássica, bilíngue e integral do Paideia, adaptada para o ensino domiciliar. Atende famílias homeschooling, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
+            </p>
+          </div>
+          <div className="photo-cluster" style={{ position: "relative", height: 200 }}>
+            <div style={{ position: "absolute", top: 14, left: "50%", width: 130, zIndex: 1, transform: "translateX(-50%) translateX(-38px) rotate(6deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
+              <Image src="/assets/livro-ingles-infantil-4.png" alt="Capa da coleção Oikos" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
-            <div style={{ position: "absolute", top: 5, left: "50%", width: 136, zIndex: 2, transform: "translateX(-50%) translateX(-19px) rotate(-2deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
-              <Image src="/assets/livro-ingles-infantil-3.png" alt="Inglês Infantil 3" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
-            <div style={{ position: "absolute", top: 5, left: "50%", width: 136, zIndex: 3, transform: "translateX(-50%) translateX(19px) rotate(3deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
-              <Image src="/assets/livro-ingles-infantil-4.png" alt="Inglês Infantil 4" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
-            <div style={{ position: "absolute", top: 22, left: "50%", width: 130, zIndex: 4, transform: "translateX(-50%) translateX(56px) rotate(8deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
-              <Image src="/assets/livro-ingles-infantil-5.png" alt="Inglês Infantil 5" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
+            <div style={{ position: "absolute", top: 0, left: "50%", width: 136, zIndex: 2, transform: "translateX(-50%) translateX(30px) rotate(-4deg)", filter: "drop-shadow(0 12px 16px rgba(0,0,0,.45))" }}>
+              <Image src="/assets/livro-ingles-infantil-5.png" alt="Capa da coleção Oikos, volume 2" width={260} height={325} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </div>
         </div>
