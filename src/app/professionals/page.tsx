@@ -28,7 +28,7 @@ export default function ProfessionalsPage() {
         image="/assets/professionals-hero-retrato.jpg"
         eyebrow="Promise for Professionals"
         title="Certificações internacionais e mentoria para quem lidera educação em inglês."
-        subtitle="TKT, CELTA e DELTA com mentoria individual em cada etapa, conduzida pelo mesmo profissional que atua como examinador Cambridge English, não por um formador genérico."
+        subtitle="TKT, CELTA e DELTA com mentoria individual em cada etapa, conduzida por quem tem experiência real com o sistema de exames Cambridge English, não por um formador genérico."
         primaryCta={{ label: "Matricule-se já", href: "#matricula" }}
         secondaryCta={{ label: "Falar no WhatsApp", href: "https://wa.me/5583996977969", external: true }}
         scrimSide="right"
@@ -158,9 +158,9 @@ export default function ProfessionalsPage() {
       <section className="section-pad" style={{ background: "var(--blue)", padding: "0", position: "relative", overflow: "hidden" }}>
         <div className="container reveal grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "1.3fr 1fr", alignItems: "center" }}>
           <div style={{ padding: "40px 44px" }}>
-            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Quem avalia, não só ensina</div>
+            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Experiência que orienta</div>
             <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
-              A mentoria é conduzida por quem aplica e avalia certificações internacionais, com os mesmos critérios usados em bancas examinadoras Cambridge: clareza de objetivo, evidência de progresso e padrão internacional de correção. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
+              A mentoria é conduzida por quem tem experiência real com o sistema de exames Cambridge English, à frente de um Centro Preparatório Oficial há mais de 8 anos: clareza de objetivo, evidência de progresso e padrão internacional de preparação. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
             </p>
           </div>
           <div style={{ position: "relative", height: 260 }}>
