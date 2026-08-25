@@ -215,28 +215,70 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      {/* NIVELAMENTO + VIDEO DE APRESENTACAO */}
+      {/* VIDEO DE APRESENTACAO (YouTube) */}
       <section className="section-pad" style={{ padding: "76px 40px", background: "#fff" }}>
-        <div className="container reveal grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "1.1fr 0.7fr", gap: 48, alignItems: "center" }}>
-          <div>
-            <span className="eyebrow" style={{ color: "var(--red)" }}>Ainda não sabe seu nível?</span>
-            <h2 style={{ margin: "10px 0 14px", fontSize: 26, fontWeight: 800 }}>Faça um teste de nivelamento gratuito</h2>
-            <p style={{ margin: "0 0 26px", fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
-              Antes de escolher turma ou modalidade, a Promise avalia gratuitamente o nível atual do aluno em inglês, pra indicar o ponto de partida certo e evitar turma alta demais ou baixa demais pro seu momento.
-            </p>
-            <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Fazer teste de nivelamento gratuito</a>
+        <div className="container reveal" style={{ maxWidth: 780, textAlign: "center", margin: "0 auto 32px" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Conheça a Promise</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Um pouco da nossa história, em vídeo</h2>
+        </div>
+        <div className="container reveal" style={{ maxWidth: 780, margin: "0 auto" }}>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", borderRadius: 18, overflow: "hidden", boxShadow: "0 20px 40px rgba(0,0,0,.2)" }}>
+            <iframe
+              src="https://www.youtube.com/embed/jIPAD8Ny6Mw"
+              title="Promise English"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
-          <div style={{ maxWidth: 320, margin: "0 auto", width: "100%" }}>
-            <video
-              controls
-              preload="metadata"
-              playsInline
-              style={{ width: "100%", aspectRatio: "9 / 16", borderRadius: 18, background: "#000", boxShadow: "0 20px 40px rgba(0,0,0,.2)" }}
-            >
-              <source src="/assets/promise-video-apresentacao.mp4" type="video/mp4" />
-            </video>
-            <p style={{ margin: "10px 0 0", fontSize: 12.5, color: "var(--ink-soft)", textAlign: "center" }}>Conheça a Promise em vídeo</p>
-          </div>
+        </div>
+      </section>
+
+      {/* NIVELAMENTO */}
+      <section className="section-pad" style={{ padding: "56px 40px", background: "var(--tint)", textAlign: "center" }}>
+        <div className="container reveal" style={{ maxWidth: 620, margin: "0 auto" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Ainda não sabe seu nível?</span>
+          <h2 style={{ margin: "10px 0 14px", fontSize: 24, fontWeight: 800 }}>Faça um teste de nivelamento gratuito</h2>
+          <p style={{ margin: "0 0 22px", fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+            Antes de escolher turma ou modalidade, a Promise avalia gratuitamente o nível atual do aluno em inglês, pra indicar o ponto de partida certo e evitar turma alta demais ou baixa demais pro seu momento.
+          </p>
+          <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Fazer teste de nivelamento gratuito</a>
+        </div>
+      </section>
+
+      {/* DEPOIMENTOS */}
+      <section className="section-pad" style={{ padding: "76px 40px", background: "#fff" }}>
+        <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Quem já estuda com a gente</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Depoimentos de alunos</h2>
+        </div>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 1100, display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
+          {[
+            {
+              quote: "Voltar a estudar inglês tem sido muito bom! As aulas na Promise são pontuais, dinâmicas e seguem um ritmo excelente, de acordo com o desenvolvimento da turma. O professor é ótimo, nunca tive dúvida: ensina próximo da gente, super paciente e solícito. A metodologia é muito boa, e a plataforma de ensino e as aulas síncronas super funcionam.",
+              name: "Emanuela Monteiro",
+              role: "Aluna Promise",
+            },
+            {
+              quote: "Uma das melhores aulas de inglês que já tive! Um método muito intuitivo, tecnológico, prático e sem enrolação. Tive uma semana extremamente corrida e não consegui acompanhar as aulas em tempo real, mas elas ficam gravadas: no fim de semana, tive tempo de assistir a tudo que estava pendente.",
+              name: "Abel Neto",
+              role: "Aluno Promise (@abelnetoo_)",
+            },
+            {
+              quote: "Hoje resolvi meu primeiro problema falando só em inglês. Nem acredito que falei certinho e ainda consegui resolver meu problema, com um banco. Tinha que compartilhar com o professor essa alegria.",
+              name: "Ana",
+              role: "Aluna Promise",
+            },
+          ].map((t) => (
+            <div key={t.name} style={{ background: "var(--tint)", borderRadius: 16, padding: 26, display: "flex", flexDirection: "column", gap: 16 }}>
+              <svg width="26" height="20" viewBox="0 0 24 18" fill="var(--blue)" style={{ opacity: 0.3, flexShrink: 0 }}><path d="M0 18V9.5C0 4.3 3.8.4 9 0v3.6C6 4 4 6.3 4 9h5v9H0zm11 0V9.5C11 4.3 14.8.4 20 0v3.6c-3 .4-5 2.7-5 5.4h5v9H11z" /></svg>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "var(--ink)", flex: 1, textAlign: "justify" }}>{t.quote}</p>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 800, color: "var(--ink)" }}>{t.name}</div>
+                <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{t.role}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
