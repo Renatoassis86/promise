@@ -5,6 +5,7 @@ import PhotoDecor from "@/components/PhotoDecor";
 import HeroPhoto from "@/components/HeroPhoto";
 import MatriculaForm from "@/components/MatriculaForm";
 import SectionDivider from "@/components/SectionDivider";
+import Icon from "@/components/Icons";
 
 const PILARES = [
   { t: "Metodologia", d: "Aulas síncronas com progresso acompanhado turma a turma." },
@@ -426,18 +427,26 @@ export default function LearnersPage() {
           </div>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 14 }}>
             {[
-              { t: "Objetivos", d: "Definição do destino acadêmico desejado." },
-              { t: "Destinos", d: "Mapeamento de países, sistemas e possibilidades." },
-              { t: "Requisitos", d: "Proficiência, currículo, exames e critérios específicos." },
-              { t: "Certificações", d: "Identificação dos exames que fazem sentido para a trajetória." },
-              { t: "Documentação", d: "Organização dos documentos e do histórico acadêmico." },
-              { t: "Planejamento", d: "Sequenciamento das etapas e acompanhamento da preparação." },
-            ].map((p) => (
-              <div key={p.t} style={{ border: "1px solid var(--line)", borderRadius: 12, padding: 18, background: "#fff" }}>
-                <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 5 }}>{p.t}</div>
-                <p style={{ margin: 0, fontSize: 12.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
-              </div>
-            ))}
+              { t: "Objetivos", d: "Definição do destino acadêmico desejado.", icon: "target" as const },
+              { t: "Destinos", d: "Mapeamento de países, sistemas e possibilidades.", icon: "globe" as const },
+              { t: "Requisitos", d: "Proficiência, currículo, exames e critérios específicos.", icon: "list" as const },
+              { t: "Certificações", d: "Identificação dos exames que fazem sentido para a trajetória.", icon: "medal" as const },
+              { t: "Documentação", d: "Organização dos documentos e do histórico acadêmico.", icon: "file" as const },
+              { t: "Planejamento", d: "Sequenciamento das etapas e acompanhamento da preparação.", icon: "calendar" as const },
+            ].map((p, i) => {
+              const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+              const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+              return (
+                <div key={p.t} style={{ border: "1px solid var(--line)", borderRadius: 12, padding: 18, background: "#fff" }}>
+                  <span style={{ width: 40, height: 40, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
+                    <Icon name={p.icon} size={18} color={accent} />
+                  </span>
+                  <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 4 }}>{p.t}</div>
+                  <span style={{ display: "block", width: 20, height: 2.5, borderRadius: 2, background: "var(--red)", marginBottom: 8 }} />
+                  <p style={{ margin: 0, fontSize: 12.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

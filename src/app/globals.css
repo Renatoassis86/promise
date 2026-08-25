@@ -200,6 +200,13 @@ a:hover {
   }
 }
 
+/* Badges flutuantes do hero da Home: escondidos abaixo de 960px pra nao brigar com o texto */
+@media (max-width: 960px) {
+  .hero-badges {
+    display: none !important;
+  }
+}
+
 /* Tipografia fluida para titulos grandes */
 @media (max-width: 640px) {
   .fluid-h1 {

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PhotoCard from "@/components/PhotoCard";
 import SectionDivider from "@/components/SectionDivider";
+import Icon from "@/components/Icons";
 
 const FRENTES = [
   { href: "/schools", label: "Promise for Schools", text: "Transformação escolar: currículo, formação docente e internacionalização, sem abrir mão da identidade da instituição." },
@@ -235,29 +236,55 @@ export default function QuemSomosPage() {
 
       <SectionDivider background="var(--tint)" />
 
-      {/* POR QUE PROMISE - 6 razoes, visao integrada */}
+      {/* POR QUE PROMISE - 6 razoes, cartoes com icone ilustrado */}
       <section className="section-pad" style={{ padding: "70px 40px", background: "var(--tint)" }}>
         <div className="container reveal" style={{ maxWidth: 700, textAlign: "center", margin: "0 auto 40px" }}>
           <span className="eyebrow" style={{ color: "var(--blue)" }}>Por que Promise?</span>
-          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Mais do que serviços. Uma visão integrada.</h2>
+          <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>
+            Mais do que serviços. <span style={{ color: "var(--blue)" }}>Uma visão integrada.</span>
+          </h2>
+          <p style={{ margin: 0, fontSize: 14.5, color: "var(--ink-soft)", lineHeight: 1.6 }}>
+            Unimos estratégia, metodologia e excelência para que escolas, professores e alunos vivam uma educação com propósito e resultados que vão além.
+          </p>
         </div>
-        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 940, display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 28 }}>
+        <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ maxWidth: 940, display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24, marginBottom: 28 }}>
           {[
-            { t: "Visão sistêmica", d: "Currículo, professores, avaliação e internacionalização funcionam como partes de um mesmo sistema." },
-            { t: "Método próprio", d: "O Promise Excellence Framework™ organiza como diagnosticamos e transformamos." },
-            { t: "Excelência acadêmica", d: "Referências internacionais, desenvolvimento curricular e avaliação orientam as decisões." },
-            { t: "Identidade", d: "Internacionalização sem abandonar missão, convicções, cultura e propósito." },
-            { t: "Autonomia", d: "Construímos capacidade dentro da escola e da família para sustentar resultados." },
-            { t: "Visão global", d: "Conectamos formação local a certificações, experiências e oportunidades internacionais." },
-          ].map((w) => (
-            <div key={w.t} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-              <span style={{ width: 22, height: 22, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
-              <div>
-                <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 6 }}>{w.t}</div>
+            { t: "Visão sistêmica", d: "Currículo, professores, avaliação e internacionalização funcionam como partes de um mesmo sistema.", icon: "puzzle" as const },
+            { t: "Método próprio", d: "O Promise Excellence Framework™ organiza como diagnosticamos e transformamos.", icon: "target" as const },
+            { t: "Excelência acadêmica", d: "Referências internacionais, desenvolvimento curricular e avaliação orientam as decisões.", icon: "medal" as const },
+            { t: "Identidade", d: "Internacionalização sem abandonar missão, convicções, cultura e propósito.", icon: "shieldHeart" as const },
+            { t: "Autonomia", d: "Construímos capacidade dentro da escola e da família para sustentar resultados.", icon: "users" as const },
+            { t: "Visão global", d: "Conectamos formação local a certificações, experiências e oportunidades internacionais.", icon: "globe" as const },
+          ].map((w, i) => {
+            const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+            const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+            return (
+              <div key={w.t} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 16, padding: 26 }}>
+                <span style={{ width: 60, height: 60, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                  <Icon name={w.icon} size={26} color={accent} />
+                </span>
+                <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
+                <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
                 <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
               </div>
+            );
+          })}
+        </div>
+        <div className="container reveal" style={{ maxWidth: 940 }}>
+          <div style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 16, padding: "22px 28px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <span style={{ width: 44, height: 44, borderRadius: "50%", background: "#E4E9FA", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Icon name="chat" size={20} color="var(--blue)" />
+              </span>
+              <div>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--ink)" }}>Vamos construir juntos o próximo nível da educação?</div>
+                <p style={{ margin: 0, fontSize: 13, color: "var(--ink-soft)" }}>Fale com um especialista e descubra como a Promise pode ajudar você.</p>
+              </div>
             </div>
-          ))}
+            <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill" style={{ background: "var(--blue)", color: "#fff", flexShrink: 0 }}>
+              Fale com um especialista &rarr;
+            </a>
+          </div>
         </div>
       </section>
 
