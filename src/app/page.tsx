@@ -93,13 +93,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-badges" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div className="hero-badges" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 28, background: "var(--blue-dark)", border: "1px solid rgba(255,255,255,.14)", borderRadius: 48, padding: "36px 22px", width: 210 }}>
             {HERO_BADGES.map((b) => (
-              <div key={b.label} style={{ display: "flex", alignItems: "center", gap: 12, background: "rgba(9,13,28,.6)", border: "1px solid rgba(255,255,255,.16)", borderRadius: 999, padding: "8px 20px 8px 8px", maxWidth: 260 }}>
-                <span style={{ width: 38, height: 38, borderRadius: "50%", background: b.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Icon name={b.icon} size={18} />
+              <div key={b.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textAlign: "center" }}>
+                <span style={{ width: 56, height: 56, borderRadius: "50%", background: b.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Icon name={b.icon} size={26} />
                 </span>
-                <span style={{ fontSize: 12.5, fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{b.label}</span>
+                <span style={{ fontSize: 13, fontWeight: 700, color: "#fff", lineHeight: 1.35 }}>{b.label}</span>
               </div>
             ))}
           </div>
