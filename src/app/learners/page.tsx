@@ -24,8 +24,8 @@ export default function LearnersPage() {
       <HeroPhoto
         image="/assets/hero-learners.jpg"
         eyebrow="Promise for Learners"
-        title="Inglês, certificações internacionais e o caminho para o American School."
-        subtitle="Turmas e aulas particulares com metodologia acompanhada, preparação para certificações Cambridge, e orientação para o American School (do Elementary ao High School) e para intercâmbios nos Estados Unidos, sob a mesma cosmovisão cristã que guia sua família."
+        title="Inglês para hoje. Formação para o mundo."
+        subtitle="Inglês, preparação para certificações Cambridge, American School, homeschooling e experiências internacionais para alunos e famílias, em uma jornada educacional orientada por excelência, propósito e valores cristãos."
         primaryCta={{ label: "Matricule-se já", href: "#matricula" }}
         secondaryCta={{ label: "Fazer teste de nivelamento gratuito", href: "https://wa.me/5583996977969", external: true }}
         imagePosition="center 30%"
@@ -37,9 +37,12 @@ export default function LearnersPage() {
           <PhotoDecor src="/assets/learners-hero-cutout.png" alt="Aluna Promise estudando" height={300} theme="travel" />
           <div style={{ maxWidth: 440 }}>
             <span className="eyebrow" style={{ color: "var(--red)" }}>Quem estuda aqui</span>
-            <h2 style={{ margin: "10px 0 12px", fontSize: 22, fontWeight: 800, lineHeight: 1.35 }}>Alunos reais, preparando uma trajetória internacional real.</h2>
+            <h2 style={{ margin: "10px 0 12px", fontSize: 22, fontWeight: 800, lineHeight: 1.35 }}>Diferentes alunos. Diferentes caminhos. Uma formação para o mundo.</h2>
+            <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Atendemos famílias homeschoolers e alunos de diferentes escolas, oferecendo inglês, preparação para certificações Cambridge, programas de American School e experiências educacionais internacionais.
+            </p>
             <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
-              Atendemos famílias homeschooling e também alunos de qualquer escola que queiram estudar em contraturno para conquistar certificações internacionais com acesso a universidades americanas.
+              Cada estudante pode construir sua trajetória de acordo com sua realidade, seus objetivos e o planejamento de sua família, desenvolvendo competências linguísticas e acadêmicas que ampliam suas possibilidades para o futuro.
             </p>
           </div>
         </div>
@@ -149,7 +152,7 @@ export default function LearnersPage() {
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 16 }}>
           {[
             { t: "Quero aprender inglês", d: "Turmas ou aulas particulares, com progresso acompanhado.", href: "#modalidades" },
-            { t: "Quero uma certificação", d: "Preparação Cambridge com quem tem experiência real nesse sistema de exames.", href: "#certificacoes" },
+            { t: "Quero uma certificação", d: "Preparação para os exames Cambridge com profissionais experientes, que conhecem os exames na prática e entendem de verdade as exigências, critérios e competências avaliadas em cada nível.", href: "#certificacoes" },
             { t: "Quero uma formação americana", d: "American School, do Elementary ao High School.", href: "#american-school" },
             { t: "Minha família é homeschooler", d: "Inglês e trajetória internacional no ritmo de casa.", href: "#homeschool" },
             { t: "Quero estudar fora", d: "Planejamento de uma trajetória acadêmica internacional.", href: "#pathway" },
@@ -212,18 +215,66 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      {/* CERTIFICACOES CAMBRIDGE/TRINITY */}
-      <section className="section-pad" id="certificacoes" style={{ padding: "72px 40px" }}>
-        <div className="container">
-          <div className="card reveal" style={{ maxWidth: 640, margin: "0 auto" }}>
-            <div style={{ position: "relative", height: 260 }}>
-              <Image src="/assets/professionals-authority.jpg" alt="Certificação internacional entregue" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
+      {/* NIVELAMENTO + VIDEO DE APRESENTACAO */}
+      <section className="section-pad" style={{ padding: "76px 40px", background: "#fff" }}>
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "1.1fr 0.7fr", gap: 48, alignItems: "center" }}>
+          <div>
+            <span className="eyebrow" style={{ color: "var(--red)" }}>Ainda não sabe seu nível?</span>
+            <h2 style={{ margin: "10px 0 14px", fontSize: 26, fontWeight: 800 }}>Faça um teste de nivelamento gratuito</h2>
+            <p style={{ margin: "0 0 26px", fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Antes de escolher turma ou modalidade, a Promise avalia gratuitamente o nível atual do aluno em inglês, pra indicar o ponto de partida certo e evitar turma alta demais ou baixa demais pro seu momento.
+            </p>
+            <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Fazer teste de nivelamento gratuito</a>
+          </div>
+          <div style={{ maxWidth: 320, margin: "0 auto", width: "100%" }}>
+            <video
+              controls
+              preload="metadata"
+              playsInline
+              style={{ width: "100%", aspectRatio: "9 / 16", borderRadius: 18, background: "#000", boxShadow: "0 20px 40px rgba(0,0,0,.2)" }}
+            >
+              <source src="/assets/promise-video-apresentacao.mp4" type="video/mp4" />
+            </video>
+            <p style={{ margin: "10px 0 0", fontSize: 12.5, color: "var(--ink-soft)", textAlign: "center" }}>Conheça a Promise em vídeo</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICACOES INTERNACIONAIS - secao dedicada, com checklist */}
+      <section className="section-pad" id="certificacoes" style={{ padding: "80px 40px" }}>
+        <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center" }}>
+          <div>
+            <span className="eyebrow" style={{ color: "var(--red)" }}>Certificações internacionais</span>
+            <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, lineHeight: 1.25 }}>
+              Preparação para Cambridge English
+            </h2>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Prepare-se para as certificações Cambridge English com acompanhamento pedagógico, diagnóstico de nível e uma preparação alinhada às habilidades e demandas de cada exame.
+            </p>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700, textAlign: "justify" }}>
+              A Promise ajuda o estudante a entender onde está, o que precisa desenvolver e como se preparar para o próximo nível, com orientação baseada em experiência real com os exames Cambridge.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
+              {[
+                "Diagnóstico e identificação do nível do aluno",
+                "Preparação específica para cada exame e nível",
+                "Desenvolvimento das quatro habilidades: Reading, Writing, Listening e Speaking",
+                "Prática orientada e simulados",
+                "Feedback e acompanhamento do progresso",
+                "Orientação sobre qual certificação faz sentido para a trajetória do estudante",
+                "Experiência profissional com avaliação e exames Cambridge English",
+              ].map((item) => (
+                <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--red)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ fontSize: 14.5, lineHeight: 1.55, color: "var(--ink)" }}>{item}</span>
+                </div>
+              ))}
             </div>
-            <div style={{ padding: 28 }}>
-              <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>Certificações internacionais</div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 19, fontWeight: 800 }}>Preparação Cambridge</h3>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Conduzida por quem tem experiência real com o sistema de exames Cambridge English, à frente de um Centro Preparatório Oficial há mais de 8 anos.</p>
-            </div>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, fontWeight: 800, color: "var(--ink)" }}>A Promise prepara. Cambridge certifica.</p>
+            <a href="#matricula" className="pill pill-red">Quero me preparar para o Cambridge</a>
+          </div>
+          <div style={{ position: "relative", height: 420, borderRadius: 18, overflow: "hidden" }}>
+            <Image src="/assets/professionals-authority.jpg" alt="Certificação internacional entregue" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
           </div>
         </div>
       </section>
@@ -243,20 +294,27 @@ export default function LearnersPage() {
           <div>
             <span className="eyebrow" style={{ color: "var(--blue)" }}>Homeschooling</span>
             <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, lineHeight: 1.25 }}>
-              Inglês construído para caber na rotina de quem já educa em casa.
+              Inglês que continua depois da aula.
             </h2>
             <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
-              A Promise atende diretamente famílias homeschooling: horário definido junto com a família, acompanhamento individual e progresso real, não uma turma genérica de curso online.
+              A Promise oferece aulas de inglês em pequenos grupos para famílias homeschoolers, combinando encontros ao vivo com o professor e desafios semanais para serem realizados em família.
+            </p>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              Em cada aula, o professor apresenta e desenvolve o novo conteúdo. Ao longo da semana, a família recebe atividades e desafios práticos para retomar, praticar e consolidar aquilo que foi aprendido.
             </p>
             <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700, textAlign: "justify" }}>
-              O aluno aprende no ritmo que a família já pratica, com a mesma exigência pedagógica de qualquer outra trajetória Promise, incluindo o caminho para certificações internacionais e para o American School.
+              Assim, o inglês deixa de acontecer apenas durante a aula e passa a fazer parte da rotina de aprendizagem da família.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
               {[
-                "Aulas individuais ou em grupo pequeno, no ritmo da família",
-                "Horário combinado diretamente com a família, sem turma fixa",
-                "Acompanhamento direto do progresso, etapa por etapa",
-                "Preparação para certificações internacionais e para o American School",
+                "Aulas ao vivo em pequenos grupos",
+                "Professor apresenta e desenvolve o conteúdo durante a aula",
+                "Desafios e atividades semanais para praticar em família",
+                "Participação ativa dos pais no processo de aprendizagem",
+                "Conteúdo revisitado e praticado ao longo da semana",
+                "Acompanhamento do desenvolvimento do estudante",
+                "Progressão planejada de acordo com o nível e a etapa do aluno",
+                "Possibilidade de preparar o estudante para certificações Cambridge English ao longo de sua trajetória",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                   <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
@@ -264,6 +322,7 @@ export default function LearnersPage() {
                 </div>
               ))}
             </div>
+            <p style={{ margin: "0 0 22px", fontSize: 15.5, fontWeight: 800, color: "var(--ink)" }}>Uma aula com o professor. Uma semana de aprendizagem em família.</p>
             <a href="#matricula" className="pill pill-outline-blue">Falar sobre inglês no homeschooling</a>
           </div>
         </div>
@@ -276,22 +335,22 @@ export default function LearnersPage() {
           <div>
             <span className="eyebrow" style={{ color: "#8EA0E8" }}>American School</span>
             <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, color: "#fff", lineHeight: 1.25 }}>
-              Um programa acadêmico americano, do Elementary ao High School, para estudar em qualquer universidade americana.
+              Um programa acadêmico americano, do Elementary ao High School, para construir uma trajetória universitária internacional.
             </h2>
             <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>
-              Programa em contraturno para alunos de qualquer escola, não só das parceiras da Promise. O aluno mantém a rotina escolar normal e constrói, em paralelo, uma formação acadêmica americana do Elementary ao High School, reconhecida internacionalmente.
+              Uma formação acadêmica americana completa, do Elementary ao High School, que pode ser integrada à rotina do aluno e da família. O estudante pode manter sua formação escolar regular e, paralelamente, construir uma trajetória acadêmica americana, com currículo e créditos próprios, sem precisar trocar de escola.
             </p>
             <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "#fff", fontWeight: 700, textAlign: "justify" }}>
-              É a certificação de High School, etapa final do programa, que abre a porta de entrada: com ela, o aluno sai habilitado para se candidatar a qualquer universidade nos Estados Unidos, não apenas a uma lista restrita de instituições parceiras.
+              A etapa final é o High School, com a conclusão da formação e obtenção do diploma americano. Essa credencial permite ao aluno se candidatar a universidades nos Estados Unidos, seguindo os requisitos e processos de admissão de cada instituição.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
               {[
-                "Do Elementary ao High School, ajustável à idade e à etapa do aluno",
-                "Contraturno: encaixa na rotina escolar do aluno, sem precisar trocar de escola",
+                "Do Elementary ao High School, de acordo com a idade e a etapa acadêmica do aluno",
+                "Rotina flexível: o programa pode ser ajustado à realidade escolar e familiar de cada estudante",
                 "Currículo e créditos acadêmicos americanos",
-                "Acesso a qualquer universidade americana, não só a uma lista fechada de parceiras",
-                "Acompanhamento pedagógico contínuo, com preparação para o processo de admissão universitária",
-                "Aberto a alunos de qualquer escola, com ou sem convênio com a Promise",
+                "Formação acadêmica que culmina no High School Diploma",
+                "Possibilidade de candidatura a universidades nos Estados Unidos, de acordo com os requisitos de cada instituição",
+                "Acompanhamento pedagógico ao longo da trajetória acadêmica",
               ].map((item) => (
                 <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                   <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--red)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
