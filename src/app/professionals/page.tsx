@@ -27,9 +27,9 @@ export default function ProfessionalsPage() {
       <HeroPhoto
         image="/assets/professionals-hero-retrato.jpg"
         eyebrow="Promise for Professionals"
-        title="Certificações internacionais e mentoria para quem lidera educação em inglês."
-        subtitle="TKT, CELTA e DELTA com mentoria individual em cada etapa, conduzida por quem tem experiência real com o sistema de exames Cambridge English, não por um formador genérico."
-        primaryCta={{ label: "Matricule-se já", href: "#matricula" }}
+        title="Desenvolvendo quem educa. Preparando quem lidera."
+        subtitle="Formação, mentoria, preparação para certificações Cambridge e desenvolvimento profissional para professores, coordenadores, líderes e gestores educacionais."
+        primaryCta={{ label: "Descubra seu próximo passo profissional", href: "#matricula" }}
         secondaryCta={{ label: "Falar no WhatsApp", href: "https://wa.me/5583996977969", external: true }}
         scrimSide="right"
         imagePosition="center 35%"
@@ -76,6 +76,16 @@ export default function ProfessionalsPage() {
         </div>
       </section>
 
+      {/* A PROMISE PREPARA, CAMBRIDGE CERTIFICA - distincao antes do detalhamento */}
+      <section className="section-pad" style={{ padding: "56px 40px", background: "var(--tint)", textAlign: "center" }}>
+        <div className="container reveal" style={{ maxWidth: 680, margin: "0 auto" }}>
+          <h2 style={{ margin: "0 0 16px", fontSize: 22, fontWeight: 800 }}>A Promise prepara. Cambridge certifica.</h2>
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+            A Promise oferece preparação e mentoria para profissionais que desejam realizar certificações Cambridge. A aplicação, avaliação e emissão da certificação são realizadas pela instituição ou centro certificador correspondente.
+          </p>
+        </div>
+      </section>
+
       {/* CERTIFICACOES EM DESTAQUE - fluxo vertical, com mais contexto sobre o que cada uma representa */}
       <section className="section-pad" style={{ padding: "84px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ top: -80, left: -100, width: 360, height: 360, background: "var(--red)", opacity: 0.08 }} />
@@ -114,11 +124,6 @@ export default function ProfessionalsPage() {
               </div>
             ))}
           </div>
-          <div className="reveal" style={{ maxWidth: 780, margin: "40px auto 0", padding: "20px 24px", borderLeft: "4px solid var(--red)", background: "rgba(255,255,255,.06)", borderRadius: "0 10px 10px 0" }}>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#DCE0EE" }}>
-              <strong style={{ color: "#fff" }}>Uma distinção importante:</strong> a Promise prepara e orienta o profissional. A Promise não aplica nem emite TKT, CELTA ou DELTA. A avaliação e a certificação são realizadas pela instituição certificadora correspondente.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -128,9 +133,10 @@ export default function ProfessionalsPage() {
           <h2 style={{ margin: "0 0 56px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Como funciona a mentoria</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 60 }}>
             {[
-              { n: "01", t: "DIAGNÓSTICO", d: "Conversa inicial para entender o objetivo e indicar a certificação certa: TKT, CELTA ou DELTA.", img: "/assets/prof-timeline-1.jpg", pos: "50% 50%" },
-              { n: "02", t: "PREPARAÇÃO", d: "Mentoria individual em cada etapa, com aplicabilidade prática, não só teoria para a prova.", img: "/assets/prof-timeline-2.jpg", pos: "50% 30%" },
-              { n: "03", t: "CERTIFICAÇÃO", d: "Certificação internacional reconhecida, com acompanhamento até o resultado sair.", img: "/assets/prof-timeline-3.jpg", pos: "50% 20%" },
+              { n: "01", t: "DIAGNÓSTICO", d: "Entendemos seu momento e objetivo profissional.", img: "/assets/prof-timeline-1.jpg", pos: "50% 50%" },
+              { n: "02", t: "PREPARAÇÃO", d: "Construímos um plano de desenvolvimento e preparação.", img: "/assets/prof-timeline-2.jpg", pos: "50% 30%" },
+              { n: "03", t: "EXAME", d: "O profissional realiza o processo de certificação junto à instituição responsável.", img: "/assets/prof-timeline-3.jpg", pos: "50% 20%" },
+              { n: "04", t: "PRÓXIMO PASSO", d: "Usamos o resultado para definir a próxima etapa da trajetória profissional.", img: "/assets/prof-servico-liderancas.jpg", pos: "50% 15%" },
             ].map((s, i) => {
               const photo = (
                 <div key={`img-${s.n}`} style={{ position: "relative", height: 260, borderRadius: 18, overflow: "hidden" }}>
@@ -158,9 +164,9 @@ export default function ProfessionalsPage() {
       <section className="section-pad" style={{ background: "var(--blue)", padding: "0", position: "relative", overflow: "hidden" }}>
         <div className="container reveal grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "1.3fr 1fr", alignItems: "center" }}>
           <div style={{ padding: "40px 44px" }}>
-            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Experiência que orienta</div>
+            <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Experiência real de avaliação internacional</div>
             <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
-              A mentoria é conduzida por quem tem experiência real com o sistema de exames Cambridge English, à frente de um Centro Preparatório Oficial há mais de 8 anos: clareza de objetivo, evidência de progresso e padrão internacional de preparação. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
+              A preparação é conduzida por um profissional com experiência em avaliação Cambridge English, formação docente e gestão acadêmica, trazendo uma perspectiva prática para o desenvolvimento profissional. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
             </p>
           </div>
           <div style={{ position: "relative", height: 260 }}>
