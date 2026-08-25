@@ -28,10 +28,11 @@ export default function SchoolsPage() {
           <div>
             <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>O problema real</div>
             <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>Internacionalizar não é simplesmente adicionar aulas de inglês. Muitas escolas esbarram em:</p>
-            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 12 }}>
               {["Professores com níveis diferentes de proficiência", "Currículo sem progressão clara", "Inglês desconectado da formação integral", "Dificuldade para implementar certificações", "Ausência de indicadores de acompanhamento", "Receio de perder identidade institucional"].map((item) => (
-                <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
-                  <span style={{ color: "var(--red)", fontWeight: 800 }}>•</span>{item}
+                <li key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--red)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)" }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -39,10 +40,11 @@ export default function SchoolsPage() {
           <div>
             <div className="eyebrow" style={{ color: "var(--blue)", marginBottom: 12 }}>O que a Promise resolve</div>
             <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.65, textAlign: "justify" }}>A Promise ajuda a escola a transformar um programa de inglês fragmentado em uma estrutura acadêmica coerente, conectando currículo, professores, coordenação, avaliação, materiais, certificações e internacionalização:</p>
-            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 12 }}>
               {["Inglês como parte de uma estratégia institucional", "Currículo com progressão e avaliação claras", "Formação docente contínua, com feedback", "Certificações internacionais alcançáveis", "Indicadores para decisões baseadas em evidência", "Identidade institucional preservada e fortalecida"].map((item) => (
-                <li key={item} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-soft)" }}>
-                  <span style={{ color: "var(--blue)", fontWeight: 800 }}>✓</span>{item}
+                <li key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)" }}>{item}</span>
                 </li>
               ))}
             </ul>

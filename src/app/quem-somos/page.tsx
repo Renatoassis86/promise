@@ -250,9 +250,12 @@ export default function QuemSomosPage() {
             { t: "Autonomia", d: "Construímos capacidade dentro da escola e da família para sustentar resultados." },
             { t: "Visão global", d: "Conectamos formação local a certificações, experiências e oportunidades internacionais." },
           ].map((w) => (
-            <div key={w.t}>
-              <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
-              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+            <div key={w.t} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+              <span style={{ width: 22, height: 22, borderRadius: "50%", background: "var(--blue)", color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+              <div>
+                <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 6 }}>{w.t}</div>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+              </div>
             </div>
           ))}
         </div>
