@@ -42,7 +42,7 @@ const FRENTES_CARDS = [
     photo: "/assets/card-professionals.jpg",
     pos: "50% 25%",
     icon: "users" as const,
-    color: "var(--blue)",
+    color: "var(--orange)",
     title: "Sou professor ou coordenador",
     text: "Certificações TKT, CELTA e DELTA, mentoria individual e formação de liderança educacional.",
     items: ["Certificações internacionais", "Mentoria e desenvolvimento profissional", "Formação de liderança educacional", "Comunidade e networking global"],
@@ -66,6 +66,7 @@ export default function Home() {
           minHeight: 600,
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           padding: "110px 40px",
           background:
             "linear-gradient(100deg, rgba(9,13,28,.86) 0%, rgba(9,13,28,.62) 42%, rgba(9,13,28,.28) 68%, rgba(9,13,28,.12) 100%), url('/assets/hero-home.jpg')",
@@ -73,7 +74,7 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       >
-        <div className="container hero-home-inner" style={{ maxWidth: 1240, width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40, flexWrap: "wrap" }}>
+        <div className="container hero-home-inner" style={{ width: "min(1240px, 100%)", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40, flexWrap: "wrap" }}>
           <div style={{ maxWidth: 600, display: "flex", flexDirection: "column", gap: 20 }}>
             <span className="eyebrow" style={{ color: "#9DB0F0" }}>Internacionalização educacional</span>
             <h1 className="fluid-h1" style={{ margin: 0, fontSize: 46, lineHeight: 1.16, fontWeight: 900, color: "#fff" }}>
