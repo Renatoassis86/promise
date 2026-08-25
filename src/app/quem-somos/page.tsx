@@ -20,7 +20,7 @@ const PILARES_FUNDAMENTOS = [
 ];
 
 const PILARES_SUSTENTACAO = [
-  { n: "05", t: "Oportunidades Globais", d: "Certificações Cambridge, American High School, intercâmbios, preparação universitária.", img: "/assets/global-familia.jpg", pos: "50% 15%" },
+  { n: "05", t: "Oportunidades Globais", d: "Certificações Cambridge, American School, intercâmbios, preparação universitária.", img: "/assets/global-familia.jpg", pos: "50% 15%" },
   { n: "06", t: "Cosmovisão Cristã Integrada", d: "A internacionalização fortalece a missão da escola ou da família. Nunca a substitui.", img: "/assets/banco-4.jpg", pos: "50% 20%" },
   { n: "07", t: "Melhoria Contínua", d: "Indicadores, acompanhamento, benchmarking, ciclos anuais de melhoria.", img: "/assets/banco-3.jpg", pos: "50% 50%" },
 ];
