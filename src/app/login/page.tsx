@@ -17,7 +17,7 @@ export default async function LoginPage() {
 
       <Header />
 
-      <section style={{ padding: "90px 40px" }}>
+      <section className="section-pad" style={{ padding: "90px 40px" }}>
         <div className="container" style={{ maxWidth: 480 }}>
           <div style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 18, padding: 40 }}>
             <span className="eyebrow" style={{ color: "var(--blue)" }}>Área do aluno e da família</span>

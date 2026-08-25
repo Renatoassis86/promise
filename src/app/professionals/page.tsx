@@ -59,13 +59,13 @@ export default function ProfessionalsPage() {
       <SectionDivider icon="orange" />
 
       {/* CATALOGO OFICIAL DE SERVICOS */}
-      <section style={{ padding: "60px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+      <section className="section-pad" style={{ padding: "60px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>O que a Promise oferece pra você</h2>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 3, borderRadius: 18, overflow: "hidden" }}>
             {SERVICOS.map((s, i) => (
               <div key={s.label} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", height: 210 }}>
-                <Image src={s.img} alt={s.label} fill style={{ objectFit: "cover", objectPosition: s.pos }} />
+                <Image src={s.img} alt={s.label} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: s.pos }} />
                 <div style={{ position: "absolute", inset: 0, background: i % 2 === 0 ? "rgba(24,54,178,.72)" : "rgba(250,31,21,.72)" }} />
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: "20px 22px", display: "flex", alignItems: "flex-end" }}>
                   <span style={{ fontSize: 14.5, fontWeight: 800, color: "#fff", lineHeight: 1.35 }}>{s.label}</span>
@@ -77,7 +77,7 @@ export default function ProfessionalsPage() {
       </section>
 
       {/* CERTIFICACOES EM DESTAQUE - fluxo vertical, com mais contexto sobre o que cada uma representa */}
-      <section style={{ padding: "84px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ padding: "84px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ top: -80, left: -100, width: 360, height: 360, background: "var(--red)", opacity: 0.08 }} />
         <div className="container" style={{ textAlign: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
           <span className="eyebrow" style={{ color: "#8EA0E8" }}>Certificações Cambridge</span>
@@ -123,7 +123,7 @@ export default function ProfessionalsPage() {
       </section>
 
       {/* COMO FUNCIONA - storytelling em etapas, foto grande alternada */}
-      <section style={{ padding: "76px 40px", background: "#fff" }}>
+      <section className="section-pad" style={{ padding: "76px 40px", background: "#fff" }}>
         <div className="container" style={{ maxWidth: 980 }}>
           <h2 style={{ margin: "0 0 56px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Como funciona a mentoria</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 60 }}>
@@ -134,7 +134,7 @@ export default function ProfessionalsPage() {
             ].map((s, i) => {
               const photo = (
                 <div key={`img-${s.n}`} style={{ position: "relative", height: 260, borderRadius: 18, overflow: "hidden" }}>
-                  <Image src={s.img} alt={s.t} fill style={{ objectFit: "cover", objectPosition: s.pos }} />
+                  <Image src={s.img} alt={s.t} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: s.pos }} />
                 </div>
               );
               const text = (
@@ -155,7 +155,7 @@ export default function ProfessionalsPage() {
       </section>
 
       {/* CREDIBILIDADE DA MENTORIA - institucional, sem foto pessoal */}
-      <section style={{ background: "var(--blue)", padding: "0", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ background: "var(--blue)", padding: "0", position: "relative", overflow: "hidden" }}>
         <div className="container reveal grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "1.3fr 1fr", alignItems: "center" }}>
           <div style={{ padding: "40px 44px" }}>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Quem avalia, não só ensina</div>
@@ -164,12 +164,12 @@ export default function ProfessionalsPage() {
             </p>
           </div>
           <div style={{ position: "relative", height: 260 }}>
-            <Image src="/assets/professionals-authority.jpg" alt="Professora recebendo certificação internacional" fill style={{ objectFit: "cover", objectPosition: "50% 15%" }} />
+            <Image src="/assets/professionals-authority.jpg" alt="Professora recebendo certificação internacional" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 15%" }} />
           </div>
         </div>
       </section>
 
-      <section style={{ padding: "76px 40px", background: "var(--tint)" }}>
+      <section className="section-pad" style={{ padding: "76px 40px", background: "var(--tint)" }}>
         <div className="reveal">
           <MatriculaForm tipo="professionals" />
         </div>

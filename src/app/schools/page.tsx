@@ -23,7 +23,7 @@ export default function SchoolsPage() {
       />
 
       {/* DOR / OBJECAO */}
-      <section style={{ padding: "64px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+      <section className="section-pad" style={{ padding: "64px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 40 }}>
           <div>
             <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>O problema real</div>
@@ -51,7 +51,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* PROVA DE AUTORIDADE */}
-      <section style={{ padding: "22px 40px", background: "var(--tint)" }}>
+      <section className="section-pad" style={{ padding: "22px 40px", background: "var(--tint)" }}>
         <div className="container" style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap", fontSize: 13, color: "var(--ink-soft)" }}>
           <div><strong style={{ color: "var(--ink)" }}>14+ anos</strong> em ensino de inglês e educação</div>
           <div><strong style={{ color: "var(--ink)" }}>Cambridge Examiner</strong>, não é curso de terceiros</div>
@@ -60,7 +60,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* COMO ESTRUTURAMOS (modulo alternado texto/imagem+cor) */}
-      <section style={{ padding: "76px 40px" }}>
+      <section className="section-pad" style={{ padding: "76px 40px" }}>
         <div className="container">
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Como estruturamos o programa da sua escola</h2>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 26 }}>
@@ -69,7 +69,7 @@ export default function SchoolsPage() {
               <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Conversa direta com o fundador para entender o momento da escola antes de qualquer proposta.</p>
             </div>
             <div className="reveal reveal-delay-2" style={{ position: "relative", borderRadius: 14, overflow: "hidden", height: 220 }}>
-              <Image src="/assets/schools-curricular.jpg" alt="Alunos e professores em atividade curricular" fill style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+              <Image src="/assets/schools-curricular.jpg" alt="Alunos e professores em atividade curricular" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
               <div style={{ position: "absolute", inset: 0, background: "rgba(24,54,178,.74)" }} />
               <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 24, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                 <div style={{ fontSize: 12.5, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 10 }}>02 · IMPLEMENTAÇÃO CURRICULAR</div>
@@ -85,10 +85,10 @@ export default function SchoolsPage() {
       </section>
 
       {/* CRITERIO DE DIAGNOSTICO - institucional, sem foto pessoal */}
-      <section style={{ background: "var(--blue)", padding: "0", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ background: "var(--blue)", padding: "0", position: "relative", overflow: "hidden" }}>
         <div className="container reveal grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "1fr 1.3fr", alignItems: "center" }}>
           <div style={{ position: "relative", height: 260 }}>
-            <Image src="/assets/schools-authority.jpg" alt="Aplicação de avaliação em ambiente formal de exame" fill style={{ objectFit: "cover", objectPosition: "50% 15%" }} />
+            <Image src="/assets/schools-authority.jpg" alt="Aplicação de avaliação em ambiente formal de exame" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 15%" }} />
           </div>
           <div style={{ padding: "40px 44px" }}>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Critério, não impressão</div>
@@ -125,7 +125,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* SCHOOLS + GLOBAL - ponte */}
-      <section style={{ padding: "70px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ padding: "70px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ bottom: -100, right: -80, width: 320, height: 320, background: "var(--blue)", opacity: 0.12 }} />
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 40, alignItems: "center", position: "relative", zIndex: 1 }}>
           <div>
@@ -140,7 +140,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* DIAGNOSTICO INSTITUCIONAL */}
-      <section id="matricula-section" style={{ padding: "76px 40px", background: "var(--tint)" }}>
+      <section className="section-pad" id="matricula-section" style={{ padding: "76px 40px", background: "var(--tint)" }}>
         <div className="reveal">
           <MatriculaForm tipo="schools" />
         </div>

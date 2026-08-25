@@ -32,7 +32,7 @@ export default function LearnersPage() {
       />
 
       {/* ALUNA - brush desconstruido, cutout com marcas d'agua de viagem */}
-      <section style={{ padding: "56px 40px", background: "#fff" }}>
+      <section className="section-pad" style={{ padding: "56px 40px", background: "#fff" }}>
         <div className="container reveal" style={{ display: "flex", gap: 40, alignItems: "center", justifyContent: "center", flexWrap: "wrap" }}>
           <PhotoDecor src="/assets/learners-hero-cutout.png" alt="Aluna Promise estudando" height={300} theme="travel" />
           <div style={{ maxWidth: 440 }}>
@@ -50,7 +50,7 @@ export default function LearnersPage() {
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.3fr 0.55fr", gap: 56, alignItems: "center" }}>
           <div>
             <span className="eyebrow" style={{ color: "var(--red)", fontSize: 14 }}>Cada estudante tem uma jornada</span>
-            <h2 className="fluid-h1" style={{ margin: "14px 0 24px", fontSize: 29, fontWeight: 900, lineHeight: 1.3, letterSpacing: "-0.01em", textAlign: "justify" }}>
+            <h2 className="fluid-h1 heading-justify" style={{ margin: "14px 0 24px", fontSize: 29, fontWeight: 900, lineHeight: 1.3, letterSpacing: "-0.01em", textAlign: "justify" }}>
               Uma jornada que <span style={{ color: "var(--red)", textTransform: "uppercase" }}>abre portas</span>, constrói oportunidades e <span style={{ color: "var(--blue)", textTransform: "uppercase" }}>transforma futuros</span>.
             </h2>
             <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.75, color: "var(--ink-soft)", textAlign: "justify" }}>
@@ -107,7 +107,7 @@ export default function LearnersPage() {
                       borderBottomRightRadius: i === STRIP.length - 1 ? 14 : 0,
                     }}
                   >
-                    <Image src={tile.src} alt={tile.alt} fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+                    <Image src={tile.src} alt={tile.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
                   </div>
                 ))}
                 {STRIP.map((tile, i) => (
@@ -166,7 +166,7 @@ export default function LearnersPage() {
       <SectionDivider />
 
       {/* 5 PILARES */}
-      <section style={{ padding: "64px 40px", background: "#fff", borderBottom: "1px solid var(--line)" }}>
+      <section className="section-pad" style={{ padding: "64px 40px", background: "#fff", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
           <h2 style={{ margin: "0 0 36px", fontSize: 24, fontWeight: 800, textAlign: "center" }}>Por que estudar inglês na Promise</h2>
           <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
@@ -181,7 +181,7 @@ export default function LearnersPage() {
       </section>
 
       {/* MODALIDADES - fotos agrupadas com tint de cor */}
-      <section id="modalidades" style={{ padding: "72px 40px", background: "var(--blue-dark)" }}>
+      <section className="section-pad" id="modalidades" style={{ padding: "72px 40px", background: "var(--blue-dark)" }}>
         <div className="container" style={{ maxWidth: 1000 }}>
           <span className="eyebrow" style={{ color: "#8EA0E8" }}>Modalidades</span>
           <h2 style={{ margin: "12px 0 36px", fontSize: 26, fontWeight: 800, color: "#fff" }}>Duas modalidades para encaixar na sua rotina</h2>
@@ -194,11 +194,11 @@ export default function LearnersPage() {
               </div>
             </div>
             <div className="reveal reveal-delay-2" style={{ position: "relative", height: 260 }}>
-              <Image src="/assets/learners-turmas.jpg" alt="Alunos estudando em grupo" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
+              <Image src="/assets/learners-turmas.jpg" alt="Alunos estudando em grupo" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
               <div style={{ position: "absolute", inset: 0, background: "rgba(24,54,178,.7)" }} />
             </div>
             <div className="reveal reveal-delay-3" style={{ position: "relative", height: 260 }}>
-              <Image src="/assets/prof-timeline-2.jpg" alt="Aula particular por videochamada" fill style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+              <Image src="/assets/prof-timeline-2.jpg" alt="Aula particular por videochamada" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
               <div style={{ position: "absolute", inset: 0, background: "rgba(250,31,21,.72)" }} />
             </div>
             <div className="reveal reveal-delay-4" style={{ position: "relative", height: 260 }}>
@@ -213,11 +213,11 @@ export default function LearnersPage() {
       </section>
 
       {/* CERTIFICACOES CAMBRIDGE/TRINITY */}
-      <section id="certificacoes" style={{ padding: "72px 40px" }}>
+      <section className="section-pad" id="certificacoes" style={{ padding: "72px 40px" }}>
         <div className="container">
           <div className="card reveal" style={{ maxWidth: 640, margin: "0 auto" }}>
             <div style={{ position: "relative", height: 260 }}>
-              <Image src="/assets/professionals-authority.jpg" alt="Certificação internacional entregue" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
+              <Image src="/assets/professionals-authority.jpg" alt="Certificação internacional entregue" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
             </div>
             <div style={{ padding: 28 }}>
               <div className="eyebrow" style={{ color: "var(--red)", marginBottom: 12 }}>Certificações internacionais</div>
@@ -229,15 +229,15 @@ export default function LearnersPage() {
       </section>
 
       {/* HOMESCHOOLING - secao dedicada, composicao modular sobreposta */}
-      <section id="homeschool" style={{ padding: "84px 40px", background: "var(--tint)", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" id="homeschool" style={{ padding: "84px 40px", background: "var(--tint)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ bottom: -100, right: -100, width: 360, height: 360, background: "var(--blue)", opacity: 0.08 }} />
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center", position: "relative", zIndex: 1 }}>
           <div style={{ position: "relative", height: 380 }}>
             <div style={{ position: "absolute", top: 0, right: 0, width: "72%", height: "68%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(24,27,34,.18)" }}>
-              <Image src="/assets/homeschool-pai-mae.jpg" alt="Mãe ajudando filho a estudar inglês em casa" fill style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+              <Image src="/assets/homeschool-pai-mae.jpg" alt="Mãe ajudando filho a estudar inglês em casa" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
             </div>
             <div style={{ position: "absolute", bottom: 0, left: 0, width: "56%", height: "48%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(24,27,34,.18)" }}>
-              <Image src="/assets/homeschool-familia-oracao.jpg" alt="Família reunida em estudo e oração em casa" fill style={{ objectFit: "cover", objectPosition: "50% 35%" }} />
+              <Image src="/assets/homeschool-familia-oracao.jpg" alt="Família reunida em estudo e oração em casa" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 35%" }} />
             </div>
           </div>
           <div>
@@ -270,7 +270,7 @@ export default function LearnersPage() {
       </section>
 
       {/* AMERICAN SCHOOL - secao dedicada, com destaque proprio */}
-      <section id="american-school" style={{ padding: "80px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" id="american-school" style={{ padding: "80px 40px", background: "var(--blue-dark)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ top: -100, right: -120, width: 400, height: 400, background: "var(--red)", opacity: 0.08 }} />
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 52, alignItems: "center", position: "relative", zIndex: 1 }}>
           <div>
@@ -303,10 +303,10 @@ export default function LearnersPage() {
           </div>
           <div style={{ position: "relative", height: 420 }}>
             <div style={{ position: "absolute", top: 0, right: 0, width: "78%", height: "62%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(0,0,0,.3)" }}>
-              <Image src="/assets/schools-curricular.jpg" alt="Alunos em atividade de currículo internacional" fill style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+              <Image src="/assets/schools-curricular.jpg" alt="Alunos em atividade de currículo internacional" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
             </div>
             <div style={{ position: "absolute", bottom: 0, left: 0, width: "62%", height: "48%", borderRadius: 16, overflow: "hidden", border: "4px solid #fff", boxShadow: "0 20px 40px rgba(0,0,0,.3)" }}>
-              <Image src="/assets/global-familia.jpg" alt="Família recebendo estudante de intercâmbio" fill style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
+              <Image src="/assets/global-familia.jpg" alt="Família recebendo estudante de intercâmbio" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" loading="eager" style={{ objectFit: "cover", objectPosition: "50% 20%" }} />
             </div>
           </div>
         </div>
@@ -341,10 +341,10 @@ export default function LearnersPage() {
       </section>
 
       {/* BOLSA DE ESTUDOS - com foto contextual (pendente: ver prompt "Bolsa de Estudos" na lista) */}
-      <section style={{ padding: "56px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+      <section className="section-pad" style={{ padding: "56px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 36, alignItems: "center" }}>
           <div style={{ position: "relative", height: 160, borderRadius: 14, overflow: "hidden" }}>
-            <Image src="/assets/bolsa-estudos.jpg" alt="Aluna bolsista estudando em casa" fill style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+            <Image src="/assets/bolsa-estudos.jpg" alt="Aluna bolsista estudando em casa" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
           </div>
           <div>
             <span className="eyebrow" style={{ color: "var(--blue)" }}>Investimento missionário</span>
@@ -355,14 +355,14 @@ export default function LearnersPage() {
       </section>
 
       {/* MATRICULE-SE JA */}
-      <section style={{ padding: "76px 40px" }}>
+      <section className="section-pad" style={{ padding: "76px 40px" }}>
         <div className="reveal">
           <MatriculaForm tipo="learners" />
         </div>
       </section>
 
       {/* CTA FINAL */}
-      <section style={{ background: "var(--red)", padding: "56px 40px", textAlign: "center" }}>
+      <section className="section-pad" style={{ background: "var(--red)", padding: "56px 40px", textAlign: "center" }}>
         <div className="container reveal" style={{ maxWidth: 600, display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
           <h2 style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#fff" }}>Não perca mais tempo. Chegou a hora de ser fluente.</h2>
           <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", padding: "14px 28px", borderRadius: 999, fontWeight: 700, fontSize: 14.5, background: "#fff", color: "var(--red)" }}>

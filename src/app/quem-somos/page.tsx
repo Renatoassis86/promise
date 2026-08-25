@@ -42,6 +42,7 @@ export default function QuemSomosPage() {
 
       {/* HERO - full bleed, mesmo padrao das demais paginas */}
       <section
+        className="section-pad"
         style={{
           position: "relative",
           minHeight: 480,
@@ -89,7 +90,7 @@ export default function QuemSomosPage() {
       <SectionDivider />
 
       {/* MISSAO / VISAO / PROPOSITO */}
-      <section style={{ padding: "60px 40px", background: "var(--blue)" }}>
+      <section className="section-pad" style={{ padding: "60px 40px", background: "var(--blue)" }}>
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 32 }}>
           <div>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Missão</div>
@@ -120,7 +121,7 @@ export default function QuemSomosPage() {
       </section>
 
       {/* PROMISE EXCELLENCE FRAMEWORK - intro */}
-      <section style={{ padding: "76px 40px 44px", background: "#fff" }}>
+      <section className="section-pad" style={{ padding: "76px 40px 44px", background: "#fff" }}>
         <div className="container reveal" style={{ textAlign: "center" }}>
           <span className="eyebrow" style={{ color: "var(--red)" }}>O método próprio</span>
           <h2 style={{ margin: "10px 0 12px", fontSize: 28, fontWeight: 800 }}>Promise Excellence Framework™</h2>
@@ -131,13 +132,13 @@ export default function QuemSomosPage() {
       </section>
 
       {/* PILARES - SECAO 1: FUNDAMENTOS */}
-      <section style={{ padding: "0 40px 20px", background: "#fff" }}>
+      <section className="section-pad" style={{ padding: "0 40px 20px", background: "#fff" }}>
         <div className="container">
           <h3 className="reveal" style={{ margin: "0 0 22px", fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blue)" }}>Como estruturamos por dentro</h3>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 4, borderRadius: 18, overflow: "hidden" }}>
             {PILARES_FUNDAMENTOS.map((p, i) => (
               <div key={p.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", height: 240 }}>
-                <Image src={p.img} alt={p.t} fill style={{ objectFit: "cover", objectPosition: p.pos }} />
+                <Image src={p.img} alt={p.t} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: p.pos }} />
                 <div style={{ position: "absolute", inset: 0, background: i % 2 === 0 ? "rgba(24,54,178,.78)" : "rgba(250,31,21,.78)" }} />
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 26, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                   <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
@@ -151,13 +152,13 @@ export default function QuemSomosPage() {
       </section>
 
       {/* PILARES - SECAO 2: SUSTENTACAO */}
-      <section style={{ padding: "20px 40px 76px", background: "#fff", borderBottom: "1px solid var(--line)" }}>
+      <section className="section-pad" style={{ padding: "20px 40px 76px", background: "#fff", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
           <h3 className="reveal" style={{ margin: "0 0 22px", fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--red)" }}>Como isso se sustenta</h3>
           <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 4, borderRadius: 18, overflow: "hidden" }}>
             {PILARES_SUSTENTACAO.map((p, i) => (
               <div key={p.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", height: 240 }}>
-                <Image src={p.img} alt={p.t} fill style={{ objectFit: "cover", objectPosition: p.pos }} />
+                <Image src={p.img} alt={p.t} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: p.pos }} />
                 <div style={{ position: "absolute", inset: 0, background: i % 2 === 0 ? "rgba(250,31,21,.78)" : "rgba(24,54,178,.78)" }} />
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 22, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                   <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
@@ -171,7 +172,7 @@ export default function QuemSomosPage() {
       </section>
 
       {/* FLUXO - jornada de 5 fases, com destaque */}
-      <section style={{ padding: "76px 40px", background: "var(--ink)" }}>
+      <section className="section-pad" style={{ padding: "76px 40px", background: "var(--ink)" }}>
         <div className="container reveal" style={{ textAlign: "center", marginBottom: 48 }}>
           <span className="eyebrow" style={{ color: "#9DB0F0" }}>A jornada</span>
           <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800, color: "#fff" }}>Cinco fases, do diagnóstico à autonomia da escola ou da família</h2>
@@ -198,7 +199,7 @@ export default function QuemSomosPage() {
       </section>
 
       {/* FUNDADOR - bio + fala pessoal em primeira pessoa, em um so bloco */}
-      <section style={{ padding: "76px 40px", background: "var(--tint)" }}>
+      <section className="section-pad" style={{ padding: "76px 40px", background: "var(--tint)" }}>
         <div className="container reveal" style={{ display: "flex", flexDirection: "column", gap: 40 }}>
           <div style={{ display: "flex", gap: 44, alignItems: "flex-start", flexWrap: "wrap" }}>
             <PhotoCard src="/assets/calebe-familia.jpg" alt="Calebe Braga" height={340} />
@@ -255,7 +256,7 @@ export default function QuemSomosPage() {
       </section>
 
       {/* MATERIAIS UTILIZADOS - composicao compacta, sem caixas */}
-      <section style={{ padding: "60px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ padding: "60px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ top: -100, right: -120, width: 380, height: 380, background: "var(--blue)", opacity: 0.1 }} />
         <div className="container" style={{ maxWidth: 980, textAlign: "center", marginBottom: 36, position: "relative", zIndex: 1 }}>
           <h2 style={{ margin: "0 0 8px", fontSize: 24, fontWeight: 800, color: "#fff" }}>Materiais utilizados</h2>

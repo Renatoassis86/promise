@@ -209,6 +209,13 @@ a:hover {
   .fluid-h2 {
     font-size: clamp(22px, 6vw, 28px) !important;
   }
+  /* Titulos justificados: em telas estreitas, poucas palavras grandes
+     quebram em linhas curtas que o justify estica de forma feia (as
+     vezes ate 1 palavra sozinha na linha). Volta pro alinhamento
+     natural a esquerda so no mobile. */
+  .heading-justify {
+    text-align: left !important;
+  }
 }
 
 /* Clusters de fotos com posicionamento absoluto (livros, high school,
@@ -247,6 +254,14 @@ a:hover {
   }
   .hero-photo-ctas {
     justify-content: flex-start !important;
+  }
+  /* Botoes pill com texto longo: no mobile, quebra em vez de estourar a
+     largura da tela (a coluna disponivel costuma ser bem mais estreita
+     do que no desktop). */
+  .pill {
+    white-space: normal !important;
+    text-align: center !important;
+    max-width: 100% !important;
   }
 }
 

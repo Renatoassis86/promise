@@ -16,6 +16,7 @@ export default function Home() {
 
       {/* HERO - full bleed, texto centralizado sobre a foto */}
       <section
+        className="section-pad"
         style={{
           position: "relative",
           minHeight: 580,
@@ -45,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* TRIAGEM POR PUBLICO */}
-      <section id="frentes" style={{ padding: "0 40px 90px", background: "var(--tint)", paddingTop: 70 }}>
+      <section className="section-pad" id="frentes" style={{ padding: "0 40px 90px", background: "var(--tint)", paddingTop: 70 }}>
         <div className="container" style={{ padding: 0 }}>
           <h2 style={{ margin: "0 0 32px", fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-soft)", textAlign: "center" }}>
             Qual dessas frentes é a sua?
@@ -58,7 +59,7 @@ export default function Home() {
             ].map((c, i) => (
               <div key={c.href} className={`card reveal reveal-delay-${i + 1}`}>
                 <div style={{ position: "relative", height: 190 }}>
-                  <Image src={c.photo} alt={c.title} fill style={{ objectFit: "cover", objectPosition: c.pos }} />
+                  <Image src={c.photo} alt={c.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px" style={{ objectFit: "cover", objectPosition: c.pos }} />
                 </div>
                 <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ fontSize: 19, fontWeight: 700 }}>{c.title}</div>
@@ -72,7 +73,7 @@ export default function Home() {
       </section>
 
       {/* AUTORIDADE */}
-      <section style={{ background: "var(--blue)", padding: "64px 40px", position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ background: "var(--blue)", padding: "64px 40px", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ bottom: -100, right: 80, width: 300, height: 300, background: "#fff", opacity: 0.05 }} />
         <div className="container reveal" style={{ padding: 0, display: "flex", gap: 48, alignItems: "center", flexWrap: "wrap", position: "relative", zIndex: 1 }}>
           <PhotoCard src="/assets/calebe-familia.jpg" alt="Calebe Braga e sua família" height={340} accent="#fff" />
@@ -92,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* 4 FRENTES PREVIEW */}
-      <section style={{ padding: "80px 40px", background: "var(--ink)" }}>
+      <section className="section-pad" style={{ padding: "80px 40px", background: "var(--ink)" }}>
         <div className="container grid-tablet-2 grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 32 }}>
           {[
             { label: "PROMISE FOR SCHOOLS", text: "Diagnóstico direto com o fundador antes de qualquer proposta de implementação." },
@@ -111,7 +112,7 @@ export default function Home() {
       <PartnersCarousel />
 
       {/* CONTATO GERAL - atendimento personalizado / duvidas */}
-      <section style={{ padding: "80px 40px", background: "var(--tint)" }}>
+      <section className="section-pad" style={{ padding: "80px 40px", background: "var(--tint)" }}>
         <div className="container reveal" style={{ padding: 0, maxWidth: 720, display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textAlign: "center" }}>
           <span className="eyebrow" style={{ color: "var(--blue)" }}>Ainda com dúvidas?</span>
           <h2 style={{ margin: "6px 0 8px", fontSize: 26, fontWeight: 800 }}>Fale com a gente</h2>
@@ -125,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* CTA FECHAMENTO */}
-      <section style={{ background: "var(--blue-dark)", padding: "80px 40px" }}>
+      <section className="section-pad" style={{ background: "var(--blue-dark)", padding: "80px 40px" }}>
         <div className="container reveal" style={{ padding: 0, maxWidth: 700, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
           <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff", lineHeight: 1.35 }}>
             Excelência acadêmica e formação cristã caminham juntas: é assim que a Promise estrutura a internacionalização da sua escola, do seu homeschooling ou da sua carreira.
