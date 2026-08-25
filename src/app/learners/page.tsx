@@ -161,7 +161,7 @@ export default function LearnersPage() {
           ].map((c) => (
             <a key={c.t} href={c.href} style={{ display: "block", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
               <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8, color: "var(--ink)" }}>{c.t}</div>
-              <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.d}</p>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.d}</p>
             </a>
           ))}
         </div>
@@ -180,7 +180,7 @@ export default function LearnersPage() {
                   <Icon name={p.icon} size={24} color={i % 2 === 0 ? "var(--blue)" : "var(--red)"} />
                 </span>
                 <div style={{ fontSize: 13.5, fontWeight: 700, color: "var(--blue)" }}>{p.t}</div>
-                <p style={{ margin: 0, fontSize: 13, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
               </div>
             ))}
           </div>
@@ -276,7 +276,7 @@ export default function LearnersPage() {
           ].map((t) => (
             <div key={t.name} style={{ background: "var(--tint)", borderRadius: 16, padding: 26, display: "flex", flexDirection: "column", gap: 16 }}>
               <svg width="26" height="20" viewBox="0 0 24 18" fill="var(--blue)" style={{ opacity: 0.3, flexShrink: 0 }}><path d="M0 18V9.5C0 4.3 3.8.4 9 0v3.6C6 4 4 6.3 4 9h5v9H0zm11 0V9.5C11 4.3 14.8.4 20 0v3.6c-3 .4-5 2.7-5 5.4h5v9H11z" /></svg>
-              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "var(--ink)", flex: 1, textAlign: "justify" }}>{t.quote}</p>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "var(--ink)", flex: 1, textAlign: "justify" }}>{t.quote}</p>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 800, color: "var(--ink)" }}>{t.name}</div>
                 <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{t.role}</div>
@@ -445,7 +445,7 @@ export default function LearnersPage() {
                   </span>
                   <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 4 }}>{p.t}</div>
                   <span style={{ display: "block", width: 20, height: 2.5, borderRadius: 2, background: "var(--red)", marginBottom: 8 }} />
-                  <p style={{ margin: 0, fontSize: 12.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
+                  <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{p.d}</p>
                 </div>
               );
             })}

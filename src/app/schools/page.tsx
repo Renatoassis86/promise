@@ -82,7 +82,7 @@ export default function SchoolsPage() {
                   <span style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em" }}>{s.n}</span>
                 </div>
                 <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{s.t}</div>
-                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--ink-soft)" }}>{s.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, color: "var(--ink-soft)" }}>{s.d}</p>
               </div>
             ))}
           </div>
@@ -130,7 +130,7 @@ export default function SchoolsPage() {
                 </span>
                 <div style={{ fontSize: 14.5, fontWeight: 800, marginBottom: 6 }}>{b.t}</div>
                 <span style={{ display: "block", width: 20, height: 2.5, borderRadius: 2, background: "var(--red)", marginBottom: 8 }} />
-                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{b.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{b.d}</p>
               </div>
             );
           })}

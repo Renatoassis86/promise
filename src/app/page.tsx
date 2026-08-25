@@ -133,12 +133,12 @@ export default function Home() {
                 <div style={{ padding: "28px 24px 24px", display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
                   <div style={{ fontSize: 19, fontWeight: 700 }}>{c.title}</div>
                   <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)" }} />
-                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.text}</p>
+                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.text}</p>
                   <div style={{ display: "grid", gap: 7, margin: "2px 0 4px" }}>
                     {c.items.map((item) => (
                       <div key={item} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-                        <span style={{ width: 16, height: 16, borderRadius: "50%", background: c.color, color: "#fff", fontSize: 9, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
-                        <span style={{ fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-soft)" }}>{item}</span>
+                        <span style={{ width: 20, height: 20, borderRadius: "50%", background: c.color, color: "#fff", fontSize: 12, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>✓</span>
+                        <span style={{ fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)" }}>{item}</span>
                       </div>
                     ))}
                   </div>
@@ -162,7 +162,7 @@ export default function Home() {
               </span>
               <div>
                 <div style={{ fontSize: 15.5, fontWeight: 800 }}>Impacto global. Valores eternos.</div>
-                <p style={{ margin: 0, fontSize: 12.5, color: "var(--ink-soft)" }}>Formamos pessoas para o mundo sem abrir mão do que realmente importa.</p>
+                <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)" }}>Formamos pessoas para o mundo sem abrir mão do que realmente importa.</p>
               </div>
             </div>
             <div style={{ display: "flex", gap: 28, flexWrap: "wrap", flex: "2 1 480px" }}>
@@ -177,7 +177,7 @@ export default function Home() {
                   </span>
                   <div>
                     <div style={{ fontSize: 13, fontWeight: 700 }}>{f.t}</div>
-                    <p style={{ margin: 0, fontSize: 11.5, color: "var(--ink-soft)", lineHeight: 1.4 }}>{f.d}</p>
+                    <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)", lineHeight: 1.4 }}>{f.d}</p>
                   </div>
                 </div>
               ))}
@@ -215,7 +215,7 @@ export default function Home() {
                 </span>
                 <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
                 <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
-                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
               </div>
             );
           })}

@@ -81,7 +81,7 @@ export default function QuemSomosPage() {
           {FRENTES.map((f, i) => (
             <Link key={f.href} href={f.href} style={{ display: "block", padding: "26px 22px", background: i % 2 === 0 ? "var(--blue)" : "var(--red)", color: "#fff", minHeight: 190 }}>
               <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 10 }}>{f.label}</div>
-              <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, opacity: 0.92, textAlign: "justify" }}>{f.text}</p>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, opacity: 0.92, textAlign: "justify" }}>{f.text}</p>
               <span style={{ display: "inline-block", marginTop: 14, fontSize: 12, fontWeight: 700 }}>Conhecer →</span>
             </Link>
           ))}
@@ -147,7 +147,7 @@ export default function QuemSomosPage() {
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 26, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                   <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
                   <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
-                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, maxWidth: 340, textAlign: "justify" }}>{p.d}</p>
+                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, maxWidth: 340, textAlign: "justify" }}>{p.d}</p>
                 </div>
               </div>
             ))}
@@ -167,7 +167,7 @@ export default function QuemSomosPage() {
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 22, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                   <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
                   <div style={{ fontSize: 16.5, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
-                  <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, textAlign: "justify" }}>{p.d}</p>
+                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, textAlign: "justify" }}>{p.d}</p>
                 </div>
               </div>
             ))}
@@ -190,7 +190,7 @@ export default function QuemSomosPage() {
                   {f.n}
                 </div>
                 <div style={{ fontSize: 15.5, fontWeight: 800, color: "#fff", marginBottom: 8 }}>{f.t}</div>
-                <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: "#9AA0B4", textAlign: "justify" }}>{f.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "#9AA0B4", textAlign: "justify" }}>{f.d}</p>
               </div>
             ))}
           </div>
@@ -265,7 +265,7 @@ export default function QuemSomosPage() {
                 </span>
                 <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
                 <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
-                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
               </div>
             );
           })}
@@ -278,7 +278,7 @@ export default function QuemSomosPage() {
               </span>
               <div>
                 <div style={{ fontSize: 15, fontWeight: 800, color: "var(--ink)" }}>Vamos construir juntos o próximo nível da educação?</div>
-                <p style={{ margin: 0, fontSize: 13, color: "var(--ink-soft)" }}>Fale com um especialista e descubra como a Promise pode ajudar você.</p>
+                <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)" }}>Fale com um especialista e descubra como a Promise pode ajudar você.</p>
               </div>
             </div>
             <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill" style={{ background: "var(--blue)", color: "#fff", flexShrink: 0 }}>
@@ -308,7 +308,7 @@ export default function QuemSomosPage() {
           </div>
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Paideia</div>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
               Currículo cristão, clássico, bilíngue e integral, em quatro pilares: a Bíblia como base de todo conhecimento, a formação do caráter, o poder da linguagem para preparar líderes, e o desenvolvimento integral do aluno. Atende escolas, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
@@ -318,7 +318,7 @@ export default function QuemSomosPage() {
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 28, alignItems: "center", marginBottom: 32, position: "relative", zIndex: 1 }}>
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Oikos</div>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
               Mesma base cristã, clássica, bilíngue e integral do Paideia, adaptada para o ensino domiciliar. Atende famílias homeschooling, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
@@ -344,7 +344,7 @@ export default function QuemSomosPage() {
           </div>
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>To the Nations</div>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
               Currículo de inglês para o Ensino Fundamental 1 (nível F1), na mesma linha pedagógica do Paideia e do Oikos: cristão, clássico, bilíngue e integral, com método fônico e alinhado à BNCC. De autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>

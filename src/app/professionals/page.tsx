@@ -58,7 +58,7 @@ export default function ProfessionalsPage() {
                 </span>
                 <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{p.t}</div>
                 <span style={{ display: "block", width: 22, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
-                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{p.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{p.d}</p>
               </div>
             );
           })}
