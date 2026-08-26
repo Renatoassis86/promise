@@ -78,3 +78,34 @@ CREATE POLICY "Permitir envio publico de contato geral" ON public.contatos_gerai
 DROP POLICY IF EXISTS "Usuario le sua propria pre-matricula" ON public.pre_matriculas;
 CREATE POLICY "Usuario le sua propria pre-matricula" ON public.pre_matriculas
   FOR SELECT TO authenticated USING (email = (auth.jwt() ->> 'email'));
+
+-- ==============================================================================
+-- TABELA 3: RESPOSTAS DO PLANO DE NEGOCIO (modulo /admin, questionario por abas)
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.plano_negocio_respostas (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_email VARCHAR(255) NOT NULL,
+    question_id VARCHAR(150) NOT NULL,
+    resposta TEXT,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    UNIQUE (user_email, question_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_plano_negocio_user_email ON public.plano_negocio_respostas (user_email);
+
+ALTER TABLE public.plano_negocio_respostas ENABLE ROW LEVEL SECURITY;
+
+-- Cada usuario autenticado so le/grava/atualiza as proprias respostas (por e-mail do JWT).
+-- Na pratica, so o Calebe tem conta admin, mas a policy ja fica correta para o caso de
+-- outros admins existirem no futuro.
+DROP POLICY IF EXISTS "Usuario le suas respostas do plano" ON public.plano_negocio_respostas;
+CREATE POLICY "Usuario le suas respostas do plano" ON public.plano_negocio_respostas
+  FOR SELECT TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+
+DROP POLICY IF EXISTS "Usuario grava suas respostas do plano" ON public.plano_negocio_respostas;
+CREATE POLICY "Usuario grava suas respostas do plano" ON public.plano_negocio_respostas
+  FOR INSERT TO authenticated WITH CHECK (user_email = (auth.jwt() ->> 'email'));
+
+DROP POLICY IF EXISTS "Usuario atualiza suas respostas do plano" ON public.plano_negocio_respostas;
+CREATE POLICY "Usuario atualiza suas respostas do plano" ON public.plano_negocio_respostas
+  FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
