@@ -232,7 +232,7 @@ export default function Home() {
             <span className="eyebrow" style={{ color: "#9DB0F0" }}>Quem estrutura os seus programas</span>
             <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff" }}>Calebe Braga</h2>
             <p style={{ margin: 0, fontSize: 17, lineHeight: 1.65, color: "#D6DCF5" }}>
-              Há mais de 8 anos à frente de um Centro Preparatório Oficial de Cambridge, é autor das coleções Paideia, Oikos e To the Nations.
+              Há mais de 8 anos à frente de um Centro Preparatório Oficial de Cambridge, é autor do currículo de inglês das coleções Paideia e Oikos, do sistema de ensino cristão Cidade Viva Education, e da coleção To the Nations.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
               {["+14 anos de atuação", "Milhares de alunos impactados", "Formação em Letras e CELTA (Cambridge)", "Presença em 5 estados"].map((b) => (

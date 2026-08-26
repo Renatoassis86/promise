@@ -152,18 +152,26 @@ export default function LearnersPage() {
         </div>
         <div className="container reveal grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 16 }}>
           {[
-            { t: "Quero aprender inglês", d: "Turmas ou aulas particulares, com progresso acompanhado.", href: "#modalidades" },
-            { t: "Quero uma certificação", d: "Preparação para os exames Cambridge com profissionais experientes, que conhecem os exames na prática e entendem de verdade as exigências, critérios e competências avaliadas em cada nível.", href: "#certificacoes" },
-            { t: "Quero uma formação americana", d: "American School, do Elementary ao High School.", href: "#american-school" },
-            { t: "Minha família é homeschooler", d: "Inglês e trajetória internacional no ritmo de casa.", href: "#homeschool" },
-            { t: "Quero estudar fora", d: "Planejamento de uma trajetória acadêmica internacional.", href: "#pathway" },
-            { t: "Quero uma experiência internacional", d: "Viagens, intercâmbios e imersões.", href: "/global" },
-          ].map((c) => (
-            <a key={c.t} href={c.href} style={{ display: "block", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
-              <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8, color: "var(--ink)" }}>{c.t}</div>
-              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)" }}>{c.d}</p>
-            </a>
-          ))}
+            { t: "Quero aprender inglês", d: "Turmas ou aulas particulares, com progresso acompanhado.", href: "#modalidades", icon: "book" as const },
+            { t: "Quero uma certificação", d: "Preparação para os exames Cambridge com profissionais experientes, que conhecem os exames na prática e entendem de verdade as exigências, critérios e competências avaliadas em cada nível.", href: "#certificacoes", icon: "medal" as const },
+            { t: "Quero uma formação americana", d: "American School, do Elementary ao High School.", href: "#american-school", icon: "home" as const },
+            { t: "Minha família é homeschooler", d: "Inglês e trajetória internacional no ritmo de casa.", href: "#homeschool", icon: "heart" as const },
+            { t: "Quero estudar fora", d: "Planejamento de uma trajetória acadêmica internacional.", href: "#pathway", icon: "globe" as const },
+            { t: "Quero uma experiência internacional", d: "Viagens, intercâmbios e imersões.", href: "/global", icon: "users" as const },
+          ].map((c, i) => {
+            const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+            const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+            return (
+              <a key={c.t} href={c.href} style={{ display: "block", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+                <span style={{ width: 48, height: 48, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
+                  <Icon name={c.icon} size={22} color={accent} />
+                </span>
+                <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 6, color: "var(--ink)" }}>{c.t}</div>
+                <span style={{ display: "block", width: 22, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)" }}>{c.d}</p>
+              </a>
+            );
+          })}
         </div>
       </section>
 

@@ -75,16 +75,20 @@ export default function SchoolsPage() {
               { n: "06", t: "Implementação", d: "Colocar o programa em funcionamento.", icon: "calendar" as const },
               { n: "07", t: "Certificações", d: "Preparar a escola para uma trajetória Cambridge.", icon: "medal" as const },
               { n: "08", t: "Acompanhamento", d: "Medir, ajustar e desenvolver.", icon: "users" as const },
-            ].map((s, i) => (
-              <div key={s.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
-                  <Icon name={s.icon} size={14} color="var(--ink-soft)" />
-                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em" }}>{s.n}</span>
+            ].map((s, i) => {
+              const accent = i % 2 === 0 ? "var(--blue)" : "var(--red)";
+              const tint = i % 2 === 0 ? "#E4E9FA" : "#FCE4E3";
+              return (
+                <div key={s.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+                  <span style={{ width: 40, height: 40, borderRadius: "50%", background: tint, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+                    <Icon name={s.icon} size={18} color={accent} />
+                  </span>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em", display: "block", marginBottom: 4 }}>{s.n}</span>
+                  <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{s.t}</div>
+                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, color: "var(--ink-soft)" }}>{s.d}</p>
                 </div>
-                <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{s.t}</div>
-                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, color: "var(--ink-soft)" }}>{s.d}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -214,7 +214,7 @@ export default function QuemSomosPage() {
                 Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento internacional da Cidade Viva Academy e tem experiência com o sistema de exames Cambridge English, abrangendo níveis do Pre A1 Starters ao C1 Advanced, e profundo conhecimento dos processos de avaliação, aplicação e certificação internacional.
               </p>
               <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)" }}>
-                É autor das coleções Paideia, Oikos e To the Nations, currículos de inglês cristãos, clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
+                É autor do currículo de inglês das coleções Paideia e Oikos, do sistema de ensino cristão Cidade Viva Education, e da coleção To the Nations, currículos clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
                 {["Centro Preparatório Oficial Cambridge", "CELTA (Cambridge)", "Autor: Paideia, Oikos e To the Nations", "14+ anos de atuação"].map((b) => (
@@ -309,7 +309,7 @@ export default function QuemSomosPage() {
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Paideia</div>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8" }}>
-              Currículo cristão, clássico, bilíngue e integral, em quatro pilares: a Bíblia como base de todo conhecimento, a formação do caráter, o poder da linguagem para preparar líderes, e o desenvolvimento integral do aluno. Atende escolas, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
+              Coleção do sistema de ensino cristão Cidade Viva Education, em quatro pilares: a Bíblia como base de todo conhecimento, a formação do caráter, o poder da linguagem para preparar líderes, e o desenvolvimento integral do aluno. Atende escolas, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
         </div>
@@ -319,7 +319,7 @@ export default function QuemSomosPage() {
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Oikos</div>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8" }}>
-              Mesma base cristã, clássica, bilíngue e integral do Paideia, adaptada para o ensino domiciliar. Atende famílias homeschooling, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
+              Também do sistema de ensino cristão Cidade Viva Education, mesma base clássica, bilíngue e integral do Paideia, adaptada para o ensino domiciliar. Atende famílias homeschooling, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
           <div className="photo-cluster" style={{ position: "relative", height: 200 }}>
