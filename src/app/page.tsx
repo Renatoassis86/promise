@@ -45,7 +45,7 @@ const FRENTES_CARDS = [
     icon: "users" as const,
     color: "var(--orange)",
     title: "Sou professor ou coordenador",
-    text: "Certificações TKT, CELTA e DELTA, mentoria individual e formação de liderança educacional.",
+    text: "Preparação para TKT, CELTA e DELTA, mentoria individual e formação de liderança educacional.",
     items: ["Certificações internacionais", "Mentoria e desenvolvimento profissional", "Formação de liderança educacional", "Comunidade e networking global"],
     cta: "Ver Promise for Professionals",
   },

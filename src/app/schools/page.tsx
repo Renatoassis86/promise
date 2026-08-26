@@ -144,15 +144,18 @@ export default function SchoolsPage() {
       {/* SCHOOLS + GLOBAL - ponte */}
       <section className="section-pad" style={{ padding: "70px 40px", background: "var(--ink)", position: "relative", overflow: "hidden" }}>
         <div className="blob" style={{ bottom: -100, right: -80, width: 320, height: 320, background: "var(--blue)", opacity: 0.12 }} />
-        <div className="container reveal grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 40, alignItems: "center", position: "relative", zIndex: 1 }}>
+        <div className="container reveal grid-mobile-1" style={{ maxWidth: 1000, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center", position: "relative", zIndex: 1 }}>
           <div>
             <span className="eyebrow" style={{ color: "#9DB0F0" }}>Schools + Global</span>
             <h2 style={{ margin: "10px 0 12px", fontSize: 24, fontWeight: 800, color: "#fff" }}>Da sala de aula para o mundo</h2>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#B8BCC8" }}>
+            <p style={{ margin: "0 0 24px", fontSize: 14.5, lineHeight: 1.65, color: "#B8BCC8" }}>
               Depois de estruturar o departamento de internacionalização, sua escola pode acessar intercâmbios, viagens acadêmicas e parcerias internacionais através da Promise Global.
             </p>
+            <Link href="/global" className="pill pill-red">Conhecer a Promise Global</Link>
           </div>
-          <Link href="/global" className="pill pill-red" style={{ justifyContent: "center" }}>Conhecer a Promise Global</Link>
+          <div style={{ position: "relative", height: 280, borderRadius: 18, overflow: "hidden" }}>
+            <Image src="/assets/schools-global-bridge.jpg" alt="Estudantes embarcando para um intercâmbio internacional" fill sizes="(max-width: 640px) 100vw, 500px" style={{ objectFit: "cover", objectPosition: "50% 30%" }} />
+          </div>
         </div>
       </section>
 
