@@ -8,10 +8,11 @@ import Link from "next/link";
 import Icon from "@/components/Icons";
 
 const HERO_BADGES = [
-  { icon: "cap" as const, label: "Consultoria, currículo e formação docente", color: "var(--red)" },
-  { icon: "shield" as const, label: "Certificações Cambridge", color: "var(--blue)" },
-  { icon: "home" as const, label: "Programas de American School e intercâmbio", color: "var(--red)" },
-  { icon: "users" as const, label: "Organizados sob a mesma cosmovisão cristã", color: "var(--blue)" },
+  { icon: "book" as const, label: "Cursos de inglês para todas as idades", color: "var(--red)" },
+  { icon: "cap" as const, label: "Consultoria, currículo e formação docente", color: "var(--blue)" },
+  { icon: "shield" as const, label: "Certificações Cambridge", color: "var(--red)" },
+  { icon: "home" as const, label: "Programas de American School e intercâmbio", color: "var(--blue)" },
+  { icon: "users" as const, label: "Organizados sob a mesma cosmovisão cristã", color: "var(--red)" },
 ];
 
 const FRENTES_CARDS = [
@@ -84,7 +85,7 @@ export default function Home() {
                 <span style={{ position: "absolute", left: 0, right: 0, bottom: -6, height: 3, background: "var(--red)", borderRadius: 2 }} />
               </span>
             </h1>
-            <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#DCE0EE", maxWidth: 500, textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.6, color: "#DCE0EE", maxWidth: 500 }}>
               Estruturamos a internacionalização de escolas cristãs e famílias homeschooling, formando professores e preparando alunos para certificações internacionais.
             </p>
             <div style={{ display: "flex", gap: 14, marginTop: 8, flexWrap: "wrap" }}>
@@ -133,7 +134,7 @@ export default function Home() {
                 <div style={{ padding: "28px 24px 24px", display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
                   <div style={{ fontSize: 19, fontWeight: 700 }}>{c.title}</div>
                   <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)" }} />
-                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.text}</p>
+                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)" }}>{c.text}</p>
                   <div style={{ display: "grid", gap: 7, margin: "2px 0 4px" }}>
                     {c.items.map((item) => (
                       <div key={item} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
@@ -215,7 +216,7 @@ export default function Home() {
                 </span>
                 <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
                 <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)" }}>{w.d}</p>
               </div>
             );
           })}
@@ -230,11 +231,11 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16, flex: 1, minWidth: 280 }}>
             <span className="eyebrow" style={{ color: "#9DB0F0" }}>Quem estrutura os seus programas</span>
             <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: "#fff" }}>Calebe Braga</h2>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 17, lineHeight: 1.65, color: "#D6DCF5" }}>
               Há mais de 8 anos à frente de um Centro Preparatório Oficial de Cambridge, é autor das coleções Paideia, Oikos e To the Nations.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
-              {["Centro Preparatório Oficial Cambridge", "CELTA (Cambridge)", "14+ anos de atuação"].map((b) => (
+              {["+14 anos de atuação", "Milhares de alunos impactados", "Formação em Letras e CELTA (Cambridge)", "Presença em 5 estados"].map((b) => (
                 <span key={b} style={{ background: "rgba(255,255,255,.1)", border: "1px solid rgba(255,255,255,.25)", color: "#fff", fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999 }}>{b}</span>
               ))}
             </div>
@@ -246,14 +247,14 @@ export default function Home() {
       <section className="section-pad" style={{ padding: "80px 40px", background: "var(--ink)" }}>
         <div className="container grid-tablet-2 grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "repeat(4, minmax(0,1fr))", gap: 32 }}>
           {[
-            { label: "PROMISE FOR SCHOOLS", text: "Diagnóstico direto com um consultor antes de qualquer proposta de implementação." },
-            { label: "PROMISE FOR LEARNERS", text: "Preparação para certificações Cambridge com quem tem experiência real nesse sistema de exames." },
-            { label: "PROMISE FOR PROFESSIONALS", text: "Mentoria individual em cada etapa da certificação, não apenas aulas em turma." },
+            { label: "PROMISE FOR SCHOOLS", text: "Consultoria, currículo, formação docente e certificações internacionais para escolas cristãs." },
+            { label: "PROMISE FOR LEARNERS", text: "Inglês, certificações Cambridge, American School e experiências internacionais para alunos e famílias." },
+            { label: "PROMISE FOR PROFESSIONALS", text: "Formação, mentoria e certificações Cambridge para professores, coordenadores e líderes educacionais." },
             { label: "PROMISE GLOBAL", text: "Intercâmbios, parcerias e cooperação acadêmica com instituições estrangeiras." },
           ].map((f, i) => (
             <div key={f.label} className={`reveal reveal-delay-${i + 1}`} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: "var(--red)", letterSpacing: "0.06em" }}>{f.label}</div>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#B8BCC8", textAlign: "justify" }}>{f.text}</p>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#B8BCC8" }}>{f.text}</p>
             </div>
           ))}
         </div>
@@ -266,7 +267,7 @@ export default function Home() {
         <div className="container reveal" style={{ padding: 0, maxWidth: 720, display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textAlign: "center" }}>
           <span className="eyebrow" style={{ color: "var(--blue)" }}>Ainda com dúvidas?</span>
           <h2 style={{ margin: "6px 0 8px", fontSize: 26, fontWeight: 800 }}>Fale com a gente</h2>
-          <p style={{ margin: "0 0 28px", fontSize: 15, color: "var(--ink-soft)", maxWidth: 480, textAlign: "justify" }}>
+          <p style={{ margin: "0 0 28px", fontSize: 15, color: "var(--ink-soft)", maxWidth: 480 }}>
             Se você ainda não sabe qual das frentes é a sua, ou quer entender melhor um projeto específico antes de decidir, preencha abaixo para um atendimento personalizado.
           </p>
           <div style={{ width: "100%", maxWidth: 520, background: "#fff", border: "1px solid var(--line)", borderRadius: 18, padding: 36 }}>

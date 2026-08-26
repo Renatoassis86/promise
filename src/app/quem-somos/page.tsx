@@ -62,7 +62,7 @@ export default function QuemSomosPage() {
           <h1 className="fluid-h1" style={{ margin: 0, fontSize: 36, lineHeight: 1.25, fontWeight: 900, color: "#fff" }}>
             Um ecossistema confessional de internacionalização educacional dedicado a transformar escolas e famílias homeschooling, desenvolver educadores e preparar estudantes para impactar o mundo.
           </h1>
-          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#DCE0EE", maxWidth: 680, textAlign: "justify" }}>
+          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#DCE0EE", maxWidth: 680 }}>
             Reunimos em um único ecossistema soluções para escolas, famílias homeschooling, estudantes, educadores e parceiros internacionais: cursos de inglês, materiais didáticos, consultoria estratégica, desenvolvimento curricular, programas acadêmicos internacionais, certificações, formação profissional e experiências globais.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function QuemSomosPage() {
         <div className="container reveal" style={{ maxWidth: 760, textAlign: "center", margin: "0 auto 20px" }}>
           <span className="eyebrow" style={{ color: "var(--red)" }}>Como tudo se conecta</span>
           <h2 style={{ margin: "10px 0 12px", fontSize: 26, fontWeight: 800 }}>Um ecossistema, não quatro frentes isoladas</h2>
-          <p style={{ margin: 0, fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65, textAlign: "justify" }}>
+          <p style={{ margin: 0, fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65 }}>
             A Promise Education Group atua em diferentes dimensões da educação, mas todas fazem parte de uma mesma visão. Uma escola pode transformar seu programa de inglês pela Promise for Schools, desenvolver sua equipe pela Promise for Professionals, ampliar as oportunidades de seus alunos pela Promise for Learners e conectar toda essa formação ao mundo por meio da Promise Global.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function QuemSomosPage() {
           {FRENTES.map((f, i) => (
             <Link key={f.href} href={f.href} style={{ display: "block", padding: "26px 22px", background: i % 2 === 0 ? "var(--blue)" : "var(--red)", color: "#fff", minHeight: 190 }}>
               <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 10 }}>{f.label}</div>
-              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, opacity: 0.92, textAlign: "justify" }}>{f.text}</p>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, opacity: 0.92 }}>{f.text}</p>
               <span style={{ display: "inline-block", marginTop: 14, fontSize: 12, fontWeight: 700 }}>Conhecer →</span>
             </Link>
           ))}
@@ -98,15 +98,15 @@ export default function QuemSomosPage() {
         <div className="container reveal grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 32 }}>
           <div>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Missão</div>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff", textAlign: "justify" }}>Expandir os horizontes de escolas, famílias homeschooling, educadores e estudantes por meio da internacionalização educacional de excelência, formando cidadãos preparados para impactar o mundo com competência, propósito e uma cosmovisão cristã.</p>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff" }}>Expandir os horizontes de escolas, famílias homeschooling, educadores e estudantes por meio da internacionalização educacional de excelência, formando cidadãos preparados para impactar o mundo com competência, propósito e uma cosmovisão cristã.</p>
           </div>
           <div>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Visão</div>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff", textAlign: "justify" }}>Ser o principal ecossistema cristão de internacionalização educacional da América Latina.</p>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff" }}>Ser o principal ecossistema cristão de internacionalização educacional da América Latina.</p>
           </div>
           <div>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Propósito</div>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff", textAlign: "justify" }}>Construir instituições educacionais que transformem vidas por meio de uma educação internacional alinhada à verdade, à excelência e ao desenvolvimento integral.</p>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "#fff" }}>Construir instituições educacionais que transformem vidas por meio de uma educação internacional alinhada à verdade, à excelência e ao desenvolvimento integral.</p>
           </div>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function QuemSomosPage() {
           <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 800, color: "#fff", lineHeight: 1.35 }}>
             Internacionalização deve fortalecer a missão da escola e da família. Nunca substituí-la.
           </h2>
-          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "#B8BCC8", textAlign: "justify" }}>
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "#B8BCC8" }}>
             É possível ampliar horizontes, acessar referências internacionais e preparar estudantes para o mundo sem abandonar convicções, cultura e identidade. A internacionalização é uma ferramenta. A formação continua sendo o centro.
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function QuemSomosPage() {
         <div className="container reveal" style={{ textAlign: "center" }}>
           <span className="eyebrow" style={{ color: "var(--red)" }}>O método próprio</span>
           <h2 style={{ margin: "10px 0 12px", fontSize: 28, fontWeight: 800 }}>Promise Excellence Framework™</h2>
-          <p style={{ margin: "0 auto", fontSize: 15, color: "var(--ink-soft)", maxWidth: 620, lineHeight: 1.6, textAlign: "justify" }}>
+          <p style={{ margin: "0 auto", fontSize: 15, color: "var(--ink-soft)", maxWidth: 620, lineHeight: 1.6 }}>
             Não implantamos só programas internacionais. Desenvolvemos escolas e famílias homeschooling capazes de sustentar uma cultura permanente de excelência, através de 7 pilares.
           </p>
         </div>
@@ -147,7 +147,7 @@ export default function QuemSomosPage() {
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 26, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                   <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
                   <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
-                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, maxWidth: 340, textAlign: "justify" }}>{p.d}</p>
+                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, maxWidth: 340 }}>{p.d}</p>
                 </div>
               </div>
             ))}
@@ -167,7 +167,7 @@ export default function QuemSomosPage() {
                 <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 22, display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
                   <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 8, opacity: 0.85 }}>{p.n}</div>
                   <div style={{ fontSize: 16.5, fontWeight: 800, marginBottom: 8 }}>{p.t}</div>
-                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, textAlign: "justify" }}>{p.d}</p>
+                  <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>{p.d}</p>
                 </div>
               </div>
             ))}
@@ -190,7 +190,7 @@ export default function QuemSomosPage() {
                   {f.n}
                 </div>
                 <div style={{ fontSize: 15.5, fontWeight: 800, color: "#fff", marginBottom: 8 }}>{f.t}</div>
-                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "#9AA0B4", textAlign: "justify" }}>{f.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "#9AA0B4" }}>{f.d}</p>
               </div>
             ))}
           </div>
@@ -210,10 +210,10 @@ export default function QuemSomosPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 14, flex: 1, minWidth: 280 }}>
               <span className="eyebrow" style={{ color: "var(--blue)" }}>Fundador</span>
               <h2 style={{ margin: 0, fontSize: 26, fontWeight: 800 }}>Calebe Braga</h2>
-              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)" }}>
                 Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento internacional da Cidade Viva Academy e tem experiência com o sistema de exames Cambridge English, abrangendo níveis do Pre A1 Starters ao C1 Advanced, e profundo conhecimento dos processos de avaliação, aplicação e certificação internacional.
               </p>
-              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)" }}>
                 É autor das coleções Paideia, Oikos e To the Nations, currículos de inglês cristãos, clássicos e alinhados à BNCC para escolas e famílias homeschooling. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia, fundou a Promise Education Group para unir profundidade pedagógica, gestão acadêmica e visão estratégica de negócios em um único ecossistema educacional.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 }}>
@@ -265,7 +265,7 @@ export default function QuemSomosPage() {
                 </span>
                 <div style={{ fontSize: 15.5, fontWeight: 800, color: "var(--ink)", marginBottom: 8 }}>{w.t}</div>
                 <span style={{ display: "block", width: 24, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>{w.d}</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)" }}>{w.d}</p>
               </div>
             );
           })}
@@ -308,7 +308,7 @@ export default function QuemSomosPage() {
           </div>
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Paideia</div>
-            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8" }}>
               Currículo cristão, clássico, bilíngue e integral, em quatro pilares: a Bíblia como base de todo conhecimento, a formação do caráter, o poder da linguagem para preparar líderes, e o desenvolvimento integral do aluno. Atende escolas, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
@@ -318,7 +318,7 @@ export default function QuemSomosPage() {
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 28, alignItems: "center", marginBottom: 32, position: "relative", zIndex: 1 }}>
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>Oikos</div>
-            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8" }}>
               Mesma base cristã, clássica, bilíngue e integral do Paideia, adaptada para o ensino domiciliar. Atende famílias homeschooling, com método fônico e alinhamento à BNCC. Currículo de inglês de autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>
@@ -344,7 +344,7 @@ export default function QuemSomosPage() {
           </div>
           <div>
             <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 10 }}>To the Nations</div>
-            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "#B8BCC8" }}>
               Currículo de inglês para o Ensino Fundamental 1 (nível F1), na mesma linha pedagógica do Paideia e do Oikos: cristão, clássico, bilíngue e integral, com método fônico e alinhado à BNCC. De autoria de Calebe Braga e Cássia Braga.
             </p>
           </div>

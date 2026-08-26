@@ -1,4 +1,4 @@
-type IconName = "puzzle" | "target" | "medal" | "shieldHeart" | "users" | "globe" | "cap" | "home" | "shield" | "heart" | "chat" | "list" | "file" | "calendar";
+type IconName = "puzzle" | "target" | "medal" | "shieldHeart" | "users" | "globe" | "cap" | "home" | "shield" | "heart" | "chat" | "list" | "file" | "calendar" | "book";
 
 const common = {
   viewBox: "0 0 24 24",
@@ -102,6 +102,14 @@ export default function Icon({ name, size = 20, color = "#fff" }: { name: IconNa
           <rect x="3" y="5" width="18" height="16" rx="2" />
           <path d="M16 3v4M8 3v4M3 10h18" />
           <path d="M8 14h2M14 14h2M8 17h2M14 17h2" />
+        </svg>
+      );
+    case "book":
+      return (
+        <svg width={size} height={size} {...common} stroke={color}>
+          <path d="M4 4.5A2.5 2.5 0 016.5 2H20v16H6.5A2.5 2.5 0 004 20.5v-16z" />
+          <path d="M4 20.5A2.5 2.5 0 016.5 18H20" />
+          <path d="M9 7h7M9 10.5h7" />
         </svg>
       );
     case "chat":

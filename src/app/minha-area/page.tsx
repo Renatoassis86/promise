@@ -62,7 +62,7 @@ export default async function MinhaAreaPage() {
                 ))}
               </div>
             ) : (
-              <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>
+              <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)" }}>
                 Nenhuma pré-matrícula vinculada a este e-mail ainda. Preencha um dos formulários do site (Schools, Learners, Professionals) usando o mesmo e-mail da sua conta para acompanhar por aqui.
               </p>
             )}

@@ -39,10 +39,10 @@ export default function LearnersPage() {
           <div style={{ maxWidth: 440 }}>
             <span className="eyebrow" style={{ color: "var(--red)" }}>Quem estuda aqui</span>
             <h2 style={{ margin: "10px 0 12px", fontSize: 22, fontWeight: 800, lineHeight: 1.35 }}>Diferentes alunos. Diferentes caminhos. Uma formação para o mundo.</h2>
-            <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
-              Atendemos famílias homeschoolers e alunos de diferentes escolas, oferecendo inglês, preparação para certificações Cambridge, programas de American School e experiências educacionais internacionais.
+            <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)" }}>
+              Atendemos alunos, famílias e escolas, oferecendo inglês, preparação para certificações Cambridge, programas de American School e experiências educacionais internacionais.
             </p>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)" }}>
               Cada estudante pode construir sua trajetória de acordo com sua realidade, seus objetivos e o planejamento de sua família, desenvolvendo competências linguísticas e acadêmicas que ampliam suas possibilidades para o futuro.
             </p>
           </div>
@@ -54,10 +54,10 @@ export default function LearnersPage() {
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 980, display: "grid", gridTemplateColumns: "1.3fr 0.55fr", gap: 56, alignItems: "center" }}>
           <div>
             <span className="eyebrow" style={{ color: "var(--red)", fontSize: 14 }}>Cada estudante tem uma jornada</span>
-            <h2 className="fluid-h1 heading-justify" style={{ margin: "14px 0 24px", fontSize: 29, fontWeight: 900, lineHeight: 1.3, letterSpacing: "-0.01em", textAlign: "justify" }}>
+            <h2 className="fluid-h1" style={{ margin: "14px 0 24px", fontSize: 29, fontWeight: 900, lineHeight: 1.3, letterSpacing: "-0.01em" }}>
               Uma jornada que <span style={{ color: "var(--red)", textTransform: "uppercase" }}>abre portas</span>, constrói oportunidades e <span style={{ color: "var(--blue)", textTransform: "uppercase" }}>transforma futuros</span>.
             </h2>
-            <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.75, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 16.5, lineHeight: 1.75, color: "var(--ink-soft)" }}>
               Do primeiro contato com o inglês às certificações internacionais, à formação acadêmica americana e às experiências internacionais: cada etapa amplia a próxima.
             </p>
             <p style={{ margin: "22px 0 28px", fontSize: 18, fontWeight: 800, color: "var(--ink)" }}>Cada estudante é único. Cada jornada é única.</p>
@@ -161,7 +161,7 @@ export default function LearnersPage() {
           ].map((c) => (
             <a key={c.t} href={c.href} style={{ display: "block", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
               <div style={{ fontSize: 15, fontWeight: 800, marginBottom: 8, color: "var(--ink)" }}>{c.t}</div>
-              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{c.d}</p>
+              <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)" }}>{c.d}</p>
             </a>
           ))}
         </div>
@@ -197,7 +197,7 @@ export default function LearnersPage() {
               <div style={{ position: "absolute", inset: 0, background: "var(--blue)" }} />
               <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 30, display: "flex", flexDirection: "column", justifyContent: "center", color: "#fff" }}>
                 <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 10 }}>Turmas</div>
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#D6DCF5", textAlign: "justify" }}>Turmas em diversos níveis e horários, ambiente motivador e preço mais acessível pelo formato coletivo.</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#D6DCF5" }}>Turmas em diversos níveis e horários, ambiente motivador e preço mais acessível pelo formato coletivo.</p>
               </div>
             </div>
             <div className="reveal reveal-delay-2" style={{ position: "relative", height: 260 }}>
@@ -212,7 +212,7 @@ export default function LearnersPage() {
               <div style={{ position: "absolute", inset: 0, background: "var(--red)" }} />
               <div style={{ position: "relative", zIndex: 1, height: "100%", padding: 30, display: "flex", flexDirection: "column", justifyContent: "center", color: "#fff" }}>
                 <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 10 }}>Particular</div>
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#FFE1DF", textAlign: "justify" }}>Atendimento individual para objetivos específicos: provas, entrevistas, viagem, certificação em prazo definido.</p>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#FFE1DF" }}>Atendimento individual para objetivos específicos: provas, entrevistas, viagem, certificação em prazo definido.</p>
               </div>
             </div>
           </div>
@@ -222,8 +222,8 @@ export default function LearnersPage() {
       {/* VIDEO DE APRESENTACAO (YouTube) */}
       <section className="section-pad" style={{ padding: "76px 40px", background: "#fff" }}>
         <div className="container reveal" style={{ maxWidth: 780, textAlign: "center", margin: "0 auto 32px" }}>
-          <span className="eyebrow" style={{ color: "var(--red)" }}>Conheça a Promise</span>
-          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Um pouco da nossa história, em vídeo</h2>
+          <span className="eyebrow" style={{ color: "var(--red)" }}>Chega de quase</span>
+          <h2 style={{ margin: "10px 0 0", fontSize: 26, fontWeight: 800 }}>Comece de verdade</h2>
         </div>
         <div className="container reveal" style={{ maxWidth: 780, margin: "0 auto" }}>
           <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", borderRadius: 18, overflow: "hidden", boxShadow: "0 20px 40px rgba(0,0,0,.2)" }}>
@@ -243,7 +243,7 @@ export default function LearnersPage() {
         <div className="container reveal" style={{ maxWidth: 620, margin: "0 auto" }}>
           <span className="eyebrow" style={{ color: "var(--red)" }}>Ainda não sabe seu nível?</span>
           <h2 style={{ margin: "10px 0 14px", fontSize: 24, fontWeight: 800 }}>Faça um teste de nivelamento gratuito</h2>
-          <p style={{ margin: "0 0 22px", fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+          <p style={{ margin: "0 0 22px", fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)" }}>
             Antes de escolher turma ou modalidade, a Promise avalia gratuitamente o nível atual do aluno em inglês, pra indicar o ponto de partida certo e evitar turma alta demais ou baixa demais pro seu momento.
           </p>
           <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" className="pill pill-red">Fazer teste de nivelamento gratuito</a>
@@ -266,7 +266,7 @@ export default function LearnersPage() {
             {
               quote: "Uma das melhores aulas de inglês que já tive! Um método muito intuitivo, tecnológico, prático e sem enrolação. Tive uma semana extremamente corrida e não consegui acompanhar as aulas em tempo real, mas elas ficam gravadas: no fim de semana, tive tempo de assistir a tudo que estava pendente.",
               name: "Abel Neto",
-              role: "Aluno Promise (@abelnetoo_)",
+              role: "Aluno Promise",
             },
             {
               quote: "Hoje resolvi meu primeiro problema falando só em inglês. Nem acredito que falei certinho e ainda consegui resolver meu problema, com um banco. Tinha que compartilhar com o professor essa alegria.",
@@ -276,7 +276,7 @@ export default function LearnersPage() {
           ].map((t) => (
             <div key={t.name} style={{ background: "var(--tint)", borderRadius: 16, padding: 26, display: "flex", flexDirection: "column", gap: 16 }}>
               <svg width="26" height="20" viewBox="0 0 24 18" fill="var(--blue)" style={{ opacity: 0.3, flexShrink: 0 }}><path d="M0 18V9.5C0 4.3 3.8.4 9 0v3.6C6 4 4 6.3 4 9h5v9H0zm11 0V9.5C11 4.3 14.8.4 20 0v3.6c-3 .4-5 2.7-5 5.4h5v9H11z" /></svg>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "var(--ink)", flex: 1, textAlign: "justify" }}>{t.quote}</p>
+              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "var(--ink)", flex: 1 }}>{t.quote}</p>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 800, color: "var(--ink)" }}>{t.name}</div>
                 <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{t.role}</div>
@@ -294,10 +294,10 @@ export default function LearnersPage() {
             <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, lineHeight: 1.25 }}>
               Preparação para Cambridge English
             </h2>
-            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
               Prepare-se para as certificações Cambridge English com acompanhamento pedagógico, diagnóstico de nível e uma preparação alinhada às habilidades e demandas de cada exame.
             </p>
-            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700, textAlign: "justify" }}>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700 }}>
               A Promise ajuda o estudante a entender onde está, o que precisa desenvolver e como se preparar para o próximo nível, com orientação baseada em experiência real com os exames Cambridge.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
@@ -342,13 +342,13 @@ export default function LearnersPage() {
             <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, lineHeight: 1.25 }}>
               Inglês que continua depois da aula.
             </h2>
-            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
               A Promise oferece aulas de inglês em pequenos grupos para famílias homeschoolers, combinando encontros ao vivo com o professor e desafios semanais para serem realizados em família.
             </p>
-            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink-soft)" }}>
               Em cada aula, o professor apresenta e desenvolve o novo conteúdo. Ao longo da semana, a família recebe atividades e desafios práticos para retomar, praticar e consolidar aquilo que foi aprendido.
             </p>
-            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700, textAlign: "justify" }}>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "var(--ink)", fontWeight: 700 }}>
               Assim, o inglês deixa de acontecer apenas durante a aula e passa a fazer parte da rotina de aprendizagem da família.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
@@ -383,10 +383,10 @@ export default function LearnersPage() {
             <h2 className="fluid-h2" style={{ margin: "12px 0 18px", fontSize: 30, fontWeight: 900, color: "#fff", lineHeight: 1.25 }}>
               Um programa acadêmico americano, do Elementary ao High School, para construir uma trajetória universitária internacional.
             </h2>
-            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>
+            <p style={{ margin: "0 0 18px", fontSize: 15.5, lineHeight: 1.7, color: "#D6DCF5" }}>
               Uma formação acadêmica americana completa, do Elementary ao High School, que pode ser integrada à rotina do aluno e da família. O estudante pode manter sua formação escolar regular e, paralelamente, construir uma trajetória acadêmica americana, com currículo e créditos próprios, sem precisar trocar de escola.
             </p>
-            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "#fff", fontWeight: 700, textAlign: "justify" }}>
+            <p style={{ margin: "0 0 26px", fontSize: 15.5, lineHeight: 1.7, color: "#fff", fontWeight: 700 }}>
               A etapa final é o High School, com a conclusão da formação e obtenção do diploma americano. Essa credencial permite ao aluno se candidatar a universidades nos Estados Unidos, seguindo os requisitos e processos de admissão de cada instituição.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 30 }}>
@@ -423,7 +423,7 @@ export default function LearnersPage() {
           <div>
             <span className="eyebrow" style={{ color: "var(--blue)" }}>International Academic Pathway</span>
             <h2 style={{ margin: "10px 0 14px", fontSize: 24, fontWeight: 800 }}>Planeje antes de escolher o próximo passo</h2>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: "var(--ink-soft)" }}>
               Uma trajetória internacional começa com uma pergunta: onde o estudante quer chegar? A partir daí, mapeamos as etapas necessárias (certificações, documentação e requisitos) para tornar esse objetivo possível.
             </p>
           </div>
@@ -462,7 +462,7 @@ export default function LearnersPage() {
           <div>
             <span className="eyebrow" style={{ color: "var(--blue)" }}>Investimento missionário</span>
             <h2 style={{ margin: "8px 0 8px", fontSize: 21, fontWeight: 800 }}>Bolsa de estudos</h2>
-            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify" }}>Parte do investimento das turmas sustenta bolsas para alunos que não teriam acesso ao ensino de inglês de outra forma.</p>
+            <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink-soft)" }}>Parte do investimento das turmas sustenta bolsas para alunos que não teriam acesso ao ensino de inglês de outra forma.</p>
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@ const PARCEIROS = [
   { name: "Cidade Viva Education", href: "https://cidadeviva.education/", src: "/assets/parceiros/cidadeviva.svg", w: 130, h: 28 },
   { name: "American Education International", href: "https://americaneducationinternational.com/", src: "/assets/parceiros/aei.webp", w: 84, h: 84, caption: "American Education International" },
   { name: "Zoe Christian School", href: "https://matricula.zoechristianschool.com.br/", src: "/assets/parceiros/zoe.png", w: 92, h: 40 },
+  { name: "Simply So Lovely", href: null, src: "/assets/parceiros/simply.png", w: 60, h: 60 },
 ];
 
 const ARKOS = { name: "ARKOS Intelligence", href: "https://studio.arkosintelligence.com/" };
@@ -14,22 +15,27 @@ const ARKOS = { name: "ARKOS Intelligence", href: "https://studio.arkosintellige
 function LogoRow() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 64, paddingRight: 64 }}>
-      {PARCEIROS.map((p) => (
-        <a
-          key={p.name}
-          href={p.href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={p.name}
-          style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8, flexShrink: 0, opacity: 0.9 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={p.src} alt={p.name} width={p.w} height={p.h} style={{ width: p.w, height: p.h }} />
-          {p.caption && (
-            <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.03em", color: "#9AA0B4", whiteSpace: "nowrap" }}>{p.caption}</span>
-          )}
-        </a>
-      ))}
+      {PARCEIROS.map((p) => {
+        const content = (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={p.src} alt={p.name} width={p.w} height={p.h} style={{ width: p.w, height: p.h }} />
+            {p.caption && (
+              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.03em", color: "#9AA0B4", whiteSpace: "nowrap" }}>{p.caption}</span>
+            )}
+          </>
+        );
+        const itemStyle = { display: "flex" as const, flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: 8, flexShrink: 0, opacity: 0.9 };
+        return p.href ? (
+          <a key={p.name} href={p.href} target="_blank" rel="noreferrer" aria-label={p.name} style={itemStyle}>
+            {content}
+          </a>
+        ) : (
+          <div key={p.name} aria-label={p.name} style={itemStyle}>
+            {content}
+          </div>
+        );
+      })}
       <a
         href={ARKOS.href}
         target="_blank"

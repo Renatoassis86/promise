@@ -58,7 +58,7 @@ export default function ProfessionalsPage() {
                 </span>
                 <div style={{ fontSize: 15.5, fontWeight: 800, marginBottom: 6 }}>{p.t}</div>
                 <span style={{ display: "block", width: 22, height: 3, borderRadius: 2, background: "var(--red)", marginBottom: 10 }} />
-                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify" }}>{p.d}</p>
+                <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-soft)" }}>{p.d}</p>
               </div>
             );
           })}
@@ -89,7 +89,7 @@ export default function ProfessionalsPage() {
       <section className="section-pad" style={{ padding: "56px 40px", background: "var(--tint)", textAlign: "center" }}>
         <div className="container reveal" style={{ maxWidth: 680, margin: "0 auto" }}>
           <h2 style={{ margin: "0 0 16px", fontSize: 22, fontWeight: 800 }}>A Promise prepara. Cambridge certifica.</h2>
-          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)", textAlign: "justify" }}>
+          <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "var(--ink-soft)" }}>
             A Promise oferece preparação e mentoria para profissionais que desejam realizar certificações Cambridge. A aplicação, avaliação e emissão da certificação são realizadas pela instituição ou centro certificador correspondente.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function ProfessionalsPage() {
                 </div>
                 <div>
                   <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 8 }}>{c.t}</div>
-                  <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.7, color: "#D6DCF5", textAlign: "justify" }}>{c.d}</p>
+                  <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.7, color: "#D6DCF5" }}>{c.d}</p>
                 </div>
               </div>
             ))}
@@ -156,7 +156,7 @@ export default function ProfessionalsPage() {
                 <div key={`txt-${s.n}`} style={{ position: "relative" }}>
                   <div style={{ fontSize: 68, fontWeight: 900, color: "var(--tint)", lineHeight: 1, marginBottom: -22 }}>{s.n}</div>
                   <div style={{ position: "relative", fontSize: 12.5, fontWeight: 700, color: "var(--red)", letterSpacing: "0.08em", marginBottom: 10 }}>{s.t}</div>
-                  <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "var(--ink-soft)", textAlign: "justify" }}>{s.d}</p>
+                  <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "var(--ink-soft)" }}>{s.d}</p>
                 </div>
               );
               return (
@@ -174,7 +174,7 @@ export default function ProfessionalsPage() {
         <div className="container reveal grid-mobile-1" style={{ padding: 0, display: "grid", gridTemplateColumns: "1.3fr 1fr", alignItems: "center" }}>
           <div style={{ padding: "40px 44px" }}>
             <div className="eyebrow" style={{ color: "#8EA0E8", marginBottom: 10 }}>Experiência real de avaliação internacional</div>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5", textAlign: "justify" }}>
+            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.65, color: "#D6DCF5" }}>
               A preparação é conduzida por um profissional com experiência em avaliação Cambridge English, formação docente e gestão acadêmica, trazendo uma perspectiva prática para o desenvolvimento profissional. <a href="/quem-somos" style={{ color: "#fff", fontWeight: 700, textDecoration: "underline" }}>Conheça o Promise Excellence Framework &rarr;</a>
             </p>
           </div>
