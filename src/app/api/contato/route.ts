@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { supabaseAdmin } from "@/lib/supabase/admin";
 
 export async function POST(req: Request) {
-  if (!supabaseServer) {
+  if (!supabaseAdmin) {
     return NextResponse.json(
       { success: false, error: "Banco de dados ainda não configurado (falta Supabase da Promisse)." },
       { status: 503 }
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       status: "novo",
     };
 
-    const { data, error } = await supabaseServer.from("contatos_gerais").insert([payload]).select();
+    const { data, error } = await supabaseAdmin.from("contatos_gerais").insert([payload]).select();
 
     if (error) {
       console.error("Supabase contato insert error:", error);

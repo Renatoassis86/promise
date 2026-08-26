@@ -461,7 +461,7 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      {/* BOLSA DE ESTUDOS - com foto contextual (pendente: ver prompt "Bolsa de Estudos" na lista) */}
+      {/* BOLSA DE ESTUDOS - com foto contextual */}
       <section className="section-pad" style={{ padding: "56px 40px", background: "#fff", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container reveal grid-mobile-1" style={{ maxWidth: 900, display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 36, alignItems: "center" }}>
           <div style={{ position: "relative", height: 160, borderRadius: 14, overflow: "hidden" }}>

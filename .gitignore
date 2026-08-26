@@ -23,6 +23,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# vercel
+.vercel
+
+# editores
+.vscode/
+.idea/
+
 # material de trabalho interno (fotos pessoais, prints, fontes, docs de negocio)
 # nao vai para o repositorio - fica so local
 /docs/
