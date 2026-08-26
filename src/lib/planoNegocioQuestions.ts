@@ -46,6 +46,7 @@ export const PLANO_NEGOCIO_SECOES: PlanoSecao[] = [
       {
         perguntas: [
           { id: "conceito.o-que-e", pergunta: "O que é ou será o seu negócio? Será ofertado para quem? Para que objetivo?", acao: "Um parágrafo objetivo, apresentando as frentes da Promise (Schools, Learners, Professionals, Global)." },
+          { id: "conceito.visao-missao", pergunta: "Qual é a visão e a missão da Promise (valores e diferenciais)?", acao: "O que guia as decisões da empresa e o que a torna diferente de um curso de inglês comum." },
           { id: "conceito.o-que-vende", pergunta: "O que a empresa vende? Quais produtos e serviços, em cada frente?", acao: "Descreva de forma objetiva o que é vendido/entregue em cada uma das frentes." },
           { id: "conceito.para-quem-vende", pergunta: "Para quem sua empresa vende?", acao: "Quem decide a compra em cada frente (escola, família, professor)? Existe um perfil ideal de cliente?" },
           { id: "conceito.historico", pergunta: "Apresente um breve histórico: principais realizações, crescimento, número de clientes/alunos atendidos, número de pessoas na equipe, diferenciais.", acao: "Um parágrafo com o histórico da Promise, resultados já alcançados e o que já foi construído até aqui." },
@@ -94,6 +95,7 @@ export const PLANO_NEGOCIO_SECOES: PlanoSecao[] = [
           { id: "concorrencia.equipe-eficiente", pergunta: "Ele tem uma equipe gerencial eficiente?", acao: "O que se sabe sobre a equipe/estrutura dos principais concorrentes." },
           { id: "concorrencia.lider-seguidora", pergunta: "A concorrência é líder ou seguidora de mercado?", acao: "Quem define os padrões de preço e serviço hoje nesse nicho." },
           { id: "concorrencia.futuros-concorrentes", pergunta: "Eles poderão vir a ser seus concorrentes no futuro (mesmo que não sejam hoje)?", acao: "Players adjacentes que podem migrar para o mesmo espaço da Promise." },
+          { id: "concorrencia.vantagens-competitivas", pergunta: "Quais são as vantagens competitivas da Promise e dos concorrentes?", acao: "O que a Promise faz melhor, e onde os concorrentes ainda levam vantagem." },
           { id: "concorrencia.quadro-comparativo", pergunta: "Quadro comparativo entre concorrentes: material didático, site, redes sociais, consultoria, plataforma, preço, suporte, presença em eventos.", acao: "Pode ser um resumo em texto por enquanto; o quadro formal vem depois." },
         ],
       },
@@ -238,6 +240,7 @@ export const PLANO_NEGOCIO_SECOES: PlanoSecao[] = [
       {
         perguntas: [
           { id: "financas.premissas", pergunta: "Premissas: como a estratégia do negócio se traduz em números?", acao: "" },
+          { id: "financas.custos-despesas", pergunta: "Qual a composição de custos e despesas do negócio?", acao: "Custos fixos e variáveis de cada frente: pessoal, materiais, plataforma, certificações, marketing." },
           { id: "financas.investimentos-retornos", pergunta: "Quais investimentos são necessários e quais as possibilidades de retorno?", acao: "" },
           { id: "financas.previsao-receitas", pergunta: "Previsão de receitas para os próximos anos (horizonte médio de 5 anos).", acao: "" },
           { id: "financas.prazo-retorno", pergunta: "Qual o prazo para o retorno do investimento, com base no fluxo de caixa do negócio?", acao: "" },
