@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { PLANO_NEGOCIO_SECOES } from "@/lib/planoNegocioQuestions";
@@ -8,6 +8,7 @@ import { PLANO_NEGOCIO_SECOES } from "@/lib/planoNegocioQuestions";
 type SaveStatus = "idle" | "saving" | "saved" | "error";
 
 const SIDEBAR_WIDTH = 268;
+const AUTOSAVE_DELAY_MS = 1200;
 
 export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { userEmail: string; respostasIniciais: Record<string, string> }) {
   const router = useRouter();
@@ -16,6 +17,28 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
   const [status, setStatus] = useState<Record<string, SaveStatus>>({});
   const [exportando, setExportando] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
+
+  const debounceTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const pendingSaves = useRef<Set<string>>(new Set());
+
+  // Aviso nativo do navegador se tentar fechar/sair com uma resposta ainda nao salva
+  // (autosave debounced ainda nao disparou). Rede de seguranca alem do autosave em si.
+  useEffect(() => {
+    function handleBeforeUnload(e: BeforeUnloadEvent) {
+      if (pendingSaves.current.size > 0) {
+        e.preventDefault();
+      }
+    }
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, []);
+
+  // Limpa timers pendentes ao desmontar, pra nao vazar setTimeout depois que o componente sumiu.
+  useEffect(() => {
+    return () => {
+      Object.values(debounceTimers.current).forEach(clearTimeout);
+    };
+  }, []);
 
   const totalPerguntas = useMemo(
     () => PLANO_NEGOCIO_SECOES.reduce((acc, s) => acc + s.subsecoes.reduce((a2, sub) => a2 + sub.perguntas.length, 0), 0),
@@ -30,17 +53,35 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
 
   function handleChange(questionId: string, value: string) {
     setRespostas((prev) => ({ ...prev, [questionId]: value }));
+    pendingSaves.current.add(questionId);
+    setStatus((prev) => (prev[questionId] === "saved" || prev[questionId] === "error" ? { ...prev, [questionId]: "idle" } : prev));
+
+    if (debounceTimers.current[questionId]) clearTimeout(debounceTimers.current[questionId]);
+    debounceTimers.current[questionId] = setTimeout(() => {
+      handleSave(questionId, value);
+    }, AUTOSAVE_DELAY_MS);
   }
 
-  async function handleSave(questionId: string) {
+  function handleBlurSave(questionId: string) {
+    if (debounceTimers.current[questionId]) {
+      clearTimeout(debounceTimers.current[questionId]);
+      delete debounceTimers.current[questionId];
+    }
+    if (pendingSaves.current.has(questionId)) {
+      handleSave(questionId, respostas[questionId] ?? "");
+    }
+  }
+
+  async function handleSave(questionId: string, valor: string) {
     setStatus((prev) => ({ ...prev, [questionId]: "saving" }));
     const supabase = createClient();
     const { error } = await supabase
       .from("plano_negocio_respostas")
       .upsert(
-        { user_email: userEmail, question_id: questionId, resposta: respostas[questionId] ?? "", updated_at: new Date().toISOString() },
+        { user_email: userEmail, question_id: questionId, resposta: valor, updated_at: new Date().toISOString() },
         { onConflict: "user_email,question_id" }
       );
+    pendingSaves.current.delete(questionId);
     setStatus((prev) => ({ ...prev, [questionId]: error ? "error" : "saved" }));
     if (!error) {
       setTimeout(() => {
@@ -148,7 +189,7 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
         <div style={{ maxWidth: 860 }}>
           <div style={{ marginBottom: 24 }}>
             <h1 style={{ margin: "0 0 4px", fontSize: 24, fontWeight: 800 }}>{secaoAtual.titulo}</h1>
-            <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)" }}>Responda item a item. Suas respostas são salvas automaticamente ao sair do campo.</p>
+            <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)" }}>Responda item a item, no seu tempo. Cada resposta é salva automaticamente enquanto você digita, então você pode fechar e continuar de onde parou quando quiser.</p>
           </div>
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 28 }}>
@@ -187,7 +228,7 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
                     <textarea
                       value={respostas[p.id] ?? ""}
                       onChange={(e) => handleChange(p.id, e.target.value)}
-                      onBlur={() => handleSave(p.id)}
+                      onBlur={() => handleBlurSave(p.id)}
                       rows={4}
                       placeholder="Digite sua resposta..."
                       style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1px solid var(--line)", fontSize: 14, fontFamily: "inherit", resize: "vertical" }}
