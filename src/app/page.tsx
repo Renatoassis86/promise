@@ -64,11 +64,11 @@ export default function Home() {
         className="section-pad"
         style={{
           position: "relative",
-          minHeight: 600,
+          minHeight: 520,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "110px 40px",
+          padding: "64px 40px",
           background:
             "linear-gradient(100deg, rgba(9,13,28,.86) 0%, rgba(9,13,28,.62) 42%, rgba(9,13,28,.28) 68%, rgba(9,13,28,.12) 100%), url('/assets/hero-home.jpg')",
           backgroundSize: "cover",
@@ -94,13 +94,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-badges" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 28, background: "var(--blue-dark)", border: "1px solid rgba(255,255,255,.14)", borderRadius: 48, padding: "36px 22px", width: 210 }}>
+          <div className="hero-badges" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, background: "var(--blue-dark)", border: "1px solid rgba(255,255,255,.14)", borderRadius: 40, padding: "22px 20px", width: 190 }}>
             {HERO_BADGES.map((b) => (
-              <div key={b.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textAlign: "center" }}>
-                <span style={{ width: 56, height: 56, borderRadius: "50%", background: b.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Icon name={b.icon} size={26} />
+              <div key={b.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 7, textAlign: "center" }}>
+                <span style={{ width: 44, height: 44, borderRadius: "50%", background: b.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Icon name={b.icon} size={20} />
                 </span>
-                <span style={{ fontSize: 13, fontWeight: 700, color: "#fff", lineHeight: 1.35 }}>{b.label}</span>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{b.label}</span>
               </div>
             ))}
           </div>

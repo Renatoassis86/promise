@@ -3,7 +3,7 @@ const PARCEIROS = [
   { name: "Cidade Viva Education", href: "https://cidadeviva.education/", src: "/assets/parceiros/cidadeviva.svg", w: 130, h: 28 },
   { name: "American Education International", href: "https://americaneducationinternational.com/", src: "/assets/parceiros/aei.webp", w: 84, h: 84, caption: "American Education International" },
   { name: "Zoe Christian School", href: "https://matricula.zoechristianschool.com.br/", src: "/assets/parceiros/zoe.png", w: 92, h: 40 },
-  { name: "Simply So Lovely", href: null, src: "/assets/parceiros/simply.png", w: 60, h: 60 },
+  { name: "Simply So Lovely", href: null, src: "/assets/parceiros/simply.png", w: 92, h: 92 },
 ];
 
 const ARKOS = { name: "ARKOS Intelligence", href: "https://studio.arkosintelligence.com/" };
@@ -45,7 +45,10 @@ function LogoRow() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/assets/parceiros/arkos-icon.svg" alt="" width={26} height={29} style={{ width: 26, height: 29 }} />
-        <span style={{ fontFamily: "'Courier New', monospace", fontWeight: 700, fontSize: 20, letterSpacing: "0.14em", color: "#F4F2ED" }}>ARKOS</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <span style={{ fontFamily: "'Courier New', monospace", fontWeight: 700, fontSize: 20, letterSpacing: "0.14em", color: "#F4F2ED" }}>ARKOS</span>
+          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.03em", color: "#9AA0B4" }}>Soluções Digitais</span>
+        </div>
       </a>
     </div>
   );
