@@ -200,6 +200,54 @@ a:hover {
   }
 }
 
+/* Shell do /admin: sidebar fixa vira barra horizontal com scroll no mobile,
+   ja que 268px fixos nao cabem numa tela estreita. */
+@media (max-width: 780px) {
+  .admin-shell {
+    flex-direction: column !important;
+  }
+  .admin-sidebar {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 12px !important;
+    gap: 12px;
+  }
+  .admin-sidebar-header,
+  .admin-sidebar-email {
+    display: none !important;
+  }
+  .admin-sidebar-nav {
+    flex: 1 !important;
+    display: flex !important;
+    overflow-x: auto !important;
+    padding: 0 !important;
+    gap: 6px;
+    min-width: 0;
+  }
+  .admin-sidebar-nav-label {
+    display: none !important;
+  }
+  .admin-sidebar-nav button {
+    white-space: nowrap;
+  }
+  .admin-sidebar-footer {
+    flex-shrink: 0;
+    border: none !important;
+    padding: 0 !important;
+  }
+  .admin-sidebar-footer button {
+    width: auto !important;
+    white-space: nowrap;
+    padding: 9px 16px !important;
+  }
+  .admin-main {
+    padding: 24px 20px 60px !important;
+  }
+}
+
 /* Badges flutuantes do hero da Home: escondidos abaixo de 960px pra nao brigar com o texto */
 @media (max-width: 960px) {
   .hero-badges {

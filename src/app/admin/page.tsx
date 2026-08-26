@@ -1,7 +1,4 @@
 import { redirect } from "next/navigation";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import LogoutButton from "@/components/LogoutButton";
 import PlanoNegocioForm from "@/components/PlanoNegocioForm";
 import { createClient } from "@/lib/supabase/server";
 import { isAdminEmail } from "@/lib/adminAuth";
@@ -25,26 +22,5 @@ export default async function AdminPage() {
     respostasIniciais[row.question_id] = row.resposta ?? "";
   }
 
-  return (
-    <div style={{ position: "relative", overflow: "hidden" }}>
-      <Header />
-
-      <section style={{ padding: "50px 40px 90px" }}>
-        <div className="container" style={{ maxWidth: 980 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 16, marginBottom: 28 }}>
-            <div>
-              <span className="eyebrow" style={{ color: "var(--blue)" }}>Área administrativa</span>
-              <h1 style={{ margin: "10px 0 4px", fontSize: 26, fontWeight: 800 }}>Plano de Negócio da Promise</h1>
-              <p style={{ margin: 0, fontSize: 14, color: "var(--ink-soft)" }}>Responda item a item, por aba. Suas respostas são salvas automaticamente.</p>
-            </div>
-            <LogoutButton />
-          </div>
-
-          <PlanoNegocioForm userEmail={user.email!} respostasIniciais={respostasIniciais} />
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
+  return <PlanoNegocioForm userEmail={user.email!} respostasIniciais={respostasIniciais} />;
 }
