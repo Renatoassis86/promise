@@ -96,15 +96,15 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
     const wb = XLSX.utils.book_new();
 
     for (const secao of PLANO_NEGOCIO_SECOES) {
-      const rows: (string | undefined)[][] = [["Pergunta-chave", "Ação", "Resposta"]];
+      const rows: (string | undefined)[][] = [["Pergunta-chave", "O que colocar (Explicação)", "Exemplo (Promise)", "Resposta"]];
       for (const sub of secao.subsecoes) {
         if (sub.titulo) rows.push([sub.titulo]);
         for (const p of sub.perguntas) {
-          rows.push([p.pergunta, p.acao ?? "", respostas[p.id] ?? ""]);
+          rows.push([p.pergunta, p.explicacao ?? p.acao ?? "", p.exemplo ?? "", respostas[p.id] ?? ""]);
         }
       }
       const ws = XLSX.utils.aoa_to_sheet(rows);
-      ws["!cols"] = [{ wch: 55 }, { wch: 55 }, { wch: 60 }];
+      ws["!cols"] = [{ wch: 45 }, { wch: 45 }, { wch: 50 }, { wch: 60 }];
       const nomeAba = secao.titulo.slice(0, 31);
       XLSX.utils.book_append_sheet(wb, ws, nomeAba);
     }
@@ -220,20 +220,42 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
           {secaoAtual.subsecoes.map((sub, i) => (
             <div key={i} style={{ marginBottom: 32 }}>
               {sub.titulo && <h3 style={{ fontSize: 15, fontWeight: 800, color: "var(--blue)", margin: "0 0 16px" }}>{sub.titulo}</h3>}
-              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 {sub.perguntas.map((p) => (
-                  <div key={p.id} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 20 }}>
-                    <div style={{ fontSize: 14.5, fontWeight: 700, marginBottom: p.acao ? 4 : 10 }}>{p.pergunta}</div>
-                    {p.acao && <p style={{ margin: "0 0 10px", fontSize: 12.5, color: "var(--ink-soft)", fontStyle: "italic" }}>{p.acao}</p>}
+                  <div key={p.id} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 22 }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "var(--ink)", marginBottom: 10 }}>{p.pergunta}</div>
+                    
+                    {(p.explicacao || p.acao) && (
+                      <div style={{ marginBottom: 10, background: "rgba(10, 37, 64, 0.03)", borderLeft: "3px solid var(--blue)", padding: "10px 14px", borderRadius: "0 8px 8px 0" }}>
+                        <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--blue)", marginBottom: 3 }}>
+                          📘 O que colocar aqui (Lembre-se das 3 frentes: Schools, Learners e Professionals):
+                        </div>
+                        <div style={{ fontSize: 13, color: "var(--ink-soft)", lineHeight: 1.5 }}>
+                          {p.explicacao ?? p.acao}
+                        </div>
+                      </div>
+                    )}
+
+                    {p.exemplo && (
+                      <div style={{ marginBottom: 14, background: "#F4F7FB", border: "1px dashed #CBD5E1", padding: "10px 14px", borderRadius: 8 }}>
+                        <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: "#475569", marginBottom: 3 }}>
+                          💬 Exemplo Prático (Promise English):
+                        </div>
+                        <div style={{ fontSize: 13, color: "#334155", fontStyle: "italic", lineHeight: 1.5 }}>
+                          &ldquo;{p.exemplo}&rdquo;
+                        </div>
+                      </div>
+                    )}
+
                     <textarea
                       value={respostas[p.id] ?? ""}
                       onChange={(e) => handleChange(p.id, e.target.value)}
                       onBlur={() => handleBlurSave(p.id)}
                       rows={4}
                       placeholder="Digite sua resposta..."
-                      style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1px solid var(--line)", fontSize: 14, fontFamily: "inherit", resize: "vertical" }}
+                      style={{ width: "100%", padding: "12px 14px", borderRadius: 10, border: "1px solid var(--line)", fontSize: 14, fontFamily: "inherit", resize: "vertical" }}
                     />
-                    <div style={{ height: 16, marginTop: 4, fontSize: 12, fontWeight: 600 }}>
+                    <div style={{ height: 16, marginTop: 6, fontSize: 12, fontWeight: 600 }}>
                       {status[p.id] === "saving" && <span style={{ color: "var(--ink-soft)" }}>Salvando...</span>}
                       {status[p.id] === "saved" && <span style={{ color: "var(--blue)" }}>Salvo</span>}
                       {status[p.id] === "error" && <span style={{ color: "var(--red)" }}>Erro ao salvar, tente de novo</span>}
