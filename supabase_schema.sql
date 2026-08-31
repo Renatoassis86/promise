@@ -109,3 +109,92 @@ CREATE POLICY "Usuario grava suas respostas do plano" ON public.plano_negocio_re
 DROP POLICY IF EXISTS "Usuario atualiza suas respostas do plano" ON public.plano_negocio_respostas;
 CREATE POLICY "Usuario atualiza suas respostas do plano" ON public.plano_negocio_respostas
   FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+
+-- ==============================================================================
+-- TABELA 4: PREMISSAS DE CRESCIMENTO POR FRENTE (modulo /admin/financas)
+-- Uma linha por frente (schools/learners/professionals) por usuario.
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.plano_financas_premissas (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_email VARCHAR(255) NOT NULL,
+    frente VARCHAR(20) NOT NULL CHECK (frente IN ('schools','learners','professionals')),
+    ano1_clientes NUMERIC(12,2) NOT NULL DEFAULT 0,             -- nº de escolas/alunos/professores no Ano 1
+    ticket_medio_anual NUMERIC(12,2) NOT NULL DEFAULT 0,        -- receita media anual por cliente/aluno
+    crescimento_clientes_pct NUMERIC(6,3) NOT NULL DEFAULT 0,   -- % a.a. de crescimento liquido de clientes
+    reajuste_precos_pct NUMERIC(6,3) NOT NULL DEFAULT 0,        -- % a.a. de reajuste de ticket/mensalidade
+    churn_retencao_pct NUMERIC(6,3),                            -- informativo (ex.: retencao anual de escolas)
+    taxa_conversao_pct NUMERIC(6,3),                            -- informativo (ex.: conversao de leads em matricula)
+    cac NUMERIC(12,2),                                          -- informativo (custo de aquisicao de cliente)
+    observacoes TEXT,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    UNIQUE (user_email, frente)
+);
+
+ALTER TABLE public.plano_financas_premissas ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Usuario le suas premissas" ON public.plano_financas_premissas;
+CREATE POLICY "Usuario le suas premissas" ON public.plano_financas_premissas
+  FOR SELECT TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario grava suas premissas" ON public.plano_financas_premissas;
+CREATE POLICY "Usuario grava suas premissas" ON public.plano_financas_premissas
+  FOR INSERT TO authenticated WITH CHECK (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario atualiza suas premissas" ON public.plano_financas_premissas;
+CREATE POLICY "Usuario atualiza suas premissas" ON public.plano_financas_premissas
+  FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+
+-- ==============================================================================
+-- TABELA 5: ITENS DE CUSTO, fixo ou variavel (modulo /admin/financas)
+-- Lista dinamica: o usuario adiciona/remove linhas livremente.
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.plano_financas_custos (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_email VARCHAR(255) NOT NULL,
+    tipo VARCHAR(10) NOT NULL CHECK (tipo IN ('fixo','variavel')),
+    categoria VARCHAR(150) NOT NULL,               -- ex.: "Equipe pedagogica", "Comissao de vendas"
+    valor_mensal NUMERIC(12,2) NOT NULL DEFAULT 0,     -- base mensal no Ano 1 (usado quando percentual_receita_pct e NULL)
+    reajuste_anual_pct NUMERIC(6,3) NOT NULL DEFAULT 0,
+    percentual_receita_pct NUMERIC(6,3),           -- alternativa: custo variavel como % da receita bruta anual (ex.: taxas Cambridge)
+    ordem INTEGER NOT NULL DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_plano_financas_custos_user_email ON public.plano_financas_custos (user_email);
+
+ALTER TABLE public.plano_financas_custos ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Usuario le seus custos" ON public.plano_financas_custos;
+CREATE POLICY "Usuario le seus custos" ON public.plano_financas_custos
+  FOR SELECT TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario grava seus custos" ON public.plano_financas_custos;
+CREATE POLICY "Usuario grava seus custos" ON public.plano_financas_custos
+  FOR INSERT TO authenticated WITH CHECK (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario atualiza seus custos" ON public.plano_financas_custos;
+CREATE POLICY "Usuario atualiza seus custos" ON public.plano_financas_custos
+  FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario apaga seus custos" ON public.plano_financas_custos;
+CREATE POLICY "Usuario apaga seus custos" ON public.plano_financas_custos
+  FOR DELETE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+
+-- ==============================================================================
+-- TABELA 6: CONFIGURACAO GERAL DA PROJECAO FINANCEIRA (1 linha por usuario)
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.plano_financas_config (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_email VARCHAR(255) NOT NULL UNIQUE,
+    investimento_inicial NUMERIC(14,2) NOT NULL DEFAULT 0,
+    aliquota_impostos_pct NUMERIC(6,3) NOT NULL DEFAULT 0,  -- opcional; 0 = DRE simplificado sem impostos
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+ALTER TABLE public.plano_financas_config ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Usuario le sua config financeira" ON public.plano_financas_config;
+CREATE POLICY "Usuario le sua config financeira" ON public.plano_financas_config
+  FOR SELECT TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario grava sua config financeira" ON public.plano_financas_config;
+CREATE POLICY "Usuario grava sua config financeira" ON public.plano_financas_config
+  FOR INSERT TO authenticated WITH CHECK (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario atualiza sua config financeira" ON public.plano_financas_config;
+CREATE POLICY "Usuario atualiza sua config financeira" ON public.plano_financas_config
+  FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));

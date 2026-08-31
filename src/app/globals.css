@@ -230,6 +230,7 @@ a:hover {
   .admin-sidebar-nav-label {
     display: none !important;
   }
+  .admin-sidebar-nav a,
   .admin-sidebar-nav button {
     white-space: nowrap;
   }
@@ -246,6 +247,74 @@ a:hover {
   .admin-main {
     padding: 24px 20px 60px !important;
   }
+}
+
+/* Pills horizontais de navegacao entre as secoes do questionario (dentro de /admin/plano-de-negocio)
+   e cards de premissa por frente em /admin/financas. */
+.admin-tab {
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.admin-tab:hover {
+  transform: translateY(-1px);
+}
+
+.financas-card-frente {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  border-top: 4px solid var(--linha-frente, var(--blue));
+}
+
+.financas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.financas-table th,
+.financas-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  white-space: nowrap;
+}
+.financas-table th:first-child,
+.financas-table td:first-child {
+  text-align: left;
+  white-space: normal;
+}
+.financas-table thead th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.financas-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 780px) {
+  .financas-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* Apresentacao do plano de negocio (/admin/apresentacao): fade + leve subida
+   ao trocar de slide, reaplicada a cada troca via remount (key={slide.title}). */
+@keyframes apresentacaoFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.apresentacao-slide-content {
+  animation: apresentacaoFadeUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 /* Badges flutuantes do hero da Home: escondidos abaixo de 960px pra nao brigar com o texto */

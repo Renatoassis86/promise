@@ -712,19 +712,19 @@ export const PLANO_NEGOCIO_SECOES: PlanoSecao[] = [
           {
             id: "financas.previsao-receitas",
             pergunta: "Previsão de receitas para os próximos anos (horizonte médio de 5 anos).",
-            explicacao: "Projeção de faturamento bruto anual acumulado das 3 frentes para os próximos 5 anos.",
+            explicacao: "Projeção de faturamento bruto anual acumulado das 3 frentes para os próximos 5 anos. Os números calculados automaticamente a partir das premissas de crescimento ficam em \"Finanças e Crescimento\" — use este campo para comentar o raciocínio por trás deles.",
             exemplo: "Ano 1: R$ 400.000 | Ano 2: R$ 1.200.000 | Ano 3: R$ 2.800.000 | Ano 4: R$ 5.200.000 | Ano 5: R$ 8.500.000."
           },
           {
             id: "financas.prazo-retorno",
             pergunta: "Qual o prazo para o retorno do investimento, com base no fluxo de caixa do negócio?",
-            explicacao: "Tempo necessário para recuperação do capital inicial investido (Payback) com o fluxo de caixa das 3 frentes.",
+            explicacao: "Tempo necessário para recuperação do capital inicial investido (Payback) com o fluxo de caixa das 3 frentes. O payback é calculado automaticamente em \"Finanças e Crescimento\" a partir do investimento inicial e das premissas — use este campo para o contexto qualitativo.",
             exemplo: "Payback estimado em 16 a 18 meses a partir do início oficial da comercialização dos programas bilíngues e cursos."
           },
           {
             id: "financas.metricas-retorno",
             pergunta: "Quais métricas e índices de retorno mostram a viabilidade financeira do negócio?",
-            explicacao: "Indicadores econômicos que comprovam a viabilidade financeira do modelo de 3 frentes da Promise.",
+            explicacao: "Indicadores econômicos que comprovam a viabilidade financeira do modelo de 3 frentes da Promise. Breakeven e margem líquida por ano já saem calculados em \"Finanças e Crescimento\" — use este campo para comentar outros indicadores relevantes.",
             exemplo: "Ponto de equilíbrio (Breakeven) atingido com 4 escolas conveniadas (800 alunos); Margem líquida estimada de 25% a partir do 2º ano de operação."
           },
         ],

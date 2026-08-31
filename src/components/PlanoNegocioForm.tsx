@@ -1,22 +1,18 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { PLANO_NEGOCIO_SECOES } from "@/lib/planoNegocioQuestions";
 
 type SaveStatus = "idle" | "saving" | "saved" | "error";
 
-const SIDEBAR_WIDTH = 268;
 const AUTOSAVE_DELAY_MS = 1200;
 
 export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { userEmail: string; respostasIniciais: Record<string, string> }) {
-  const router = useRouter();
   const [activeSecao, setActiveSecao] = useState(PLANO_NEGOCIO_SECOES[0].id);
   const [respostas, setRespostas] = useState<Record<string, string>>(respostasIniciais);
   const [status, setStatus] = useState<Record<string, SaveStatus>>({});
   const [exportando, setExportando] = useState(false);
-  const [loggingOut, setLoggingOut] = useState(false);
 
   const debounceTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
   const pendingSaves = useRef<Set<string>>(new Set());
@@ -113,105 +109,86 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
     setExportando(false);
   }
 
-  async function handleLogout() {
-    setLoggingOut(true);
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push("/admin/login");
-    router.refresh();
-  }
-
   return (
-    <div className="admin-shell" style={{ display: "flex", minHeight: "100vh", background: "var(--tint)" }}>
-      {/* SIDEBAR */}
-      <aside className="admin-sidebar" style={{ width: SIDEBAR_WIDTH, flexShrink: 0, background: "var(--ink)", color: "#fff", display: "flex", flexDirection: "column", position: "sticky", top: 0, height: "100vh" }}>
-        <div className="admin-sidebar-header" style={{ padding: "26px 24px 20px" }}>
-          <div style={{ fontWeight: 800, fontSize: 15 }}>Promise English</div>
-          <div style={{ fontSize: 11, fontWeight: 600, color: "#8A93AE", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 4 }}>Painel administrativo</div>
+    <div style={{ maxWidth: 860 }}>
+      <div style={{ marginBottom: 20 }}>
+        <div className="eyebrow" style={{ marginBottom: 8 }}>
+          Plano de Negócio
         </div>
+        <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)" }}>
+          Responda item a item, no seu tempo. Cada resposta é salva automaticamente enquanto você digita, então você pode fechar e continuar de onde parou quando quiser.
+        </p>
+      </div>
 
-        <nav className="admin-sidebar-nav" style={{ flex: 1, overflowY: "auto", padding: "8px 12px" }}>
-          <div className="admin-sidebar-nav-label" style={{ padding: "10px 12px 8px", fontSize: 11, fontWeight: 700, color: "#6B7390", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            Plano de Negócio
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 140, height: 8, borderRadius: 999, background: "var(--line)", overflow: "hidden" }}>
+            <div style={{ width: `${(totalRespondidas / totalPerguntas) * 100}%`, height: "100%", background: "var(--blue)", transition: "width .3s" }} />
           </div>
-          {PLANO_NEGOCIO_SECOES.map((s) => {
-            const perguntasSecao = s.subsecoes.reduce((a, sub) => a + sub.perguntas.length, 0);
-            const respondidasSecao = s.subsecoes.reduce(
-              (a, sub) => a + sub.perguntas.filter((p) => respostas[p.id] && respostas[p.id].trim().length > 0).length,
-              0
-            );
-            const isActive = activeSecao === s.id;
-            return (
-              <button
-                key={s.id}
-                onClick={() => setActiveSecao(s.id)}
+          <span style={{ fontSize: 12.5, color: "var(--ink-soft)", fontWeight: 600 }}>
+            {totalRespondidas} / {totalPerguntas} respondidas
+          </span>
+        </div>
+        <button
+          onClick={handleExport}
+          disabled={exportando}
+          className="pill"
+          style={{ background: "var(--blue)", color: "#fff", fontSize: 13.5, padding: "10px 18px", border: "none", cursor: exportando ? "default" : "pointer", opacity: exportando ? 0.7 : 1 }}
+        >
+          {exportando ? "Gerando..." : "Exportar Excel"}
+        </button>
+      </div>
+
+      <nav className="admin-tabs" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
+        {PLANO_NEGOCIO_SECOES.map((s) => {
+          const perguntasSecao = s.subsecoes.reduce((a, sub) => a + sub.perguntas.length, 0);
+          const respondidasSecao = s.subsecoes.reduce(
+            (a, sub) => a + sub.perguntas.filter((p) => respostas[p.id] && respostas[p.id].trim().length > 0).length,
+            0
+          );
+          const isActive = activeSecao === s.id;
+          const completa = respondidasSecao === perguntasSecao;
+          return (
+            <button
+              key={s.id}
+              className="admin-tab"
+              onClick={() => setActiveSecao(s.id)}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 7,
+                padding: "9px 14px",
+                borderRadius: 999,
+                border: isActive ? "1px solid var(--blue)" : "1px solid var(--line)",
+                cursor: "pointer",
+                background: isActive ? "var(--blue)" : "#fff",
+                color: isActive ? "#fff" : "var(--ink)",
+                fontWeight: isActive ? 700 : 600,
+                fontSize: 13,
+              }}
+            >
+              <span>{s.titulo}</span>
+              <span
                 style={{
-                  width: "100%",
-                  textAlign: "left",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: 8,
-                  padding: "10px 12px",
-                  borderRadius: 8,
-                  border: "none",
-                  cursor: "pointer",
-                  background: isActive ? "rgba(255,255,255,.08)" : "transparent",
-                  color: isActive ? "#fff" : "#B8BCC8",
-                  fontWeight: isActive ? 700 : 600,
-                  fontSize: 13.5,
-                  marginBottom: 2,
+                  fontSize: 10.5,
+                  fontWeight: 700,
+                  padding: "1px 6px",
+                  borderRadius: 999,
+                  background: isActive ? "rgba(255,255,255,.2)" : completa ? "var(--tint)" : "#F1F2F5",
+                  color: isActive ? "#fff" : completa ? "var(--blue)" : "#6B7390",
                 }}
               >
-                <span>{s.titulo}</span>
-                <span style={{ fontSize: 10.5, fontWeight: 700, color: respondidasSecao === perguntasSecao ? "var(--blue)" : "#6B7390", flexShrink: 0 }}>
-                  {respondidasSecao}/{perguntasSecao}
-                </span>
-              </button>
-            );
-          })}
-        </nav>
-
-        <div className="admin-sidebar-footer" style={{ padding: "16px 20px", borderTop: "1px solid rgba(255,255,255,.1)" }}>
-          <div className="admin-sidebar-email" style={{ fontSize: 12, color: "#8A93AE", marginBottom: 12, wordBreak: "break-all" }}>{userEmail}</div>
-          <button
-            onClick={handleLogout}
-            disabled={loggingOut}
-            style={{ width: "100%", background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.14)", borderRadius: 8, padding: "9px 0", fontSize: 13, fontWeight: 700, color: "#fff", cursor: loggingOut ? "default" : "pointer" }}
-          >
-            {loggingOut ? "Saindo..." : "Sair"}
-          </button>
-        </div>
-      </aside>
-
-      {/* CONTEUDO */}
-      <main className="admin-main" style={{ flex: 1, padding: "40px 48px 90px", minWidth: 0 }}>
-        <div style={{ maxWidth: 860 }}>
-          <div style={{ marginBottom: 24 }}>
-            <h1 style={{ margin: "0 0 4px", fontSize: 24, fontWeight: 800 }}>{secaoAtual.titulo}</h1>
-            <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)" }}>Responda item a item, no seu tempo. Cada resposta é salva automaticamente enquanto você digita, então você pode fechar e continuar de onde parou quando quiser.</p>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 28 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 140, height: 8, borderRadius: 999, background: "var(--line)", overflow: "hidden" }}>
-                <div style={{ width: `${(totalRespondidas / totalPerguntas) * 100}%`, height: "100%", background: "var(--blue)", transition: "width .3s" }} />
-              </div>
-              <span style={{ fontSize: 12.5, color: "var(--ink-soft)", fontWeight: 600 }}>
-                {totalRespondidas} / {totalPerguntas} respondidas
+                {respondidasSecao}/{perguntasSecao}
               </span>
-            </div>
-            <button
-              onClick={handleExport}
-              disabled={exportando}
-              className="pill"
-              style={{ background: "var(--blue)", color: "#fff", fontSize: 13.5, padding: "10px 18px", border: "none", cursor: exportando ? "default" : "pointer", opacity: exportando ? 0.7 : 1 }}
-            >
-              {exportando ? "Gerando..." : "Exportar Excel"}
             </button>
-          </div>
+          );
+        })}
+      </nav>
 
-          {secaoAtual.intro && (
+      <div>
+        <h1 style={{ margin: "0 0 20px", fontSize: 22, fontWeight: 800 }}>{secaoAtual.titulo}</h1>
+
+        {secaoAtual.intro && (
             <p style={{ margin: "0 0 24px", fontSize: 13.5, lineHeight: 1.6, color: "var(--ink-soft)", background: "#fff", border: "1px solid var(--line)", padding: "14px 18px", borderRadius: 12 }}>
               {secaoAtual.intro}
             </p>
@@ -266,7 +243,6 @@ export default function PlanoNegocioForm({ userEmail, respostasIniciais }: { use
             </div>
           ))}
         </div>
-      </main>
     </div>
   );
 }
