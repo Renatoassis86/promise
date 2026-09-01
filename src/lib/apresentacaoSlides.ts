@@ -270,17 +270,16 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     ],
   },
   {
-    layout: "quote",
+    layout: "split",
     chapterIndex: 2,
     chapterTitle: CAPITULOS[1].titulo,
     kicker: "Capítulo 02 · Conceito",
     title: "Uma convicção pessoal e profissional",
-    quote: {
-      text: "Para mim, excelência acadêmica e fé caminham juntas. Não é só uma convicção profissional, é pessoal: a mesma fé que orienta minha vida em casa, com a minha família, orienta cada decisão da Promise no trabalho com escolas, famílias homeschooling e alunos.",
-      author: "Calebe Braga, fundador da Promise",
-      photo: "/assets/calebe-familia.jpg",
-    },
+    image: { src: "/assets/calebe-familia.jpg", alt: "Calebe Braga" },
+    imageSide: "left",
+    accent: "blue",
     paragraphs: [
+      "A atuação de Calebe Braga na Promise é orientada pela convicção de que excelência acadêmica e fé caminham juntas. A mesma base que orienta sua vida pessoal orienta as decisões da empresa no trabalho com escolas, famílias homeschooling e alunos.",
       "O diferencial estrutural da Promise é o Promise Excellence Framework™, a metodologia própria que integra as quatro frentes em um único ecossistema, apoiada em valores como excelência, propósito, cosmovisão cristã, desenvolvimento integral, autonomia e visão global.",
     ],
   },
@@ -332,16 +331,14 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     ],
   },
   {
-    layout: "quote",
+    layout: "overlay",
     chapterIndex: 3,
     chapterTitle: CAPITULOS[2].titulo,
     kicker: "Capítulo 03 · Mercado e Competidores",
     title: "A lacuna que a Promise preenche",
-    quote: {
-      text: "Escolas, famílias e profissionais encontram materiais, cursos, certificações, plataformas e intercâmbios separadamente. Poucas soluções integram ensino de inglês, currículo, formação profissional, certificação, internacionalização e cosmovisão cristã em uma única trajetória coerente.",
-      author: "Diagnóstico de mercado, Promise Education Group",
-    },
+    accent: "blue",
     paragraphs: [
+      "Escolas, famílias e profissionais encontram materiais, cursos, certificações, plataformas e intercâmbios separadamente. Poucas soluções integram ensino de inglês, currículo, formação profissional, certificação, internacionalização e cosmovisão cristã em uma única trajetória coerente.",
       "Os fatores que mais influenciam a decisão de compra confirmam essa leitura: confiança e credibilidade, qualidade e resultados comprovados, alinhamento de valores, indicação e reputação. O preço aparece como fator relevante, mas raramente como o principal critério.",
     ],
   },
