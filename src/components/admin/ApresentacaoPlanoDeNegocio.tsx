@@ -532,11 +532,11 @@ function QuadrantSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 // TIMELINE
 // ============================================================================
-function TimelineNode({ item, isLast }: { item: TimelineItem; isLast: boolean }) {
+function TimelineNode({ item, isLast, accent }: { item: TimelineItem; isLast: boolean; accent: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", flex: "1 1 180px", minWidth: 180 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <span style={{ alignSelf: "flex-start", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: "#fff", background: "var(--blue)", padding: "4px 10px", borderRadius: 999 }}>
+        <span style={{ alignSelf: "flex-start", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: "#fff", background: accent, padding: "4px 10px", borderRadius: 999 }}>
           {item.label}
         </span>
         <div style={{ fontWeight: 800, fontSize: 15, color: "var(--ink)" }}>{item.title}</div>
@@ -548,14 +548,15 @@ function TimelineNode({ item, isLast }: { item: TimelineItem; isLast: boolean })
 }
 
 function TimelineSlide({ slide }: { slide: Slide }) {
+  const accent = ACCENT[slide.accent ?? "blue"];
   return (
     <SlideShell wide>
-      <Kicker text={slide.kicker} />
+      <Kicker text={slide.kicker} color={accent} />
       <Title text={slide.title} />
       {slide.timeline && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 20, marginTop: 20 }}>
           {slide.timeline.map((item, i) => (
-            <TimelineNode key={item.title} item={item} isLast={i === slide.timeline!.length - 1} />
+            <TimelineNode key={item.title} item={item} isLast={i === slide.timeline!.length - 1} accent={accent} />
           ))}
         </div>
       )}
@@ -699,16 +700,17 @@ function TeamGridSlide({ slide }: { slide: Slide }) {
 // PROCESS — fluxo de etapas numeradas
 // ============================================================================
 function ProcessSlide({ slide }: { slide: Slide }) {
+  const accent = ACCENT[slide.accent ?? "blue"];
   return (
     <SlideShell wide>
-      <Kicker text={slide.kicker} />
+      <Kicker text={slide.kicker} color={accent} />
       <Title text={slide.title} />
       {slide.process && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 0, marginTop: 12, marginBottom: 22 }}>
           {slide.process.map((step: ProcessStep, i) => (
             <div key={step.title} style={{ display: "flex", alignItems: "flex-start", flex: "1 1 190px", minWidth: 190 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <div style={{ width: 34, height: 34, borderRadius: "50%", background: "var(--blue)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 }}>
+                <div style={{ width: 34, height: 34, borderRadius: "50%", background: accent, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 }}>
                   {i + 1}
                 </div>
                 <div style={{ fontWeight: 800, fontSize: 14.5, color: "var(--ink)" }}>{step.title}</div>

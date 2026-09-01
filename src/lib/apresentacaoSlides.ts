@@ -114,7 +114,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterIndex: 0,
     chapterTitle: "Sumário",
     kicker: "Sumário",
-    title: "Os dez capítulos do plano",
+    title: "Os nove capítulos do plano",
   },
 
   // ==========================================================================
@@ -337,10 +337,11 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[3].titulo,
     kicker: "Capítulo 04 · Equipe de Gestão",
     title: "A estrutura funcional hoje",
+    accent: "blue",
     process: [
       { title: "Direção Executiva", description: "Gestão estratégica e integração das quatro frentes do negócio" },
       { title: "Parceiros especializados", description: "Apoio em marketing, gestão administrativa e gestão pedagógica" },
-      { title: "Professores", description: "Entrega direta dos serviços educacionais às três frentes de atendimento" },
+      { title: "Professores", description: "Entrega direta das aulas, sobretudo na frente Learners" },
     ],
     paragraphs: [
       "A Promise opera hoje com uma estrutura funcional enxuta. As áreas administrativa, comercial, técnico-pedagógica e financeira ainda são parcialmente centralizadas na liderança, com apoio pontual de profissionais e parceiros externos, à medida que cada frente ganha volume suficiente para justificar uma posição dedicada.",
@@ -469,6 +470,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[4].titulo,
     kicker: "Capítulo 05 · Produtos e Serviços",
     title: "Maturidade e próximos lançamentos",
+    accent: "orange",
     timeline: [
       { label: "Consolidado", title: "Cursos de inglês", description: "Frente mais madura, com operação consolidada há anos" },
       { label: "Em validação", title: "Consultoria para escolas", description: "Em operação há mais de um ano, com resultados já avaliados" },
@@ -543,6 +545,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[5].titulo,
     kicker: "Capítulo 06 · Estrutura e Operações",
     title: "Da prospecção ao pós-venda",
+    accent: "orange",
     process: [
       { title: "Atração", description: "Redes sociais, site, indicações, eventos ou prospecção direta" },
       { title: "Diagnóstico", description: "Conversa para entender a necessidade e definir a solução" },
@@ -749,7 +752,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Investimentos e retorno esperado",
     image: { src: "/assets/prof-servico-desenvolvimento-institucional.jpg", alt: "Investimento em desenvolvimento institucional" },
     imageSide: "left",
-    accent: "ink",
+    accent: "orange",
     paragraphs: [
       "Os principais investimentos se destinam à estruturação comercial e de marketing, à tecnologia e plataformas digitais, ao desenvolvimento de currículos e materiais próprios, e à contratação e capacitação da equipe. O retorno virá principalmente de receitas recorrentes de Learners e Schools, complementadas por Professionals e Global.",
     ],
