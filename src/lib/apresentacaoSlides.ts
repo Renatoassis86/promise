@@ -450,20 +450,24 @@ export const APRESENTACAO_SLIDES: Slide[] = [
       formacao: ["Economista", "Mestre em Economia (UFRN)", "Graduado em Ciência de Dados para Negócios (UFPB)"],
       sections: [
         {
-          heading: "Trajetória profissional",
+          heading: "Trajetória em pesquisa e políticas públicas",
           items: [
-            "Supervisor Técnico Regional do DIEESE por 16 anos: pesquisas, estudos socioeconômicos, diagnósticos estratégicos e assessoria técnica para negociações coletivas, mercado de trabalho e formulação de políticas públicas",
-            "Técnico de Projetos desde outubro de 2024, desenvolvendo observatórios socioeconômicos em parceria com governos estaduais",
-            "Gerente do Education, sistema de ensino da Cidade Viva Education, durante o período de atuação no DIEESE: estruturação das áreas administrativa, financeira, comercial, tecnológica e logística",
-            "Consultor Estratégico de Sistemas de Ensino na Cidade Viva Education: apoio a instituições educacionais na implantação de modelos de gestão, planejamento estratégico, expansão e transformação organizacional",
+            "Supervisor Técnico Regional do DIEESE por 16 anos: coordenação de pesquisas, estudos socioeconômicos, diagnósticos estratégicos e assessoria técnica para negociações coletivas, mercado de trabalho e formulação de políticas públicas",
+            "Técnico de Projetos desde outubro de 2024: observatórios socioeconômicos em parceria com governos estaduais, com indicadores e análises para decisões baseadas em evidências",
+          ],
+        },
+        {
+          heading: "Trajetória em sistemas de ensino",
+          items: [
+            "Gerente Administrativo do Education, sistema de ensino da Cidade Viva Education: estruturação das áreas administrativa, financeira, comercial, tecnológica e logística",
+            "Atualmente, Consultor Estratégico de Sistemas de Ensino na Cidade Viva Education: apoio a instituições educacionais na implantação de modelos de gestão, planejamento estratégico, expansão e transformação organizacional",
           ],
         },
         {
           heading: "Empreendedorismo e atuação na Promise",
           items: [
-            "Fundador da Arkos Intelligence, iniciativa de Business Intelligence, Analytics e Inteligência Artificial aplicada à gestão",
-            "Fundador da Econsult",
-            "Pesquisador, professor, consultor e palestrante",
+            "Fundador da Arkos Intelligence: Business Intelligence, Analytics e Inteligência Artificial para apoio à gestão, com foco em planejamento estratégico e em sistemas que integram dados, automatizam processos e transformam dados em inteligência para decisão",
+            "Pesquisador, professor, consultor e palestrante ao longo da carreira",
             "Na Promise: estruturação do plano de negócio, do modelo financeiro e da governança de dados",
           ],
         },
