@@ -426,7 +426,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         {
           heading: "Autoria de currículo",
           items: [
-            "Coautor, ao lado de Rita, dos currículos de inglês Paideia e Oikos, do sistema de ensino Cidade Viva Education",
+            "Coautor, ao lado de Cássia Braga, dos currículos de inglês Paideia e Oikos, do sistema de ensino Cidade Viva Education",
             "Autor da coleção To the Nations, currículo próprio da Promise para o infantil e os anos iniciais do Fundamental",
           ],
         },
@@ -461,7 +461,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
           items: [
             "Gerente Administrativo do Sistema Educacional Cidade Viva Education, de agosto de 2024 a junho de 2026: estruturação das áreas administrativa, financeira, comercial, tecnológica e logística",
             "Atualmente, Consultor Organizacional na área de Dados e Business Intelligence da Cidade Viva Education: responsável pela infraestrutura tecnológica do sistema, pela gestão e governança de dados, por dashboards e indicadores de gestão, e pela automação de processos administrativos e financeiros",
-            "Consultor Organizacional da We Make (wemake.tec.br), editora cristã de currículo de tecnologia e cultura maker para escolas confessionais: estruturação das áreas administrativa, financeira e comercial, além de autor e revisor do material didático do sistema",
+            "Consultor Organizacional da We Make, editora cristã de currículo de tecnologia e cultura maker para escolas confessionais: estruturação das áreas administrativa, financeira e comercial, além de autor e revisor do material didático do sistema",
           ],
         },
         {
@@ -582,7 +582,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
       { src: "/assets/livro-to-the-nations-2.jpg", alt: "Coleção To the Nations", fit: "contain" },
     ],
     paragraphs: [
-      "A Promise já detém direitos sobre marca, metodologia e materiais próprios, incluindo o Promise Excellence Framework™ e a coleção To the Nations, currículo autoral de inglês para o infantil e os anos iniciais do Fundamental. Paideia e Oikos, por sua vez, são currículos da Cidade Viva Education, coautorados por Calebe Braga e Rita naquela instituição, e não integram a propriedade intelectual da Promise. Esses ativos próprios representam parte relevante do patrimônio da empresa e uma base para futuras soluções digitais e aplicativos de aprendizagem.",
+      "A Promise já detém direitos sobre marca, metodologia e materiais próprios, incluindo o Promise Excellence Framework™ e a coleção To the Nations, currículo autoral de inglês para o infantil e os anos iniciais do Fundamental. Paideia e Oikos, por sua vez, são currículos da Cidade Viva Education, coautorados por Calebe Braga e Cássia Braga naquela instituição, e não integram a propriedade intelectual da Promise. Esses ativos próprios representam parte relevante do patrimônio da empresa e uma base para futuras soluções digitais e aplicativos de aprendizagem.",
     ],
   },
   {
@@ -628,7 +628,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
       {
         logo: "/assets/parceiros/cidadeviva.svg",
         nome: "Cidade Viva Education",
-        blurb: "Sistema de ensino cristão onde Calebe Braga coordena o departamento internacional e coautora, com Rita, os currículos de inglês Paideia e Oikos.",
+        blurb: "Sistema de ensino cristão onde Calebe Braga coordena o departamento internacional e coautora, com Cássia Braga, os currículos de inglês Paideia e Oikos.",
       },
       {
         logo: "/assets/parceiros/kairos.png",
