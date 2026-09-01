@@ -294,7 +294,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     imageSide: "right",
     accent: "ink",
     paragraphs: [
-      "A Promise está registrada como MEI, estrutura já identificada como necessária de revisão à medida que o negócio ganha escala. Learners é uma operação 100% online; Schools pode ser online ou presencial conforme o plano fechado com cada escola. Em nenhum dos dois casos há sede física própria voltada ao atendimento, o que mantém a estrutura de custos enxuta e permite atender famílias e escolas em qualquer região do Brasil.",
+      "A Promise é uma empresa. Learners é uma operação 100% online; Schools pode ser online ou presencial conforme o plano fechado com cada escola. Em nenhum dos dois casos há sede física própria voltada ao atendimento, o que mantém a estrutura de custos enxuta e permite atender famílias e escolas em qualquer região do Brasil.",
       "Como o modelo ainda é novo, a Promise não possui um histórico extenso de métricas. A prioridade atual é consolidar as quatro frentes e construir esse histórico a partir dos próximos ciclos.",
     ],
   },
@@ -459,8 +459,9 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         {
           heading: "Trajetória em sistemas de ensino",
           items: [
-            "Gerente Administrativo do Education, sistema de ensino da Cidade Viva Education: estruturação das áreas administrativa, financeira, comercial, tecnológica e logística",
-            "Atualmente, Consultor Estratégico de Sistemas de Ensino na Cidade Viva Education: apoio a instituições educacionais na implantação de modelos de gestão, planejamento estratégico, expansão e transformação organizacional",
+            "Gerente Administrativo do Sistema Educacional Cidade Viva Education, de agosto de 2024 a junho de 2026: estruturação das áreas administrativa, financeira, comercial, tecnológica e logística",
+            "Atualmente, Consultor Organizacional na área de Dados e Business Intelligence da Cidade Viva Education: responsável pela infraestrutura tecnológica do sistema, pela gestão e governança de dados, por dashboards e indicadores de gestão, e pela automação de processos administrativos e financeiros",
+            "Consultor Organizacional da We Make (wemake.tec.br), editora cristã de currículo de tecnologia e cultura maker para escolas confessionais: estruturação das áreas administrativa, financeira e comercial, além de autor e revisor do material didático do sistema",
           ],
         },
         {
@@ -468,7 +469,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
           items: [
             "Fundador da Arkos Intelligence: Business Intelligence, Analytics e Inteligência Artificial para apoio à gestão, com foco em planejamento estratégico e em sistemas que integram dados, automatizam processos e transformam dados em inteligência para decisão",
             "Pesquisador, professor, consultor e palestrante ao longo da carreira",
-            "Na Promise: estruturação do plano de negócio, do modelo financeiro e da governança de dados",
+            "Consultor Organizacional da Promise, responsável pela implantação administrativa e tecnológica do sistema, pela estruturação do plano de negócio, do modelo financeiro e da governança de dados",
           ],
         },
       ],

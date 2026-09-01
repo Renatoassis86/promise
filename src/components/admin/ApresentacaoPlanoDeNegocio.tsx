@@ -72,9 +72,16 @@ export default function ApresentacaoPlanoDeNegocio({
   temPremissasPreenchidas: boolean;
 }) {
   const [current, setCurrent] = useState(0);
+  const [previous, setPrevious] = useState<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const total = slides.length;
+
+  useEffect(() => {
+    if (previous === null) return;
+    const t = setTimeout(() => setPrevious(null), 550);
+    return () => clearTimeout(t);
+  }, [previous]);
 
   useEffect(() => {
     function handleFullscreenChange() {
@@ -107,7 +114,12 @@ export default function ApresentacaoPlanoDeNegocio({
 
   const goTo = useCallback(
     (index: number) => {
-      setCurrent(Math.max(0, Math.min(total - 1, index)));
+      const clamped = Math.max(0, Math.min(total - 1, index));
+      setCurrent((c) => {
+        if (clamped === c) return c;
+        setPrevious(c);
+        return clamped;
+      });
     },
     [total]
   );
@@ -254,11 +266,12 @@ export default function ApresentacaoPlanoDeNegocio({
         {slides.map((slide, i) => (
           <div
             key={i}
-            className="apresentacao-slide-viewport"
+            className={`apresentacao-slide-viewport${i === previous ? " apresentacao-slide-viewport-exit" : ""}`}
             style={{ width: "100vw", height: "100%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
           >
-            {i === current && (
+            {(i === current || i === previous) && (
               <SlideBody
+                key={i === current ? "in" : "out"}
                 slide={slide}
                 resultadoFinanceiro={resultadoFinanceiro}
                 temPremissasPreenchidas={temPremissasPreenchidas}
@@ -504,9 +517,15 @@ function SplitSlide({ slide }: { slide: Slide }) {
           <Paragraphs paragraphs={slide.paragraphs} />
           {slide.stats && (
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
-              {slide.stats.map((s) => (
-                <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 10, padding: "8px 12px" }}>
-                  <div style={{ fontSize: 16, fontWeight: 800, color: accent }}>{s.value}</div>
+              {slide.stats.map((s, i) => (
+                <div
+                  key={s.label}
+                  className="apresentacao-card-in"
+                  style={{ "--stagger": i, background: "#fff", border: "1px solid var(--line)", borderRadius: 10, padding: "8px 12px" } as React.CSSProperties}
+                >
+                  <div className="apresentacao-emphasis" style={{ "--stagger": i, fontSize: 16, fontWeight: 800, color: accent } as React.CSSProperties}>
+                    {s.value}
+                  </div>
                   <div style={{ fontSize: 10.5, color: "var(--ink-soft)" }}>{s.label}</div>
                 </div>
               ))}
@@ -554,10 +573,12 @@ function OverlaySlide({ slide }: { slide: Slide }) {
           ))}
           {slide.stats && (
             <div style={{ display: "flex", flexWrap: "wrap", gap: 20, marginTop: 20 }}>
-              {slide.stats.map((s) => (
-                <div key={s.label}>
+              {slide.stats.map((s, i) => (
+                <div key={s.label} className="apresentacao-card-in" style={{ "--stagger": i } as React.CSSProperties}>
                   <div style={{ fontSize: 12, color: "#B8BCC8", fontWeight: 600, marginBottom: 2 }}>{s.label}</div>
-                  <div style={{ fontSize: 16, color: "#fff", fontWeight: 700 }}>{s.value}</div>
+                  <div className="apresentacao-emphasis" style={{ "--stagger": i, fontSize: 16, color: "#fff", fontWeight: 700 } as React.CSSProperties}>
+                    {s.value}
+                  </div>
                 </div>
               ))}
             </div>
@@ -581,8 +602,14 @@ function StatGridSlide({ slide }: { slide: Slide }) {
       {slide.stats && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: 12, marginTop: 6 }}>
           {slide.stats.map((s, i) => (
-            <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${i % 2 === 0 ? accent : "var(--orange)"}`, borderRadius: 12, padding: "14px 16px" }}>
-              <div style={{ fontSize: 23, fontWeight: 900, color: i % 2 === 0 ? accent : "var(--orange)" }}>{s.value}</div>
+            <div
+              key={s.label}
+              className="apresentacao-card-in"
+              style={{ "--stagger": i, background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${i % 2 === 0 ? accent : "var(--orange)"}`, borderRadius: 12, padding: "14px 16px" } as React.CSSProperties}
+            >
+              <div className="apresentacao-emphasis" style={{ "--stagger": i, fontSize: 23, fontWeight: 900, color: i % 2 === 0 ? accent : "var(--orange)" } as React.CSSProperties}>
+                {s.value}
+              </div>
               <div style={{ fontSize: 11.5, color: "var(--ink-soft)", marginTop: 4 }}>{s.label}</div>
             </div>
           ))}
@@ -595,14 +622,21 @@ function StatGridSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 // QUADRANT — SWOT / custos fixos-variaveis
 // ============================================================================
-function QuadrantCard({ quadrant }: { quadrant: SlideQuadrant }) {
+function QuadrantCard({ quadrant, baseStagger }: { quadrant: SlideQuadrant; baseStagger: number }) {
   const accent = ACCENT[quadrant.color];
   return (
-    <div style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${accent}`, borderRadius: 14, padding: 22 }}>
+    <div
+      className="apresentacao-card-in"
+      style={{ "--stagger": baseStagger, background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${accent}`, borderRadius: 14, padding: 22 } as React.CSSProperties}
+    >
       <div style={{ fontWeight: 800, fontSize: 16, color: accent, marginBottom: 14 }}>{quadrant.title}</div>
       <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
         {quadrant.items.map((item, i) => (
-          <li key={i} style={{ display: "flex", gap: 10, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink)" }}>
+          <li
+            key={i}
+            className="apresentacao-card-in"
+            style={{ "--stagger": baseStagger + i + 1, display: "flex", gap: 10, fontSize: 14.5, lineHeight: 1.6, color: "var(--ink)" } as React.CSSProperties}
+          >
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: accent, marginTop: 8, flexShrink: 0 }} />
             <span style={{ textAlign: "justify", textAlignLast: "left" }}>{item}</span>
           </li>
@@ -620,8 +654,8 @@ function QuadrantSlide({ slide }: { slide: Slide }) {
       <Paragraphs paragraphs={slide.paragraphs} />
       {slide.quadrants && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, marginTop: 8 }}>
-          {slide.quadrants.map((q) => (
-            <QuadrantCard key={q.title} quadrant={q} />
+          {slide.quadrants.map((q, qi) => (
+            <QuadrantCard key={q.title} quadrant={q} baseStagger={qi * 5} />
           ))}
         </div>
       )}
@@ -632,9 +666,9 @@ function QuadrantSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 // TIMELINE
 // ============================================================================
-function TimelineNode({ item, isLast, color }: { item: TimelineItem; isLast: boolean; color: string }) {
+function TimelineNode({ item, isLast, color, stagger }: { item: TimelineItem; isLast: boolean; color: string; stagger: number }) {
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", flex: "1 1 180px", minWidth: 180 }}>
+    <div className="apresentacao-card-in" style={{ "--stagger": stagger, display: "flex", alignItems: "flex-start", flex: "1 1 180px", minWidth: 180 } as React.CSSProperties}>
       <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textAlign: "center" }}>
         <div style={{ width: 44, height: 44, borderRadius: "50%", background: color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
           {item.icone && <Icon name={item.icone} size={20} color="#fff" />}
@@ -658,7 +692,7 @@ function TimelineSlide({ slide }: { slide: Slide }) {
       {slide.timeline && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 16 }}>
           {slide.timeline.map((item, i) => (
-            <TimelineNode key={item.title} item={item} isLast={i === slide.timeline!.length - 1} color={i % 2 === 0 ? accent : alt} />
+            <TimelineNode key={item.title} item={item} isLast={i === slide.timeline!.length - 1} color={i % 2 === 0 ? accent : alt} stagger={i} />
           ))}
         </div>
       )}
@@ -676,10 +710,14 @@ function GallerySlide({ slide }: { slide: Slide }) {
       <Title text={slide.title} />
       {slide.images && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 22 }}>
-          {slide.images.map((img: GalleryImage) => {
+          {slide.images.map((img: GalleryImage, i) => {
             const fit = img.fit ?? "cover";
             return (
-              <div key={img.src} style={{ borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: fit === "contain" ? "var(--tint)" : "#fff", aspectRatio: "4 / 3" }}>
+              <div
+                key={img.src}
+                className="apresentacao-card-in"
+                style={{ "--stagger": i, borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: fit === "contain" ? "var(--tint)" : "#fff", aspectRatio: "4 / 3" } as React.CSSProperties}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={img.src}
@@ -706,8 +744,12 @@ function PartnersSlide({ slide }: { slide: Slide }) {
       <Title text={slide.title} />
       {slide.partners && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 16, marginBottom: 20 }}>
-          {slide.partners.map((p: PartnerItem) => (
-            <div key={p.nome} style={{ display: "flex", gap: 16, alignItems: "center", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 16 }}>
+          {slide.partners.map((p: PartnerItem, i) => (
+            <div
+              key={p.nome}
+              className="apresentacao-card-in"
+              style={{ "--stagger": i, display: "flex", gap: 16, alignItems: "center", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 16 } as React.CSSProperties}
+            >
               <div style={{ width: 92, height: 72, borderRadius: 10, background: "var(--ink)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: 10 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.logo} alt={p.nome} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
@@ -728,9 +770,12 @@ function PartnersSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 // TEAM GRID
 // ============================================================================
-function TeamCard({ member }: { member: TeamMember }) {
+function TeamCard({ member, stagger }: { member: TeamMember; stagger: number }) {
   return (
-    <div style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${member.color}`, borderRadius: 14, padding: 16, display: "flex", flexDirection: "column", gap: 8 }}>
+    <div
+      className="apresentacao-card-in"
+      style={{ "--stagger": stagger, background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${member.color}`, borderRadius: 14, padding: 16, display: "flex", flexDirection: "column", gap: 8 } as React.CSSProperties}
+    >
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
         {member.photo ? (
           <div style={{ width: 50, height: 50, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: `2px solid ${member.color}` }}>
@@ -802,8 +847,8 @@ function TeamGridSlide({ slide }: { slide: Slide }) {
       <Title text={slide.title} />
       {slide.team && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14 }}>
-          {slide.team.map((m) => (
-            <TeamCard key={m.name} member={m} />
+          {slide.team.map((m, i) => (
+            <TeamCard key={m.name} member={m} stagger={i} />
           ))}
         </div>
       )}
@@ -852,8 +897,8 @@ function ProfileSlide({ slide }: { slide: Slide }) {
                 Formação
               </div>
               <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 3 }}>
-                {p.formacao.map((f) => (
-                  <li key={f} style={{ fontSize: 12, lineHeight: 1.4, color: "var(--ink)" }}>
+                {p.formacao.map((f, i) => (
+                  <li key={f} className="apresentacao-card-in" style={{ "--stagger": i, fontSize: 12, lineHeight: 1.4, color: "var(--ink)" } as React.CSSProperties}>
                     {f}
                   </li>
                 ))}
@@ -865,23 +910,37 @@ function ProfileSlide({ slide }: { slide: Slide }) {
           <p style={{ margin: "0 0 14px", fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)", fontStyle: "italic", textAlign: "justify", textAlignLast: "left" }}>
             {p.headline}
           </p>
-          {p.sections.map((s) => (
-            <div key={s.heading} style={{ marginBottom: 12 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: accent, marginBottom: 6 }}>{s.heading}</div>
-              <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 5 }}>
-                {s.items.map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: 8, fontSize: 12.5, lineHeight: 1.45, color: "var(--ink)" }}>
-                    <span style={{ width: 5, height: 5, borderRadius: "50%", background: accent, marginTop: 6, flexShrink: 0 }} />
-                    <span style={{ textAlign: "justify", textAlignLast: "left" }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {(() => {
+            let itemCounter = 0;
+            return p.sections.map((s) => (
+              <div key={s.heading} style={{ marginBottom: 12 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: accent, marginBottom: 6 }}>{s.heading}</div>
+                <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 5 }}>
+                  {s.items.map((item, i) => {
+                    const stagger = itemCounter++;
+                    return (
+                      <li
+                        key={i}
+                        className="apresentacao-card-in"
+                        style={{ "--stagger": stagger, display: "flex", gap: 8, fontSize: 12.5, lineHeight: 1.45, color: "var(--ink)" } as React.CSSProperties}
+                      >
+                        <span style={{ width: 5, height: 5, borderRadius: "50%", background: accent, marginTop: 6, flexShrink: 0 }} />
+                        <span style={{ textAlign: "justify", textAlignLast: "left" }}>{item}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ));
+          })()}
           {p.tags && p.tags.length > 0 && (
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
-              {p.tags.map((t) => (
-                <span key={t} style={{ fontSize: 10.5, fontWeight: 600, color: accent, background: "var(--tint)", border: `1px solid ${accent}`, borderRadius: 999, padding: "4px 10px" }}>
+              {p.tags.map((t, i) => (
+                <span
+                  key={t}
+                  className="apresentacao-card-in"
+                  style={{ "--stagger": i, fontSize: 10.5, fontWeight: 600, color: accent, background: "var(--tint)", border: `1px solid ${accent}`, borderRadius: 999, padding: "4px 10px" } as React.CSSProperties}
+                >
                   {t}
                 </span>
               ))}
@@ -908,7 +967,11 @@ function ProcessSlide({ slide }: { slide: Slide }) {
           {slide.process.map((step: ProcessStep, i) => {
             const color = i % 2 === 0 ? accent : alt;
             return (
-              <div key={step.title} style={{ display: "flex", alignItems: "flex-start", flex: "1 1 170px", minWidth: 170 }}>
+              <div
+                key={step.title}
+                className="apresentacao-card-in"
+                style={{ "--stagger": i, display: "flex", alignItems: "flex-start", flex: "1 1 170px", minWidth: 170 } as React.CSSProperties}
+              >
                 <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center", textAlign: "center" }}>
                   <div style={{ width: 40, height: 40, borderRadius: "50%", background: color, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     {step.icone ? <Icon name={step.icone} size={18} color="#fff" /> : <span style={{ fontWeight: 800, fontSize: 14 }}>{i + 1}</span>}
@@ -939,7 +1002,7 @@ function OrgChartSlide({ slide }: { slide: Slide }) {
       <Kicker text={slide.kicker} color={accent} />
       <Title text={slide.title} />
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 8 }}>
-        <div style={{ background: accent, color: "#fff", borderRadius: 12, padding: "12px 24px", textAlign: "center", minWidth: 220 }}>
+        <div className="apresentacao-emphasis" style={{ background: accent, color: "#fff", borderRadius: 12, padding: "12px 24px", textAlign: "center", minWidth: 220 }}>
           <div style={{ fontWeight: 800, fontSize: 15 }}>{chart.root.title}</div>
           {chart.root.subtitle && <div style={{ fontSize: 11.5, opacity: 0.9, marginTop: 2 }}>{chart.root.subtitle}</div>}
         </div>
@@ -950,8 +1013,12 @@ function OrgChartSlide({ slide }: { slide: Slide }) {
             style={{ position: "absolute", top: 0, left: `${100 / chart.children.length / 2}%`, right: `${100 / chart.children.length / 2}%`, height: 2, background: "var(--line)" }}
           />
           <div className="apresentacao-orgchart-children" style={{ display: "flex", gap: 14 }}>
-            {chart.children.map((child) => (
-              <div key={child.title} className="apresentacao-orgchart-child" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            {chart.children.map((child, i) => (
+              <div
+                key={child.title}
+                className="apresentacao-orgchart-child apresentacao-card-in"
+                style={{ "--stagger": i + 1, flex: 1, display: "flex", flexDirection: "column", alignItems: "center" } as React.CSSProperties}
+              >
                 <div className="apresentacao-orgchart-stub" style={{ width: 2, height: 18, background: "var(--line)" }} />
                 <div style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `3px solid ${accent}`, borderRadius: 10, padding: "12px 14px", textAlign: "center", width: "100%" }}>
                   <div style={{ fontWeight: 800, fontSize: 13, color: "var(--ink)" }}>{child.title}</div>
@@ -989,7 +1056,7 @@ function TableSlide({ slide }: { slide: Slide }) {
             </thead>
             <tbody>
               {slide.tableRows.map((row, i) => (
-                <tr key={i}>
+                <tr key={i} className="apresentacao-card-in" style={{ "--stagger": i } as React.CSSProperties}>
                   {row.map((cell, j) => (
                     <td key={j} style={{ textAlign: j === 0 ? "left" : "left", fontWeight: j === 0 ? 700 : 400, whiteSpace: "normal" }}>
                       {cell}
@@ -1094,9 +1161,15 @@ function ClosingSlide({ slide }: { slide: Slide }) {
       <Paragraphs paragraphs={slide.paragraphs} />
       {slide.stats && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 8 }}>
-          {slide.stats.map((s) => (
-            <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 12, padding: "14px 18px", minWidth: 160 }}>
-              <div style={{ fontSize: 22, fontWeight: 900, color: "var(--blue)" }}>{s.value}</div>
+          {slide.stats.map((s, i) => (
+            <div
+              key={s.label}
+              className="apresentacao-card-in"
+              style={{ "--stagger": i, background: "#fff", border: "1px solid var(--line)", borderRadius: 12, padding: "14px 18px", minWidth: 160 } as React.CSSProperties}
+            >
+              <div className="apresentacao-emphasis" style={{ "--stagger": i, fontSize: 22, fontWeight: 900, color: "var(--blue)" } as React.CSSProperties}>
+                {s.value}
+              </div>
               <div style={{ fontSize: 11.5, color: "var(--ink-soft)", marginTop: 2 }}>{s.label}</div>
             </div>
           ))}

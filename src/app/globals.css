@@ -311,9 +311,11 @@ a:hover {
   }
 }
 
-/* Apresentacao do plano de negocio (/admin/apresentacao): fade + leve subida
-   ao trocar de slide, reaplicada a cada troca via remount (key={slide.title}). */
-@keyframes apresentacaoFadeUp {
+/* Apresentacao do plano de negocio (/admin/apresentacao): entrada escalonada
+   (kicker -> titulo -> corpo -> cartoes um a um), saida ao trocar de slide, e
+   um "pop" de enfase nos numeros/destaques. Cada slide e remontado ao entrar
+   (key={"in"|"out"} em SlideBody), o que reaplica as animacoes a cada troca. */
+@keyframes apresentacaoItemIn {
   from {
     opacity: 0;
     transform: translateY(16px);
@@ -323,13 +325,88 @@ a:hover {
     transform: translateY(0);
   }
 }
+@keyframes apresentacaoContentOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+@keyframes apresentacaoEmphasisPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .apresentacao-slide-content {
-  animation: apresentacaoFadeUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
   max-height: calc(100dvh - 120px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+/* Filhos diretos de .apresentacao-slide-content seguem sempre o padrao
+   Kicker -> Title -> corpo do layout (ver SlideShell), entao um stagger fixo
+   por posicao cobre todos os layouts sem precisar de classe por componente. */
+.apresentacao-slide-content > * {
+  animation: apresentacaoItemIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.apresentacao-slide-content > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.apresentacao-slide-content > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+.apresentacao-slide-content > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+.apresentacao-slide-content > *:nth-child(n + 4) {
+  animation-delay: 260ms;
+}
+/* Cartoes/itens repetidos (stats, quadrantes, galeria, parceiros, equipe,
+   linha do tempo, linhas de tabela, secoes de perfil): cada item define seu
+   proprio indice via --stagger inline e entra em cascata. */
+.apresentacao-card-in {
+  animation: apresentacaoItemIn 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: calc(320ms + var(--stagger, 0) * 70ms);
+}
+/* Numeros e valores de destaque: alem do fade-up herdado, ganham um "pop" de
+   enfase (leve overshoot de escala) para chamar atencao no dado principal. */
+.apresentacao-emphasis {
+  animation: apresentacaoEmphasisPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(360ms + var(--stagger, 0) * 70ms);
+}
+/* Saida: enquanto o slide anterior desliza para fora (transform no container
+   pai), seu conteudo desvanece por cima em vez de simplesmente sumir. */
+.apresentacao-slide-viewport-exit .apresentacao-slide-content {
+  animation: apresentacaoContentOut 0.32s ease-in both !important;
+}
+.apresentacao-slide-viewport-exit .apresentacao-slide-content > *,
+.apresentacao-slide-viewport-exit .apresentacao-card-in,
+.apresentacao-slide-viewport-exit .apresentacao-emphasis {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apresentacao-slide-content > *,
+  .apresentacao-card-in,
+  .apresentacao-emphasis,
+  .apresentacao-slide-viewport-exit .apresentacao-slide-content {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Abaixo de 820px o conteudo pode ultrapassar a altura da tela: em vez de
