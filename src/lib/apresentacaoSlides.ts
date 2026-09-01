@@ -16,6 +16,7 @@ export interface TimelineItem {
   label: string;
   title: string;
   description: string;
+  icone?: IconName;
 }
 
 export interface GalleryImage {
@@ -44,6 +45,17 @@ export interface TeamMember {
 export interface ProcessStep {
   title: string;
   description: string;
+  icone?: IconName;
+}
+
+export interface OrgChartNode {
+  title: string;
+  subtitle?: string;
+}
+
+export interface OrgChartData {
+  root: OrgChartNode;
+  children: OrgChartNode[];
 }
 
 export type SlideLayout =
@@ -58,6 +70,7 @@ export type SlideLayout =
   | "partners"
   | "team-grid"
   | "process"
+  | "orgchart"
   | "table"
   | "quote"
   | "finance"
@@ -80,9 +93,11 @@ export interface Slide {
   partners?: PartnerItem[];
   team?: TeamMember[];
   process?: ProcessStep[];
+  orgchart?: OrgChartData;
   tableHead?: string[];
   tableRows?: string[][];
   quote?: { text: string; author: string; photo?: string };
+  financeView?: "overview" | "table";
   frentes?: Frente[];
 }
 
@@ -332,17 +347,21 @@ export const APRESENTACAO_SLIDES: Slide[] = [
   // CAPÍTULO 4 — EQUIPE DE GESTÃO
   // ==========================================================================
   {
-    layout: "process",
+    layout: "orgchart",
     chapterIndex: 4,
     chapterTitle: CAPITULOS[3].titulo,
     kicker: "Capítulo 04 · Equipe de Gestão",
     title: "A estrutura funcional hoje",
     accent: "blue",
-    process: [
-      { title: "Direção Executiva", description: "Gestão estratégica e integração das quatro frentes do negócio" },
-      { title: "Parceiros especializados", description: "Apoio em marketing, gestão administrativa e gestão pedagógica" },
-      { title: "Professores", description: "Entrega direta das aulas, sobretudo na frente Learners" },
-    ],
+    orgchart: {
+      root: { title: "Direção Executiva", subtitle: "Calebe Braga · gestão estratégica das quatro frentes" },
+      children: [
+        { title: "Parceiros de Marketing", subtitle: "Comunicação e geração de demanda" },
+        { title: "Parceiros Administrativos", subtitle: "Processos, contratos e suporte" },
+        { title: "Parceiros Pedagógicos", subtitle: "Currículo e metodologia" },
+        { title: "Professores", subtitle: "Entrega das aulas, sobretudo em Learners" },
+      ],
+    },
     paragraphs: [
       "A Promise opera hoje com uma estrutura funcional enxuta. As áreas administrativa, comercial, técnico-pedagógica e financeira ainda são parcialmente centralizadas na liderança, com apoio pontual de profissionais e parceiros externos, à medida que cada frente ganha volume suficiente para justificar uma posição dedicada.",
     ],
@@ -352,7 +371,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterIndex: 4,
     chapterTitle: CAPITULOS[3].titulo,
     kicker: "Capítulo 04 · Equipe de Gestão",
-    title: "Quem lidera, e para onde a equipe cresce",
+    title: "Quem lidera a Promise hoje",
     team: [
       {
         name: "Calebe Braga",
@@ -361,7 +380,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "CB",
         color: "var(--blue)",
         status: "atual",
-        bio: "Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais. Coordena o departamento internacional da Cidade Viva Academy e tem experiência com o sistema de exames Cambridge English, do Pre A1 Starters ao C1 Advanced. É autor do currículo de inglês das coleções Paideia e Oikos, do sistema de ensino cristão Cidade Viva Education e da coleção To the Nations. Formado em Letras Inglês e em Marketing, com pós-graduação em Christian Classical Education e estudos em Teologia.",
+        bio: "Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa. Coordena o departamento internacional da Cidade Viva Academy e é autor do currículo de inglês das coleções Paideia, Oikos e To the Nations. Formado em Letras Inglês e Marketing, com pós-graduação em Christian Classical Education.",
       },
       {
         name: "Renato Silva de Assis",
@@ -370,7 +389,24 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "RA",
         color: "var(--orange)",
         status: "atual",
-        bio: "Economista pela UFPB, mestre em Economia Regional pela UFRN e bacharel em Ciências de Dados para Negócios. Atuou por mais de 16 anos como supervisor técnico do DIEESE na Paraíba e no Rio Grande do Norte, com especialização em análise de mercado de trabalho, conjuntura econômica e pesquisa socioeconômica. Fundador da Econsult, consultoria de planejamento estratégico, gestão financeira e perícia contábil, e da Arkos Intelligence, empresa de infraestrutura tecnológica e governança de dados. É também gerente de sistema no Cidade Viva Education e professor de pós-graduação na FICV. Na Promise, é responsável pela estruturação do plano de negócio, do modelo financeiro e da governança de dados.",
+        bio: "Economista pela UFPB, mestre em Economia Regional pela UFRN. Mais de 16 anos como supervisor técnico do DIEESE. Fundador da Econsult e da Arkos Intelligence. Responsável, na Promise, pela estruturação do plano de negócio, do modelo financeiro e da governança de dados.",
+      },
+    ],
+  },
+  {
+    layout: "team-grid",
+    chapterIndex: 4,
+    chapterTitle: CAPITULOS[3].titulo,
+    kicker: "Capítulo 04 · Equipe de Gestão",
+    title: "Para onde a equipe cresce",
+    team: [
+      {
+        name: "Equipe docente",
+        role: "4 professores pré-contratados",
+        initials: "4P",
+        color: "var(--blue)",
+        status: "atual",
+        bio: "Execução pedagógica: aulas, acompanhamento de alunos e registro de progresso.",
       },
       {
         name: "Coordenação Schools",
@@ -378,7 +414,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "SC",
         color: "var(--blue)",
         status: "futuro",
-        bio: "Responsável por montar e acompanhar a implementação pedagógica dos programas de inglês nas escolas parceiras.",
+        bio: "Implementação pedagógica dos programas de inglês nas escolas parceiras.",
       },
       {
         name: "Coordenação Learners",
@@ -386,7 +422,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "LC",
         color: "var(--red)",
         status: "futuro",
-        bio: "Responsável pelo acompanhamento pedagógico de alunos e famílias, incluindo Homeschooling e American School.",
+        bio: "Acompanhamento pedagógico de alunos e famílias, incluindo Homeschooling e American School.",
       },
       {
         name: "Coordenação Professionals",
@@ -394,7 +430,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "PC",
         color: "var(--orange)",
         status: "futuro",
-        bio: "Responsável pela estruturação e acompanhamento dos programas de formação continuada de professores.",
+        bio: "Estruturação e acompanhamento dos programas de formação continuada de professores.",
       },
       {
         name: "Gerência Administrativa",
@@ -402,15 +438,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "GA",
         color: "var(--ink)",
         status: "futuro",
-        bio: "Responsável pelo plano de negócio, controle financeiro e marketing da empresa.",
-      },
-      {
-        name: "Equipe docente",
-        role: "4 professores pré-contratados",
-        initials: "4P",
-        color: "var(--blue)",
-        status: "atual",
-        bio: "Equipe já pré-contratada, responsável pela execução pedagógica: aulas, acompanhamento de alunos e registro de progresso.",
+        bio: "Plano de negócio, controle financeiro e marketing da empresa.",
       },
     ],
   },
@@ -472,11 +500,11 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Maturidade e próximos lançamentos",
     accent: "orange",
     timeline: [
-      { label: "Consolidado", title: "Cursos de inglês", description: "Frente mais madura, com operação consolidada há anos" },
-      { label: "Em validação", title: "Consultoria para escolas", description: "Em operação há mais de um ano, com resultados já avaliados" },
-      { label: "Em lançamento", title: "Homeschooling e American School", description: "Conclusão prevista para setembro de 2026" },
-      { label: "Em estruturação", title: "Promise for Professionals", description: "Serviços em organização para lançamento progressivo" },
-      { label: "Em desenvolvimento", title: "Tecnologia e aplicativos", description: "Fase conceitual, caminho de expansão futura da propriedade intelectual" },
+      { label: "Consolidado", title: "Cursos de inglês", description: "Frente mais madura, com operação consolidada há anos", icone: "chat" },
+      { label: "Em validação", title: "Consultoria para escolas", description: "Em operação há mais de um ano, com resultados já avaliados", icone: "shield" },
+      { label: "Em lançamento", title: "Homeschooling e American School", description: "Conclusão prevista para setembro de 2026", icone: "home" },
+      { label: "Em estruturação", title: "Promise for Professionals", description: "Serviços em organização para lançamento progressivo", icone: "users" },
+      { label: "Em desenvolvimento", title: "Tecnologia e aplicativos", description: "Fase conceitual, caminho de expansão futura da propriedade intelectual", icone: "puzzle" },
     ],
   },
 
@@ -547,11 +575,11 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Da prospecção ao pós-venda",
     accent: "orange",
     process: [
-      { title: "Atração", description: "Redes sociais, site, indicações, eventos ou prospecção direta" },
-      { title: "Diagnóstico", description: "Conversa para entender a necessidade e definir a solução" },
-      { title: "Proposta e contratação", description: "Apresentação comercial seguida de onboarding do cliente" },
-      { title: "Entrega", description: "Aulas, consultoria, mentorias ou programas internacionais, conforme a frente" },
-      { title: "Acompanhamento", description: "Suporte contínuo, retenção, renovação e evolução no ecossistema" },
+      { title: "Atração", description: "Redes sociais, site, indicações, eventos ou prospecção direta", icone: "chat" },
+      { title: "Diagnóstico", description: "Conversa para entender a necessidade e definir a solução", icone: "target" },
+      { title: "Proposta e contratação", description: "Apresentação comercial seguida de onboarding do cliente", icone: "file" },
+      { title: "Entrega", description: "Aulas, consultoria, mentorias ou programas internacionais, conforme a frente", icone: "book" },
+      { title: "Acompanhamento", description: "Suporte contínuo, retenção, renovação e evolução no ecossistema", icone: "heart" },
     ],
   },
   {
@@ -692,11 +720,11 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     kicker: "Capítulo 08 · Estratégia de Crescimento",
     title: "O caminho até 2027",
     timeline: [
-      { label: "Set 2026", title: "Lançamento", description: "Homeschooling e American School, site finalizado e redes sociais ativas" },
-      { label: "Dez 2026", title: "Consolidação", description: "Quatro frentes com processos comerciais e operacionais definidos" },
-      { label: "2027", title: "Expansão", description: "Carteira de escolas, alunos e profissionais, e lançamento da Professionals" },
-      { label: "2 anos", title: "Equilíbrio", description: "Ponto de equilíbrio e recuperação do investimento inicial" },
-      { label: "5 anos", title: "Referência", description: "Referência nacional em educação cristã, inglês e internacionalização" },
+      { label: "Set 2026", title: "Lançamento", description: "Homeschooling e American School, site finalizado e redes sociais ativas", icone: "calendar" },
+      { label: "Dez 2026", title: "Consolidação", description: "Quatro frentes com processos comerciais e operacionais definidos", icone: "shield" },
+      { label: "2027", title: "Expansão", description: "Carteira de escolas, alunos e profissionais, e lançamento da Professionals", icone: "globe" },
+      { label: "2 anos", title: "Equilíbrio", description: "Ponto de equilíbrio e recuperação do investimento inicial", icone: "target" },
+      { label: "5 anos", title: "Referência", description: "Referência nacional em educação cristã, inglês e internacionalização", icone: "medal" },
     ],
   },
 
@@ -762,7 +790,16 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterIndex: 9,
     chapterTitle: CAPITULOS[8].titulo,
     kicker: "Capítulo 09 · Finanças",
-    title: "Proposta orçamentária: cinco anos",
+    title: "Receita e margem: cinco anos",
+    financeView: "overview",
+  },
+  {
+    layout: "finance",
+    chapterIndex: 9,
+    chapterTitle: CAPITULOS[8].titulo,
+    kicker: "Capítulo 09 · Finanças",
+    title: "DRE simplificado, ano a ano",
+    financeView: "table",
   },
 
   // ==========================================================================

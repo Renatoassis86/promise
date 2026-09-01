@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Slide, SlideQuadrant, TimelineItem, TeamMember, ProcessStep, GalleryImage, PartnerItem } from "@/lib/apresentacaoSlides";
 import { CAPITULOS } from "@/lib/apresentacaoSlides";
 import { FRENTES, type ResultadoProjecao } from "@/lib/financasCalculo";
-import ProjecaoFinanceira5Anos from "@/components/admin/ProjecaoFinanceira5Anos";
+import { StatsFinanceiros, GraficoReceitaPorFrente, GraficoMargemLiquida, TabelaDRE } from "@/components/admin/ProjecaoFinanceira5Anos";
 import Icon from "@/components/Icons";
 
 const ACCENT: Record<string, string> = {
@@ -331,12 +331,14 @@ function SlideBody({
       return <TeamGridSlide slide={slide} />;
     case "process":
       return <ProcessSlide slide={slide} />;
+    case "orgchart":
+      return <OrgChartSlide slide={slide} />;
     case "table":
       return <TableSlide slide={slide} />;
     case "quote":
       return <QuoteSlide slide={slide} />;
     case "finance":
-      return <FinanceSlide resultado={resultadoFinanceiro} temPremissas={temPremissasPreenchidas} />;
+      return <FinanceSlide slide={slide} resultado={resultadoFinanceiro} temPremissas={temPremissasPreenchidas} />;
     case "closing":
       return <ClosingSlide slide={slide} />;
     default:
@@ -348,7 +350,16 @@ function SlideShell({ children, wide }: { children: React.ReactNode; wide?: bool
   return (
     <div
       className="apresentacao-slide-content"
-      style={{ width: "100%", maxWidth: wide ? 1320 : 960, padding: "0 clamp(20px, 5vw, 64px)", maxHeight: "90vh", overflowY: "auto" }}
+      style={{
+        width: "100%",
+        maxWidth: wide ? 1320 : 960,
+        padding: "0 clamp(20px, 4vw, 56px)",
+        maxHeight: "calc(100vh - 120px)",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
     >
       {children}
     </div>
@@ -358,20 +369,35 @@ function SlideShell({ children, wide }: { children: React.ReactNode; wide?: bool
 function Kicker({ text, color = "var(--blue)" }: { text?: string; color?: string }) {
   if (!text) return null;
   return (
-    <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color, marginBottom: 14 }}>{text}</div>
+    <div
+      style={{
+        display: "inline-block",
+        fontSize: 11.5,
+        fontWeight: 700,
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        color: "#fff",
+        background: color,
+        padding: "5px 14px",
+        borderRadius: 999,
+        marginBottom: 12,
+      }}
+    >
+      {text}
+    </div>
   );
 }
 
-function Title({ text, size = 34, color = "var(--ink)" }: { text: string; size?: number; color?: string }) {
-  return <h2 style={{ margin: "0 0 22px", fontSize: `clamp(24px, 3.4vw, ${size}px)`, fontWeight: 900, color, lineHeight: 1.15 }}>{text}</h2>;
+function Title({ text, size = 32, color = "var(--ink)" }: { text: string; size?: number; color?: string }) {
+  return <h2 style={{ margin: "0 0 16px", fontSize: `clamp(22px, 2.8vw, ${size}px)`, fontWeight: 900, color, lineHeight: 1.12 }}>{text}</h2>;
 }
 
-function Paragraphs({ paragraphs, color = "var(--ink)", size = 17 }: { paragraphs?: string[]; color?: string; size?: number }) {
+function Paragraphs({ paragraphs, color = "var(--ink)", size = 15.5 }: { paragraphs?: string[]; color?: string; size?: number }) {
   if (!paragraphs) return null;
   return (
     <>
       {paragraphs.map((p, i) => (
-        <p key={i} style={{ margin: "0 0 18px", fontSize: size, lineHeight: 1.75, color, textAlign: "justify", textAlignLast: "left" }}>
+        <p key={i} style={{ margin: "0 0 12px", fontSize: size, lineHeight: 1.55, color, textAlign: "justify", textAlignLast: "left" }}>
           {p}
         </p>
       ))}
@@ -450,27 +476,27 @@ function SplitSlide({ slide }: { slide: Slide }) {
     <SlideShell wide>
       <div className="apresentacao-split" style={{ display: "flex", gap: 48, alignItems: "center" }}>
         {imageFirst && slide.image && (
-          <div style={{ flex: "1 1 380px", height: 380 }}>
+          <div style={{ flex: "1 1 340px", height: "min(340px, 42vh)" }}>
             <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} fit={slide.image.fit} position={slide.image.position} />
           </div>
         )}
-        <div style={{ flex: "1 1 420px" }}>
+        <div style={{ flex: "1 1 420px", borderLeft: `4px solid ${accent}`, paddingLeft: 20 }}>
           <Kicker text={slide.kicker} color={accent} />
           <Title text={slide.title} />
           <Paragraphs paragraphs={slide.paragraphs} />
           {slide.stats && (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 14 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
               {slide.stats.map((s) => (
-                <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 10, padding: "10px 14px" }}>
-                  <div style={{ fontSize: 17, fontWeight: 800, color: accent }}>{s.value}</div>
-                  <div style={{ fontSize: 11, color: "var(--ink-soft)" }}>{s.label}</div>
+                <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 10, padding: "8px 12px" }}>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: accent }}>{s.value}</div>
+                  <div style={{ fontSize: 10.5, color: "var(--ink-soft)" }}>{s.label}</div>
                 </div>
               ))}
             </div>
           )}
         </div>
         {!imageFirst && slide.image && (
-          <div style={{ flex: "1 1 380px", height: 380 }}>
+          <div style={{ flex: "1 1 340px", height: "min(340px, 42vh)" }}>
             <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} fit={slide.image.fit} position={slide.image.position} />
           </div>
         )}
@@ -486,7 +512,7 @@ function OverlaySlide({ slide }: { slide: Slide }) {
   const accent = ACCENT[slide.accent ?? "blue"];
   return (
     <SlideShell wide>
-      <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", minHeight: 440, display: "flex", alignItems: "flex-end", background: slide.image ? undefined : `linear-gradient(135deg, var(--blue-dark), var(--ink))` }}>
+      <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", height: "min(440px, 62vh)", display: "flex", alignItems: "flex-end", background: slide.image ? undefined : `linear-gradient(135deg, var(--blue-dark), var(--ink))` }}>
         {slide.image && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={slide.image.src} alt={slide.image.alt} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: slide.image.position ?? "center 22%" }} />
@@ -498,13 +524,13 @@ function OverlaySlide({ slide }: { slide: Slide }) {
           </>
         )}
         <div style={{ position: "absolute", inset: 0, background: slide.image ? "linear-gradient(180deg, rgba(24,27,34,.35), rgba(24,27,34,.88))" : "linear-gradient(180deg, rgba(24,27,34,0), rgba(24,27,34,.25))" }} />
-        <div style={{ position: "relative", zIndex: 1, padding: "40px clamp(24px, 4vw, 56px)", maxWidth: 760 }}>
+        <div style={{ position: "relative", zIndex: 1, padding: "28px clamp(24px, 4vw, 56px)", maxWidth: 720 }}>
           <div style={{ display: "inline-block", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", background: accent, padding: "6px 14px", borderRadius: 999, marginBottom: 18 }}>
             {slide.kicker}
           </div>
-          <h2 style={{ margin: "0 0 18px", fontSize: "clamp(24px, 3.6vw, 36px)", fontWeight: 900, color: "#fff", lineHeight: 1.2 }}>{slide.title}</h2>
+          <h2 style={{ margin: "0 0 14px", fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 900, color: "#fff", lineHeight: 1.18 }}>{slide.title}</h2>
           {slide.paragraphs?.map((p, i) => (
-            <p key={i} style={{ margin: "0 0 12px", fontSize: 17, lineHeight: 1.7, color: "#E7E9F5", textAlign: "justify", textAlignLast: "left" }}>
+            <p key={i} style={{ margin: "0 0 10px", fontSize: 15.5, lineHeight: 1.55, color: "#E7E9F5", textAlign: "justify", textAlignLast: "left" }}>
               {p}
             </p>
           ))}
@@ -528,17 +554,18 @@ function OverlaySlide({ slide }: { slide: Slide }) {
 // STAT GRID
 // ============================================================================
 function StatGridSlide({ slide }: { slide: Slide }) {
+  const accent = ACCENT[slide.accent ?? "blue"];
   return (
     <SlideShell wide>
-      <Kicker text={slide.kicker} />
+      <Kicker text={slide.kicker} color={accent} />
       <Title text={slide.title} />
       <Paragraphs paragraphs={slide.paragraphs} />
       {slide.stats && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: 14, marginTop: 8 }}>
-          {slide.stats.map((s) => (
-            <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: "18px 20px" }}>
-              <div style={{ fontSize: 26, fontWeight: 900, color: "var(--blue)" }}>{s.value}</div>
-              <div style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 4 }}>{s.label}</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))", gap: 12, marginTop: 6 }}>
+          {slide.stats.map((s, i) => (
+            <div key={s.label} style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${i % 2 === 0 ? accent : "var(--orange)"}`, borderRadius: 12, padding: "14px 16px" }}>
+              <div style={{ fontSize: 23, fontWeight: 900, color: i % 2 === 0 ? accent : "var(--orange)" }}>{s.value}</div>
+              <div style={{ fontSize: 11.5, color: "var(--ink-soft)", marginTop: 4 }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -587,31 +614,33 @@ function QuadrantSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 // TIMELINE
 // ============================================================================
-function TimelineNode({ item, isLast, accent }: { item: TimelineItem; isLast: boolean; accent: string }) {
+function TimelineNode({ item, isLast, color }: { item: TimelineItem; isLast: boolean; color: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", flex: "1 1 180px", minWidth: 180 }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <span style={{ alignSelf: "flex-start", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: "#fff", background: accent, padding: "4px 10px", borderRadius: 999 }}>
-          {item.label}
-        </span>
-        <div style={{ fontWeight: 800, fontSize: 15, color: "var(--ink)" }}>{item.title}</div>
-        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", textAlign: "justify", textAlignLast: "left" }}>{item.description}</p>
+    <div style={{ display: "flex", alignItems: "flex-start", flex: "1 1 180px", minWidth: 180 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textAlign: "center" }}>
+        <div style={{ width: 44, height: 44, borderRadius: "50%", background: color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+          {item.icone && <Icon name={item.icone} size={20} color="#fff" />}
+        </div>
+        <span style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color }}>{item.label}</span>
+        <div style={{ fontWeight: 800, fontSize: 14, color: "var(--ink)" }}>{item.title}</div>
+        <p style={{ margin: 0, fontSize: 12, lineHeight: 1.45, color: "var(--ink-soft)" }}>{item.description}</p>
       </div>
-      {!isLast && <div className="apresentacao-connector" style={{ flex: 1, height: 2, background: "var(--line)", margin: "0 14px", alignSelf: "flex-start", marginTop: 9 }} />}
+      {!isLast && <div className="apresentacao-connector" style={{ flex: 1, height: 2, background: "var(--line)", margin: "0 10px", alignSelf: "center", marginTop: -30 }} />}
     </div>
   );
 }
 
 function TimelineSlide({ slide }: { slide: Slide }) {
   const accent = ACCENT[slide.accent ?? "blue"];
+  const alt = accent === ACCENT.blue ? ACCENT.orange : ACCENT.blue;
   return (
     <SlideShell wide>
       <Kicker text={slide.kicker} color={accent} />
       <Title text={slide.title} />
       {slide.timeline && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 20, marginTop: 20 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 16 }}>
           {slide.timeline.map((item, i) => (
-            <TimelineNode key={item.title} item={item} isLast={i === slide.timeline!.length - 1} accent={accent} />
+            <TimelineNode key={item.title} item={item} isLast={i === slide.timeline!.length - 1} color={i % 2 === 0 ? accent : alt} />
           ))}
         </div>
       )}
@@ -683,18 +712,18 @@ function PartnersSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <div style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 16, padding: 22, display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+    <div style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `4px solid ${member.color}`, borderRadius: 14, padding: 16, display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
         {member.photo ? (
-          <div style={{ width: 60, height: 60, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: `2px solid ${member.color}` }}>
+          <div style={{ width: 50, height: 50, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: `2px solid ${member.color}` }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={member.photo} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
           </div>
         ) : (
           <div
             style={{
-              width: 60,
-              height: 60,
+              width: 50,
+              height: 50,
               borderRadius: "50%",
               background: member.color,
               color: "#fff",
@@ -702,7 +731,7 @@ function TeamCard({ member }: { member: TeamMember }) {
               alignItems: "center",
               justifyContent: "center",
               fontWeight: 800,
-              fontSize: 18,
+              fontSize: 16,
               flexShrink: 0,
             }}
           >
@@ -710,18 +739,18 @@ function TeamCard({ member }: { member: TeamMember }) {
           </div>
         )}
         <div>
-          <div style={{ fontWeight: 800, fontSize: 15.5, color: "var(--ink)" }}>{member.name}</div>
-          <div style={{ fontSize: 12.5, fontWeight: 700, color: member.color, marginTop: 2 }}>{member.role}</div>
+          <div style={{ fontWeight: 800, fontSize: 14.5, color: "var(--ink)" }}>{member.name}</div>
+          <div style={{ fontSize: 11.5, fontWeight: 700, color: member.color, marginTop: 1 }}>{member.role}</div>
         </div>
       </div>
       <span
         style={{
           alignSelf: "flex-start",
-          fontSize: 10.5,
+          fontSize: 10,
           fontWeight: 700,
           letterSpacing: "0.04em",
           textTransform: "uppercase",
-          padding: "4px 10px",
+          padding: "3px 9px",
           borderRadius: 999,
           background: member.status === "atual" ? "var(--tint)" : "transparent",
           color: member.status === "atual" ? "var(--blue)" : "var(--ink-soft)",
@@ -730,7 +759,20 @@ function TeamCard({ member }: { member: TeamMember }) {
       >
         {member.status === "atual" ? "Atual" : "Contratação futura"}
       </span>
-      <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: "var(--ink-soft)", textAlign: "justify", textAlignLast: "left" }}>{member.bio}</p>
+      <p
+        style={{
+          margin: 0,
+          fontSize: 12,
+          lineHeight: 1.45,
+          color: "var(--ink-soft)",
+          display: "-webkit-box",
+          WebkitLineClamp: 4,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+        }}
+      >
+        {member.bio}
+      </p>
     </div>
   );
 }
@@ -756,27 +798,70 @@ function TeamGridSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 function ProcessSlide({ slide }: { slide: Slide }) {
   const accent = ACCENT[slide.accent ?? "blue"];
+  const alt = accent === ACCENT.blue ? ACCENT.orange : ACCENT.blue;
   return (
     <SlideShell wide>
       <Kicker text={slide.kicker} color={accent} />
       <Title text={slide.title} />
       {slide.process && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 0, marginTop: 12, marginBottom: 22 }}>
-          {slide.process.map((step: ProcessStep, i) => (
-            <div key={step.title} style={{ display: "flex", alignItems: "flex-start", flex: "1 1 190px", minWidth: 190 }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <div style={{ width: 34, height: 34, borderRadius: "50%", background: accent, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 }}>
-                  {i + 1}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 0, marginTop: 10, marginBottom: 16 }}>
+          {slide.process.map((step: ProcessStep, i) => {
+            const color = i % 2 === 0 ? accent : alt;
+            return (
+              <div key={step.title} style={{ display: "flex", alignItems: "flex-start", flex: "1 1 170px", minWidth: 170 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center", textAlign: "center" }}>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: color, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    {step.icone ? <Icon name={step.icone} size={18} color="#fff" /> : <span style={{ fontWeight: 800, fontSize: 14 }}>{i + 1}</span>}
+                  </div>
+                  <div style={{ fontWeight: 800, fontSize: 13.5, color: "var(--ink)" }}>{step.title}</div>
+                  <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.4, color: "var(--ink-soft)", maxWidth: 190 }}>{step.description}</p>
                 </div>
-                <div style={{ fontWeight: 800, fontSize: 14.5, color: "var(--ink)" }}>{step.title}</div>
-                <p style={{ margin: 0, fontSize: 13, lineHeight: 1.55, color: "var(--ink-soft)", maxWidth: 200, textAlign: "justify", textAlignLast: "left" }}>{step.description}</p>
+                {i < slide.process!.length - 1 && <div className="apresentacao-connector" style={{ flex: 1, height: 2, background: "var(--line)", margin: "0 8px", marginTop: 19 }} />}
               </div>
-              {i < slide.process!.length - 1 && <div className="apresentacao-connector" style={{ flex: 1, height: 2, background: "var(--line)", margin: "17px 12px 0" }} />}
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
       <Paragraphs paragraphs={slide.paragraphs} />
+    </SlideShell>
+  );
+}
+
+// ============================================================================
+// ORGCHART — organograma hierarquico
+// ============================================================================
+function OrgChartSlide({ slide }: { slide: Slide }) {
+  const accent = ACCENT[slide.accent ?? "blue"];
+  const chart = slide.orgchart;
+  if (!chart) return null;
+  return (
+    <SlideShell wide>
+      <Kicker text={slide.kicker} color={accent} />
+      <Title text={slide.title} />
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 8 }}>
+        <div style={{ background: accent, color: "#fff", borderRadius: 12, padding: "12px 24px", textAlign: "center", minWidth: 220 }}>
+          <div style={{ fontWeight: 800, fontSize: 15 }}>{chart.root.title}</div>
+          {chart.root.subtitle && <div style={{ fontSize: 11.5, opacity: 0.9, marginTop: 2 }}>{chart.root.subtitle}</div>}
+        </div>
+        <div style={{ width: 2, height: 20, background: "var(--line)" }} />
+        <div style={{ position: "relative", width: "100%" }}>
+          <div style={{ position: "absolute", top: 0, left: `${100 / chart.children.length / 2}%`, right: `${100 / chart.children.length / 2}%`, height: 2, background: "var(--line)" }} />
+          <div style={{ display: "flex", gap: 14 }}>
+            {chart.children.map((child) => (
+              <div key={child.title} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ width: 2, height: 18, background: "var(--line)" }} />
+                <div style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `3px solid ${accent}`, borderRadius: 10, padding: "12px 14px", textAlign: "center", width: "100%" }}>
+                  <div style={{ fontWeight: 800, fontSize: 13, color: "var(--ink)" }}>{child.title}</div>
+                  {child.subtitle && <div style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 4, lineHeight: 1.35 }}>{child.subtitle}</div>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div style={{ marginTop: 20 }}>
+        <Paragraphs paragraphs={slide.paragraphs} />
+      </div>
     </SlideShell>
   );
 }
@@ -857,17 +942,39 @@ function QuoteSlide({ slide }: { slide: Slide }) {
 // ============================================================================
 // FINANCE — dados reais calculados
 // ============================================================================
-function FinanceSlide({ resultado, temPremissas }: { resultado: ResultadoProjecao; temPremissas: boolean }) {
+function FinanceSlide({ slide, resultado, temPremissas }: { slide: Slide; resultado: ResultadoProjecao; temPremissas: boolean }) {
+  const vazio = (
+    <div style={{ background: "#fff", border: "1px dashed var(--line)", borderRadius: 16, padding: 28, textAlign: "center", color: "var(--ink-soft)", fontSize: 14, maxWidth: 600 }}>
+      Os valores da planilha de contas ainda não foram preenchidos em Finanças e Crescimento. Assim que forem, a projeção calculada de cinco anos aparece automaticamente aqui.
+    </div>
+  );
+
+  if (slide.financeView === "table") {
+    return (
+      <SlideShell wide>
+        <Kicker text={slide.kicker} color="var(--orange)" />
+        <Title text={slide.title} />
+        {temPremissas ? <TabelaDRE anos={resultado.anos} /> : vazio}
+      </SlideShell>
+    );
+  }
+
   return (
     <SlideShell wide>
-      <Kicker text="Capítulo 09 · Finanças" />
-      <Title text="Proposta orçamentária: cinco anos" />
+      <Kicker text={slide.kicker} color="var(--blue)" />
+      <Title text={slide.title} />
       {temPremissas ? (
-        <ProjecaoFinanceira5Anos resultado={resultado} />
+        <>
+          <div style={{ marginBottom: 16 }}>
+            <StatsFinanceiros resultado={resultado} compacto />
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <GraficoReceitaPorFrente anos={resultado.anos} compacto />
+            <GraficoMargemLiquida anos={resultado.anos} compacto />
+          </div>
+        </>
       ) : (
-        <div style={{ background: "#fff", border: "1px dashed var(--line)", borderRadius: 16, padding: 32, textAlign: "center", color: "var(--ink-soft)", fontSize: 14.5, maxWidth: 640 }}>
-          As premissas de crescimento ainda não foram preenchidas em Finanças e Crescimento. Assim que forem, a projeção calculada de cinco anos aparece automaticamente aqui.
-        </div>
+        vazio
       )}
     </SlideShell>
   );
