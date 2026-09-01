@@ -198,3 +198,103 @@ CREATE POLICY "Usuario grava sua config financeira" ON public.plano_financas_con
 DROP POLICY IF EXISTS "Usuario atualiza sua config financeira" ON public.plano_financas_config;
 CREATE POLICY "Usuario atualiza sua config financeira" ON public.plano_financas_config
   FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+
+-- ==============================================================================
+-- TABELA 7: LINHAS DA PLANILHA DE CONTAS FINANCEIRA (modulo /admin/financas, v2)
+-- Substitui o modelo de premissas por frente + custos avulsos das tabelas 4 e 5
+-- por uma planilha de contas de verdade: cada linha e uma rubrica (receita, custo
+-- fixo ou custo variavel), agrupada por macro-area, com valor digitado ano a ano
+-- (2026 a 2031). As tabelas 4 e 5 continuam no banco mas nao sao mais usadas pelo
+-- app; podem ser removidas depois de confirmado que ninguem mais depende delas.
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.plano_financas_linhas (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_email VARCHAR(255) NOT NULL,
+    tipo VARCHAR(20) NOT NULL CHECK (tipo IN ('receita','custo_fixo','custo_variavel')),
+    modo VARCHAR(20) NOT NULL DEFAULT 'valor' CHECK (modo IN ('valor','clientes_x_ticket','percentual_receita')),
+    macro_area VARCHAR(150) NOT NULL,
+    rubrica VARCHAR(200) NOT NULL,
+    frente VARCHAR(20) CHECK (frente IN ('schools','learners','professionals','global')),
+    ticket_medio NUMERIC(12,2),              -- usado quando modo = clientes_x_ticket
+    reajuste_ticket_pct NUMERIC(6,3) DEFAULT 0,  -- reajuste anual do ticket, modo clientes_x_ticket
+    percentual_receita_pct NUMERIC(6,3),     -- usado quando modo = percentual_receita
+    valores_por_ano JSONB NOT NULL DEFAULT '{}'::jsonb,  -- chaves "2026".."2031": R$ (valor) ou clientes (clientes_x_ticket)
+    ordem INTEGER NOT NULL DEFAULT 0,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_plano_financas_linhas_user_email ON public.plano_financas_linhas (user_email);
+
+ALTER TABLE public.plano_financas_linhas ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Usuario le suas linhas financeiras" ON public.plano_financas_linhas;
+CREATE POLICY "Usuario le suas linhas financeiras" ON public.plano_financas_linhas
+  FOR SELECT TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario grava suas linhas financeiras" ON public.plano_financas_linhas;
+CREATE POLICY "Usuario grava suas linhas financeiras" ON public.plano_financas_linhas
+  FOR INSERT TO authenticated WITH CHECK (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario atualiza suas linhas financeiras" ON public.plano_financas_linhas;
+CREATE POLICY "Usuario atualiza suas linhas financeiras" ON public.plano_financas_linhas
+  FOR UPDATE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+DROP POLICY IF EXISTS "Usuario apaga suas linhas financeiras" ON public.plano_financas_linhas;
+CREATE POLICY "Usuario apaga suas linhas financeiras" ON public.plano_financas_linhas
+  FOR DELETE TO authenticated USING (user_email = (auth.jwt() ->> 'email'));
+
+-- Seed inicial das rubricas reais do Plano de Negocios 2027-2031 (estrutura pronta,
+-- a maioria dos valores ainda vazia/zero para o Calebe preencher). So os 3 tickets
+-- ja confirmados em documento oficial (schools, learners-cursos, learners-american
+-- school) vem preenchidos; os demais ficam a definir.
+INSERT INTO public.plano_financas_linhas (user_email, tipo, modo, macro_area, rubrica, frente, ticket_medio, reajuste_ticket_pct, ordem)
+SELECT 'calebe@promiseenglish.com', v.tipo, v.modo, v.macro_area, v.rubrica, v.frente, v.ticket_medio, v.reajuste_ticket_pct, v.ordem
+FROM (VALUES
+  ('receita', 'clientes_x_ticket', 'Receita — Schools',       'Contratos escolares',                     'schools',       38000::numeric, 6::numeric, 1),
+  ('receita', 'clientes_x_ticket', 'Receita — Learners',      'Cursos de inglês em turma',                'learners',       2750::numeric, 6::numeric, 2),
+  ('receita', 'clientes_x_ticket', 'Receita — Learners',      'Aulas particulares (pacotes de 10 aulas)', 'learners',          0::numeric, 6::numeric, 3),
+  ('receita', 'clientes_x_ticket', 'Receita — Learners',      'American School / Homeschooling',          'learners',      11000::numeric, 6::numeric, 4),
+  ('receita', 'clientes_x_ticket', 'Receita — Professionals', 'Formação continuada, mentorias e certificações', 'professionals', 0::numeric, 6::numeric, 5),
+  ('receita', 'clientes_x_ticket', 'Receita — Global',        'Intercâmbios, imersões e viagens acadêmicas', 'global',          0::numeric, 6::numeric, 6)
+) AS v(tipo, modo, macro_area, rubrica, frente, ticket_medio, reajuste_ticket_pct, ordem)
+WHERE NOT EXISTS (
+  SELECT 1 FROM public.plano_financas_linhas existente
+  WHERE existente.user_email = 'calebe@promiseenglish.com' AND existente.rubrica = v.rubrica AND existente.macro_area = v.macro_area
+);
+
+INSERT INTO public.plano_financas_linhas (user_email, tipo, modo, macro_area, rubrica, ordem)
+SELECT 'calebe@promiseenglish.com', 'custo_fixo', 'valor', v.macro_area, v.rubrica, v.ordem
+FROM (VALUES
+  ('Pessoal e Gestão',       'Pró-labore Direção Executiva',              10),
+  ('Pessoal e Gestão',       'Coordenação pedagógica (3 frentes)',        11),
+  ('Pessoal e Gestão',       'Gerência administrativa e comercial',       12),
+  ('Tecnologia e Marketing', 'Tecnologia, plataformas e dados',           13),
+  ('Tecnologia e Marketing', 'Marketing — retainer e mídia base',         14),
+  ('Administrativo',         'Administrativo, contábil e jurídico',       15),
+  ('Administrativo',         'Site, domínio e infraestrutura',            16)
+) AS v(macro_area, rubrica, ordem)
+WHERE NOT EXISTS (
+  SELECT 1 FROM public.plano_financas_linhas existente
+  WHERE existente.user_email = 'calebe@promiseenglish.com' AND existente.rubrica = v.rubrica AND existente.macro_area = v.macro_area
+);
+
+INSERT INTO public.plano_financas_linhas (user_email, tipo, modo, macro_area, rubrica, frente, ordem)
+SELECT 'calebe@promiseenglish.com', 'custo_variavel', 'valor', 'Custos variáveis por frente', v.rubrica, v.frente, v.ordem
+FROM (VALUES
+  ('Custos variáveis — Schools',       'schools',       20),
+  ('Custos variáveis — Learners',      'learners',      21),
+  ('Custos variáveis — Professionals', 'professionals', 22),
+  ('Custos variáveis — Global',        'global',        23)
+) AS v(rubrica, frente, ordem)
+WHERE NOT EXISTS (
+  SELECT 1 FROM public.plano_financas_linhas existente
+  WHERE existente.user_email = 'calebe@promiseenglish.com' AND existente.rubrica = v.rubrica AND existente.macro_area = 'Custos variáveis por frente'
+);
+
+INSERT INTO public.plano_financas_linhas (user_email, tipo, modo, macro_area, rubrica, percentual_receita_pct, ordem)
+SELECT 'calebe@promiseenglish.com', 'custo_variavel', 'percentual_receita', v.macro_area, v.rubrica, 0, v.ordem
+FROM (VALUES
+  ('Impostos',  'Impostos sobre serviços',   30),
+  ('Marketing', 'Marketing de aquisição',    31)
+) AS v(macro_area, rubrica, ordem)
+WHERE NOT EXISTS (
+  SELECT 1 FROM public.plano_financas_linhas existente
+  WHERE existente.user_email = 'calebe@promiseenglish.com' AND existente.rubrica = v.rubrica AND existente.macro_area = v.macro_area
+);

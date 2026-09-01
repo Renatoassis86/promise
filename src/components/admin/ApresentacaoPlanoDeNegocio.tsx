@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { Slide, SlideQuadrant, TimelineItem, TeamMember, ProcessStep, GalleryImage } from "@/lib/apresentacaoSlides";
+import type { Slide, SlideQuadrant, TimelineItem, TeamMember, ProcessStep, GalleryImage, PartnerItem } from "@/lib/apresentacaoSlides";
 import { CAPITULOS } from "@/lib/apresentacaoSlides";
 import { FRENTES, type ResultadoProjecao } from "@/lib/financasCalculo";
 import ProjecaoFinanceira5Anos from "@/components/admin/ProjecaoFinanceira5Anos";
@@ -24,17 +24,30 @@ function ChevronIcon({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-// eslint-disable-next-line @next/next/no-img-element
-function FramedImage({ src, alt, accent = "var(--blue)" }: { src: string; alt: string; accent?: string }) {
+function FramedImage({
+  src,
+  alt,
+  accent = "var(--blue)",
+  fit = "cover",
+  position = "center 22%",
+}: {
+  src: string;
+  alt: string;
+  accent?: string;
+  fit?: "cover" | "contain";
+  position?: string;
+}) {
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <div style={{ position: "absolute", top: -10, left: -10, right: 10, bottom: 10, border: `2px solid ${accent}`, borderRadius: 20, opacity: 0.45 }} />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", objectFit: "cover", borderRadius: 16 }}
-      />
+      <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", borderRadius: 16, overflow: "hidden", background: "var(--tint)" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt}
+          style={{ width: "100%", height: "100%", objectFit: fit, objectPosition: fit === "cover" ? position : "center" }}
+        />
+      </div>
     </div>
   );
 }
@@ -257,6 +270,8 @@ function SlideBody({
       return <TimelineSlide slide={slide} />;
     case "gallery":
       return <GallerySlide slide={slide} />;
+    case "partners":
+      return <PartnersSlide slide={slide} />;
     case "team-grid":
       return <TeamGridSlide slide={slide} />;
     case "process":
@@ -278,7 +293,7 @@ function SlideShell({ children, wide }: { children: React.ReactNode; wide?: bool
   return (
     <div
       className="apresentacao-slide-content"
-      style={{ width: "100%", maxWidth: wide ? 1180 : 920, padding: "0 clamp(20px, 5vw, 64px)", maxHeight: "90vh", overflowY: "auto" }}
+      style={{ width: "100%", maxWidth: wide ? 1320 : 960, padding: "0 clamp(20px, 5vw, 64px)", maxHeight: "90vh", overflowY: "auto" }}
     >
       {children}
     </div>
@@ -380,8 +395,8 @@ function SplitSlide({ slide }: { slide: Slide }) {
     <SlideShell wide>
       <div className="apresentacao-split" style={{ display: "flex", gap: 48, alignItems: "center" }}>
         {imageFirst && slide.image && (
-          <div style={{ flex: "1 1 380px", height: 360 }}>
-            <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} />
+          <div style={{ flex: "1 1 380px", height: 380 }}>
+            <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} fit={slide.image.fit} position={slide.image.position} />
           </div>
         )}
         <div style={{ flex: "1 1 420px" }}>
@@ -400,8 +415,8 @@ function SplitSlide({ slide }: { slide: Slide }) {
           )}
         </div>
         {!imageFirst && slide.image && (
-          <div style={{ flex: "1 1 380px", height: 360 }}>
-            <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} />
+          <div style={{ flex: "1 1 380px", height: 380 }}>
+            <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} fit={slide.image.fit} position={slide.image.position} />
           </div>
         )}
       </div>
@@ -416,12 +431,18 @@ function OverlaySlide({ slide }: { slide: Slide }) {
   const accent = ACCENT[slide.accent ?? "blue"];
   return (
     <SlideShell wide>
-      <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", minHeight: 440, display: "flex", alignItems: "flex-end" }}>
+      <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", minHeight: 440, display: "flex", alignItems: "flex-end", background: slide.image ? undefined : `linear-gradient(135deg, var(--blue-dark), var(--ink))` }}>
         {slide.image && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={slide.image.src} alt={slide.image.alt} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src={slide.image.src} alt={slide.image.alt} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: slide.image.position ?? "center 22%" }} />
         )}
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(24,27,34,.35), rgba(24,27,34,.88))" }} />
+        {!slide.image && (
+          <>
+            <div style={{ position: "absolute", top: -140, right: -120, width: 380, height: 380, borderRadius: "50%", background: accent, opacity: 0.35, filter: "blur(90px)" }} />
+            <div style={{ position: "absolute", bottom: -160, left: -100, width: 340, height: 340, borderRadius: "50%", background: "var(--red)", opacity: 0.18, filter: "blur(90px)" }} />
+          </>
+        )}
+        <div style={{ position: "absolute", inset: 0, background: slide.image ? "linear-gradient(180deg, rgba(24,27,34,.35), rgba(24,27,34,.88))" : "linear-gradient(180deg, rgba(24,27,34,0), rgba(24,27,34,.25))" }} />
         <div style={{ position: "relative", zIndex: 1, padding: "40px clamp(24px, 4vw, 56px)", maxWidth: 760 }}>
           <div style={{ display: "inline-block", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", background: accent, padding: "6px 14px", borderRadius: 999, marginBottom: 18 }}>
             {slide.kicker}
@@ -551,16 +572,52 @@ function GallerySlide({ slide }: { slide: Slide }) {
       <Kicker text={slide.kicker} />
       <Title text={slide.title} />
       {slide.images && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 14, marginBottom: 22 }}>
-          {slide.images.map((img: GalleryImage) => (
-            <div key={img.src} style={{ borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: "#fff", aspectRatio: "4 / 3" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.src} alt={img.alt} style={{ width: "100%", height: "100%", objectFit: "contain", padding: img.src.includes("parceiros") ? 24 : 0 }} />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 22 }}>
+          {slide.images.map((img: GalleryImage) => {
+            const fit = img.fit ?? "cover";
+            return (
+              <div key={img.src} style={{ borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: fit === "contain" ? "var(--tint)" : "#fff", aspectRatio: "4 / 3" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  style={{ width: "100%", height: "100%", objectFit: fit, objectPosition: fit === "cover" ? (img.position ?? "center 20%") : "center", padding: fit === "contain" ? 20 : 0 }}
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <Paragraphs paragraphs={slide.paragraphs} />
+    </SlideShell>
+  );
+}
+
+// ============================================================================
+// PARTNERS — logos em fundo escuro (como no site) + descricao ao lado
+// ============================================================================
+function PartnersSlide({ slide }: { slide: Slide }) {
+  return (
+    <SlideShell wide>
+      <Kicker text={slide.kicker} />
+      <Title text={slide.title} />
+      {slide.partners && (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 16, marginBottom: 20 }}>
+          {slide.partners.map((p: PartnerItem) => (
+            <div key={p.nome} style={{ display: "flex", gap: 16, alignItems: "center", background: "#fff", border: "1px solid var(--line)", borderRadius: 14, padding: 16 }}>
+              <div style={{ width: 92, height: 72, borderRadius: 10, background: "var(--ink)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, padding: 10 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.logo} alt={p.nome} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              </div>
+              <div>
+                <div style={{ fontWeight: 800, fontSize: 14.5, color: "var(--ink)", marginBottom: 3 }}>{p.nome}</div>
+                <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-soft)" }}>{p.blurb}</p>
+              </div>
             </div>
           ))}
         </div>
       )}
-      <Paragraphs paragraphs={slide.paragraphs} />
+      <Paragraphs paragraphs={slide.paragraphs} color="var(--ink-soft)" size={14.5} />
     </SlideShell>
   );
 }
@@ -575,7 +632,7 @@ function TeamCard({ member }: { member: TeamMember }) {
         {member.photo ? (
           <div style={{ width: 60, height: 60, borderRadius: "50%", overflow: "hidden", flexShrink: 0, border: `2px solid ${member.color}` }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={member.photo} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src={member.photo} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
           </div>
         ) : (
           <div

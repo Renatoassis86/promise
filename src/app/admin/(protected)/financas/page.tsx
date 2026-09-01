@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
-import FinancasCrescimentoForm, { type CustoItemInicial, type PremissasIniciais } from "@/components/admin/FinancasCrescimentoForm";
-import type { Frente } from "@/lib/financasCalculo";
+import FinancasCrescimentoForm from "@/components/admin/FinancasCrescimentoForm";
+import type { LinhaFinanceira, Frente, TipoLinha, ModoLinha } from "@/lib/financasCalculo";
 
 export default async function FinancasCrescimentoPage() {
   const supabase = await createClient();
@@ -9,45 +9,30 @@ export default async function FinancasCrescimentoPage() {
   } = await supabase.auth.getUser();
   const userEmail = user!.email!;
 
-  const [{ data: premissasRows }, { data: custosRows }, { data: configRow }] = await Promise.all([
-    supabase.from("plano_financas_premissas").select("*").eq("user_email", userEmail),
-    supabase.from("plano_financas_custos").select("*").eq("user_email", userEmail).order("ordem", { ascending: true }),
+  const [{ data: linhasRows }, { data: configRow }] = await Promise.all([
+    supabase.from("plano_financas_linhas").select("*").eq("user_email", userEmail).order("ordem", { ascending: true }),
     supabase.from("plano_financas_config").select("*").eq("user_email", userEmail).maybeSingle(),
   ]);
 
-  const premissasIniciais: PremissasIniciais = {} as PremissasIniciais;
-  for (const row of premissasRows ?? []) {
-    const frente = row.frente as Frente;
-    premissasIniciais[frente] = {
-      frente,
-      ano1Clientes: Number(row.ano1_clientes ?? 0),
-      ticketMedioAnual: Number(row.ticket_medio_anual ?? 0),
-      crescimentoClientesPct: Number(row.crescimento_clientes_pct ?? 0),
-      reajustePrecosPct: Number(row.reajuste_precos_pct ?? 0),
-      churnRetencaoPct: row.churn_retencao_pct != null ? Number(row.churn_retencao_pct) : null,
-      taxaConversaoPct: row.taxa_conversao_pct != null ? Number(row.taxa_conversao_pct) : null,
-      cac: row.cac != null ? Number(row.cac) : null,
-      observacoes: row.observacoes ?? "",
-    };
-  }
-
-  const custosIniciais: CustoItemInicial[] = (custosRows ?? []).map((row) => ({
+  const linhas: LinhaFinanceira[] = (linhasRows ?? []).map((row) => ({
     id: row.id,
-    tipo: row.tipo,
-    categoria: row.categoria,
-    valorMensal: Number(row.valor_mensal ?? 0),
-    reajusteAnualPct: Number(row.reajuste_anual_pct ?? 0),
+    tipo: row.tipo as TipoLinha,
+    modo: row.modo as ModoLinha,
+    macroArea: row.macro_area,
+    rubrica: row.rubrica,
+    frente: (row.frente as Frente) ?? null,
+    ticketMedio: row.ticket_medio != null ? Number(row.ticket_medio) : null,
+    reajusteTicketPct: row.reajuste_ticket_pct != null ? Number(row.reajuste_ticket_pct) : 0,
     percentualReceitaPct: row.percentual_receita_pct != null ? Number(row.percentual_receita_pct) : null,
+    valoresPorAno: Object.fromEntries(Object.entries(row.valores_por_ano ?? {}).map(([ano, v]) => [Number(ano), Number(v)])),
     ordem: row.ordem ?? 0,
   }));
 
   return (
     <FinancasCrescimentoForm
       userEmail={userEmail}
-      premissasIniciais={premissasIniciais}
-      custosIniciais={custosIniciais}
+      linhasIniciais={linhas}
       investimentoInicialInicial={Number(configRow?.investimento_inicial ?? 0)}
-      aliquotaImpostosPctInicial={Number(configRow?.aliquota_impostos_pct ?? 0)}
     />
   );
 }

@@ -21,6 +21,14 @@ export interface TimelineItem {
 export interface GalleryImage {
   src: string;
   alt: string;
+  fit?: "cover" | "contain";
+  position?: string;
+}
+
+export interface PartnerItem {
+  logo: string;
+  nome: string;
+  blurb: string;
 }
 
 export interface TeamMember {
@@ -47,6 +55,7 @@ export type SlideLayout =
   | "quadrant"
   | "timeline"
   | "gallery"
+  | "partners"
   | "team-grid"
   | "process"
   | "table"
@@ -68,6 +77,7 @@ export interface Slide {
   quadrants?: SlideQuadrant[];
   timeline?: TimelineItem[];
   images?: GalleryImage[];
+  partners?: PartnerItem[];
   team?: TeamMember[];
   process?: ProcessStep[];
   tableHead?: string[];
@@ -86,7 +96,6 @@ export const CAPITULOS: { titulo: string; icone: IconName }[] = [
   { titulo: "Marketing e Vendas", icone: "chat" },
   { titulo: "Estratégia de Crescimento", icone: "medal" },
   { titulo: "Finanças", icone: "file" },
-  { titulo: "Sumário Executivo", icone: "cap" },
 ];
 
 export const APRESENTACAO_SLIDES: Slide[] = [
@@ -430,7 +439,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[4].titulo,
     kicker: "Capítulo 05 · Produtos e Serviços",
     title: "O diferencial: American School",
-    image: { src: "/assets/livro-to-the-nations.jpg", alt: "Coleção To the Nations" },
+    image: { src: "/assets/livro-to-the-nations.jpg", alt: "Coleção To the Nations", fit: "contain" },
     imageSide: "left",
     accent: "red",
     paragraphs: [
@@ -445,10 +454,10 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     kicker: "Capítulo 05 · Produtos e Serviços",
     title: "Materiais e currículos autorais",
     images: [
-      { src: "/assets/livro-ingles-infantil-2.png", alt: "Currículo de inglês infantil" },
-      { src: "/assets/livro-ingles-infantil-3.png", alt: "Currículo de inglês infantil" },
-      { src: "/assets/livro-ingles-infantil-4.png", alt: "Currículo de inglês infantil" },
-      { src: "/assets/livro-to-the-nations-2.jpg", alt: "Coleção To the Nations" },
+      { src: "/assets/livro-ingles-infantil-2.png", alt: "Currículo de inglês infantil", fit: "contain" },
+      { src: "/assets/livro-ingles-infantil-3.png", alt: "Currículo de inglês infantil", fit: "contain" },
+      { src: "/assets/livro-ingles-infantil-4.png", alt: "Currículo de inglês infantil", fit: "contain" },
+      { src: "/assets/livro-to-the-nations-2.jpg", alt: "Coleção To the Nations", fit: "contain" },
     ],
     paragraphs: [
       "A Promise já detém direitos sobre marca, currículos e materiais autorais, incluindo o Promise Excellence Framework™, as coleções Paideia e Oikos e a coleção To the Nations. Esses ativos representam parte relevante da propriedade intelectual da empresa e uma base para futuras soluções digitais e aplicativos de aprendizagem.",
@@ -487,19 +496,45 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     ],
   },
   {
-    layout: "gallery",
+    layout: "partners",
     chapterIndex: 6,
     chapterTitle: CAPITULOS[5].titulo,
     kicker: "Capítulo 06 · Estrutura e Operações",
     title: "Parceiros e fornecedores",
-    images: [
-      { src: "/assets/parceiros/kairos.png", alt: "Kairos" },
-      { src: "/assets/parceiros/arkos-icon.svg", alt: "Arkos" },
-      { src: "/assets/parceiros/cidadeviva.svg", alt: "Cidade Viva" },
-      { src: "/assets/parceiros/aei.webp", alt: "AEI" },
+    partners: [
+      {
+        logo: "/assets/parceiros/cidadeviva.svg",
+        nome: "Cidade Viva Education",
+        blurb: "Sistema de ensino cristão de onde nascem os currículos Paideia, Oikos e To the Nations, de autoria de Calebe Braga.",
+      },
+      {
+        logo: "/assets/parceiros/kairos.png",
+        nome: "Editora Kairós",
+        blurb: "Editora parceira, responsável pela distribuição dos livros e materiais didáticos impressos da Promise.",
+      },
+      {
+        logo: "/assets/parceiros/aei.webp",
+        nome: "American Education International",
+        blurb: "Parceira internacional na estruturação do programa American School e na convalidação de créditos acadêmicos.",
+      },
+      {
+        logo: "/assets/parceiros/zoe.png",
+        nome: "Zoe Christian School",
+        blurb: "Escola cristã parceira do ecossistema Promise.",
+      },
+      {
+        logo: "/assets/parceiros/simply.png",
+        nome: "Simply So Lovely",
+        blurb: "Parceira do ecossistema Promise.",
+      },
+      {
+        logo: "/assets/parceiros/arkos-icon.svg",
+        nome: "Arkos",
+        blurb: "Responsável pelo desenvolvimento do site institucional e por soluções de tecnologia e dados da Promise.",
+      },
     ],
     paragraphs: [
-      "Kairos e Arkos atuam como parceiros e distribuidores de livros da Promise. A Arkos também desenvolveu o site institucional. Cambridge, AEI e Education são fornecedores-chave, especialmente para certificações e materiais. Nas certificações Cambridge, a Promise prepara e orienta os candidatos, mas os exames e certificados são emitidos pela própria Cambridge. No American School, a operação segue em parceria com uma instituição educacional americana responsável pelos créditos e pela emissão do diploma.",
+      "Cambridge é a fornecedora oficial das certificações internacionais: a Promise prepara e orienta os candidatos, mas os exames e certificados são emitidos pela própria Cambridge. No American School, a operação segue em parceria com uma instituição educacional americana responsável pelos créditos e pela emissão do diploma.",
     ],
   },
   {
@@ -540,7 +575,6 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[6].titulo,
     kicker: "Capítulo 07 · Marketing e Vendas",
     title: "Como a Promise quer ser vista",
-    image: { src: "/assets/learners-hero-cutout.png", alt: "Posicionamento de marca Promise" },
     accent: "red",
     paragraphs: [
       "Uma empresa educacional de alta qualidade, confiável, inovadora e com propósito, reconhecida pela integração entre consultoria escolar, ensino de inglês, formação de professores e internacionalização em um único ecossistema. O Promise Excellence Framework™, a experiência prática e as soluções personalizadas para cada escola, família e profissional sustentam essa proposta.",
@@ -726,37 +760,5 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[8].titulo,
     kicker: "Capítulo 09 · Finanças",
     title: "Proposta orçamentária: cinco anos",
-  },
-
-  // ==========================================================================
-  // CAPÍTULO 10 — SUMÁRIO EXECUTIVO
-  // ==========================================================================
-  {
-    layout: "quote",
-    chapterIndex: 10,
-    chapterTitle: CAPITULOS[9].titulo,
-    kicker: "Capítulo 10 · Sumário Executivo",
-    title: "Quem lidera a Promise",
-    quote: {
-      text: "Sou Calebe Braga, fundador e diretor da Promise Education Group. A empresa nasce da minha experiência prática em sala de aula, gestão acadêmica, desenvolvimento curricular, formação de professores e avaliação Cambridge, combinada a uma proposta de educação cristã e formação integral.",
-      author: "Calebe Braga, fundador da Promise",
-      photo: "/assets/calebe-familia.jpg",
-    },
-  },
-  {
-    layout: "closing",
-    chapterIndex: 10,
-    chapterTitle: CAPITULOS[9].titulo,
-    kicker: "Capítulo 10 · Sumário Executivo",
-    title: "O que torna a Promise diferente",
-    paragraphs: [
-      "A integração das quatro frentes, a metodologia própria Promise Excellence Framework™, a experiência prática em ensino de inglês e avaliação Cambridge, e uma proposta educacional fundamentada em cosmovisão cristã.",
-      "A proposta integra excelência acadêmica, formação integral, propósito e fé, respeitando a identidade de cada escola e família, enquanto constrói ativos próprios que podem ser escalados ao longo do tempo.",
-    ],
-    stats: [
-      { label: "Frentes de negócio", value: "4" },
-      { label: "Anos de experiência do fundador", value: "14+" },
-      { label: "Estados com presença Promise", value: "5" },
-    ],
   },
 ];
