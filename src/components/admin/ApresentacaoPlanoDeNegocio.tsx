@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import type { Slide, SlideQuadrant, TimelineItem, TeamMember, ProcessStep, GalleryImage, PartnerItem } from "@/lib/apresentacaoSlides";
 import { CAPITULOS } from "@/lib/apresentacaoSlides";
@@ -20,6 +20,16 @@ function ChevronIcon({ direction }: { direction: "left" | "right" }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
       <path d={d} />
+    </svg>
+  );
+}
+
+function FullscreenIcon({ active }: { active: boolean }) {
+  const expand = "M9 3H4v5M15 3h5v5M9 21H4v-5M15 21h5v-5";
+  const compress = "M9 3v5H4M15 3v5h5M9 21v-5H4M15 21v-5h5";
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d={active ? compress : expand} />
     </svg>
   );
 }
@@ -62,7 +72,25 @@ export default function ApresentacaoPlanoDeNegocio({
   temPremissasPreenchidas: boolean;
 }) {
   const [current, setCurrent] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const total = slides.length;
+
+  useEffect(() => {
+    function handleFullscreenChange() {
+      setIsFullscreen(document.fullscreenElement === containerRef.current);
+    }
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      containerRef.current?.requestFullscreen().catch(() => {});
+    }
+  }
 
   const capitulosNav = useMemo(() => {
     const map = new Map<number, number>();
@@ -97,7 +125,7 @@ export default function ApresentacaoPlanoDeNegocio({
   const capituloAtual = capitulosNav.find((c) => c.chapterIndex === slideAtual.chapterIndex);
 
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 2000, background: "var(--bg)", overflow: "hidden" }}>
+    <div ref={containerRef} style={{ position: "fixed", inset: 0, zIndex: 2000, background: "var(--bg)", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "var(--line)", zIndex: 10 }}>
         <div style={{ height: "100%", width: `${((current + 1) / total) * 100}%`, background: "var(--blue)", transition: "width .35s ease" }} />
       </div>
@@ -132,16 +160,43 @@ export default function ApresentacaoPlanoDeNegocio({
           top: 20,
           right: "clamp(14px, 3vw, 24px)",
           zIndex: 10,
-          fontSize: 12.5,
-          fontWeight: 700,
-          color: "var(--ink-soft)",
-          background: "#fff",
-          border: "1px solid var(--line)",
-          borderRadius: 999,
-          padding: "8px 14px",
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
         }}
       >
-        {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        <button
+          onClick={toggleFullscreen}
+          aria-label={isFullscreen ? "Sair da tela cheia" : "Entrar em tela cheia"}
+          title={isFullscreen ? "Sair da tela cheia" : "Tela cheia"}
+          style={{
+            width: 34,
+            height: 34,
+            borderRadius: "50%",
+            border: "1px solid var(--line)",
+            background: "#fff",
+            color: "var(--ink)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+          }}
+        >
+          <FullscreenIcon active={isFullscreen} />
+        </button>
+        <div
+          style={{
+            fontSize: 12.5,
+            fontWeight: 700,
+            color: "var(--ink-soft)",
+            background: "#fff",
+            border: "1px solid var(--line)",
+            borderRadius: 999,
+            padding: "8px 14px",
+          }}
+        >
+          {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </div>
       </div>
 
       {current > 0 && (

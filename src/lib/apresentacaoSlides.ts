@@ -159,7 +159,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Capital, margens e retorno esperado",
     image: { src: "/assets/schools-authority.jpg", alt: "Consultoria educacional em escola parceira" },
     imageSide: "left",
-    accent: "blue",
+    accent: "orange",
     paragraphs: [
       "O modelo prioriza serviços de consultoria, formação e aulas, o que exige menor investimento em ativos físicos. As estimativas iniciais de margem bruta variam por frente: 60% a 75% em Schools, 50% a 65% em Learners, 65% a 80% em Professionals e 25% a 45% em Global, cujos custos de terceiros como transporte e hospedagem reduzem a margem. A meta consolidada é uma margem bruta próxima de 60%.",
       "As estimativas de ponto de equilíbrio e retorno ainda variam entre as análises internas da Promise, entre 6 e 18 meses para o breakeven e entre 12 e 24 meses para a recuperação total do capital investido. Essa faixa será refinada no capítulo de Finanças, à medida que os primeiros resultados reais da operação forem registrados.",
@@ -261,7 +261,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Como o mercado está estruturado",
     image: { src: "/assets/schools-global-bridge.jpg", alt: "Conexão entre educação local e internacional" },
     imageSide: "left",
-    accent: "blue",
+    accent: "orange",
     paragraphs: [
       "O mercado se divide por tipo de oferta: cursos de inglês, certificações internacionais, consultoria educacional, formação docente, programas de High School americano e intercâmbios. Divide-se também por perfil de cliente: escolas privadas, sobretudo cristãs e bilíngues; famílias e estudantes, incluindo homeschoolers; e professores, coordenadores e gestores. Geograficamente, a expectativa é encontrar uma parcela relevante de clientes no interior de estados brasileiros em crescimento.",
       "As tendências reforçam a oportunidade. O inglês migrou para o formato online. Escolas cristãs continuam sendo abertas por todo o país sem saber estruturar seus departamentos de inglês. O homeschooling cresce ao mesmo tempo em que precisa de mais estrutura e validação acadêmica.",
@@ -491,7 +491,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Uma operação 100% online, por design",
     image: { src: "/assets/global-familia.jpg", alt: "Aprendizagem em ambiente familiar" },
     imageSide: "right",
-    accent: "blue",
+    accent: "orange",
     paragraphs: [
       "As aulas e formações são realizadas integralmente online, o que dispensa uma planta física para o atendimento. A estrutura necessária é essencialmente tecnológica: computadores, internet de alta qualidade, plataformas de videoconferência e ferramentas de comunicação e produção de conteúdo.",
       "Espaços físicos, quando necessários para reuniões ou eventos pontuais, podem ser compartilhados ou emprestados de parceiros. Esse modelo mantém os custos fixos baixos e amplia a capacidade de atender clientes em qualquer região do Brasil. A infraestrutura tecnológica própria hoje se resume ao site institucional, com plataformas e sistemas internos ainda por desenvolver.",
@@ -605,7 +605,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Onde e como os clientes chegam até a Promise",
     image: { src: "/assets/learners-strip-mundo.jpg", alt: "Alcance digital e institucional" },
     imageSide: "left",
-    accent: "blue",
+    accent: "orange",
     paragraphs: [
       "Site, Instagram, WhatsApp e conteúdo de autoridade funcionam como canais transversais de atração. Prospecção direta, indicações, eventos e feiras educacionais pesam mais para escolas, enquanto redes sociais e comunidades de homeschooling pesam mais para famílias e alunos.",
       "A meta inicial de participação de mercado é pequena e especializada. A Promise prioriza qualidade, recorrência e relacionamento em vez de volume, com aceleração de vendas esperada a partir do lançamento de Homeschooling e American School em 2026.",
@@ -711,7 +711,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "As premissas por trás dos números",
     image: { src: "/assets/bolsa-estudos.jpg", alt: "Planejamento financeiro educacional" },
     imageSide: "right",
-    accent: "blue",
+    accent: "orange",
     paragraphs: [
       "O modelo financeiro parte de um crescimento gradual da base de clientes, de receita recorrente e do aumento da participação de serviços de maior margem. Schools funciona como fonte de contratos de maior valor, Learners como base recorrente, Professionals como frente de expansão e Global como receita adicional por projeto.",
       "A meta de planejamento é uma margem bruta consolidada próxima de 60%, revisada periodicamente conforme os resultados reais de cada frente.",
