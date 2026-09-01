@@ -121,6 +121,26 @@ export default function ApresentacaoPlanoDeNegocio({
     return () => window.removeEventListener("keydown", handleKey);
   }, [current, goTo]);
 
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (!touchStart.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    touchStart.current = null;
+    // Só interpreta como troca de slide quando o gesto é predominantemente
+    // horizontal, pra não brigar com a rolagem vertical do conteúdo no mobile.
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      goTo(current + (dx < 0 ? 1 : -1));
+    }
+  }
+
   const slideAtual = slides[current];
   const capituloAtual = capitulosNav.find((c) => c.chapterIndex === slideAtual.chapterIndex);
 
@@ -221,6 +241,8 @@ export default function ApresentacaoPlanoDeNegocio({
       )}
 
       <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{
           display: "flex",
           height: "100%",
@@ -353,12 +375,7 @@ function SlideShell({ children, wide }: { children: React.ReactNode; wide?: bool
       style={{
         width: "100%",
         maxWidth: wide ? 1320 : 960,
-        padding: "0 clamp(20px, 4vw, 56px)",
-        maxHeight: "calc(100vh - 120px)",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
+        padding: "0 clamp(16px, 4vw, 56px)",
       }}
     >
       {children}
@@ -428,7 +445,6 @@ function CoverSlide({ slide }: { slide: Slide }) {
                 {f.label}
               </span>
             ))}
-            <span style={{ padding: "9px 18px", borderRadius: 999, background: "var(--ink)", color: "#fff", fontWeight: 700, fontSize: 13 }}>Global</span>
           </div>
         </div>
       </div>
@@ -844,12 +860,15 @@ function OrgChartSlide({ slide }: { slide: Slide }) {
           {chart.root.subtitle && <div style={{ fontSize: 11.5, opacity: 0.9, marginTop: 2 }}>{chart.root.subtitle}</div>}
         </div>
         <div style={{ width: 2, height: 20, background: "var(--line)" }} />
-        <div style={{ position: "relative", width: "100%" }}>
-          <div style={{ position: "absolute", top: 0, left: `${100 / chart.children.length / 2}%`, right: `${100 / chart.children.length / 2}%`, height: 2, background: "var(--line)" }} />
-          <div style={{ display: "flex", gap: 14 }}>
+        <div className="apresentacao-orgchart-wrap" style={{ position: "relative", width: "100%" }}>
+          <div
+            className="apresentacao-orgchart-bar"
+            style={{ position: "absolute", top: 0, left: `${100 / chart.children.length / 2}%`, right: `${100 / chart.children.length / 2}%`, height: 2, background: "var(--line)" }}
+          />
+          <div className="apresentacao-orgchart-children" style={{ display: "flex", gap: 14 }}>
             {chart.children.map((child) => (
-              <div key={child.title} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ width: 2, height: 18, background: "var(--line)" }} />
+              <div key={child.title} className="apresentacao-orgchart-child" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div className="apresentacao-orgchart-stub" style={{ width: 2, height: 18, background: "var(--line)" }} />
                 <div style={{ background: "#fff", border: "1px solid var(--line)", borderTop: `3px solid ${accent}`, borderRadius: 10, padding: "12px 14px", textAlign: "center", width: "100%" }}>
                   <div style={{ fontWeight: 800, fontSize: 13, color: "var(--ink)" }}>{child.title}</div>
                   {child.subtitle && <div style={{ fontSize: 11, color: "var(--ink-soft)", marginTop: 4, lineHeight: 1.35 }}>{child.subtitle}</div>}
@@ -968,7 +987,7 @@ function FinanceSlide({ slide, resultado, temPremissas }: { slide: Slide; result
           <div style={{ marginBottom: 16 }}>
             <StatsFinanceiros resultado={resultado} compacto />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div className="apresentacao-finance-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
             <GraficoReceitaPorFrente anos={resultado.anos} compacto />
             <GraficoMargemLiquida anos={resultado.anos} compacto />
           </div>

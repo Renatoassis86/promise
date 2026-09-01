@@ -156,14 +156,30 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     kicker: "Capítulo 01 · Análise de Oportunidade",
     title: "Tamanho e crescimento do mercado",
     paragraphs: [
-      "O mercado brasileiro de ensino de idiomas foi estimado em cerca de US$ 1,52 bilhão em 2025, com projeção de chegar a US$ 3,02 bilhões até 2034. A educação básica soma cerca de 46 milhões de matrículas, das quais 10 milhões na rede privada. Essa base sustenta diretamente as frentes Schools e Learners.",
-      "O mercado de educação internacional movimentou cerca de R$ 7 bilhões em 2025, com crescimento de 27,3% no ano, abrindo espaço direto para a Promise Global. O homeschooling ainda é um nicho menor e difícil de dimensionar: o MEC estima cerca de 17 mil famílias e 35 mil estudantes, número que já pode estar desatualizado diante do crescimento observado.",
+      "São dois mercados diferentes, e a diferença importa. O mercado de ensino de idiomas é o de cursos e escolas de inglês, dentro do Brasil, comprado por famílias e por escolas: é a base das frentes Schools e Learners. O mercado de educação internacional é o de intercâmbio e mobilidade para o exterior, comprado por quem já decidiu estudar fora do país: é a porta de entrada da frente Global. A Promise atua nos dois, mas com produtos e concorrentes distintos em cada um.",
+      "A educação básica brasileira soma cerca de 46 milhões de matrículas, das quais aproximadamente 9,3 milhões na rede privada, base direta de Schools. O homeschooling ainda é um nicho menor e difícil de dimensionar: o MEC estima cerca de 17 mil famílias e 35 mil estudantes, enquanto a ANED, associação do setor, fala em números bem maiores, o que sinaliza um mercado em expansão e ainda sem medição oficial consolidada.",
     ],
     stats: [
-      { label: "Mercado de idiomas no Brasil, 2025", value: "US$ 1,52 bi" },
-      { label: "Projeção para 2034", value: "US$ 3,02 bi" },
-      { label: "Matrículas na rede privada", value: "10 milhões" },
-      { label: "Educação internacional, 2025", value: "R$ 7 bi · +27,3%" },
+      { label: "Matrículas na educação básica, 2025", value: "46 mi" },
+      { label: "Matrículas na rede privada, 2025", value: "≈ 9,3 mi" },
+      { label: "Intercâmbio (educação internacional), 2025", value: "R$ 7 bi · +27,3%" },
+      { label: "Homeschooling, estimativa MEC", value: "17 mil famílias" },
+    ],
+  },
+  {
+    layout: "table",
+    chapterIndex: 1,
+    chapterTitle: CAPITULOS[0].titulo,
+    kicker: "Capítulo 01 · Análise de Oportunidade",
+    title: "Fontes dos números citados",
+    tableHead: ["Dado", "Fonte"],
+    tableRows: [
+      ["Matrículas na educação básica e na rede privada, 2025", "Inep, Censo Escolar da Educação Básica 2025"],
+      ["Mercado de intercâmbio, R$ 7 bi e +27,3% em 2025", "Belta (Associação Brasileira de Agências de Intercâmbio), Pesquisa Nacional Selo Belta 2026"],
+      ["Homeschooling, 17 mil famílias e 35 mil estudantes", "Estimativa oficial mais citada, atribuída ao MEC; associações do setor, como a ANED, reportam números maiores"],
+    ],
+    paragraphs: [
+      "Todos os demais números financeiros desta apresentação, como margens, payback e projeção de cinco anos, são premissas internas da Promise, não estatísticas de mercado, e estão sinalizados como tal ao longo do documento.",
     ],
   },
   {
@@ -192,12 +208,12 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[0].titulo,
     kicker: "Capítulo 01 · Análise de Oportunidade",
     title: "Barreiras de entrada e concorrentes-chave",
-    image: { src: "/assets/homeschool-familia-oracao.jpg", alt: "Família de homeschooling" },
+    image: { src: "/assets/learners-turmas.jpg", alt: "Turma de alunos em aula de inglês" },
     imageSide: "right",
     accent: "red",
     paragraphs: [
       "O público de homeschooling precisa de validação de alguém já bem inserido nesse mercado, o que exige tempo de relacionamento e prova social antes da conversão. Cursos de inglês, por outro lado, são mais fáceis de vender, mas também podem ser cancelados com a mesma facilidade, o que exige atenção constante à retenção.",
-      "O mercado é fragmentado. No ensino de inglês, milhares de escolas e redes como Wizard, Fisk, CCAA e CNA disputam o segmento. Em educação internacional e certificações, Cambridge e instituições associadas concentram a propriedade intelectual dos exames. A Promise não disputa diretamente com nenhum desses grupos: seu diferencial está em integrar consultoria escolar, formação profissional, inglês e internacionalização em uma única proposta.",
+      "O mercado é fragmentado. Redes tradicionais como Wizard, Fisk, CCAA, CNA e Cultura Inglesa disputam o ensino presencial de inglês, enquanto plataformas online como Open English, EF English Live, Cambly, Wise Up e Duolingo concorrem pelo mesmo público no formato digital. Em educação internacional e certificações, Cambridge e instituições associadas concentram a propriedade intelectual dos exames. A Promise não disputa diretamente com nenhum desses grupos: seu diferencial está em integrar consultoria escolar, formação profissional, inglês e internacionalização em uma única proposta.",
     ],
   },
 
@@ -260,7 +276,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     imageSide: "right",
     accent: "ink",
     paragraphs: [
-      "A Promise está registrada como MEI, estrutura já identificada como necessária de revisão à medida que o negócio ganha escala. A operação é totalmente online, sem sede física voltada ao atendimento de alunos, o que mantém a estrutura de custos enxuta e permite atender famílias e escolas em qualquer região do Brasil.",
+      "A Promise está registrada como MEI, estrutura já identificada como necessária de revisão à medida que o negócio ganha escala. Learners é uma operação 100% online; Schools pode ser online ou presencial conforme o plano fechado com cada escola. Em nenhum dos dois casos há sede física própria voltada ao atendimento, o que mantém a estrutura de custos enxuta e permite atender famílias e escolas em qualquer região do Brasil.",
       "Como o modelo ainda é novo, a Promise não possui um histórico extenso de métricas. A prioridade atual é consolidar as quatro frentes e construir esse histórico a partir dos próximos ciclos.",
     ],
   },
@@ -320,12 +336,12 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     tableHead: ["Frente", "Concorrentes diretos e indiretos"],
     tableRows: [
       ["Schools", "Consultorias educacionais e sistemas de ensino bilíngue; indiretamente, Cultura Inglesa, CNA, Wizard, CCAA e Fisk"],
-      ["Learners", "Escolas e plataformas de inglês, aulas particulares e empresas de intercâmbio"],
+      ["Learners", "Escolas presenciais de inglês e plataformas online como Open English, EF English Live, Cambly, Wise Up, Fluency Academy e Duolingo, além de aulas particulares avulsas"],
       ["Professionals", "Centros de preparação para TKT, CELTA e DELTA, e a própria Cambridge"],
       ["Global", "Agências de intercâmbio e consultorias de educação internacional"],
     ],
     paragraphs: [
-      "Concorrentes maiores como CNA+, Cultura Inglesa e Wizard, ligada à Pearson, têm vantagem clara em escala, estrutura gerencial, marca e orçamento de marketing. A Cultura Inglesa atua há mais de 90 anos combinando ensino, certificações e formação docente.",
+      "Concorrentes maiores como CNA+, Cultura Inglesa e Wizard, ligada à Pearson, têm vantagem clara em escala, estrutura gerencial, marca e orçamento de marketing. A Cultura Inglesa atua há mais de 90 anos combinando ensino, certificações e formação docente. No formato digital, plataformas como Open English e EF English Live já dominam a aula online em escala latino-americana, e apps como Duolingo capturam o usuário de autoestudo antes mesmo de ele considerar um curso pago.",
     ],
   },
   {
@@ -380,7 +396,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "CB",
         color: "var(--blue)",
         status: "atual",
-        bio: "Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa. Coordena o departamento internacional da Cidade Viva Academy e é autor do currículo de inglês das coleções Paideia, Oikos e To the Nations. Formado em Letras Inglês e Marketing, com pós-graduação em Christian Classical Education.",
+        bio: "Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa. Coordena o departamento internacional da Cidade Viva Academy, onde coautora, ao lado de Rita, o currículo de inglês das coleções Paideia e Oikos. Na Promise, é autor da coleção To the Nations, material próprio para os anos iniciais e o infantil. Formado em Letras Inglês e Marketing, com pós-graduação em Christian Classical Education.",
       },
       {
         name: "Renato Silva de Assis",
@@ -389,7 +405,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         initials: "RA",
         color: "var(--orange)",
         status: "atual",
-        bio: "Economista pela UFPB, mestre em Economia Regional pela UFRN. Mais de 16 anos como supervisor técnico do DIEESE. Fundador da Econsult e da Arkos Intelligence. Responsável, na Promise, pela estruturação do plano de negócio, do modelo financeiro e da governança de dados.",
+        bio: "Economista, mestre em Economia pela UFRN e graduando em Ciência de Dados para Negócios pela UFPB. Atuou 16 anos como Supervisor Técnico Regional do DIEESE, à frente de pesquisas e diagnósticos socioeconômicos, e hoje desenvolve observatórios socioeconômicos em parceria com governos estaduais. Fundador da Arkos Intelligence, iniciativa de Business Intelligence, Analytics e Inteligência Artificial aplicada à gestão. Consultor Estratégico de Sistemas de Ensino na Cidade Viva Education. Na Promise, estrutura o plano de negócio, o modelo financeiro e a governança de dados.",
       },
     ],
   },
@@ -489,7 +505,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
       { src: "/assets/livro-to-the-nations-2.jpg", alt: "Coleção To the Nations", fit: "contain" },
     ],
     paragraphs: [
-      "A Promise já detém direitos sobre marca, currículos e materiais autorais, incluindo o Promise Excellence Framework™, as coleções Paideia e Oikos e a coleção To the Nations. Esses ativos representam parte relevante da propriedade intelectual da empresa e uma base para futuras soluções digitais e aplicativos de aprendizagem.",
+      "A Promise já detém direitos sobre marca, metodologia e materiais próprios, incluindo o Promise Excellence Framework™ e a coleção To the Nations, currículo autoral de inglês para o infantil e os anos iniciais do Fundamental. Paideia e Oikos, por sua vez, são currículos da Cidade Viva Education, coautorados por Calebe Braga e Rita naquela instituição, e não integram a propriedade intelectual da Promise. Esses ativos próprios representam parte relevante do patrimônio da empresa e uma base para futuras soluções digitais e aplicativos de aprendizagem.",
     ],
   },
   {
@@ -516,13 +532,13 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterIndex: 6,
     chapterTitle: CAPITULOS[5].titulo,
     kicker: "Capítulo 06 · Estrutura e Operações",
-    title: "Uma operação 100% online, por design",
+    title: "Uma operação enxuta, com o online como padrão",
     image: { src: "/assets/global-familia.jpg", alt: "Aprendizagem em ambiente familiar" },
     imageSide: "right",
     accent: "orange",
     paragraphs: [
-      "As aulas e formações são realizadas integralmente online, o que dispensa uma planta física para o atendimento. A estrutura necessária é essencialmente tecnológica: computadores, internet de alta qualidade, plataformas de videoconferência e ferramentas de comunicação e produção de conteúdo.",
-      "Espaços físicos, quando necessários para reuniões ou eventos pontuais, podem ser compartilhados ou emprestados de parceiros. Esse modelo mantém os custos fixos baixos e amplia a capacidade de atender clientes em qualquer região do Brasil. A infraestrutura tecnológica própria hoje se resume ao site institucional, com plataformas e sistemas internos ainda por desenvolver.",
+      "Learners opera de forma integralmente online: aulas, acompanhamento e certificação acontecem a distância, sem planta física para o atendimento. Já em Schools, o formato varia conforme o plano contratado por cada escola parceira: consultoria, formação de professores e reuniões pedagógicas podem ser feitas online ou presencialmente, a depender da necessidade da instituição e do pacote fechado.",
+      "Mesmo quando presencial, a estrutura fixa da Promise permanece enxuta: espaços físicos, quando necessários, são compartilhados ou emprestados de parceiros, sem sede própria. Esse modelo mantém os custos fixos baixos e amplia a capacidade de atender clientes em qualquer região do Brasil. A infraestrutura tecnológica própria hoje se resume ao site institucional, com plataformas e sistemas internos ainda por desenvolver.",
     ],
   },
   {
@@ -535,7 +551,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
       {
         logo: "/assets/parceiros/cidadeviva.svg",
         nome: "Cidade Viva Education",
-        blurb: "Sistema de ensino cristão de onde nascem os currículos Paideia, Oikos e To the Nations, de autoria de Calebe Braga.",
+        blurb: "Sistema de ensino cristão onde Calebe Braga coordena o departamento internacional e coautora, com Rita, os currículos de inglês Paideia e Oikos.",
       },
       {
         logo: "/assets/parceiros/kairos.png",
@@ -559,8 +575,8 @@ export const APRESENTACAO_SLIDES: Slide[] = [
       },
       {
         logo: "/assets/parceiros/arkos-icon.svg",
-        nome: "Arkos",
-        blurb: "Responsável pelo desenvolvimento do site institucional e por soluções de tecnologia e dados da Promise.",
+        nome: "Arkos Intelligence",
+        blurb: "Iniciativa de Business Intelligence, Analytics e Inteligência Artificial fundada por Renato Silva de Assis. Responsável pelo site institucional e pelas soluções de tecnologia, dados e automação da Promise.",
       },
     ],
     paragraphs: [
