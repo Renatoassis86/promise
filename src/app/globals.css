@@ -95,6 +95,16 @@ a:hover {
 .reveal-delay-3 { transition-delay: 0.24s; }
 .reveal-delay-4 { transition-delay: 0.32s; }
 
+/* No toque, um flick-scroll passa pelo conteudo bem mais rapido que a rolagem
+   de mouse do desktop - reduzimos o deslocamento/duracao para o fade completar
+   antes do elemento cruzar a tela, evitando o "flash" de conteudo invisivel. */
+@media (max-width: 780px) {
+  .reveal {
+    transform: translateY(14px);
+    transition-duration: 0.4s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -315,6 +325,48 @@ a:hover {
 }
 .apresentacao-slide-content {
   animation: apresentacaoFadeUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.apresentacao-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.apresentacao-toc-card {
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.apresentacao-toc-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+  box-shadow: 0 10px 24px rgba(24, 54, 178, 0.12);
+}
+
+@media (max-width: 820px) {
+  .apresentacao-split {
+    flex-direction: column !important;
+  }
+  .apresentacao-connector {
+    display: none !important;
+  }
+  .apresentacao-hide-mobile {
+    display: none !important;
+  }
+  .apresentacao-arrow {
+    width: 36px !important;
+    height: 36px !important;
+  }
 }
 
 /* Badges flutuantes do hero da Home: escondidos abaixo de 960px pra nao brigar com o texto */

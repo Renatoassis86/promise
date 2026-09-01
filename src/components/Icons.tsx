@@ -1,4 +1,4 @@
-type IconName = "puzzle" | "target" | "medal" | "shieldHeart" | "users" | "globe" | "cap" | "home" | "shield" | "heart" | "chat" | "list" | "file" | "calendar" | "book";
+export type IconName = "puzzle" | "target" | "medal" | "shieldHeart" | "users" | "globe" | "cap" | "home" | "shield" | "heart" | "chat" | "list" | "file" | "calendar" | "book";
 
 const common = {
   viewBox: "0 0 24 24",
