@@ -764,4 +764,24 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     kicker: "Capítulo 09 · Finanças",
     title: "Proposta orçamentária: cinco anos",
   },
+
+  // ==========================================================================
+  // FECHAMENTO
+  // ==========================================================================
+  {
+    layout: "closing",
+    chapterIndex: 0,
+    chapterTitle: "Fechamento",
+    kicker: "Considerações finais",
+    title: "Uma base sólida para os próximos passos",
+    paragraphs: [
+      "A Promise integra quatro frentes complementares em um ecossistema educacional com propósito claro, metodologia própria e uma oportunidade de mercado concreta. As análises apresentadas aqui, da oportunidade à estratégia de crescimento, sustentam essa proposta.",
+      "O próximo passo é concluir a estruturação financeira: preencher a planilha de contas com os custos reais de cada área, validar as premissas de receita à medida que os primeiros contratos avançam, e revisar a estrutura legal da empresa. Com esses números fechados, o plano de negócio estará pronto para orientar decisões de investimento e crescimento nos próximos cinco anos.",
+    ],
+    stats: [
+      { label: "Frentes de negócio", value: "4" },
+      { label: "Anos de experiência do fundador", value: "14+" },
+      { label: "Estados com presença Promise", value: "5" },
+    ],
+  },
 ];
