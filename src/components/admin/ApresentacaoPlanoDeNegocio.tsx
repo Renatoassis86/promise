@@ -351,6 +351,8 @@ function SlideBody({
       return <PartnersSlide slide={slide} />;
     case "team-grid":
       return <TeamGridSlide slide={slide} />;
+    case "profile":
+      return <ProfileSlide slide={slide} />;
     case "process":
       return <ProcessSlide slide={slide} />;
     case "orgchart":
@@ -805,6 +807,88 @@ function TeamGridSlide({ slide }: { slide: Slide }) {
           ))}
         </div>
       )}
+    </SlideShell>
+  );
+}
+
+// ============================================================================
+// PROFILE — curriculo completo de uma pessoa (foto, formacao, trajetoria)
+// ============================================================================
+function ProfileSlide({ slide }: { slide: Slide }) {
+  const accent = ACCENT[slide.accent ?? "blue"];
+  const p = slide.profile;
+  if (!p) return null;
+  return (
+    <SlideShell wide>
+      <Kicker text={slide.kicker} color={accent} />
+      <Title text={slide.title} size={30} />
+      <div className="apresentacao-split" style={{ display: "flex", gap: 32, alignItems: "flex-start" }}>
+        <div style={{ flex: "0 0 220px", display: "flex", flexDirection: "column", gap: 10 }}>
+          {p.photo ? (
+            <div style={{ width: 96, height: 96, borderRadius: "50%", overflow: "hidden", border: `3px solid ${accent}` }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.photo} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
+            </div>
+          ) : null}
+          <div style={{ fontSize: 12.5, fontWeight: 700, color: accent }}>{p.role}</div>
+          <span
+            style={{
+              alignSelf: "flex-start",
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              padding: "3px 9px",
+              borderRadius: 999,
+              background: "var(--tint)",
+              color: "var(--blue)",
+            }}
+          >
+            Atual
+          </span>
+          {p.formacao.length > 0 && (
+            <div>
+              <div style={{ fontSize: 10.5, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--ink-soft)", marginBottom: 5 }}>
+                Formação
+              </div>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 3 }}>
+                {p.formacao.map((f) => (
+                  <li key={f} style={{ fontSize: 12, lineHeight: 1.4, color: "var(--ink)" }}>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <p style={{ margin: "0 0 14px", fontSize: 14, lineHeight: 1.55, color: "var(--ink-soft)", fontStyle: "italic", textAlign: "justify", textAlignLast: "left" }}>
+            {p.headline}
+          </p>
+          {p.sections.map((s) => (
+            <div key={s.heading} style={{ marginBottom: 12 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: accent, marginBottom: 6 }}>{s.heading}</div>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 5 }}>
+                {s.items.map((item, i) => (
+                  <li key={i} style={{ display: "flex", gap: 8, fontSize: 12.5, lineHeight: 1.45, color: "var(--ink)" }}>
+                    <span style={{ width: 5, height: 5, borderRadius: "50%", background: accent, marginTop: 6, flexShrink: 0 }} />
+                    <span style={{ textAlign: "justify", textAlignLast: "left" }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {p.tags && p.tags.length > 0 && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
+              {p.tags.map((t) => (
+                <span key={t} style={{ fontSize: 10.5, fontWeight: 600, color: accent, background: "var(--tint)", border: `1px solid ${accent}`, borderRadius: 999, padding: "4px 10px" }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </SlideShell>
   );
 }

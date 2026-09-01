@@ -48,6 +48,22 @@ export interface ProcessStep {
   icone?: IconName;
 }
 
+export interface ProfileSection {
+  heading: string;
+  items: string[];
+}
+
+export interface PersonProfile {
+  name: string;
+  role: string;
+  photo?: string;
+  status: "atual" | "futuro";
+  headline: string;
+  formacao: string[];
+  sections: ProfileSection[];
+  tags?: string[];
+}
+
 export interface OrgChartNode {
   title: string;
   subtitle?: string;
@@ -69,6 +85,7 @@ export type SlideLayout =
   | "gallery"
   | "partners"
   | "team-grid"
+  | "profile"
   | "process"
   | "orgchart"
   | "table"
@@ -92,6 +109,7 @@ export interface Slide {
   images?: GalleryImage[];
   partners?: PartnerItem[];
   team?: TeamMember[];
+  profile?: PersonProfile;
   process?: ProcessStep[];
   orgchart?: OrgChartData;
   tableHead?: string[];
@@ -383,31 +401,85 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     ],
   },
   {
-    layout: "team-grid",
+    layout: "profile",
     chapterIndex: 4,
     chapterTitle: CAPITULOS[3].titulo,
     kicker: "Capítulo 04 · Equipe de Gestão",
-    title: "Quem lidera a Promise hoje",
-    team: [
-      {
-        name: "Calebe Braga",
-        role: "CEO e Diretor Pedagógico",
-        photo: "/assets/calebe-familia.jpg",
-        initials: "CB",
-        color: "var(--blue)",
-        status: "atual",
-        bio: "Educador, gestor acadêmico e consultor educacional com mais de 14 anos de atuação no ensino de língua inglesa. Coordena o departamento internacional da Cidade Viva Academy, onde coautora, ao lado de Rita, o currículo de inglês das coleções Paideia e Oikos. Na Promise, é autor da coleção To the Nations, material próprio para os anos iniciais e o infantil. Formado em Letras Inglês e Marketing, com pós-graduação em Christian Classical Education.",
-      },
-      {
-        name: "Renato Silva de Assis",
-        role: "Consultor Organizacional",
-        photo: "/assets/renato-assis.jpg",
-        initials: "RA",
-        color: "var(--orange)",
-        status: "atual",
-        bio: "Economista, mestre em Economia pela UFRN e graduando em Ciência de Dados para Negócios pela UFPB. Atuou 16 anos como Supervisor Técnico Regional do DIEESE, à frente de pesquisas e diagnósticos socioeconômicos, e hoje desenvolve observatórios socioeconômicos em parceria com governos estaduais. Fundador da Arkos Intelligence, iniciativa de Business Intelligence, Analytics e Inteligência Artificial aplicada à gestão. Consultor Estratégico de Sistemas de Ensino na Cidade Viva Education. Na Promise, estrutura o plano de negócio, o modelo financeiro e a governança de dados.",
-      },
-    ],
+    title: "Calebe Braga",
+    accent: "blue",
+    profile: {
+      name: "Calebe Braga",
+      role: "CEO e Diretor Pedagógico da Promise",
+      photo: "/assets/calebe-familia.jpg",
+      status: "atual",
+      headline: "Educador, gestor acadêmico e consultor educacional, com mais de 14 anos de atuação no ensino de língua inglesa e no desenvolvimento de projetos educacionais.",
+      formacao: ["Letras Inglês", "Marketing", "Pós-graduação em Christian Classical Education", "Estudos em Teologia"],
+      sections: [
+        {
+          heading: "Trajetória profissional",
+          items: [
+            "Fundador e CEO da Promise Education Group",
+            "Coordenador do departamento internacional da Cidade Viva Academy",
+            "Experiência com o sistema de exames Cambridge English do Pre A1 Starters ao C1 Advanced, incluindo avaliação, aplicação e certificação internacional",
+          ],
+        },
+        {
+          heading: "Autoria de currículo",
+          items: [
+            "Coautor, ao lado de Rita, dos currículos de inglês Paideia e Oikos, do sistema de ensino Cidade Viva Education",
+            "Autor da coleção To the Nations, currículo próprio da Promise para o infantil e os anos iniciais do Fundamental",
+          ],
+        },
+      ],
+      tags: ["Centro Preparatório Oficial Cambridge", "CELTA (Cambridge)", "14+ anos de atuação"],
+    },
+  },
+  {
+    layout: "profile",
+    chapterIndex: 4,
+    chapterTitle: CAPITULOS[3].titulo,
+    kicker: "Capítulo 04 · Equipe de Gestão",
+    title: "Renato Silva de Assis",
+    accent: "orange",
+    profile: {
+      name: "Renato Silva de Assis",
+      role: "Consultor Organizacional da Promise",
+      photo: "/assets/renato-assis.jpg",
+      status: "atual",
+      headline: "Transformar dados em inteligência para apoiar decisões estratégicas é o propósito que orienta minha trajetória profissional.",
+      formacao: ["Economista", "Mestre em Economia (UFRN)", "Graduado em Ciência de Dados para Negócios (UFPB)"],
+      sections: [
+        {
+          heading: "Trajetória profissional",
+          items: [
+            "Supervisor Técnico Regional do DIEESE por 16 anos: pesquisas, estudos socioeconômicos, diagnósticos estratégicos e assessoria técnica para negociações coletivas, mercado de trabalho e formulação de políticas públicas",
+            "Técnico de Projetos desde outubro de 2024, desenvolvendo observatórios socioeconômicos em parceria com governos estaduais",
+            "Gerente do Education, sistema de ensino da Cidade Viva Education, durante o período de atuação no DIEESE: estruturação das áreas administrativa, financeira, comercial, tecnológica e logística",
+            "Consultor Estratégico de Sistemas de Ensino na Cidade Viva Education: apoio a instituições educacionais na implantação de modelos de gestão, planejamento estratégico, expansão e transformação organizacional",
+          ],
+        },
+        {
+          heading: "Empreendedorismo e atuação na Promise",
+          items: [
+            "Fundador da Arkos Intelligence, iniciativa de Business Intelligence, Analytics e Inteligência Artificial aplicada à gestão",
+            "Fundador da Econsult",
+            "Pesquisador, professor, consultor e palestrante",
+            "Na Promise: estruturação do plano de negócio, do modelo financeiro e da governança de dados",
+          ],
+        },
+      ],
+      tags: [
+        "Inteligência Estratégica",
+        "Planejamento Estratégico",
+        "Ciência de Dados",
+        "Business Intelligence",
+        "Inteligência Artificial",
+        "Gestão por Processos",
+        "Transformação Digital",
+        "Governança de Dados",
+        "Gestão Educacional",
+      ],
+    },
   },
   {
     layout: "team-grid",
