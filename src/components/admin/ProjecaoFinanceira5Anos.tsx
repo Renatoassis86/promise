@@ -126,7 +126,10 @@ export function TabelaDRE({ anos }: { anos: ResultadoProjecao["anos"] }) {
           <tr>
             <th>Linha</th>
             {anos.map((a) => (
-              <th key={a.ano}>{a.ano}</th>
+              <th key={a.ano} title={a.ano === 2026 ? "Ano de lançamento, operação parcial (set–dez)" : undefined}>
+                {a.ano}
+                {a.ano === 2026 && <div style={{ fontSize: 9.5, fontWeight: 600, color: "var(--ink-soft)", textTransform: "none", letterSpacing: 0 }}>parcial</div>}
+              </th>
             ))}
           </tr>
         </thead>

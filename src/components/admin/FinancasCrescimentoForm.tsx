@@ -213,7 +213,10 @@ export default function FinancasCrescimentoForm({
                     {secao.tipo === "receita" && <th>Ticket (R$/ano)</th>}
                     {secao.tipo !== "receita" && <th>% receita</th>}
                     {ANOS_PLANEJAMENTO.map((ano) => (
-                      <th key={ano}>{ano}</th>
+                      <th key={ano} title={ano === 2026 ? "Ano de lançamento, operação parcial (set–dez)" : undefined}>
+                        {ano}
+                        {ano === 2026 && <div style={{ fontSize: 9.5, fontWeight: 600, color: "var(--ink-soft)", textTransform: "none", letterSpacing: 0 }}>parcial</div>}
+                      </th>
                     ))}
                     <th></th>
                   </tr>
