@@ -499,28 +499,20 @@ export const APRESENTACAO_SLIDES: Slide[] = [
         bio: "Execução pedagógica: aulas, acompanhamento de alunos e registro de progresso.",
       },
       {
-        name: "Coordenação Schools",
+        name: "Coordenação Schools e Professionals",
         role: "A contratar",
-        initials: "SC",
+        initials: "SP",
         color: "var(--blue)",
         status: "futuro",
-        bio: "Implementação pedagógica dos programas de inglês nas escolas parceiras.",
+        bio: "Implementação pedagógica dos programas de inglês nas escolas parceiras e estruturação e acompanhamento da formação continuada de professores.",
       },
       {
-        name: "Coordenação Learners",
+        name: "Coordenação Learners e Global",
         role: "A contratar",
-        initials: "LC",
+        initials: "LG",
         color: "var(--red)",
         status: "futuro",
-        bio: "Acompanhamento pedagógico de alunos e famílias, incluindo Homeschooling e American School.",
-      },
-      {
-        name: "Coordenação Professionals",
-        role: "A contratar",
-        initials: "PC",
-        color: "var(--orange)",
-        status: "futuro",
-        bio: "Estruturação e acompanhamento dos programas de formação continuada de professores.",
+        bio: "Acompanhamento pedagógico de alunos e famílias, incluindo Homeschooling e American School, e estruturação dos intercâmbios e projetos internacionais.",
       },
       {
         name: "Gerência Administrativa",
@@ -698,7 +690,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     title: "Como a Promise quer ser vista",
     accent: "red",
     paragraphs: [
-      "Uma empresa educacional de alta qualidade, confiável, inovadora e com propósito, reconhecida pela integração entre consultoria escolar, ensino de inglês, formação de professores e internacionalização em um único ecossistema. O Promise Excellence Framework™, a experiência prática e as soluções personalizadas para cada escola, família e profissional sustentam essa proposta.",
+      "Uma empresa educacional de alta qualidade, confiável, inovadora e com propósito, reconhecida pela integração entre consultoria escolar, ensino de inglês, formação de professores e internacionalização em um único ecossistema, sustentado por uma cosmovisão cristã. O Promise Excellence Framework™, a experiência prática e as soluções personalizadas para cada escola, família e profissional sustentam essa proposta.",
     ],
   },
   {
