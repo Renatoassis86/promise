@@ -336,6 +336,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[2].titulo,
     kicker: "Capítulo 03 · Mercado e Competidores",
     title: "A lacuna que a Promise preenche",
+    image: { src: "/assets/prof-servico-consultoria-gestores.jpg", alt: "Consultoria integrando diferentes frentes de atuação" },
     accent: "blue",
     paragraphs: [
       "Escolas, famílias e profissionais encontram materiais, cursos, certificações, plataformas e intercâmbios separadamente. Poucas soluções integram ensino de inglês, currículo, formação profissional, certificação, internacionalização e cosmovisão cristã em uma única trajetória coerente.",
@@ -688,6 +689,7 @@ export const APRESENTACAO_SLIDES: Slide[] = [
     chapterTitle: CAPITULOS[6].titulo,
     kicker: "Capítulo 07 · Marketing e Vendas",
     title: "Como a Promise quer ser vista",
+    image: { src: "/assets/professionals-hero-retrato.jpg", alt: "Formação e mentoria com qualidade e confiança", position: "center 30%" },
     accent: "red",
     paragraphs: [
       "Uma empresa educacional de alta qualidade, confiável, inovadora e com propósito, reconhecida pela integração entre consultoria escolar, ensino de inglês, formação de professores e internacionalização em um único ecossistema, sustentado por uma cosmovisão cristã. O Promise Excellence Framework™, a experiência prática e as soluções personalizadas para cada escola, família e profissional sustentam essa proposta.",

@@ -7,8 +7,8 @@ export const FRENTES: { id: Frente; label: string; cor: string }[] = [
   { id: "global", label: "Global", cor: "var(--ink)" },
 ];
 
-/** Anos do horizonte de planejamento: 2026 é o ano de lançamento (parcial, set-dez). */
-export const ANOS_PLANEJAMENTO = [2026, 2027, 2028, 2029, 2030, 2031] as const;
+/** Anos do horizonte de planejamento, alinhado ao Plano de Negócios 2027-2031. */
+export const ANOS_PLANEJAMENTO = [2027, 2028, 2029, 2030, 2031] as const;
 export type AnoPlanejamento = (typeof ANOS_PLANEJAMENTO)[number];
 
 export type TipoLinha = "receita" | "custo_fixo" | "custo_variavel";

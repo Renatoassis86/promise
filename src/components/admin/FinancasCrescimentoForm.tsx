@@ -213,10 +213,7 @@ export default function FinancasCrescimentoForm({
                     {secao.tipo === "receita" && <th>Ticket (R$/ano)</th>}
                     {secao.tipo !== "receita" && <th>% receita</th>}
                     {ANOS_PLANEJAMENTO.map((ano) => (
-                      <th key={ano} title={ano === 2026 ? "Ano de lançamento, operação parcial (set–dez)" : undefined}>
-                        {ano}
-                        {ano === 2026 && <div style={{ fontSize: 9.5, fontWeight: 600, color: "var(--ink-soft)", textTransform: "none", letterSpacing: 0 }}>parcial</div>}
-                      </th>
+                      <th key={ano}>{ano}</th>
                     ))}
                     <th></th>
                   </tr>
@@ -246,7 +243,7 @@ export default function FinancasCrescimentoForm({
         );
       })}
 
-      <h2 style={{ fontSize: 15, fontWeight: 800, color: "var(--ink)", margin: "0 0 14px" }}>Proposta orçamentária — 2026 a 2031</h2>
+      <h2 style={{ fontSize: 15, fontWeight: 800, color: "var(--ink)", margin: "0 0 14px" }}>Proposta orçamentária — 2027 a 2031</h2>
       <ProjecaoFinanceira5Anos resultado={resultado} />
     </div>
   );
