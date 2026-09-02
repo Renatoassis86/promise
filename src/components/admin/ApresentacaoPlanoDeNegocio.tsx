@@ -389,7 +389,7 @@ function SlideShell({ children, wide }: { children: React.ReactNode; wide?: bool
       className="apresentacao-slide-content"
       style={{
         width: "100%",
-        maxWidth: wide ? 1320 : 960,
+        maxWidth: wide ? "min(96vw, 1900px)" : "min(88vw, 1440px)",
         padding: "0 clamp(16px, 4vw, 56px)",
       }}
     >
@@ -442,21 +442,34 @@ function Paragraphs({ paragraphs, color = "var(--ink)", size = 15.5 }: { paragra
 // ============================================================================
 function CoverSlide({ slide }: { slide: Slide }) {
   return (
-    <SlideShell>
-      <div style={{ position: "relative" }}>
+    <SlideShell wide>
+      <div
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          borderRadius: 28,
+          minHeight: "min(66vh, 640px)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "48px clamp(28px, 5vw, 72px)",
+          background: "linear-gradient(135deg, var(--tint) 0%, #fff 60%)",
+          border: "1px solid var(--line)",
+        }}
+      >
         <div style={{ position: "absolute", top: -180, right: -220, width: 480, height: 480, borderRadius: "50%", background: "var(--blue)", opacity: 0.08, filter: "blur(70px)" }} />
         <div style={{ position: "absolute", bottom: -220, left: -200, width: 420, height: 420, borderRadius: "50%", background: "var(--red)", opacity: 0.07, filter: "blur(80px)" }} />
         <div style={{ position: "relative" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/promise-english-logo.png" alt="Promise English" style={{ height: 34, width: "auto", marginBottom: 40 }} />
-          <div style={{ display: "inline-block", fontSize: 12.5, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--tint)", border: "1px solid var(--line)", padding: "8px 16px", borderRadius: 999, marginBottom: 28 }}>
+          <img src="/assets/promise-english-logo.png" alt="Promise English" style={{ height: 42, width: "auto", marginBottom: 44 }} />
+          <div style={{ display: "inline-block", fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "#fff", border: "1px solid var(--line)", padding: "9px 18px", borderRadius: 999, marginBottom: 32 }}>
             {slide.kicker}
           </div>
-          <h1 style={{ margin: "0 0 22px", fontSize: "clamp(32px, 6vw, 56px)", lineHeight: 1.08, fontWeight: 900, color: "var(--ink)" }}>{slide.title}</h1>
-          <Paragraphs paragraphs={slide.paragraphs} color="var(--ink-soft)" size={18} />
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
+          <h1 style={{ margin: "0 0 26px", fontSize: "clamp(36px, 5.2vw, 68px)", lineHeight: 1.06, fontWeight: 900, color: "var(--ink)" }}>{slide.title}</h1>
+          <Paragraphs paragraphs={slide.paragraphs} color="var(--ink-soft)" size={19} />
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 20 }}>
             {FRENTES.map((f) => (
-              <span key={f.id} style={{ padding: "9px 18px", borderRadius: 999, background: f.cor, color: "#fff", fontWeight: 700, fontSize: 13 }}>
+              <span key={f.id} style={{ padding: "11px 22px", borderRadius: 999, background: f.cor, color: "#fff", fontWeight: 700, fontSize: 14 }}>
                 {f.label}
               </span>
             ))}
@@ -507,7 +520,7 @@ function SplitSlide({ slide }: { slide: Slide }) {
     <SlideShell wide>
       <div className="apresentacao-split" style={{ display: "flex", gap: 48, alignItems: "center" }}>
         {imageFirst && slide.image && (
-          <div style={{ flex: "1 1 340px", height: "min(340px, 42vh)" }}>
+          <div style={{ flex: "1 1 340px", height: "min(480px, 56vh)" }}>
             <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} fit={slide.image.fit} position={slide.image.position} />
           </div>
         )}
@@ -533,7 +546,7 @@ function SplitSlide({ slide }: { slide: Slide }) {
           )}
         </div>
         {!imageFirst && slide.image && (
-          <div style={{ flex: "1 1 340px", height: "min(340px, 42vh)" }}>
+          <div style={{ flex: "1 1 340px", height: "min(480px, 56vh)" }}>
             <FramedImage src={slide.image.src} alt={slide.image.alt} accent={accent} fit={slide.image.fit} position={slide.image.position} />
           </div>
         )}
