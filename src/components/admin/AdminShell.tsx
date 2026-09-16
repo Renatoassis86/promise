@@ -6,6 +6,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 const NAV_ITEMS = [
+  { href: "/admin/leads", label: "Leads e Contatos" },
   { href: "/admin/plano-de-negocio", label: "Plano de Negócio" },
   { href: "/admin/apresentacao", label: "Apresentação Plano de Negócio" },
   { href: "/admin/financas", label: "Finanças e Crescimento" },

@@ -79,6 +79,28 @@ DROP POLICY IF EXISTS "Usuario le sua propria pre-matricula" ON public.pre_matri
 CREATE POLICY "Usuario le sua propria pre-matricula" ON public.pre_matriculas
   FOR SELECT TO authenticated USING (email = (auth.jwt() ->> 'email'));
 
+-- Admin (painel /admin/leads) le e atualiza status de todas as pre-matriculas e contatos.
+-- E-mail hardcoded pra bater com ADMIN_EMAILS em src/lib/adminAuth.ts; atualize os dois juntos.
+DROP POLICY IF EXISTS "Admin le todas as pre-matriculas" ON public.pre_matriculas;
+CREATE POLICY "Admin le todas as pre-matriculas" ON public.pre_matriculas
+  FOR SELECT TO authenticated USING ((auth.jwt() ->> 'email') = 'calebe@promiseenglish.com');
+
+DROP POLICY IF EXISTS "Admin atualiza status de pre-matriculas" ON public.pre_matriculas;
+CREATE POLICY "Admin atualiza status de pre-matriculas" ON public.pre_matriculas
+  FOR UPDATE TO authenticated
+  USING ((auth.jwt() ->> 'email') = 'calebe@promiseenglish.com')
+  WITH CHECK ((auth.jwt() ->> 'email') = 'calebe@promiseenglish.com');
+
+DROP POLICY IF EXISTS "Admin le todos os contatos gerais" ON public.contatos_gerais;
+CREATE POLICY "Admin le todos os contatos gerais" ON public.contatos_gerais
+  FOR SELECT TO authenticated USING ((auth.jwt() ->> 'email') = 'calebe@promiseenglish.com');
+
+DROP POLICY IF EXISTS "Admin atualiza status de contatos gerais" ON public.contatos_gerais;
+CREATE POLICY "Admin atualiza status de contatos gerais" ON public.contatos_gerais
+  FOR UPDATE TO authenticated
+  USING ((auth.jwt() ->> 'email') = 'calebe@promiseenglish.com')
+  WITH CHECK ((auth.jwt() ->> 'email') = 'calebe@promiseenglish.com');
+
 -- ==============================================================================
 -- TABELA 3: RESPOSTAS DO PLANO DE NEGOCIO (modulo /admin, questionario por abas)
 -- ==============================================================================
