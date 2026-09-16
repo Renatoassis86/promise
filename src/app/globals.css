@@ -189,6 +189,20 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+/* Grid de 5 itens (jornada/fases): em 2 colunas o 5o item fica sozinho
+   com um vazio ao lado. Faz ele ocupar a largura toda e centralizar. */
+@media (max-width: 860px) {
+  .fases-grid > *:last-child {
+    grid-column: 1 / -1;
+    max-width: 55%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 640px) {
+  .fases-grid > *:last-child {
+    max-width: 100%;
+  }
+}
 @media (max-width: 640px) {
   .grid-mobile-1 {
     grid-template-columns: 1fr !important;

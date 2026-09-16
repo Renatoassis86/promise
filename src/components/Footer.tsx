@@ -22,20 +22,20 @@ export default function Footer() {
         </div>
         <div>
           <h4 style={{ margin: "0 0 14px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--red)" }}>Frentes</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 13 }}>
-            <Link href="/quem-somos" style={{ color: "var(--ink-soft)" }}>Quem Somos</Link>
-            <Link href="/schools" style={{ color: "var(--ink-soft)" }}>Promise for Schools</Link>
-            <Link href="/learners" style={{ color: "var(--ink-soft)" }}>Promise for Learners</Link>
-            <Link href="/professionals" style={{ color: "var(--ink-soft)" }}>Promise for Professionals</Link>
-            <Link href="/global" style={{ color: "var(--ink-soft)" }}>Promise Global</Link>
+          <div style={{ display: "flex", flexDirection: "column", fontSize: 13 }}>
+            <Link href="/quem-somos" style={{ color: "var(--ink-soft)", padding: "6px 0" }}>Quem Somos</Link>
+            <Link href="/schools" style={{ color: "var(--ink-soft)", padding: "6px 0" }}>Promise for Schools</Link>
+            <Link href="/learners" style={{ color: "var(--ink-soft)", padding: "6px 0" }}>Promise for Learners</Link>
+            <Link href="/professionals" style={{ color: "var(--ink-soft)", padding: "6px 0" }}>Promise for Professionals</Link>
+            <Link href="/global" style={{ color: "var(--ink-soft)", padding: "6px 0" }}>Promise Global</Link>
           </div>
         </div>
         <div>
           <h4 style={{ margin: "0 0 14px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--red)" }}>Fale Conosco</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 13, color: "var(--ink-soft)" }}>
-            <a href="mailto:calebe@promiseenglish.com" style={{ color: "var(--ink-soft)", wordBreak: "break-all" }}>calebe@promiseenglish.com</a>
-            <div>(83) 99697-7969</div>
-            <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" style={{ color: "var(--red)", fontWeight: 700 }}>Falar no WhatsApp &rarr;</a>
+          <div style={{ display: "flex", flexDirection: "column", fontSize: 13, color: "var(--ink-soft)" }}>
+            <a href="mailto:calebe@promiseenglish.com" style={{ color: "var(--ink-soft)", wordBreak: "break-all", padding: "6px 0" }}>calebe@promiseenglish.com</a>
+            <div style={{ padding: "6px 0" }}>(83) 99697-7969</div>
+            <a href="https://wa.me/5583996977969" target="_blank" rel="noreferrer" style={{ color: "var(--red)", fontWeight: 700, padding: "6px 0" }}>Falar no WhatsApp &rarr;</a>
           </div>
         </div>
         <div>
@@ -69,7 +69,7 @@ export default function Footer() {
             href="https://arkosintelligence.com"
             target="_blank"
             rel="noreferrer"
-            style={{ color: "var(--ink-soft)", fontWeight: 700 }}
+            style={{ color: "var(--ink-soft)", fontWeight: 700, padding: "8px 0" }}
           >
             ARKOS Soluções Digitais
           </a>

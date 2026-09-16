@@ -183,7 +183,7 @@ export default function QuemSomosPage() {
         </div>
         <div className="container" style={{ maxWidth: 1100, position: "relative" }}>
           <div className="connector-line" style={{ position: "absolute", top: 26, left: "10%", right: "10%", height: 2, background: "rgba(255,255,255,.15)" }} />
-          <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
+          <div className="fases-grid grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0,1fr))", gap: 20 }}>
             {FASES.map((f, i) => (
               <div key={f.n} className={`reveal reveal-delay-${(i % 4) + 1}`} style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
                 <div style={{ position: "relative", zIndex: 1, width: 52, height: 52, borderRadius: "50%", background: "var(--red)", color: "#fff", fontWeight: 800, fontSize: 17, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16, border: "4px solid var(--ink)" }}>
