@@ -101,6 +101,16 @@ CREATE POLICY "Admin atualiza status de contatos gerais" ON public.contatos_gera
   USING ((auth.jwt() ->> 'email') IN ('calebe@promiseenglish.com', 'renato.consultoria@cidadeviva.org'))
   WITH CHECK ((auth.jwt() ->> 'email') IN ('calebe@promiseenglish.com', 'renato.consultoria@cidadeviva.org'));
 
+DROP POLICY IF EXISTS "Admin apaga pre-matriculas" ON public.pre_matriculas;
+CREATE POLICY "Admin apaga pre-matriculas" ON public.pre_matriculas
+  FOR DELETE TO authenticated
+  USING ((auth.jwt() ->> 'email') IN ('calebe@promiseenglish.com', 'renato.consultoria@cidadeviva.org'));
+
+DROP POLICY IF EXISTS "Admin apaga contatos gerais" ON public.contatos_gerais;
+CREATE POLICY "Admin apaga contatos gerais" ON public.contatos_gerais
+  FOR DELETE TO authenticated
+  USING ((auth.jwt() ->> 'email') IN ('calebe@promiseenglish.com', 'renato.consultoria@cidadeviva.org'));
+
 -- ==============================================================================
 -- TABELA 3: RESPOSTAS DO PLANO DE NEGOCIO (modulo /admin, questionario por abas)
 -- ==============================================================================
