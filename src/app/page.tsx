@@ -120,7 +120,7 @@ export default function Home() {
           </p>
         </div>
         <div className="container" style={{ padding: 0 }}>
-          <div className="grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
+          <div className="grid-tablet-2 grid-mobile-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 24 }}>
             {FRENTES_CARDS.map((c, i) => (
               <div key={c.href} className={`reveal reveal-delay-${i + 1}`} style={{ background: "#fff", border: "1px solid var(--line)", borderRadius: 14, display: "flex", flexDirection: "column" }}>
                 <div style={{ position: "relative" }}>
